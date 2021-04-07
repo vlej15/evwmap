@@ -151,12 +151,14 @@ function Posts({ posts, loading }) {
           </tbody>
         </table>
         <div className="btn-area">
-          <button className="write-btn">
-            <FontAwesomeIcon
-              icon={faPencilAlt}
-              className="pencil"
-            ></FontAwesomeIcon>
-          </button>
+          {localStorage.getItem("id") != null ? (
+            <button className="write-btn">
+              <FontAwesomeIcon
+                icon={faPencilAlt}
+                className="pencil"
+              ></FontAwesomeIcon>
+            </button>
+          ) : null}
         </div>
       </div>
     </>
