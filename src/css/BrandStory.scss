@@ -1,0 +1,187 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//fonts.googleapis.com/css?family=Black+Han+Sans:400);
+@import url(//fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean);
+@font-face {
+    font-family: 'IBMPlexSansKR-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ChosunKm';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKm.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBMPlexSansKR-Light';
+    }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    background-color: #fff;
+}
+
+.slick-dots {
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position:relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.contentsTest {
+    width: 100%;
+    height: 100%;
+    // overflow: hidden; 
+    
+    .section0 {
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffff;
+    }
+    .section1 {
+        width: 100vw;
+        height: 100vh;
+        background-color: #222831;
+
+
+        .section1-title {
+            color: #ffffff;
+            font-family: 'Black Han Sans', sans-serif;
+            text-align: center;
+            font-size: 50px;
+            padding-top: 25vh;
+
+            span {
+                display: inline-block;
+                opacity: .6;
+                transition: opacity .15s .15s ease-in;
+                will-change: opacity;
+            }
+            span.bounced {
+                opacity: 1;
+            }
+            #support {
+                display: none;
+                color: #ffffff;
+                font-size: 1rem;
+                position: absolute;
+                bottom: 1rem;
+                left: 0;
+                right: 0;
+            }
+            #support a {
+                color: #fcfeff;
+            }
+        }
+        .section1-subtitle {
+            color: #eeeeee;
+            text-align: center;
+            font-size: 25px;
+            padding-top: 3vh;
+
+        }
+    }
+
+    .section2 {
+        width: 100vw;
+        height: 100vh;
+        background-color: #eeeeee;
+
+        dl {
+            font-size: 20px;
+        }
+    }
+
+    .section3 {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffff;
+        font-family: 'ChosunKm';
+        overflow: hidden;
+
+
+        .section3-text{
+            color: #262626;
+            position: absolute;
+            padding-left: 55%;
+            padding-top: 19%;
+
+            .section3-title {
+                font-size: 60px;
+                font-family: 'ChosunKm';
+                font-weight: 600;
+            }
+            .section3-subtitle{
+                color: #757171;
+                font-size: 16px;
+                padding-left: 5px;
+                padding-top: 15px;
+                font-family: 'ChosunKm';
+            }
+            
+            .img2 {
+                width: 18px;
+                object-fit: cover;
+                padding-left: 3%;
+                padding-top: 30%;
+            }
+            .playstore {
+                font-size: 15px;
+                color : black;
+                font-weight: bold;
+                position: absolute;
+                top: 447px;
+                left: 825px;
+            }
+        }
+
+        .bgc-box {
+            width: 45.6%;
+            height: 100%;
+            background-color: #222831;
+        }
+        .image-con{
+            width: 52%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            margin-top: 4%;
+            .img1 {
+                width: 100%;
+                // object-fit: fill;
+            }
+        }
+        .mobile-app {
+            position: absolute;
+            color: #eeeeee;
+            font-size: 13px;
+            top: 0;
+            .mobile {
+                padding-top: 30px;
+                padding-left: 30px;
+                
+            }
+            .app {
+                padding-top: 10px;
+                padding-left: 30px;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,170 @@
+.in_content {
+    margin: auto;
+    
+    .in_title_box {
+        text-align: center;
+    }
+}
+
+.inquiry_box {
+    width: 1200px;
+    height: 700px;
+    margin: 20px auto;
+    // background-color: bisque;
+    border: 1px solid dimgray;
+}
+
+.left_box {
+    display: inline-block;
+    width: 50%;
+    height: 700px;
+    .chargeMap_box {
+        width: 555px;
+        height: 335px;
+        margin: 10px 15px 10px 30px;
+        font-size: 30px;
+        color: black;
+        line-height: 300px;
+        text-align: center;
+    }
+
+    .facility_box {
+        width: 555px;
+        height: 335px;
+        margin: 0 15px 10px 30px;
+        text-align: center;
+        border: 1px solid black;
+    }
+}
+
+.right_box{
+    width: 50%;
+    height: 700px;
+    float: right;
+
+    .chargeInfo_box {
+        border: 1px solid black;
+        width: 555px;
+        height: 70px;
+        margin: 10px 30px 10px 15px;
+
+        .charge_title {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+
+            .charge_name {
+                display: inline-block;
+                width: 420px;
+                height: 40px;
+                line-height: 40px;
+                margin: 0;
+                margin-left: 10px;
+                font-size: 24px;
+            }
+
+            .reservation-btn-box {
+                position: absolute;
+                width: 80px;
+                height: 35px;
+                line-height: 35px;
+                display: inline-block;
+
+                .draw-border {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    border-radius: 40px;
+                    background-color: white;
+                }
+            }
+
+            .report_btn {
+                float: right;
+                height: 40px;
+                line-height: 40px;
+
+                .notify_btn {
+                    color: black;
+                    font-size: 24px;
+                    line-height: 40px;
+                    margin: 7px 10px 0 0;
+                }
+            }
+        }
+
+        .charge_address {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            margin-left: 10px;
+
+            .address {
+                margin: 0;
+            }
+
+            // h2 {
+            //     display: block;
+            // }
+        }
+    }
+
+    .review_box {
+        width: 555px;
+        // height: 335px;
+        margin: 10px 30px 10px 15px;
+
+        .review_list {
+            width: 100%;
+            height: 565px;
+            color: black;
+            border: 1px solid black;
+            font-size: 14px;
+
+            .review_table {
+                width: 100%;
+
+                .review_tbody {
+                    td {
+                        border-bottom: 1px solid darkgray;
+                    }
+
+                    .re_td_date,
+                    .re_td_id {
+                        text-align: center;
+                        width: 100px;
+                    }
+                }
+            }
+        }
+
+        .review_input {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            margin: 0 auto;
+
+            .review_text {
+                width: 90%;
+                padding: 0;
+                height: 20px;
+                line-height: 20px;
+            }
+
+            .create {
+                float: right;
+                margin-top: 7px;
+                width: 50px;
+                height: 25px;
+                line-height: 25px;
+                font-size: 12px;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 0;
+                font-weight: bold;
+                background-color: white;
+            }
+        }
+    }
+}

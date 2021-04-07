@@ -1,0 +1,370 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+html { 
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.contentsFindPw {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 20vh;
+    padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 1200px;
+    margin-bottom: 400px;
+
+    .banner{
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin-top: 10px;
+        padding: 0px;
+        vertical-align: top;
+        
+    .banner-title {
+        color: #222;
+        line-height: 1.4;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        font-size: 2.7rem;
+        font-weight: bold;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 0;
+        }
+    }// banner end
+    .form {
+        width: 65%;
+        margin: 45px auto;
+        border: 1px solid #dedede;
+
+        
+    .form-input {
+        line-height: 1; 
+        word-break: break-all;
+        text-align: center;
+        border: none;
+        width: 62%;
+        align-items: center;
+        margin: 30px auto;
+
+        
+        .form-id{
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            color: #222;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+
+            .form-label {
+                float: left;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 10px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                background-color: #fff;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+            }
+        }// form-id end
+        
+        .form-email, .form-insert {
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+
+            .form-label {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 14px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                background-color: #fff;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+            }
+            .btn-ct {
+                margin-left: 20px;
+                width: 83px;
+                height: 45px;
+                line-height: 45px;
+                text-decoration: none;
+                color: white;
+                background-color: #393e46;
+                border: #393e46;
+                font-size: 12px;
+                font-weight: 500px;
+            }
+        }// form-email, form-insert end
+
+         .form-pw1, .form-pw2 {
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            color: #222;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+            .form-label {
+                float: left;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 14px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                background-color: #fff;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+                }
+                .btn-ct {
+                    margin-left: 20px;
+                    width: 83px;
+                    height: 45px;
+                    line-height: 45px;
+                    text-decoration: none;
+                    color: #fff;
+                    background-color: #393e46;
+                    border: #393e46;
+                    font-size: 12px;
+                    font-weight: 500px;
+                }
+            }// form-pw12 end
+     }// form-input end
+    }// form end
+    .find-id {
+        margin-top: 40px;
+        margin-left: 380px;
+        .btn-subtitle {
+            font-size: 14px;
+            color : #464646;
+        }
+        .go-id {
+                font-size: 14px;
+                font-weight: 400;
+                display: inline-block;
+                margin-left: 2px;
+                text-decoration: underline;
+                color: #464646;
+                margin-left: 10px;
+        }
+        .arrow-btn {
+            margin-left: 5px;
+            tab-size: 3px;
+        }
+    }// find-id end
+}// contentsFind_pw end
+
+@media screen and (max-width: 479px) {
+    .contentsFindPw {
+        max-width: 100%;
+
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+
+            .banner-title {
+                font-size: 24px;
+            }
+            .subtitle {
+                width: 50%;
+                margin: 0 auto;
+                font-size: 13.5px;
+            }
+        }// banner end
+
+        .form {
+            width: 90%;
+            border: none;
+            margin: 20px auto;
+    
+            .form-input{
+                margin: 0;
+                width: 100%;
+
+                .form-id {
+                    .form-label {
+                        display: none;
+                    }
+                }
+                    
+                .form-email {
+                    float: center;
+                    .form-label {
+                    display: none;
+                    }
+                    .btn-ct {
+                        margin: 0 0 0 10px;
+                    }
+                }
+                .form-insert {
+                    .form-label {
+                        display: none;
+                    }
+                    .btn-ct {
+                        margin: 0 0 0 10px;
+                    }
+                }
+
+                .form-pw1 {
+                    .form-label {
+                        display: none;
+                    }
+                }
+
+                .form-pw2 {
+                    .form-label {
+                        display: none;
+                    }
+                    .btn-ct {
+                        margin: 0 0 0 10px;
+                    }
+                }
+            }// form-input end
+        }// form end
+        .find-id {
+            margin: 37px;
+        }
+    }// contents end
+}// media end
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    .contentsFindPw {
+        width: 100%;
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+
+            .banner-title {
+                font-size: 26px;
+            }
+            .subtitle {
+                width: 100%;
+                margin: 0 auto;
+                font-size: 15px;
+            }
+        }// banner end
+        .form {
+            width: 80%;
+            margin: 40px auto;
+    
+            .form-input{
+                margin: 0;
+                width: 67%;
+                margin: 20px auto;
+
+                .form-id, .form-pw1 {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+                    
+                .form-email {
+                    width: 80%;
+                    margin: 0 auto;
+                    float: center;
+                    .btn-ct {
+                        margin: 0 0 0 10px;
+                    }
+                }
+                .form-insert, .form-pw2 {
+                    width: 80%;
+                    margin: 0 auto;
+                    .btn-ct {
+                        margin: 0 0 0 10px;
+                    }
+                }
+            }// form-input end
+        }// form end
+        .find-pw {
+            width: 80%;
+            margin: 37px auto;
+            text-align: center;
+        }
+    }// contents end
+}// media end

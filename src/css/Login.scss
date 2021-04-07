@@ -1,0 +1,312 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+html { 
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f6f5f5;
+}
+
+.contentsLogin{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 150px;
+    padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 1200px;
+    margin-bottom: 400px;
+
+    .banner{
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin-top: 10px;
+        padding: 0px;
+        vertical-align: top;
+        }
+    
+    .banner-title {
+        color: #222;
+        line-height: 1.4;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        font-size: 2.7rem;
+        font-weight: bold;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+
+
+.form {
+    width: 480px;
+    margin: 0 auto;
+
+    .form-input {
+        line-height: 1; 
+        word-break: break-all;
+        text-align: center;
+        border: none;
+        margin-top: 35px;
+    }
+    
+    .input-id, .input-pw {
+        word-break: break-all;
+        margin: 0px;
+        min-width: 95px;
+        max-width: 100%;
+        height: 44px;
+        padding: 0 14px;
+        color: #222;
+        font-size: 1.6rem;
+        border: 1px solid #dedede;
+        background-color: #fff;
+        outline: 0;
+        box-sizing: border-box;
+        vertical-align: top;
+        -webkit-transition: all 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+        display: block;
+        width: calc(100% - 118px);
+    }
+    
+    .login-btn {
+        font-weight: 400;
+        letter-spacing: 0;
+        word-break: break-all;
+        vertical-align: top;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 2rem;
+        text-align: center;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid #464646;
+        background-color: #464646;
+        float: right;
+        width: 103px;
+        height: 103px;
+        margin: -103px 0 0 0;
+        padding: 0;
+        line-height: 103px;   
+    }
+    
+    .form-check {
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        word-break: break-all;
+        margin: 0 auto;
+        padding: 0px;
+        vertical-align: top;
+        padding-top: 15px;
+        line-height: 22px;
+        overflow: hidden;
+        text-align: right;
+    }
+    
+    .check {
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: right;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        float: left !important;
+        position: relative;
+        display: inline-block;
+        height: 22px;
+        line-height: 22px;
+        margin-top: 0;
+    }
+    
+    .find {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: black;
+    }
+    
+    span {
+        -webkit-font-smoothing: antialiased;
+        font-weight: 400;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        color: #666 !important;
+        font-size: 1.6rem;
+        line-height: 24px;
+    }
+    
+}
+
+
+.btn-area {
+    color: #222;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    margin-top: 35px;
+
+    .btn-subtitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .sign-btn {
+        font-weight: 400;
+        letter-spacing: 0;
+        word-break: break-all;
+        vertical-align: top;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 4px;
+        font-size: 2rem;
+        line-height: 54px;
+        text-align: center;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid #464646;
+        background-color: #464646;
+        width: 460px;
+        padding: 0;
+    }
+}
+
+
+@media screen and (max-width: 479px) {
+    .contentsLogin {
+        max-width: 100%;
+
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+        }
+        .banner-title {
+            font-size: 24px;
+        }
+        .subtitle {
+            width: 70%;
+           margin: 0 auto;
+            font-size: 13.5px;
+        }
+    }
+    
+    .form {
+        width: 90%;
+
+        .form-input{
+            margin: 35px 0 0 0;
+        }
+        .login-btn {
+            font-size: 18px;
+        }
+        .form-check {
+            margin: 3px 0 40px 0;
+        }
+        .input-id, .input-pw {
+            width: 70%;
+        }
+    }
+    
+    .btn-area {
+        margin: 0;
+        
+        .sign-btn {
+            width: 80%;
+            height: 45px;
+           font-size: 16px;
+           line-height: 45px;
+        }
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    .contentsLogin {
+        width: 100%;
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+        }
+        .banner-title {
+            font-size: 26px;
+        }
+        .subtitle {
+            width: 100%;
+           margin: 0 auto;
+            font-size: 15px;
+        }
+    }
+    
+    .form {
+        width: 70%;
+
+        .form-input{
+            width: 85%;
+            margin: 0 auto;
+            margin-top: 35px;
+        }
+        .login-btn {
+            font-size: 18px;
+        }
+        .form-check {
+            width: 85%;
+            margin-bottom: 35px;
+        }
+    }
+    
+
+    .btn-area {
+        margin: 25px;
+
+        .sign-btn {
+            width: 50%;
+            height: 45px;
+           font-size: 14px;
+           line-height: 45px;
+        }
+    }
+    
+}
