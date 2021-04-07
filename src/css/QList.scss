@@ -1,0 +1,352 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+html { 
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f6f5f5;
+}
+
+.contentsQList{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 100px;
+    padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 1200px;
+    margin-bottom: 400px;
+
+    .banner{
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0px;
+    vertical-align: top;
+
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.7rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+    }//banner
+
+.list {
+    color: #222;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 80px 0 0 0;
+    padding: 0px;
+    vertical-align: top;
+    border-collapse: collapse;
+    border-spacing: 0;
+    word-break: break-all;
+    width: 100%;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #c8c8c8;
+    background: #fff;
+    table-layout: fixed;
+
+        thead {
+            color: #222;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+        }
+        
+        th {
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            font-weight: 400;
+            padding: 26px 10px;
+            color: #333;
+            font-size: 1.6rem;
+            line-height: 18px;
+            border-bottom: 1px solid #dcdcdc;
+            background-color: #f9f9f9;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        tbody {
+            color: #222;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+        }
+        
+        .list-td {
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            color: #666 !important;
+            height: 70px;
+            padding: 0 10px;
+            font-size: 1.4rem;
+            line-height: 16px;
+            border-top: 1px solid #dcdcdc;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .list-span1 {
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            display: inline-block;
+            width: 53px;
+            height: 28px;
+            color: #464646;
+            font-size: 1.3rem;
+            line-height: 28px;
+            border: 1px solid #464646;
+            text-align: center;
+        }
+        .list-span2 {
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            display: inline-block;
+            width: 53px;
+            height: 28px;
+            color: #ffffff;
+            font-size: 1.3rem;
+            line-height: 28px;
+            border: 2px solid #0f3057;
+            text-align: center;
+            background-color: #0f3057;
+        }
+        .list-title {
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            text-align: left !important;
+            height: 70px;
+            padding: 0 10px;
+            color: #999;
+            font-size: 1.4rem;
+            line-height: 16px;
+            border-top: 1px solid #dcdcdc;
+            vertical-align: middle;
+        }
+        
+        .list-link {
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            text-align: left !important;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+            color: #222;
+            font-size: 1.6rem;
+            line-height: 24px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .list-date{
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            height: 70px;
+            padding: 0 10px;
+            color: #999;
+            font-size: 1.4rem;
+            line-height: 16px;
+            border-top: 1px solid #dcdcdc;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }// list end
+    .btn-area {
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        margin-top: 15px;
+        
+        .write-btn{
+            max-height: 99999px;
+            margin: 0;
+            font-style: normal;
+            height: 55px;
+            width: 55px;
+            padding: 0 5px;
+            border: 1px solid #ccc;
+            font-weight: 400;
+            font-size: 1.9rem;
+            line-height: 55px;
+            display: inline-block;
+            box-sizing: border-box;
+            border-color: #464646;
+            background-color: #464646;
+            color: #fff;
+            cursor: pointer;
+            float: right;
+            border-radius: 50%;
+
+            .pencil {
+                margin-left: 2px;
+            }
+        }// write-btn
+    }// btn-area
+}// contentsQlist
+
+@media screen and (max-width: 479px) {
+    .contentsQList {
+        max-width: 100%;
+
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+
+            .banner-title {
+                font-size: 2rem;
+            } 
+            .subtitle {
+                width: 70%;
+                margin: 0 auto;
+                font-size: 1.35rem;
+            }
+        }// banner end
+        .btn-area {
+            width: 100%;
+            margin-top: 0;
+            .write-btn {
+                font-size: 1.25rem;
+                width: 45px;
+                height: 45px;
+                line-height: 35px;
+                margin: 15px 15px 0 0 ;
+            }
+        }// btn-area end
+        .list {
+            margin-top: 68px;
+            th {
+                padding: 15px;
+                font-size: 1.4rem;
+            }
+            .list-span1, .list-span2 {
+                font-size: 12px;
+            }
+            .list-link {
+                font-size: 13.5px;
+            }
+        }
+    }// contentsQlist end
+} // media end
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    .contentsQList {
+        width: 100%;
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+        }
+        .banner-title {
+            font-size: 26px;
+        }
+        .subtitle {
+            width: 100%;
+           margin: 0 auto;
+            font-size: 15px;
+        }
+        .btn-area {
+            width: 100%;
+            .write-btn {
+                font-size: 1.8rem;
+                width: 65px;
+                height: 65px;
+                line-height: 65px;
+                margin: 0px 15px 0 0 ;
+            }
+        }// btn-area end
+    }// contentsQList end
+}// media end

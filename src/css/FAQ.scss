@@ -1,0 +1,380 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+.faq-title{ font-family : 'Jeju Myeongjo', serif; }
+
+html {
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.contentsFAQ{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 150px;
+    padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 100%;
+    margin-bottom: 400px;
+}
+
+.banner{
+    color: #222;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0px;
+    vertical-align: top;
+
+    .banner-title {
+        color: #222;
+        line-height: 1.4;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+.banner-search {
+    font-style: normal;
+    font-weight: normal;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    margin: 0;
+    margin-top: 50px;
+    padding: 0;
+    width: 95%;
+    margin-bottom: 35px;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: relative;
+    text-align: right;
+    right: 10%;
+
+    .insert {
+        word-break: keep-all;
+        max-height: 99999px;
+        margin: 0;
+        font-style: normal;
+        -webkit-border-radius: 0;
+        transition: all .3s ease-out;
+        transform-origin: 50% 50%;
+        height: 45px;
+        padding: 0 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 43px;
+        color: #666;
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        width: 213px;
+    }
+    
+    .search-btn {
+        word-break: keep-all;
+        max-height: 99999px;
+        margin: 0;
+        font-style: normal;
+        -webkit-border-radius: 0;
+        transition: all .3s ease-out;
+        transform-origin: 50% 50%;
+        height: 45px;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 43px;
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        width: 90px;
+        border-color: #464646;
+        background-color: #464646;
+        color: #fff;
+        cursor: pointer;
+        margin-left: -1px;
+    }
+    
+}
+
+select {
+    word-break: keep-all;
+    max-height: 99999px;
+    -webkit-border-radius: 0;
+    font-style: normal;
+    transition: all .3s ease-out;
+    transform-origin: 50% 50%;
+    height: 45px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 43px;
+    color: #666;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 110px;
+    /* background: #fff url('../../images/front/bg_select_arr.png') no-repeat 88% center; */
+    appearance: none;
+    margin-right: -1px;
+}
+
+
+.a {
+    display: none;
+}
+
+.faq-area {
+    font-style: normal;
+    font-weight: normal;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    margin: 0;
+    padding: 0;
+    list-style: none outside;
+    width: 70%;
+    border-top: 2px solid #0f3057;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    margin: 0 auto;
+
+    .faq-title {
+        font-style: normal;
+        word-break: keep-all;
+        list-style: none outside;
+        max-height: 99999px;
+        text-decoration: none;
+        font-weight: bolder;
+        font-size: 1.7rem;
+        line-height: 25px;
+        color: #a6a6a4;
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        width: 20px;
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        margin-top: -14px;
+    }
+    
+    .faq-li {
+        font-style: normal;
+        font-weight: normal;
+        color: #666;
+        word-break: keep-all;
+        list-style: none outside;
+        font-size: 0;
+        line-height: 0;
+        max-height: 99999px;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        width: 100%;
+        }
+    
+    .q {
+    font-style: normal;
+    word-break: keep-all;
+    list-style: none outside;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow:hidden;
+    white-space:normal;
+    max-height: 99999px;
+    text-decoration: none;
+    padding: 18px 90px 18px 87px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 25px;
+    color: #464646;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    }
+    
+    .a {
+        font-style: normal;
+        word-break: keep-all;
+        list-style: none outside;
+        max-height: 99999px;
+        margin: 0;
+        padding: 16px 65px 60px 105px;
+        background-color: #f8f8fa;
+        border-top: 1px solid #ccc;
+        font-weight: 300;
+        font-size: 1.8rem;
+        line-height: 48px;
+        color: #464646;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    .a-plus {
+        font-style: normal;
+        word-break: keep-all;
+        list-style: none outside;
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 48px;
+        color: #464646;
+        max-height: 99999px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .arrow-btn {
+        color: #464646;
+        width: 26px;
+        height: 26px;
+        margin-top: -14px;
+        position: absolute;
+        right: 3%;
+        top: 50%;
+        cursor: pointer;  
+        font-size: 2rem;
+    }
+    
+}
+
+
+@media screen and (max-width: 479px) {
+    .contentsFAQ {
+        max-width: 100%;
+
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+
+            .banner-title {
+                font-size: 20px;
+            } 
+            .subtitle {
+                width: 70%;
+                margin: 0 auto;
+                font-size: 13.5px;
+            }
+        }// banner end
+        .banner-search {
+            display: none;
+        }
+        .faq-area {
+            margin-top: 25px;
+            width: 95%;
+            .faq-li {
+                .faq-title {
+                    display: none;
+                }
+                .q {
+                    padding: 18px 50px 18px 20px;
+                    font-size: 14px;
+                    width: 100%;
+                    color: #0f3057;
+                    font-weight: bold;
+                    word-break: keep-all;
+                    text-align: justify;
+                }
+                .arrow-btn {
+                    width: 20px;
+                    margin-right: 0;
+                }
+                .a {
+                    padding: 12px;
+                    .a-plus{
+                        font-size: 14.5px;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+
+    } // contentsFAQ end
+} // media end
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    .contentsFAQ {
+        width: 100%;
+            .banner {
+                width: 90%;
+                margin: 0 auto;
+                word-break:keep-all;
+            
+            .banner-title {
+                font-size: 26px;
+            }
+            .subtitle {
+                width: 100%;
+                margin: 0 auto;
+                font-size: 15px;
+            }
+        }// banner end
+        .banner-search {
+            display: none;
+        }// banner-search end
+        .faq-area {
+            margin-top: 30px;
+        .faq-li {
+            .q {
+                font-size: 14px;
+                font-weight: bold;
+                padding: 18px 50px 18px 50px;
+                word-break: keep-all;
+                text-align: justify;
+            }
+            .arrow-btn {
+                width: 20px;
+            }
+            .a {
+                padding: 20px;
+                .a-plus{
+                    font-size: 14.5px;
+                    line-height: 25px;
+                    }// a-plus end
+                }// a end
+            }// faq-li end
+        }// faq-area end
+    } // contentsFAQ end
+}// media end
