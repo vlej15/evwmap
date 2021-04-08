@@ -5,6 +5,7 @@ import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import BannerCommunity from "./BannerCommunity";
 
 function FreeBoard() {
   const [posts, setPosts] = useState([]);
@@ -46,85 +47,16 @@ function FreeBoard() {
 function Posts({ posts, loading }) {
   return (
     <>
-      <div className="locationData">
-        <div className="inner">
-          <div className="btnHome">
-            <i class="fas fa-home"></i>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    COMMUNITY
-                    <div className="navInnerMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <li>
-                    <Link to="/introduction">
-                      <a>INTRODUCTION</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/map">
-                      <a>MAP</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/notice">
-                      <a>COMMUNITY</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">
-                      <a>CONTACT</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    FREEBOARD
-                    <div className="navInnerMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <li>
-                    <Link to="/notice">
-                      <a>NOTICE</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/freeboard">
-                      <a>FREE BOARD</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/tip">
-                      <a>TIP</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div className="end"></div>
+      <div data-aos="fade-down"
+        data-aos-duration="1000">
+        <BannerCommunity />
       </div>
       <div className="contentsBoard">
         <div className="banner">
           <p className="banner-title">자유게시판</p>
           <br></br>
-          <p className="subtitle"></p>
+          <p className="subtitle">이용자들과 자유로운 의견 교환을 하실 수 있습니다.</p>
         </div>
         <table className="list">
           <thead>
@@ -139,7 +71,7 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
+                <td >{post.id}</td>
                 <td key={post.id}>
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
@@ -159,6 +91,7 @@ function Posts({ posts, loading }) {
               ></FontAwesomeIcon>
             </button>
           ) : null}
+
         </div>
       </div>
     </>

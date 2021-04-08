@@ -5,6 +5,7 @@ import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import BannerCommunity from "./BannerCommunity";
 
 function TipBoard() {
   const [posts, setPosts] = useState([]);
@@ -46,89 +47,17 @@ function TipBoard() {
 function Posts({ posts, loading }) {
   return (
     <>
-      <div className="locationData">
-        <div className="inner">
-          <div className="btnHome">
-            <i class="fas fa-home"></i>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    COMMUNITY
-                    <div className="navInnerMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <li>
-                    <Link to="/introduction">
-                      <a>INTRODUCTION</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/map">
-                      <a>MAP</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/notice">
-                      <a>COMMUNITY</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">
-                      <a>CONTACT</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    TIP
-                    <div className="navInnerMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <li>
-                    <Link to="/notice">
-                      <a>NOTICE</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/freeboard">
-                      <a>FREE BOARD</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/tip">
-                      <a>TIP</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div className="end"></div>
+      <div data-aos="fade-down"
+        data-aos-duration="1000">
+        <BannerCommunity />
       </div>
       <div className="contentsBoard">
         <div className="start"></div>
-
         <div className="banner">
           <p className="banner-title">TIP 게시판</p>
           <br></br>
-          <p className="subtitle">
-            전기차에 관련된 다양한 TIP을 공유할 수 있습니다.
-          </p>
+          <p className="subtitle">전기차와 관련된 다양한 TIP을 공유 하실 수 있습니다.</p>
         </div>
         <table className="list">
           <thead>
@@ -143,7 +72,7 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
+                <td >{post.id}</td>
                 <td key={post.id}>
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
@@ -154,14 +83,9 @@ function Posts({ posts, loading }) {
             ))}
           </tbody>
         </table>
-        <div className="btn-area">
-          <button className="write-btn">
-            <FontAwesomeIcon
-              icon={faPencilAlt}
-              className="pencil"
-            ></FontAwesomeIcon>
-          </button>
-        </div>
+      </div>
+      <div className="btn-area">
+        <button className="write-btn"><FontAwesomeIcon icon={faPencilAlt} className="pencil"></FontAwesomeIcon></button>
       </div>
     </>
   );

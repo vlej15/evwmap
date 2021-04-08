@@ -1,8 +1,8 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+.banner-title, .faq-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 
-@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
-.faq-title{ font-family : 'Jeju Myeongjo', serif; }
+// @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+// .faq-title{ font-family : 'Jeju Myeongjo', serif; }
 
 html {
     font-size:62.5%;
@@ -11,18 +11,18 @@ html {
 }
 
 
-.contentsFAQ{
+.contentsFAQ {
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 1.4rem;
     line-height: 1.4;
     color: #666;
     word-break: keep-all;
     max-height: 99999px;
     min-height: 460px;
     margin:0 auto;
-    margin-top: 150px;
-    padding: 0 0 100px;
+    margin-top: 10vh;
+    // padding: 0 0 100px;
     position: relative;
     box-sizing: border-box;
     transition: all .7s ease-out;
@@ -30,38 +30,39 @@ html {
     transition-delay: .2s;
     opacity: 1;
     top: 0px;
-    width: 100%;
-    margin-bottom: 400px;
-}
+    width: 1200px;
+    // margin-bottom: 400px;
 
-.banner{
+    .banner{
     color: #222;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0;
     word-break: break-all;
     text-align: center;
-    margin-top: 10px;
     padding: 0px;
     vertical-align: top;
 
-    .banner-title {
-        color: #222;
-        line-height: 1.4;
-        letter-spacing: 0;
-        word-break: break-all;
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        vertical-align: top;
-        font-size: 3rem;
-        font-weight: bold;
-    }
-    
-    .subtitle {
-        font-size: 1.6rem;
-    }
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.7rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            width: 300px;
+            font-size: 1.6rem;
+            margin: 0 auto;
+            background-color: rgba(255, 232, 100, 0.3);
+        }
+    }//banner
 }
 
 
@@ -75,14 +76,13 @@ html {
     margin: 0;
     margin-top: 50px;
     padding: 0;
-    width: 95%;
+    width: 100%;
     margin-bottom: 35px;
     font-size: 0;
     line-height: 0;
     display: block;
     position: relative;
     text-align: right;
-    right: 10%;
 
     .insert {
         word-break: keep-all;
@@ -170,8 +170,8 @@ select {
     margin: 0;
     padding: 0;
     list-style: none outside;
-    width: 70%;
-    border-top: 2px solid #0f3057;
+    border-top: 1px solid #ccc;
+    // width: 100%;
     font-size: 0;
     line-height: 0;
     position: relative;
@@ -184,15 +184,15 @@ select {
         max-height: 99999px;
         text-decoration: none;
         font-weight: bolder;
-        font-size: 1.7rem;
+        font-size: 2rem;
         line-height: 25px;
-        color: #a6a6a4;
+        color: #393e46;
         display: block;
         position: relative;
         box-sizing: border-box;
         width: 20px;
         position: absolute;
-        left: 5%;
+        left: 4%;
         top: 50%;
         margin-top: -14px;
     }
@@ -200,7 +200,7 @@ select {
     .faq-li {
         font-style: normal;
         font-weight: normal;
-        color: #666;
+        color: #333;
         word-break: keep-all;
         list-style: none outside;
         font-size: 0;
