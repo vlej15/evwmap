@@ -10,7 +10,6 @@ h3 { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 }
 
 .img-area {
-    height: 487.2px;
     // margin-bottom: 10px;
     // position: relative;
     // width: 100%;
@@ -25,11 +24,26 @@ img {
 .text-area {
     position: absolute;
     width: 100%;
+    height: auto;
     text-align: center;
     line-height: 400px;
     font-size: 45px;
     color: rgb(255, 255, 255);
-    top: 40px;
+    top: 135px;
     text-decoration:underline;
+    background-color: none;
     z-index: 0;
 }
+
+@media screen and (max-width: 479px) {
+    .img-area {
+        max-width: 100%;
+    }
+    .end {
+        height: 50px;
+    }
+    .text-area {
+        font-size: 11px;
+        top: 100px;
+    }
+} // media end

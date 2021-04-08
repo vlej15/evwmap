@@ -6,6 +6,10 @@ html {
     margin: 0;
     padding: 0;
 }
+
+.end {
+    background-color: #fff;
+}
 .contentsLogin {
     font-style: normal;
     font-weight: normal;
@@ -55,7 +59,7 @@ html {
             width: 470px;
             font-size: 1.6rem;
             margin: 0 auto;
-            // background-color: rgba(255, 232, 100, 0.3);
+            background-color: rgba(255, 232, 100, 0.3);
         }
     }//banner
 }
@@ -104,8 +108,8 @@ html {
         box-sizing: border-box;
         text-decoration: none;
         color: #fff;
-        border: 1px solid #393e46;
-        background-color: #393e46;
+        border: 1px solid #212121;
+        background-color: #212121;
         float: right;
         width: 103px;
         height: 103px;
@@ -205,9 +209,9 @@ html {
         text-align: center;
         box-sizing: border-box;
         text-decoration: none;
-        color: #fff;
-        border: 1px solid #393e46;
-        background-color: #393e46;
+        color: white;
+        border: 1px solid #212121;
+        background-color: #212121;
         width: 460px;
         padding: 0;
     }

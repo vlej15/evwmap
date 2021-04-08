@@ -23,80 +23,89 @@ function Inquiry() {
     });
   }, []);
   return (
-    <div className="in_content">
-      <div className="in_title_box">
-        <h2 className="in_page_title">충전소 이용 내역</h2>
-        <p className="in_page_exp">
-          현재까지의 충전소 이용 내역을 확인 하실 수 있습니다.
-        </p>
-      </div>
-      <div className="inquiry_box">
-        <div className="left_box">
-          <div className="chargeMap_box">
-            <div>
-              <div className="map">
-                <div className="map_div" id="map_div"></div>
-              </div>
-            </div>
-          </div>
-          <div className="facility_box">
-            <div className="facility_info">
-              주변시설 정보 들어갈 정보가 어떤 것이 있는지 모르겠습니다!
-            </div>
-          </div>
+    <>
+      <div className="end"></div>
+      <div className="contentsInquiry">
+        <div className="banner">
+          <p className="banner-title">충전소 조회</p>
+          <br></br>
+          <p className="subtitle">전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인 하실 수 있습니다.</p>
         </div>
-        <div className="right_box">
-          <div className="chargeInfo_box">
-            <div className="charge_title">
-              <h1 className="charge_name">충전소 이름이 들어갈 자리입니다.</h1>
-              <div className="reservation-btn-box">
-                <button className="draw-border">예약하기</button>
-              </div>
-              <div className="report_btn">
-                <FontAwesomeIcon
-                  icon={faExclamationTriangle}
-                  className="notify_btn"
-                />
+        <div className="inquiry_box">
+          <div className="left_box">
+            <div className="chargeMap_box">
+              <div>
+                <div className="map">
+                  <div className="map_div" id="map_div"></div>
+                </div>
               </div>
             </div>
-            <div className="charge_address">
-              <h2 className="address">충전소 상세 주소 칸입니다.</h2>
+            <div className="facility_box">
+              <div className="facility_info">
+                주변시설 정보 들어갈 정보가 어떤 것이 있는지 모르겠습니다!
+              </div>
             </div>
-            {/* <div className="charge_sub_info">
+          </div>
+          <div className="right_box">
+            <div className="chargeInfo_box">
+              <div className="charge_title">
+                <h1 className="charge_name">[대영채비] 영진전문대학 글로벌캠퍼스</h1>
+                {/* <div className="reservation-btn-box">
+                  <button className="draw-border">예약</button>
+                </div> */}
+                <button className="report_btn">
+                  <FontAwesomeIcon
+                    icon={faExclamationTriangle}
+                    className="notify_btn"
+                  />
+                </button>
+              </div>
+              <div className="infomation">
+                <ul>
+                  <li><p>도로명 주소</p><span>경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장</span></li>
+                  <li><p>이용가능시간</p><span>24시간 이용가능</span></li>
+                  <li><p>연락처</p><span>1522-2573</span></li>
+                </ul>
+              </div>
+              {/* <div className="charge_address">
+                <h2 className="address">경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장</h2>
+              </div> */}
+              {/* <div className="charge_sub_info">
                             <div className="reservation">
                                 예약현황이 들어갈 자리인데 어떻게 해야하나요?
                             </div>
                         </div> */}
-          </div>
-          <div className="review_box">
-            <div className="review_list">
-              <table className="review_table">
-                <tbody className="review_tbody">
-                  <tr className="re_tr">
-                    <td className="re_input">전기에 감전됏서요</td>
-                    <td className="re_td_date">2021-03-26</td>
-                    <td className="re_td_id">피카츄</td>
-                  </tr>
-                  <tr className="re_tr">
-                    <td className="re_input">다가갔더니 불 붙어서 터졋어요</td>
-                    <td className="re_td_date">2021-03-26</td>
-                    <td className="re_td_id">파이리</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
-            <div className="review_input">
-              <input
-                className="review_text"
-                type="text"
-                placeholder="리뷰를 입력해주세요."
-              />
-              <button className="create">입력</button>
+            <div className="review_box">
+              <div className="review_list">
+                <table className="review_table">
+                  <tbody className="review_tbody">
+                    <tr className="re_tr">
+                      <td className="re_input">전기에 감전됏서요</td>
+                      <td className="re_td_date">2021-03-26</td>
+                      <td className="re_td_id">피카츄</td>
+                    </tr>
+                    <tr className="re_tr">
+                      <td className="re_input">다가갔더니 불 붙어서 터졋어요</td>
+                      <td className="re_td_date">2021-03-26</td>
+                      <td className="re_td_id">파이리</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="review_input">
+                <input
+                  className="review_text"
+                  type="text"
+                  placeholder="리뷰를 입력해주세요."
+                />
+                <button className="create">입력</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

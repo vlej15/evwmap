@@ -1,23 +1,70 @@
-.in_content {
-    margin: auto;
-    
-    .in_title_box {
-        text-align: center;
-    }
-}
+.contentsInquiry {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 10vh;
+    // padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 1200px;
+    // margin-bottom: 400px;
 
+    .banner{
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    padding: 0px;
+    vertical-align: top;
+
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.7rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            width: 500px;
+            font-size: 1.6rem;
+            margin: 0 auto;
+            background-color: rgba(255, 232, 100, 0.3);
+        }
+    }//banner
+}
 .inquiry_box {
     width: 1200px;
     height: 700px;
-    margin: 20px auto;
+    margin: 10vh auto;
     // background-color: bisque;
-    border: 1px solid dimgray;
+    border: 1px solid #d4d4d4;
+    padding: 10px;
 }
 
 .left_box {
     display: inline-block;
     width: 50%;
     height: 700px;
+
     .chargeMap_box {
         width: 555px;
         height: 335px;
@@ -43,7 +90,7 @@
     float: right;
 
     .chargeInfo_box {
-        border: 1px solid black;
+        // border: 1px solid black;
         width: 555px;
         height: 70px;
         margin: 10px 30px 10px 15px;
@@ -55,6 +102,7 @@
             line-height: 40px;
 
             .charge_name {
+                color: black;
                 display: inline-block;
                 width: 420px;
                 height: 40px;
@@ -62,20 +110,24 @@
                 margin: 0;
                 margin-left: 10px;
                 font-size: 24px;
+                font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+
             }
 
             .reservation-btn-box {
                 position: absolute;
-                width: 80px;
-                height: 35px;
+                width: 60px;
+                height: 40px;
                 line-height: 35px;
                 display: inline-block;
 
                 .draw-border {
+                    cursor: pointer;
+                    outline: none;
                     width: 100%;
                     height: 100%;
                     padding: 0;
-                    border-radius: 40px;
+                    border-radius: 30px;
                     background-color: white;
                 }
             }
@@ -84,6 +136,10 @@
                 float: right;
                 height: 40px;
                 line-height: 40px;
+                border: none;
+                background: none;
+                cursor: pointer;
+                outline: none;
 
                 .notify_btn {
                     color: black;
@@ -94,19 +150,17 @@
             }
         }
 
-        .charge_address {
-            height: 30px;
-            line-height: 30px;
-            font-size: 14px;
-            margin-left: 10px;
-
-            .address {
-                margin: 0;
-            }
-
-            // h2 {
-            //     display: block;
-            // }
+        .infomation {
+            font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+            color: #666;
+            font-weight: 300;
+            line-height: 1.9rem;
+            font-size: 18px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            cursor: default;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
         }
     }
 
