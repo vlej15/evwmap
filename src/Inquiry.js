@@ -11,7 +11,7 @@ function Inquiry() {
       center: new Tmapv2.LatLng(35.89584, 128.622362),
       // 지도가 생성될 div
       width: "555px", // 지도의 넓이
-      height: "335px", // 지도의 높이
+      height: "400px", // 지도의 높이
       zoom: 17,
     });
     var marker = new Tmapv2.Marker({
@@ -41,22 +41,18 @@ function Inquiry() {
               </div>
             </div>
             <div className="facility_box">
-              <div className="facility_info">
-                주변시설 정보 들어갈 정보가 어떤 것이 있는지 모르겠습니다!
-              </div>
+              <div className="facility_info">주변 시설 정보</div>
             </div>
           </div>
           <div className="right_box">
             <div className="chargeInfo_box">
               <div className="charge_title">
                 <h1 className="charge_name">[대영채비] 영진전문대학 글로벌캠퍼스</h1>
-                {/* <div className="reservation-btn-box">
-                  <button className="draw-border">예약</button>
-                </div> */}
                 <button className="report_btn">
                   <FontAwesomeIcon
                     icon={faExclamationTriangle}
                     className="notify_btn"
+                    title="고장신고"
                   />
                 </button>
               </div>
@@ -67,16 +63,38 @@ function Inquiry() {
                   <li><p>연락처</p><span>1522-2573</span></li>
                 </ul>
               </div>
-              {/* <div className="charge_address">
-                <h2 className="address">경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장</h2>
-              </div> */}
-              {/* <div className="charge_sub_info">
-                            <div className="reservation">
-                                예약현황이 들어갈 자리인데 어떻게 해야하나요?
-                            </div>
-                        </div> */}
+              <div className="now">
+                <p className="now-title">충전기 정보<button className="rsvt-btn">예약</button></p>
+                <table className="now-list">
+                  <thead>
+                    <tr>
+                      <th>순번</th>
+                      <th>충전기 타입</th>
+                      <th>충전기 상태</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>승용차 AC 완속</td>
+                      <td>충전대기</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>승용차 AC 완속</td>
+                      <td>충전대기</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>승용차 AC 완속</td>
+                      <td>충전대기</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="review_box">
+              <p className="review-title">충전소 리뷰</p>
               <div className="review_list">
                 <table className="review_table">
                   <tbody className="review_tbody">
@@ -108,37 +126,5 @@ function Inquiry() {
     </>
   );
 }
-
-// function Middle() {
-//     useEffect(() => {
-//         const map = new Tmapv2.Map("map_div", {
-//             center: new Tmapv2.LatLng(35.89584, 128.622362),
-//             // 지도가 생성될 div
-//             width: "100%", // 지도의 넓이
-//             height: "630px", // 지도의 높이
-//             zoom: 15,
-//         });
-//         var marker = new Tmapv2.Marker({
-//             position: new Tmapv2.LatLng(35.89584, 128.622362), //Marker의 중심좌표 설정.
-//             map: map, //Marker가 표시될 Map 설정..
-//             offset: new Tmapv2.Point(12, 38), // 마커 아이콘의 오프셋 설정(생략시 Point(폭/2, 높이)로 설정)
-//             icon:
-//                 "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_a.png", //마커 아이콘 설정.(생략시 기본이미지 적용)
-//             iconSize: new Tmapv2.Size(24, 38), //마커 아이콘 사이즈 (생략시 이미지의 크기 적용)
-//         });
-//     }, []);
-//     return (
-//         <div>
-//             <div className="map">
-//                 <div className="map_div" id="map_div"></div>
-//             </div>
-//             <div className=""></div>
-//             <div className="mainTable">
-//                 <div>1</div>
-//                 <div>2</div>
-//             </div>
-//         </div>
-//     );
-// }
 
 export default Inquiry;
