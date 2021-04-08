@@ -10,9 +10,8 @@ function BannerQ() {
                 <img src={img2} />
             </div>
             <div className="text-area">
-                <h3>CONTACT</h3>
+                <h3>F A Q</h3>
             </div>
-            <div className="end"></div>
         </>
     );
 }
