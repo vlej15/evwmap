@@ -74,11 +74,22 @@ function App() {
         <Route exact path="/findpw">
           <FindPw />
         </Route>
-        {/* FIND ID / PW */}\
-        <Route exact path="/findpw">
+        {/* FIND ID / PW */}
+
+        <Route exact path="/activity">
           <Activity />
         </Route>
+
+        <Route exact path="/chargeusage">
+          <ChargeUsage />
+        </Route>
+
+        <Route exact path="/infochange">
+          <InfoChange />
+        </Route>
+
         {/* FOOTER */}
+
         <Footer />
       </div>
     </div>

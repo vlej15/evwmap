@@ -7,9 +7,11 @@ export default function Signup() {
   const { register, handleSubmit, errors, watch, getValues } = useForm();
   const password = useRef();
   password.current = watch("password");
-  const [car, setCar] = useState(1);
+  const [email, setEmail] = useState("");
   const basicId = "test1901107";
-
+  // 이메일인증함수
+  function emailCheck() {}
+  // 아이디체크함수
   function idCheck(e) {
     e.preventDefault();
     const Check = /^(?=.*?[a-z])(?=.*?[0-9]).{6,15}$/;
@@ -24,6 +26,7 @@ export default function Signup() {
       alert("아이디 양식에 맞게 입력해주세요.");
     }
   }
+  // 서브밋함수
   const onSubmit = () => {
     var data = JSON.stringify({
       u_id: getValues("id"),
@@ -134,7 +137,7 @@ export default function Signup() {
                   placeholder="이메일"
                   ref={register}
                 />
-                <button href="#" className="btn-ct">
+                <button href="#" className="btn-ct" onClick={emailCheck}>
                   인증번호받기
                 </button>
               </div>{" "}
@@ -158,62 +161,15 @@ export default function Signup() {
                   placeholder="차량번호"
                   ref={register}
                 />
-              </div>{" "}
-              {/* form-carNumber end */}
-              {/* <div className="form-carImg">
-              <label for=""><p className="form-label">차량종류</p></label>
-              <div className="carImg">
-                <div>{carCheck()}</div>
               </div>
-              <div className="arrow-area">
-                <div className="carChoice">
-                  {car < 2 ? (
-                    <div ref={register} className="lArrow"></div>
-                  ) : (
-                      <div
-                        ref={register}
-                        className="lArrow"
-                        onClick={() => setCar(car - 1)}
-                      ></div>
-                    )}
-                  <div className="form-carName">차량이름</div>
-                  {car > 14 ? (
-                    <div ref={register} className="rArrow"></div>
-                  ) : (
-                      <div
-                        ref={register}
-                        className="rArrow"
-                        onClick={() => setCar(car + 1)}
-                      ></div>
-                    )}
-                </div>
-              </div>
-            </div> form-carImg end */}
               <div className="btn-area">
                 <input type="submit" value="가입하기" className="sign-btn" />
               </div>
-            </div>{" "}
+            </div>
             {/* form-input end */}
           </form>
         </div>
       </div>
     </>
   );
-
-  function carCheck() {
-    console.log(car);
-    if (car == 1) {
-      return (
-        <input ref={register} type="radio" name="charger" value="1번차량" />
-      );
-    } else if (car == 2) {
-      return (
-        <input ref={register} type="radio" name="charger" value="2번차량" />
-      );
-    } else if (car == 3) {
-      return (
-        <input ref={register} type="radio" name="charger" value="3번차량" />
-      );
-    }
-  }
 }
