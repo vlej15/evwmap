@@ -18,7 +18,7 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-              <Link to="/login">
+              <Link to="/">
                 <a className="login_box" href="#" onClick={logout}>
                   LOGOUT
                 </a>
@@ -33,7 +33,7 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-              <Link to="/signup">
+              <Link to="/mypage">
                 <a className="join_box" href="#">
                   MY PAGE
                 </a>

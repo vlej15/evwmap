@@ -7,34 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const { Tmapv2 } = window;
 
 function FindingAWay() {
-  // const [a1, setA1] = useState([]);
-  // const [a2, setA2] = useState([]);
-  // useEffect(async () => {
-  //     if (navigator.geolocation) {
-  //         // GPS를 지원하면
-
-  //         navigator.geolocation.getCurrentPosition(
-  //             function (position) {
-  //                 setA1(position.coords.latitude);
-  //                 setA2(position.coords.longitude);
-  //                 alert(
-  //                     position.coords.latitude +
-  //                         " " +
-  //                         position.coords.longitude
-  //                 );
-  //             },
-  //             function (error) {
-  //                 console.error(error);
-  //             },
-  //             {
-  //                 enableHighAccuracy: false,
-  //                 maximumAge: 0,
-  //                 timeout: Infinity,
-  //             }
-  //         );
-  //     }
-  // }, []);
-
   useEffect(() => {
     var map = new Tmapv2.Map("map_div", {
       center: new Tmapv2.LatLng(35.89584, 128.622362),
@@ -55,6 +27,7 @@ function FindingAWay() {
   return (
     <div>
       {/* {console.log("a1 = " + a1, "a2 = " + a2)} */}
+      <div className="end"></div>
       <div className="faw-content">
         <div className="faw-title">
           <p className="title-input">길찾기</p>

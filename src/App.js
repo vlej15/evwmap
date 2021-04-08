@@ -15,11 +15,12 @@ import Inquiry from "./Inquiry";
 import FindId from "./Findid";
 import FindPw from "./Findpw";
 import FindingAWay from "./FindingAway";
-import QRead from './QRead';
-import ChargeUsage from './ChargeUsage';
-import BoardWrite from './BoardWrite'
-import BoardChange from './BoardChange'
-import InfoChange from './InfoChange';
+import QRead from "./QRead";
+import ChargeUsage from "./ChargeUsage";
+import BoardWrite from "./BoardWrite";
+import BoardChange from "./BoardChange";
+import InfoChange from "./InfoChange";
+import Activity from "./Activity";
 
 function App() {
   return (
@@ -28,18 +29,14 @@ function App() {
         <div className="content-wrap">
           <Header />
         </div>
-
         {/* INTRODUCTION */}
-
         <Route exact path="/introduction">
           <BrandStory />
         </Route>
-
         {/* LOGIN/JOIN */}
         <Route exact path="/login">
           <Login />
         </Route>
-
         <Route exact path="/signup">
           <Signup />
         </Route>
@@ -47,38 +44,29 @@ function App() {
         <Route exact path="/map">
           <Inquiry />
         </Route>
-
         <Route exact path="/navigate">
           <FindingAWay />
         </Route>
-
         {/* COMMUNITY */}
         <Route exact path="/notice">
           <Notice />
         </Route>
-
         <Route exact path="/tipboard">
           <TipBoard />
         </Route>
-
         <Route exact path="/freeboard">
           <FreeBoard />
         </Route>
-
         {/* CONTACT */}
-
         <Route exact path="/faq">
           <FAQ />
         </Route>
-
         <Route exact path="/questions">
           <QWrite />
         </Route>
-
         <Route exact path="/qlist">
           <QList />
         </Route>
-
         {/* FIND ID / PW */}
         <Route exact path="/findid">
           <FindId />
@@ -86,9 +74,11 @@ function App() {
         <Route exact path="/findpw">
           <FindPw />
         </Route>
-
+        {/* FIND ID / PW */}\
+        <Route exact path="/findpw">
+          <Activity />
+        </Route>
         {/* FOOTER */}
-
         <Footer />
       </div>
     </div>
