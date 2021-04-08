@@ -42,20 +42,20 @@ export default class SimpleSlider extends Component {
               <p className="section1-subtitle">EV WMAP은 Electric Vehicle World Map의 약자로<br /><span>전국 어디서나</span> 전기차를<br />보다 편리하게 이용할 수 있는 전기차 어플입니다.</p>
             </div> {/* section1 end */}
 
-            <div className="section2">
+            {/* <div className="section2">
               <dl data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">
                 <dt>이미지 인식을 이용한 <span className="dt-b">충전소 관리</span></dt>
-                <dd>EV WMAP은 라즈베리 파이, OpenCV 라이브러리를 이용한 이미지 인식 기술을 통해 충전소 진입 시 전기차 여부를 판별합니다. 충전소에 진입하는 무분별한 주차를 방지하여 쾌적한 충전환경을 제공합니다.</dd>
+                <dd>EV WMAP은 라즈베리 파이, OpenCV 라이브러리를 <br /> 이용한 이미지 인식 기술을 통해 <br /> 충전소 진입 시 전기차 여부를 판별합니다. <br /> 충전소에 진입하는 무분별한 주차를 방지하여 <br /> 쾌적한 충전환경을 제공합니다.</dd>
               </dl>
               <dl data-aos="fade-left" data-aos-delay="500" class="aos-init aos-animate">
                 <dt>전기차 충전소 <span className="dt-b">예약 기능</span></dt>
-                <dd>매번 사용 가능한 충전기를 찾지 않고도 간편하게 예약 전용 충전기에서 원하는 시간에 충전할 수 있습니다.</dd>
+                <dd>매번 사용 가능한 충전기를 찾지 않고도  <br />간편하게 예약 전용 충전기에서 원하는 시간에 충전할 수 있습니다.</dd>
               </dl>
               <dl data-aos="fade-right" data-aos-delay="600" class="aos-init aos-animate">
                 <dt>전기차 충전소 <span className="dt-b">회원카드 등록</span></dt>
-                <dd>NFC 기능으로 여러 개의 전기차 충전소 회원 카드를 간편하게 핸드폰에 저장함으로써 매번 여러 개의 회원 카드를 소지해야 하는 불편함을 해소합니다.</dd>
+                <dd>NFC 기능으로 여러 개의 전기차 충전소 회원 카드를 간편하게 핸드폰에 저장함으로써 <br /> 매번 여러 개의 회원 카드를 소지해야 하는 불편함이 해소됩니다.</dd>
               </dl>
-            </div> {/* section2 end */}
+            </div> section2 end */}
 
             <div className="section3">
               <div className="section3-text">

@@ -39,7 +39,7 @@ function FindingAWay() {
     var map = new Tmapv2.Map("map_div", {
       center: new Tmapv2.LatLng(35.89584, 128.622362),
       // 지도가 생성될 div
-      width: "800px", // 지도의 넓이
+      width: "600px", // 지도의 넓이
       height: "600px", // 지도의 높이
       zoom: 17,
     });
@@ -55,13 +55,12 @@ function FindingAWay() {
   return (
     <div>
       {/* {console.log("a1 = " + a1, "a2 = " + a2)} */}
-      <div className="faw-content">
-        <div className="faw-title">
-          <p className="title-input">길찾기</p>
-          <br />
-          <p className="title-p">
-            현재 위치로부터 원하는 충전소까지의 길을 찾을 수 있습니다.
-          </p>
+      <div className="end"></div>
+      <div className="contentsFindingAway">
+        <div className="banner">
+          <p className="banner-title">길찾기</p>
+          <br></br>
+          <p className="subtitle">원하는 충전소까지의 길을 찾을 수 있습니다.</p>
         </div>
         <div className="faw-box">
           <div className="map-content-box">
