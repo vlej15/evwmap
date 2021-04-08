@@ -112,12 +112,12 @@ function Heam() {
                     </li>
                     <li className="sub-list_li">
                       <Link to="/tipboard">
-                        <a href="">TIP</a>
+                        <a href="">TIP게시판</a>
                       </Link>
                     </li>
                     <li className="sub-list_li">
                       <Link to="/news">
-                        <a href="">뉴스</a>
+                        <a href="">뉴스게시판</a>
                       </Link>
                     </li>
                   </ul>

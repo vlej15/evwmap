@@ -20,11 +20,11 @@ export default class SimpleSlider extends Component {
     var settings = {
       dots: true, // 캐러셀의 점을 보여줄 것인지
       infinite: true, // 마지막 장 다음에 첫번째가 나오게 할 것인지
-      speed: 1500, // 넘어가는 속도는 몇으로 할 것인지
+      speed: 1300, // 넘어가는 속도는 몇으로 할 것인지
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 225000,
+      autoplaySpeed: 5000,
     };
 
     return (

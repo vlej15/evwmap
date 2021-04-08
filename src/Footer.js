@@ -9,7 +9,7 @@ function Footer() {
         <ul>
           <li>
             <div>
-              <a>설치문의</a>
+              <a className="aaa">설치문의</a>
             </div>
           </li>
           <li>
@@ -38,7 +38,7 @@ function Footer() {
         </ul>
       </div>
       <div className="Info">
-        <img src={logoImg}></img>
+        {/* <img src={logoImg}></img> */}
         <ul>
           <li>
             <p>상호명: EVWMAP</p>
