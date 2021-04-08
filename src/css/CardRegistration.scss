@@ -1,0 +1,452 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+.title-input {
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+}
+
+html {
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+.cardreg-title{
+    width: 1200px;
+    text-align: center;
+    margin: 10px auto;
+    color: #222;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    margin: 20px auto;
+    padding: 0px;
+    vertical-align: top;
+
+    .title-p{
+        color: #222;
+        line-height: 1.4;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        font-size: 2.7rem;
+        font-weight: bold;
+    }
+
+    .title-info{
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 0;
+    }
+}
+.card-reg{
+    display: grid;
+    font-family: Avenir,
+    sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+
+    .tariffCards {
+        position: absolute;
+        top: 500px;
+        left: 50%;
+        margin: -180px 0 0 -140px;
+        user-select: none;
+        transform: translateX(0px);
+        transition: all 1s ease-in;
+
+        .div-box {
+            position: relative;
+            width: 280px;
+            height: 140px;
+            border-radius: 12px;
+            color: #fff;
+            transform: rotateX(45deg) rotateY(-15deg) rotate(45deg);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            cursor: pointer;
+
+            .div_h3 {
+                position: absolute;
+                bottom: 28px;
+                left: 15px;
+                font-size: 18px;
+                font-weight: 800;
+            }
+
+            .div_span {
+                position: absolute;
+                font-weight: 700;
+                bottom: 15px;
+                left: 15px;
+                font-size: 12px;
+                font-weight: 600;
+                opacity: 0.8;
+            }
+        }
+
+        .div-box:after {
+            position: absolute;
+            top: -70px;
+            left: 0;
+            content: '';
+            width: 200%;
+            height: 200%;
+            background-image: linear-gradient(60deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 80%);
+            transform: translateX(-100%);
+        }
+        .div-box:hover {
+            transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
+        }
+        .div-box:hover:after {
+            transform: translateX(100%);
+            transition: all 1.2s ease-in-out;
+        }
+
+        .economy {
+            margin-top: 0;
+            z-index: 3;
+            background-color: #ffc75f;
+            background-image: linear-gradient(135deg, #f8dc81, #ffc75f);
+            box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5),
+                1px 1px 0px 1px #ffc75f;
+        }
+        .premiumeconomy {
+            margin-top: -70px;
+            z-index: 2;
+            background-color: #387adf;
+            background-image: linear-gradient(135deg, #50c4ed, #387adf);
+            box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5),
+                1px 1px 0px 1px #387adf;
+        }
+        .business {
+            margin-top: -70px;
+            z-index: 1;
+            background-color: #66a96b;
+            background-image: linear-gradient(135deg, #c1d343, #66a96b);
+            box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5),
+                1px 1px 0px 1px #66a96b;
+        }
+        .first {
+            margin-top: -70px;
+            background-color: #8063e1;
+            background-image: linear-gradient(135deg, #bd7be8, #8063e1);
+            box-shadow: 5px 5px 60px rgba(34, 50, 84, 0.1),
+                1px 1px 0px 1px #8063e1;
+        }
+    }
+    
+    .tariffCards:after {
+        position: absolute;
+        bottom: -27px;
+        left: 5%;
+        content: '';
+        width: 65%;
+        height: 10px;
+        border-radius: 100%;
+        background-image: radial-gradient(rgba(34, 50, 84, 0.04), rgba(34, 50, 84, 0));
+    }
+}
+
+.card-input {
+    .checkout {
+        margin: 100px auto 30px;
+        position: relative;
+        width: 360px;
+        background: white;
+        border-radius: 15px;
+        padding: 150px 30px 10px;
+        box-shadow: 0 10px 40px hsla(0, 0, 0, 0.1);
+        transform: translateX(0px);
+        transition: all 1s ease-in;
+        // display: none;
+        opacity: 0;
+
+        .credit-card-box {
+            perspective: 1000;
+            width: 300px;
+            // height: 300px;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .flip {
+                transition: 0.6s;
+                transform-style: preserve-3d;
+                position: relative;
+
+                .front{
+                    width: 300px;
+                    height: 180px;
+                    border-radius: 15px;
+                    backface-visibility: hidden;
+                    background: linear-gradient(135deg, #ffdcdc, #ffb4b4);
+                    position: absolute;
+                    color: #fff;
+                    font-family: Inconsolata;
+                    top: -20px;
+                    left: 0;
+                    text-shadow: 0 1px 1px hsla(0, 0, 0, 0.3);
+                    box-shadow: 0 1px 6px hsla(0, 0, 0, 0.3);
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background: url("http://cdn.flaticon.com/svg/44/44386.svg") no-repeat center;
+                        background-size: cover;
+                        opacity: 0.05;
+                    }
+                }
+
+                .card-label {
+                    font-size: 10px;
+                    letter-spacing: 1px;
+                    text-shadow: none;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    opacity: 0.5;
+                    display: block;
+                    margin-bottom: 3px;
+                }
+
+                .front {
+                    z-index: 2;
+                    transform: rotateY(0deg);
+
+                    .chip {
+                        position: absolute;
+                        width: 50px;
+                        height: 35px;
+                        top: 20px;
+                        left: 20px;
+                        background: linear-gradient(135deg,
+                                hsl(269, 54%, 87%) 0%,
+                                hsl(200, 64%, 89%) 44%,
+                                hsl(18, 55%, 94%) 100%);
+                        border-radius: 8px;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            border: 4px solid hsla(0, 0, 50, 0.1);
+                            width: 80%;
+                            height: 70%;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    .card-holder,
+                    .card-expiration-date {
+                        position: absolute;
+                        margin: 0 auto;
+                        top: 130px;
+                        left: 19px;
+                        font-size: 22px;
+                        text-transform: capitalize;
+                    }
+
+                    .card-expiration-date {
+                        text-align: right;
+                        left: auto;
+                        right: 20px;
+                    }
+                }
+
+                // .back {
+                //     transform: rotateY(180deg);
+
+                //     .strip {
+                //         background: linear-gradient(135deg, hsl(0, 0, 25%), hsl(0, 0, 10%));
+                //         position: absolute;
+                //         width: 100%;
+                //         height: 40px;
+                //         top: 30px;
+                //         left: 0;
+                //     }
+
+                //     .ccv {
+                //         height: 20px;
+                //         background: #fff;
+                //         width: 91%;
+                //         border-radius: 5px;
+                //         top: 110px;
+                //         left: 0;
+                //         right: 0;
+                //         position: absolute;
+                //         margin: 0 auto;
+                //         color: #000;
+                //         text-align: right;
+                //         padding: 10px;
+
+                //         .card-label-ccv {
+                //             margin: -25px 0 14px;
+                //             color: #fff;
+                //         }
+                //     }
+                // }
+            }
+        }
+
+/*--------------------
+Form
+--------------------*/
+        .form {
+            fieldset {
+                border: none;
+                // padding: 0;
+                padding: 10px 0;
+                position: relative;
+                clear: both;
+
+                &.fieldset-expiration {
+                    float: left;
+                    width: 60%;
+
+                    & .select {
+                        width: 60px;
+                        margin-right: 12px;
+                        float: left;
+                    }
+                }
+
+                &.fieldset-ccv {
+                    clear: none;
+                    float: right;
+                    width: 86px;
+                }
+
+                .card-info-label {
+                    display: block;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    color: hsla(0, 0, 0, 0.6);
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                    font-family: Inconsolata;
+                }
+
+                input,
+                .select {
+                    width: 70px;
+                    height: 20px;
+                    color: hsl(0, 0, 20);
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-size: 15px;
+                    outline: none !important;
+                    border: 1px solid hsla(0, 0, 0, 0.3);
+                    box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+
+                    &.input-cart-number {
+                        width: 60px;
+                        display: inline-block;
+                        margin-right: 9px;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                .card-holder {
+                    width: 335px;
+                }
+
+                .select {
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        border-top: 8px solid #222;
+                        border-left: 4px solid transparent;
+                        border-right: 4px solid transparent;
+                        position: absolute;
+                        z-index: 2;
+                        top: 14px;
+                        right: 10px;
+                        pointer-events: none;
+                    }
+
+                    .card-select {
+                        appearance: none;
+                        position: absolute;
+                        padding: 0;
+                        border: none;
+                        width: 100%;
+                        outline: none !important;
+                        top: 6px;
+                        left: 6px;
+                        background: none;
+
+                        :-moz-focusring {
+                            color: transparent;
+                            text-shadow: 0 0 0 #000;
+                        }
+                    }
+                }
+            }
+
+            .card-create-btn {
+                display: block;
+                // background: hsl(86, 76%, 71%);
+                color: white;
+                text-decoration: none;
+                margin: 20px 0;
+                padding: 15px 15px;
+                border-radius: 5px;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: all 0.2s ease-in-out;
+                    box-shadow: inset 0 3px 0 hsla(0, 0, 0, 0), 0 3px 3px hsla(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                }
+
+                &:hover::after {
+                    background: hsla(0, 0, 0, 0.1);
+                    box-shadow: inset 0 3px 0 hsla(0, 0, 0, 0.2);
+                }
+            }
+
+            .card-create-btn {
+                width: 100%;
+                outline: none !important;
+                background: linear-gradient(90deg, #f85f73, #ffdcdc);
+                text-transform: uppercase;
+                font-weight: bold;
+                border: none;
+                box-shadow: none;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                margin-top: 90px;
+
+                & .fa {
+                    margin-right: 6px;
+                }
+            }
+        }
+    }
+}
