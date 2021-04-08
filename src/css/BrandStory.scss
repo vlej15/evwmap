@@ -57,16 +57,6 @@ html, body {
         height: 100vh;
         background-color: #222831;
 
-        .bounce {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: #f2b640;
-            position: absolute;
-            top: 200px;
-            margin-left: 650px;
-        }
-
 
         .section1-title {
             color: #ffffff;
@@ -182,7 +172,7 @@ html, body {
         }
 
         .bgc-box {
-            width: 45.45%;
+            width: 45.6%;
             height: 100%;
             background-color: #222831;
             border: none;
@@ -217,3 +207,42 @@ html, body {
     }
 }
 
+* {
+    box-sizing: border-box;
+}
+
+#bouncer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 2.8vmin;
+    height: 2.8vmin;
+    will-change: transform;
+    z-index: 10;
+}
+
+.y {
+    display: inline-block;
+    background: #fe7842;
+    width: 2.8vmin;
+    height: 2.8vmin;
+    border-radius: 50%;
+    will-change: transform;
+}
+
+p {
+    width: 100%;
+    line-height: 2;
+}
+
+span {
+    display: inline-block;
+    opacity: .6;
+    transition: opacity .15s .15s ease-in;
+    will-change: opacity;
+}
+
+span.bounced {
+    opacity: 1;
+}

@@ -7,6 +7,7 @@ import img2 from './playstore.png'
 import { useEffect } from "react";
 import './css/BrandStory.scss'
 import img3 from './phone333.png'
+import $ from "jquery";
 
 
 const StyledSlider = styled(Slider)`
@@ -16,6 +17,7 @@ const StyledSlider = styled(Slider)`
 `;
 
 export default class SimpleSlider extends Component {
+
   render() {
     var settings = {
       dots: true, // 캐러셀의 점을 보여줄 것인지
@@ -24,8 +26,9 @@ export default class SimpleSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 4000,
     };
+
 
     return (
       <>
@@ -34,7 +37,6 @@ export default class SimpleSlider extends Component {
           {/* <h2> Single Item</h2> */}
           <Slider {...settings}>
             <div className="section1">
-              <div className="bounce"> </div>
               {/* <div class="bouncer" class="x"><div class="y"></div></div> */}
               <p className="section1-title">WELCOME <span>EVERY</span><span>BODY!</span></p>
               <p className="section1-subtitle">EV WMAP은 Electric Vehicle World Map의 약자로<br /><span>전국 어디서나</span> 전기차를<br />보다 편리하게 이용할 수 있는 전기차 어플입니다.</p>
