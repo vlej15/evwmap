@@ -1,0 +1,378 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@font-face {
+    font-family: 'IBMPlexSansKR-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+* { font-family: 'IBMPlexSansKR-Light';}
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; font-weight: bold; }
+
+
+html { 
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f6f5f5;
+}
+
+.contentsInfoChange {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 70px;
+    padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 1200px;
+    margin-bottom: 400px;
+
+    .banner{
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin-top: 10px;
+        padding: 0px;
+        vertical-align: top;
+        
+    .banner-title {
+        color: #222;
+        line-height: 1.4;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        font-size: 2.7rem;
+        font-weight: bold;
+    }
+    
+    .subtitle {
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 0;
+        }
+    }// banner end
+    .form {
+        width: 65%;
+        margin: 50px auto;
+        border: 1px solid #dedede;
+
+        
+    .form-input {
+        line-height: 1; 
+        word-break: break-all;
+        text-align: center;
+        border: none;
+        width: 62%;
+        align-items: center;
+        margin: 30px auto;
+
+
+        .form-id, .form-name {
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+
+            .form-label {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 14px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+            }
+        }// form-id end
+
+        .form-email, .form-email2 {
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+
+            .form-label {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 14px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                background-color: #fff;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+            }
+            .btn-ct {
+                margin-left: 20px;
+                width: 83px;
+                height: 45px;
+                line-height: 45px;
+                text-decoration: none;
+                color: #fff;
+                background-color: #464646;
+                border: #464646;
+                font-size: 12px;
+                font-weight: 500px;
+            }
+        }// form-email end
+
+        .form-pw {
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+
+            .form-label {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 14px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+            }
+            .btn-ct {
+                margin-left: 20px;
+                width: 83px;
+                height: 45px;
+                line-height: 45px;
+                text-decoration: none;
+                color: #fff;
+                background-color: #464646;
+                border: #464646;
+                font-size: 12px;
+                font-weight: 500px;
+            }
+        }// form-pw end
+
+        .passmodal_background{
+                    position: fixed;
+                    top:0; left: 0; bottom: 0; right: 0;
+                    background: rgba(0, 0, 0, 0.8);
+                    margin: 0px;
+                    .passModal{
+                        position: absolute;
+                        top: calc(50vh - 150px); left: calc(50vw - 210px);
+                        background-color: #f6f5f5;
+                        display: flex;
+                        flex-direction: column;
+                        width: 420px;
+                        height: 350px;
+                        border-radius: 2px;
+                        .mdPass{
+                            h3 {
+                               margin-top: 30px;
+                            }
+                            margin-top:1px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 14px;
+                            }
+                            .closeWrap{
+                            text-align: right;
+                            width: 400px;
+                            margin:0px;
+                            p{
+                                align-items: center;
+                            }
+                            .closeBtn{
+                                position: absolute;
+                                top: 10px; right: 10px;
+                                font-size: 20px;
+                                color:#464646;
+                                margin-top: 4px;
+                                margin-right: 9px;
+                            }
+                        }     
+                    }
+                    .inputType{
+                        width:100%;
+                        height: 200px;
+                        margin:0px;
+                        display: flex;
+                        align-items: center;
+                        flex-direction:column;
+                        margin-top: 10px;
+                        input{
+                            z-index: 10;
+                            width: 300px;
+                            height: 40px;
+                            border-radius: 0;
+                            padding: 0px 14px;
+                            border: 1px solid #eaeaea;
+                        }
+                        p{
+                            margin: 0px;
+                        }
+                        .subBtn{
+                            margin-top: 2px;
+                            color: white;
+                            background-color: #464646;
+                            border-radius: 2px;
+                            width:330px;
+                        }   
+                    }                                      
+                }
+
+        .form-carNumber{
+            display: flex;
+            flex-direction: row;
+            font-size: 14px;
+            color: #222;
+            margin: 0;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+
+            .form-label {
+                float: left;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 16px;
+                letter-spacing: -0.1px;
+                color: #3c3c3c;
+                line-height: 45px;
+                width: 100px;
+            }
+        
+            .input-text {
+                word-break: break-all;
+                width: 250px;
+                margin: 0px;
+                height: 45px;
+                padding: 0 10px;
+                color: #222;
+                font-size: 1.6rem;
+                border: 1px solid #dedede;
+                background-color: #fff;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+                }
+            }// form-pw end
+
+            .btn-area {
+                color: #222;
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 1;
+                letter-spacing: 0;
+                word-break: break-all;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: top;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                margin-left: 6px;
+            
+                .change-btn {
+                    font-weight: 400;
+                    letter-spacing: 0;
+                    word-break: break-all;
+                    vertical-align: top;
+                    cursor: pointer;
+                    display: inline-block;
+                    margin: 0 auto;
+                    font-size: 1.5rem;
+                    line-height: 60px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    text-decoration: none;
+                    color: #dedede;
+                    border: none;
+                    background-color:#464646;
+                    border-radius: 4px;
+                    width: 265px;
+                    height: 60px;
+                    padding: 0;
+                    &:hover{
+                        background-color: rgba(124, 124, 124, 0.342);    
+                        border: none;
+                        color: #222;
+                        font-weight: 600;
+                    }
+                }
+                }
+        }// form-input end
+    }// .form end
+}// contentsInfoChange end

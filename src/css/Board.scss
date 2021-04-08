@@ -17,7 +17,8 @@ html {
     max-height: 99999px;
     min-height: 460px;
     margin:0 auto;
-    margin-top: 70px;
+    margin-top: 10vh;
+    // padding: 0 0 100px;
     position: relative;
     box-sizing: border-box;
     transition: all .7s ease-out;
@@ -26,12 +27,7 @@ html {
     opacity: 1;
     top: 0px;
     width: 1200px;
-    margin-bottom: 70px;
-
-    .start {
-        height: 520px;
-        width: 100%;
-    }
+    // margin-bottom: 400px;
 
     .banner{
     color: #222;
@@ -41,7 +37,6 @@ html {
     letter-spacing: 0;
     word-break: break-all;
     text-align: center;
-    margin-top: 10px;
     padding: 0px;
     vertical-align: top;
 
@@ -58,27 +53,30 @@ html {
             font-weight: bold;
         }
         .subtitle {
+            width: 390px;
             font-size: 1.6rem;
-            margin-top: 0;
+            margin: 0 auto;
+            background-color: rgba(255, 232, 100, 0.3);
         }
-    }//banner end
+    }//banner
+
     .list {
         color: #222;
         font-size: 1.4rem;
         font-weight: 400;
         line-height: 1;
         letter-spacing: 0;
-        margin: 55px 0 0 0;
+        margin: 10vh 0 0 0;
         padding: 0px;
         vertical-align: top;
         border-collapse: collapse;
         border-spacing: 0;
         word-break: break-all;
-        width: 100%;
-        border-top: 2px solid #f2b640;
+        width: 1200px;
         border-bottom: 1px solid #c8c8c8;
         background: #fff;
         table-layout: fixed;
+
             thead {
                 color: #222;
                 font-size: 1.4rem;
@@ -99,7 +97,7 @@ html {
                 word-break: break-all;
                 margin: 0px;
                 font-weight: 400;
-                padding: 26px 10px;
+                padding: 20px 10px;
                 color: #333;
                 font-size: 1.6rem;
                 line-height: 18px;
@@ -119,7 +117,7 @@ html {
                 word-break: break-all;
                 margin: 0px;
                 font-weight: 400;
-                padding: 10px 10px;
+                padding: 0 10px;
                 color: #333;
                 font-size: 1.6rem;
                 line-height: 18px;
@@ -130,7 +128,7 @@ html {
                 width: 100px;
             }
             tbody {
-                color: #222;
+                color: #333;
                 font-size: 1.4rem;
                 font-weight: 400;
                 line-height: 1;
@@ -143,8 +141,8 @@ html {
                 vertical-align: top;
                 tr {  
                     &:hover{
-                    background-color: rgba(85, 85, 85, 0.3);
-                    }                
+                        background-color: rgba(248, 238, 172, 0.15)
+                        } 
                     td {
                         font-weight: 400;
                         letter-spacing: 0;
@@ -152,67 +150,71 @@ html {
                         border-spacing: 0;
                         word-break: break-all;
                         margin: 0px;
-                        height: 10px;
+                        height: 57px;
                         padding: 0 10px;
-                        color: #666;
+                        color: #333;
                         font-size: 1.4rem;
                         line-height: 16px;
                         border-top: 1px solid #dcdcdc;
                         text-align: center;
                         vertical-align: middle;
                         a:link {text-decoration: none; color: rgb(29, 29, 29);}
-                        a:visited {text-decoration: none; color: #666;}                            }// ted end
+                        a:visited {text-decoration: none; color: rgb(29,29,29);}
+                    }// ted end
             }// tr end
             }// tbody end
         }// list end
+        .btn-area {
+            color: #222;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            margin-top: 15px;
+        }// btn-area
 }// contentsNotice end
-.btn-area {
-    color: #222;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    word-break: break-all;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    vertical-align: top;
-    margin-top: 15px;
-    
-    .write-btn{
-        max-height: 99999px;
-        margin: 0;
-        font-style: normal;
-        height: 55px;
-        width: 55px;
-        padding: 0 5px;
-        border: 1px solid #ccc;
-        font-weight: 400;
-        font-size: 1.9rem;
-        line-height: 55px;
-        display: inline-block;
-        box-sizing: border-box;
-        border-color: #464646;
-        background-color: #464646;
-        color: #fff;
-        cursor: pointer;
-        float: right;
-        border-radius: 50%;
 
-        .pencil {
-            margin-left: 2px;
-        }
-    }// write-btn
-}// btn-area
+            
+.write-btn{
+    position: absolute;
+    right: 200px;
+    max-height: 99999px;
+    margin: 0;
+    font-style: normal;
+    height: 55px;
+    width: 55px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 55px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-color: #393e46;
+    background-color: #393e46;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    border-radius: 50%;
+
+    .pencil {
+        margin-left: 2px;
+    }
+}// write-btn
+
 .pageNation {
-    background-color: #f6f5f5;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 0;
-    margin-bottom: 50px;
-
+    margin-top: 30px;
     button {
-        font-size: 14px;
+        font-size: 15px;
+        margin: 20px auto;
+        padding: 20px;
     }
-}   
+} 

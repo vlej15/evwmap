@@ -58,6 +58,16 @@ html, body {
         height: 100vh;
         background-color: #222831;
 
+        .bounce {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #f2b640;
+            position: absolute;
+            top: 200px;
+            margin-left: 650px;
+        }
+
 
         .section1-title {
             color: #ffffff;
@@ -94,6 +104,9 @@ html, body {
             font-size: 25px;
             padding-top: 3vh;
 
+            span {
+                color: #f2b640;
+            }
         }
     }
 
@@ -102,10 +115,28 @@ html, body {
         height: 100vh;
         background-color: #eeeeee;
 
-        dl {
-            font-size: 20px;
-        }
-    }
+            dl {
+                font-size: 20px;
+
+                dt {
+                    letter-spacing: -.02em;
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                    word-break: keep-all;
+                    -webkit-text-size-adjust: none;
+                    color: #212121;
+                    font-size: 1.5em;
+                    font-weight: 300;
+                    margin-bottom: 0.5em;
+                    line-height: 1.5em;
+                    .dt-b {
+
+                    }// dtb
+                }// dt
+            }//dl
+
+}//section2
 
     .section3 {
         position: relative;
@@ -120,7 +151,7 @@ html, body {
             color: #262626;
             position: absolute;
             padding-left: 55%;
-            padding-top: 19%;
+            padding-top: 20%;
 
             .section3-title {
                 font-size: 60px;
@@ -135,26 +166,27 @@ html, body {
                 font-family: 'ChosunKm';
             }
             
-            .img2 {
-                width: 18px;
-                object-fit: cover;
-                padding-left: 3%;
-                padding-top: 30%;
-            }
-            .playstore {
-                font-size: 15px;
-                color : black;
-                font-weight: bold;
-                position: absolute;
-                top: 447px;
-                left: 825px;
-            }
+            // .img2 {
+            //     width: 18px;
+            //     object-fit: cover;
+            //     padding-left: 3%;
+            //     padding-top: 30%;
+            // }
+            // .playstore {
+            //     font-size: 15px;
+            //     color : black;
+            //     font-weight: bold;
+            //     position: absolute;
+            //     top: 540px;
+            //     left: 1111px;
+            // }
         }
 
         .bgc-box {
-            width: 45.6%;
+            width: 45.45%;
             height: 100%;
             background-color: #222831;
+            border: none;
         }
         .image-con{
             width: 52%;
@@ -167,19 +199,20 @@ html, body {
                 // object-fit: fill;
             }
         }
+        
         .mobile-app {
             position: absolute;
             color: #eeeeee;
-            font-size: 13px;
+            font-size: 14px;
             top: 0;
             .mobile {
                 padding-top: 30px;
-                padding-left: 30px;
+                padding-left: 40px;
                 
             }
             .app {
                 padding-top: 10px;
-                padding-left: 30px;
+                padding-left: 40px;
             }
         }
     }

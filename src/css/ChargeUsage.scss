@@ -1,13 +1,14 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-.banner-title, .th-title, th { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 
 html { 
     font-size:62.5%;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
 }
-.contentsNotice {
+
+
+.contentsChargeUsage {
     font-style: normal;
     font-weight: normal;
     font-size: 1.4rem;
@@ -53,7 +54,7 @@ html {
             font-weight: bold;
         }
         .subtitle {
-            width: 320px;
+            width: 390px;
             font-size: 1.6rem;
             margin: 0 auto;
             background-color: rgba(255, 232, 100, 0.3);
@@ -66,17 +67,17 @@ html {
         font-weight: 400;
         line-height: 1;
         letter-spacing: 0;
-        margin: 10vh 0 0 0;
+        margin: 5vh 0 0 0;
         padding: 0px;
         vertical-align: top;
         border-collapse: collapse;
         border-spacing: 0;
         word-break: break-all;
-        width: 1200px;
+        width: 100%;
         border-bottom: 1px solid #c8c8c8;
         background: #fff;
         table-layout: fixed;
-
+    
             thead {
                 color: #222;
                 font-size: 1.4rem;
@@ -89,15 +90,14 @@ html {
                 margin: 0px;
                 padding: 0px;
                 vertical-align: top;
-            }// thead end
-            .th-title {
+            }
+            .charge-title {
                 letter-spacing: 0;
                 border-collapse: collapse;
                 border-spacing: 0;
                 word-break: break-all;
                 margin: 0px;
                 font-weight: 400;
-                padding: 20px 10px;
                 color: #333;
                 font-size: 1.6rem;
                 line-height: 18px;
@@ -105,19 +105,16 @@ html {
                 background-color: #f9f9f9;
                 text-align: center;
                 vertical-align: middle;
-                width: 600px;
-            }
-            .th-date {
-
+                width: 35%;
             }
             th {
+                padding: 16px 0px;
                 letter-spacing: 0;
                 border-collapse: collapse;
                 border-spacing: 0;
                 word-break: break-all;
                 margin: 0px;
                 font-weight: 400;
-                padding: 0 10px;
                 color: #333;
                 font-size: 1.6rem;
                 line-height: 18px;
@@ -125,11 +122,14 @@ html {
                 background-color: #f9f9f9;
                 text-align: center;
                 vertical-align: middle;
-                width: 100px;
 
+                span {
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                }
             }
             tbody {
-                color: #333;
+                color: #222;
                 font-size: 1.4rem;
                 font-weight: 400;
                 line-height: 1;
@@ -140,48 +140,64 @@ html {
                 margin: 0px;
                 padding: 0px;
                 vertical-align: top;
-                tr {   
-                    &:hover{
-                        background-color: rgba(248, 238, 172, 0.15)
-                        } 
-                    td {
-                        font-weight: 400;
-                        letter-spacing: 0;
-                        border-collapse: collapse;
-                        border-spacing: 0;
-                        word-break: break-all;
+
+                .list-title {
+                    font-weight: 400;
+                    letter-spacing: 0;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    word-break: break-all;
+                    margin: 0px;
+                    text-align: center !important;
+                    height: 63px;
+                    // padding: 0 10px;
+                    color: #222;
+                    font-size: 1.4rem;
+                    line-height: 16px;
+                    border-top: 1px solid #dcdcdc;
+                    vertical-align: middle;
+                    // width: 400px;
+
+                    .list-link {
                         margin: 0px;
-                        height: 57px;
-                        padding: 0 10px;
-                        color: #333;
-                        font-size: 1.4rem;
-                        line-height: 16px;
-                        border-top: 1px solid #dcdcdc;
-                        text-align: center;
-                        vertical-align: middle;
-                        a:link {text-decoration: none; color: rgb(29, 29, 29);}
-                        a:visited {text-decoration: none; color: rgb(29,29,29);}
-                    }// ted end
-            }// tr end
+                        padding: 0px;
+                        vertical-align: top;
+                        // cursor: pointer;
+                        text-decoration: none;
+                        position: relative;
+                        display: inline-block;
+                        max-width: 100%;
+                        color: #222;
+                        font-size: 1.6rem;
+                        line-height: 24px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        box-sizing: border-box;
+                    }
+                }
+                .list-date, .list-khw, .list-price{
+                    font-weight: 400;
+                    letter-spacing: 0;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    word-break: break-all;
+                    margin: 0px;
+                    // height: 50px;
+                    color: #666;
+                    font-size: 1.4rem;
+                    line-height: 16px;
+                    border-top: 1px solid #dcdcdc;
+                    text-align: center;
+                    vertical-align: middle;
+                }
             }// tbody end
         }// list end
-}// contentsNotice end
-.pageNation {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    button {
-        font-size: 14px;
-        margin: 20px auto;
-    }
-} 
-
+}// contentsChargeUsage end
 
 
 @media screen and (max-width: 479px) {
-    .contentsNotice {
+    .contentsChargeUsage {
         max-width: 100%;
 
         .banner {
@@ -193,14 +209,13 @@ html {
                 font-size: 2rem;
             } 
             .subtitle {
-                width: 70%;
+                width: 50%;
                 margin: 0 auto;
                 font-size: 1.35rem;
             }
         }// banner end
         
         .list {
-            width: 100%;
             .charge-title {
                 width: 35%;
                 font-size: 1.3rem;
@@ -228,3 +243,21 @@ html {
     }// contentsQlist end
 } // media end
 
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    .contentsChargeUsage {
+        width: 100%;
+        .banner {
+            width: 90%;
+            margin: 0 auto;
+            word-break:keep-all;
+        }
+        .banner-title {
+            font-size: 26px;
+        }
+        .subtitle {
+            width: 100%;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+    }// contentsQList end
+}// media end

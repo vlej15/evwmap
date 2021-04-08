@@ -1,8 +1,11 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 .banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 
+body {
+    background-color: #ffffff;
+}
 
-.contentsQWrite {
+.contentsBoardChange {
     font-style: normal;
     font-weight: normal;
     font-size: 1.4rem;
@@ -51,7 +54,7 @@
             width: 390px;
             font-size: 1.6rem;
             margin: 0 auto;
-            background-color: rgba(255, 232, 100, 0.3);
+            // background-color: rgba(255, 232, 100, 0.3);
         }
     }//banner
 
