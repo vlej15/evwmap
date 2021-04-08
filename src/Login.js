@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import "./css/Login.scss";
-import { Link, Route, Switch } from "react-router-dom";
+import { useHistory, Link, Route, Switch } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const Login = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const history = useHistory();
+  const [idtoken, setIdtoken] = useState("");
+  const { getValues, register, handleSubmit, watch, errors } = useForm();
+
   const onSubmit = () => {
+    const u_id = getValues("input-id");
+    const u_pwd = getValues("input-pw");
+    console.log(u_id, u_pwd);
     var data = JSON.stringify({
-      u_id: "1111",
-      u_pwd: "2222",
+      u_id: u_id,
+      u_pwd: u_pwd,
     });
 
     var config = {
@@ -25,8 +31,12 @@ const Login = () => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         window.localStorage.setItem("id", response.data.token);
+        if (response.data.token != null) {
+          window.location.replace("/");
+        }
       })
       .catch(function (error) {
+        alert("아이디 비밀번호를 제대로 입력해주세요");
         console.log(error);
       });
   };

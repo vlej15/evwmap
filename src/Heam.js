@@ -2,23 +2,43 @@ import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
 
 function Heam() {
+  function logout() {
+    localStorage.removeItem("id");
+    window.location.replace("/");
+  }
   return (
     <div className="pcmenu">
       <div className="global_box">
         <ul className="global_join_box">
           <li className="global_list">
-            <Link to="/login">
-              <a className="login_box" href="#">
-                LOGIN
-              </a>
-            </Link>
+            {localStorage.getItem("id") == null ? (
+              <Link to="/login">
+                <a className="login_box" href="#">
+                  LOGIN
+                </a>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <a className="login_box" href="#" onClick={logout}>
+                  LOGOUT
+                </a>
+              </Link>
+            )}
           </li>
           <li className="global_list">
-            <Link to="/signup">
-              <a className="join_box" href="#">
-                JOIN
-              </a>
-            </Link>
+            {localStorage.getItem("id") == null ? (
+              <Link to="/signup">
+                <a className="join_box" href="#">
+                  JOIN
+                </a>
+              </Link>
+            ) : (
+              <Link to="/signup">
+                <a className="join_box" href="#">
+                  MY PAGE
+                </a>
+              </Link>
+            )}
           </li>
         </ul>
       </div>
