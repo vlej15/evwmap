@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -23,6 +24,29 @@ import InfoChange from "./InfoChange";
 import Activity from "./Activity";
 
 function App() {
+  const [a1, setA1] = useState();
+  const [a2, setA2] = useState();
+  useEffect(() => {
+    if (navigator.geolocation) {
+      // GPS를 지원하면
+
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          setA1(position.coords.latitude);
+          setA2(position.coords.longitude);
+          // alert(position.coords.latitude + " " + position.coords.longitude);
+        },
+        function (error) {
+          console.error(error);
+        },
+        {
+          enableHighAccuracy: false,
+          maximumAge: 0,
+          timeout: Infinity,
+        }
+      );
+    }
+  });
   return (
     <div>
       <div className="page-container">
@@ -45,7 +69,7 @@ function App() {
           <Inquiry />
         </Route>
         <Route exact path="/navigate">
-          <FindingAWay />
+          <FindingAWay a1={a1} a2={a2} />
         </Route>
         {/* COMMUNITY */}
         <Route exact path="/notice">
@@ -74,7 +98,7 @@ function App() {
         <Route exact path="/findpw">
           <FindPw />
         </Route>
-        {/* FIND ID / PW */}
+        {/* My Page */}
 
         <Route exact path="/activity">
           <Activity />

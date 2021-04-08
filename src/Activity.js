@@ -3,6 +3,7 @@ import "./css/Activity.scss";
 import "./css/MypageMenu.scss";
 import Data from "./data.js";
 import Replydata from "./replydata.js";
+import { Link } from "react-router-dom";
 
 function Activity(props) {
   let [board, setboard] = useState(Data);
@@ -13,56 +14,54 @@ function Activity(props) {
       <div className="locationData">
         <div className="inner">
           <div className="btnHome">
-            <i class="fas fa-home"></i>
+            <Link to="/">
+              <i class="fas fa-home"></i>
+            </Link>
           </div>
           <div className="navTitle">
             <ul className="ulTitle">
               <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    MYPAGE
-                    <div className="navInnerMenu">
-                      {/* <i class="fas fa-caret-down"></i> */}
+                <Link to="activity">
+                  <a>
+                    <div className="navMenu">
+                      MYPAGE
+                      <div className="navInnerMenu">
+                        {/* <i class="fas fa-caret-down"></i> */}
+                      </div>
                     </div>
-                  </div>
-                </a>
-                {/* <ul className="navList">
-                  <li>
-                    <a>INTODUCTION</a>
-                  </li>
-                  <li>
-                    <a>MAP</a>
-                  </li>
-                  <li>
-                    <a>COMMUNITY</a>
-                  </li>
-                  <li>
-                    <a>CONTACT</a>
-                  </li>
-                </ul> */}
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="navTitle">
             <ul className="ulTitle">
               <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    활동내역
-                    <div className="navInnerMenu">
-                      <i class="fas fa-caret-down"></i>
+                <Link to="activity">
+                  <a>
+                    <div className="navMenu">
+                      활동 내역
+                      <div className="navInnerMenu">
+                        <i class="fas fa-caret-down"></i>
+                      </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                </Link>
                 <ul className="navList">
                   <li>
-                    <a>활동내역</a>
+                    <Link to="activity">
+                      <a>활동 내역</a>
+                    </Link>
                   </li>
                   <li>
-                    <a>충전기 이용내역</a>
+                    <Link to="chargeusage">
+                      <a>이용 내역</a>
+                    </Link>
                   </li>
                   <li>
-                    <a>회원정보 수정</a>
+                    <Link to="infochange">
+                      <a>정보 수정</a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -70,12 +69,7 @@ function Activity(props) {
           </div>
         </div>
       </div>
-      <div
-        className="contentsActivity"
-        // onClick={() => {
-        //     props.setMenu(false);
-        // }}
-      >
+      <div className="contentsActivity">
         <div className="banner">
           <p className="banner-title">활동 내역</p>
           <br></br>

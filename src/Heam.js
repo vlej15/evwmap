@@ -33,7 +33,7 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-              <Link to="/mypage">
+              <Link to="/activity">
                 <a className="join_box" href="#">
                   MY PAGE
                 </a>
