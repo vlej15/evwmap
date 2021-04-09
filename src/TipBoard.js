@@ -48,8 +48,7 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
-      <div data-aos="fade-down"
-        data-aos-duration="1000">
+      <div data-aos="fade-down" data-aos-duration="1000">
         <BannerCommunity />
       </div>
       <div className="contentsBoard">
@@ -57,7 +56,9 @@ function Posts({ posts, loading }) {
         <div className="banner">
           <p className="banner-title">TIP 게시판</p>
           <br></br>
-          <p className="subtitle">전기차와 관련된 다양한 TIP을 공유 하실 수 있습니다.</p>
+          <p className="subtitle">
+            전기차와 관련된 다양한 TIP을 공유 하실 수 있습니다.
+          </p>
         </div>
         <table className="list">
           <thead>
@@ -72,7 +73,7 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td >{post.id}</td>
+                <td>{post.id}</td>
                 <td key={post.id}>
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
@@ -83,9 +84,16 @@ function Posts({ posts, loading }) {
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="btn-area">
-        <button className="write-btn"><FontAwesomeIcon icon={faPencilAlt} className="pencil"></FontAwesomeIcon></button>
+        <div className="btn-area">
+          {localStorage.getItem("id") != null ? (
+            <button className="write-btn">
+              <FontAwesomeIcon
+                icon={faPencilAlt}
+                className="pencil"
+              ></FontAwesomeIcon>
+            </button>
+          ) : null}
+        </div>
       </div>
     </>
   );

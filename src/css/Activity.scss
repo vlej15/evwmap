@@ -1,0 +1,201 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+html { 
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ffffff;
+}
+
+.contentsActivity {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 100px;
+    padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 1200px;
+    margin-bottom: 400px;
+    tbody {
+        color: #222;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        word-break: break-all;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        .list-title {
+            width:33.33%;
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            text-align: center !important;
+            height: 70px;
+            padding: 0 10px;
+            color: #999;
+            font-size: 1.4rem;
+            line-height: 16px;
+            border-top: 1px solid #dcdcdc;
+            vertical-align: middle;
+            width: 400px;
+    
+            .list-link {
+                font-weight: 400;
+                letter-spacing: 0;
+                border-collapse: collapse;
+                border-spacing: 0;
+                word-break: break-all;
+                text-align: left !important;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: top;
+                cursor: pointer;
+                text-decoration: none;
+                position: relative;
+                display: inline-block;
+                max-width: 100%;
+                color: #222;
+                font-size: 1.6rem;
+                line-height: 24px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                box-sizing: border-box;
+            }
+        }
+        .list-date, .list-view{
+            width:33.33%;
+            font-weight: 400;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            height: 70px;
+            padding: 0 10px;
+            color: #666;
+            font-size: 1.4rem;
+            line-height: 16px;
+            border-top: 1px solid #dcdcdc;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+    .banner{
+        color: #222;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        margin-top: 10px;
+        padding: 0px;
+        vertical-align: top;
+    
+            .banner-title {
+                color: #222;
+                line-height: 1.4;
+                letter-spacing: 0;
+                word-break: break-all;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: top;
+                font-size: 2.7rem;
+                font-weight: bold;
+            }
+            .subtitle {
+                font-size: 1.6rem;
+                margin-top: 0;
+            }
+        }//banner end
+        .list {
+            color: #222;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+            margin: 45px 0 0 0;
+            padding: 0px;
+            vertical-align: top;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            width: 100%;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #c8c8c8;
+            background: #fff;
+            table-layout: fixed;
+                thead {
+                    color: #222;
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                    line-height: 1;
+                    letter-spacing: 0;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    word-break: break-all;
+                    margin: 0px;
+                    padding: 0px;
+                    vertical-align: top;
+                    th {
+                        letter-spacing: 0;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        word-break: break-all;
+                        margin: 0px;
+                        font-weight: 400;
+                        padding: 26px 10px;
+                        color: #333;
+                        font-size: 1.6rem;
+                        line-height: 18px;
+                        border-bottom: 1px solid #dcdcdc;
+                        background-color: #f9f9f9;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                }
+                .charge-title {
+                    letter-spacing: 0;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    word-break: break-all;
+                    margin: 0px;
+                    font-weight: 400;
+                    padding: 26px 10px;
+                    color: #333;
+                    font-size: 1.6rem;
+                    line-height: 18px;
+                    border-bottom: 1px solid #dcdcdc;
+                    background-color: #f9f9f9;
+                    text-align: center;
+                    vertical-align: middle;
+                    width: 400px;
+                } 
+                // tbody end
+            }// list end
+}// contentsActivy end
+

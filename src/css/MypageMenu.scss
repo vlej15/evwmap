@@ -1,6 +1,7 @@
 .locationData{
+    z-index: 10;
     // margin-top: 10px;
-    z-index: 9999;
+    position:relative;
     display: flex;
     justify-content: center;
     width:100%;
@@ -9,12 +10,24 @@
     border-top: 1px solid #e4e8eb;
     border-bottom: 1px solid #e4e8eb;
     color:black;
+    margin-top: 90px;
     .inner{
         display: flex;
         width:1200px;
-        height: 50px;
+        height: 48px;
         background-color: white;
+        // border-bottom: 1px solid #e4e8eb;
         .btnHome{
+                a {
+                    color: #464646;
+                    text-decoration: none;
+                    outline: none;
+                    &:hover{
+                        color:#f2b640 ;
+                    }
+                }
+
+            
             text-align: center;
             line-height: 52px;
             width:61px;
@@ -25,14 +38,14 @@
             border-left: 1px solid #e4e8eb;
             border-right: 1px solid #e4e8eb;
             &:hover{
-                color:#f5cb11d8 ;
+                color:#f2b640 ;
             }
         }
         .navTitle{
             
-            font-size: 18px;
+            font-size: 15px;
             width: 240px;
-            height: 50px;
+            height: 48px;
             border-right: 1px solid #e4e8eb;
         .ulTitle{
             
@@ -44,7 +57,8 @@
             color:black;
             padding: 0px 20px;
             line-height: 50px;
-            height: 50px;;
+            height: 48px;;
+            width:260px;
             display: flex;
             color:black;
             &:hover{
@@ -52,13 +66,13 @@
             }
             .navInnerMenu{
                 color:black;
-                width: 100%;
+                width: 130px;
                 text-align: end;
                 font-size: 25px;
             }
         }
         .liTitleOpen{
-            font-size: 18px;
+            font-size: 15px;
             color:#9c9c9c;
             font-weight: 400;
             .navList{
@@ -90,11 +104,11 @@
             border-right: 1px solid rgb(26,26,26);
             border-bottom: 1px solid rgb(26,26,26);
             .navList{
-                padding:30px 20px;
-                height: 240px;
+                padding:20px 20px;
+                height: 190px;
                 opacity: 1;
                 transform: translateY(0);
-                border-left: 1px solid #d8e4ec;
+                // border-left: 1px solid #d8e4ec;
                 border-right: 1px solid #e4e8eb;
                 border-bottom: 1px solid #e4e8eb;
                 li{

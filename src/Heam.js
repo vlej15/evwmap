@@ -18,12 +18,12 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-                <Link to="/login">
-                  <a className="login_box" href="#" onClick={logout}>
-                    LOGOUT
+              <Link to="/">
+                <a className="login_box" href="#" onClick={logout}>
+                  LOGOUT
                 </a>
-                </Link>
-              )}
+              </Link>
+            )}
           </li>
           <li className="global_list">
             {localStorage.getItem("id") == null ? (
@@ -33,12 +33,12 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-                <Link to="/signup">
-                  <a className="join_box" href="#">
-                    MY PAGE
+              <Link to="/activity">
+                <a className="join_box" href="#">
+                  MY PAGE
                 </a>
-                </Link>
-              )}
+              </Link>
+            )}
           </li>
         </ul>
       </div>
