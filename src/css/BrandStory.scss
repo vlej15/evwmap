@@ -45,7 +45,6 @@ html, body {
 .contentsTest {
     width: 100%;
     height: 100%;
-    // overflow: hidden; 
     
     .section0 {
         width: 100vw;
@@ -115,12 +114,12 @@ html, body {
                     word-break: keep-all;
                     -webkit-text-size-adjust: none;
                     color: #212121;
-                    font-size: 1.5em;
+                    font-size: 1.4em;
                     font-weight: 300;
                     margin-bottom: 0.5em;
                     line-height: 1.5em;
                     .dt-b {
-
+                        font-weight: bold;
                     }// dtb
                 }// dt
             }//dl
@@ -233,7 +232,6 @@ html, body {
 
 p {
     width: 100%;
-    line-height: 2;
 }
 
 span {

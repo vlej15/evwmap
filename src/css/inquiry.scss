@@ -77,7 +77,7 @@
 
     .facility_box {
         width: 555px;
-        height: 180px;
+        height: 330px;
         margin: 100px 15px 10px 29px;
         text-align: center;
         border: 1px solid #d4d4d4;
@@ -166,14 +166,14 @@
             padding: 0;
             border-top: 1px solid #d4d4d4;
             border-bottom: 1px solid #d4d4d4;
-            padding: 18px 0;
+            padding: 20px 0;
 
             li {
                 padding: 5px 0;
             }
 
 
-            p {
+            .info-p {
                 font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
                 width: 130px;
                 float: left;
@@ -190,7 +190,7 @@
                 // padding: 20px 0;
 
                 .rsvt-btn {
-                    margin: 8px 0;
+                    margin: 10px 0;
                     // line-height: 40px;
                     float: right;
                     height: 35px;

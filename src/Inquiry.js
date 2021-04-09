@@ -58,9 +58,9 @@ function Inquiry() {
               </div>
               <div className="infomation">
                 <ul>
-                  <li><p>도로명 주소</p><span>경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장</span></li>
-                  <li><p>이용가능시간</p><span>24시간 이용가능</span></li>
-                  <li><p>연락처</p><span>1522-2573</span></li>
+                  <li><p className="info-p">도로명 주소</p><span>경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장</span></li>
+                  <li><p className="info-p">이용가능시간</p><span>24시간 이용가능</span></li>
+                  <li><p className="info-p">연락처</p><span>1522-2573</span></li>
                 </ul>
               </div>
               <div className="now">

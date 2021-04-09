@@ -25,7 +25,6 @@ export default class SimpleSlider extends Component {
             autoplay: true,
             autoplaySpeed: 4000,
         };
-
         return (
             <>
                 <div className="end"></div>
