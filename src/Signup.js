@@ -10,7 +10,7 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const basicId = "test1901107";
   // 이메일인증함수
-  function emailCheck() {}
+  function emailCheck() { }
   // 아이디체크함수
   function idCheck(e) {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function Signup() {
     if (idCheck == basicId) {
       alert("이미 사용중인 아이디입니다.");
     } else if (idCheck == "") {
-      alert("아이디 값이 공백입니다.");
+      alert("아이디를 입력해주세요.");
     } else if (idCheck.match(Check)) {
       alert("사용가능한 아이디입니다.");
     } else {
@@ -135,7 +135,9 @@ export default function Signup() {
                   name="email"
                   type="email"
                   placeholder="이메일"
-                  ref={register}
+                  ref={register({
+                    required: true
+                  })}
                 />
                 <button href="#" className="btn-ct" onClick={emailCheck}>
                   인증번호받기
