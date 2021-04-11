@@ -48,7 +48,7 @@ export default class SimpleSlider extends Component {
                             </p>
                         </div>
                         {/* section1 end */}
-                        <div className="section2">
+                        {/* <div className="section2">
                             <dl
                                 data-aos="fade-up"
                                 data-aos-delay="400"
@@ -97,7 +97,7 @@ export default class SimpleSlider extends Component {
                                     해소합니다.
                                 </dd>
                             </dl>
-                        </div>{" "}
+                        </div> */}
                         {/* section2 end */}
                         <div className="section3">
                             <div className="section3-text">
