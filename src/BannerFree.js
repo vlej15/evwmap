@@ -1,6 +1,6 @@
 import React from "react";
 import './css/Banner.scss'
-import img1 from './css/img1.jpeg'
+import img1 from './css/free.jpeg'
 
 function BannerFree() {
     return (

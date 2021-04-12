@@ -23,6 +23,7 @@ import BoardChange from "./BoardChange";
 import InfoChange from "./InfoChange";
 import Activity from "./Activity";
 import axios from "axios";
+import News from './News';
 
 function App() {
   const [a1, setA1] = useState();
@@ -126,6 +127,10 @@ function App() {
 
         <Route exact path="/infochange">
           <InfoChange />
+        </Route>
+
+        <Route exact path="/news">
+          <News />
         </Route>
 
         {/* FOOTER */}

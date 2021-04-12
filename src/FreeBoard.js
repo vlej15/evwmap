@@ -49,7 +49,7 @@ function FreeBoard() {
 function Posts({ posts, loading }) {
   return (
     <>
-      <div className="end"></div>
+      {/* <div className="end"></div> */}
 
       <div data-aos="fade-down"
         data-aos-duration="1000">

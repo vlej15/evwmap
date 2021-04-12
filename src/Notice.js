@@ -47,7 +47,7 @@ function Notice() {
 function Posts({ posts, loading }) {
   return (
     <>
-      <div className="end"></div>
+      {/* <div className="end"></div> */}
 
       <BannerNotice />
 
