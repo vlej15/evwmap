@@ -3,13 +3,13 @@ import axios from "axios";
 import "./css/Notice.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
-import BannerCommunity from "./BannerCommunity";
+import BannerNotice from "./BannerNotice";
 
 function Notice() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(9);
+  const [postsPerPage, setPostsPerPage] = useState(10);
   const data = JSON.stringify({
     u_id: "youngsik1",
   });
@@ -48,70 +48,9 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
-      <div data-aos="fade-down" data-aos-duration="1000">
-        <BannerCommunity />
-      </div>
-      <div className="ClocationData">
-        <div className="inner">
-          <div className="btnHome">
-            <i class="fas fa-home"></i>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  <div className="navInnerMenu">COMMUNITY</div>
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
-                </div>
-                <ul className="navList">
-                  <li>
-                    <a>INTODUCTION</a>
-                  </li>
-                  <li>
-                    <a>MAP</a>
-                  </li>
-                  <li>
-                    <a>COMMUNITY</a>
-                  </li>
-                  <li>
-                    <a>CONTACT</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    NOTICE
-                    <div className="navInnerMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <li>
-                    <a>NOTICE</a>
-                  </li>
-                  <li>
-                    <a>FREE BOARD</a>
-                  </li>
-                  <li>
-                    <a>TIP BOARD</a>
-                  </li>
-                  <li>
-                    <a>NEWS BOARD</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+      <BannerNotice />
+
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
         <div className="banner">
@@ -134,8 +73,9 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
-                <td key={post.id}>
+                <td >{post.id}</td>
+                <td key={post.id} className="td-title">
+
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
                 <td>작성자</td>

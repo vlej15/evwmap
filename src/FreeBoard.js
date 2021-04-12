@@ -5,8 +5,9 @@ import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import BannerCommunity from "./BannerCommunity";
-import "./css/Community.scss";
+
+import BannerFree from "./BannerFree";
+
 
 function FreeBoard() {
   const [posts, setPosts] = useState([]);
@@ -49,8 +50,11 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
-      <div data-aos="fade-down" data-aos-duration="1000">
-        <BannerCommunity />
+
+      <div data-aos="fade-down"
+        data-aos-duration="1000">
+        <BannerFree />
+
       </div>
       <div className="ClocationData">
         <div className="inner">
@@ -134,8 +138,10 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
-                <td key={post.id}>
+
+                <td >{post.id}</td>
+                <td key={post.id} className="td-title">
+
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
                 <td>작성자</td>

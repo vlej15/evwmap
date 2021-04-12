@@ -50,7 +50,43 @@
             background-color: rgba(255, 232, 100, 0.3);
         }
     }//banner
+
+    .char-search {
+        margin-top: 50px;
+        width: 100%;
+        margin-bottom: 35px;
+        position: relative;
+        text-align: right;
+    
+        .insert {
+            height: 50px;
+            padding: 0 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            font-size: 1.6rem;
+            color: #666;
+            width: 230px;
+        }
+        
+        .search-btn {
+            height: 50px;
+            padding: 0 10px;
+            border: 1px solid #212121;
+            font-size: 1.6rem;
+            line-height: 50px;
+            width: 90px;
+            border-color: #212121;
+            background-color: #212121;
+            color: #fff;
+            cursor: pointer;
+            margin-left: -1px;
+        }
+        
+    }
+    
 }
+
+
 .inquiry_box {
     width: 1200px;
     height: 700px;

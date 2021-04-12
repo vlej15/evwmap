@@ -1,6 +1,20 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 .banner-title, .th-title, th { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IBMPlexSansKR-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 html { 
     font-size:62.5%;
     margin: 0;
@@ -26,7 +40,7 @@ html {
     transition-delay: .2s;
     opacity: 1;
     top: 0px;
-    width: 1200px;
+    width: 90%;
     // margin-bottom: 400px;
 
     .banner{
@@ -49,112 +63,60 @@ html {
             margin: 0px;
             padding: 0px;
             vertical-align: top;
-            font-size: 2.7rem;
+            font-size: 2.9rem;
             font-weight: bold;
         }
         .subtitle {
-            width: 320px;
-            font-size: 1.6rem;
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 390px;
+            font-size: 1.85rem;
             margin: 0 auto;
             background-color: rgba(255, 232, 100, 0.3);
         }
     }//banner
 
     .list {
-        color: #222;
-        font-size: 1.4rem;
-        font-weight: 400;
-        line-height: 1;
-        letter-spacing: 0;
         margin: 10vh 0 0 0;
-        padding: 0px;
         vertical-align: top;
         border-collapse: collapse;
-        border-spacing: 0;
-        word-break: break-all;
-        width: 1200px;
+        width: 100%;
         border-bottom: 1px solid #c8c8c8;
-        background: #fff;
         table-layout: fixed;
 
-            thead {
-                color: #222;
-                font-size: 1.4rem;
-                font-weight: 400;
-                line-height: 1;
-                letter-spacing: 0;
-                border-collapse: collapse;
-                border-spacing: 0;
-                word-break: break-all;
-                margin: 0px;
-                padding: 0px;
-                vertical-align: top;
-            }// thead end
             .th-title {
-                letter-spacing: 0;
-                border-collapse: collapse;
-                border-spacing: 0;
-                word-break: break-all;
-                margin: 0px;
-                font-weight: 400;
-                padding: 20px 10px;
-                color: #333;
-                font-size: 1.6rem;
-                line-height: 18px;
+                padding: 25px 10px;
+                color: #444;
+                font-size: 1.7rem;
+                border-top: 3px solid #212121;
                 border-bottom: 1px solid #dcdcdc;
-                background-color: #f9f9f9;
+                background-color: #ffffff;
                 text-align: center;
                 vertical-align: middle;
                 width: 600px;
             }
-            .th-date {
-
-            }
             th {
-                letter-spacing: 0;
-                border-collapse: collapse;
-                border-spacing: 0;
-                word-break: break-all;
-                margin: 0px;
-                font-weight: 400;
                 padding: 0 10px;
-                color: #333;
-                font-size: 1.6rem;
-                line-height: 18px;
+                color: #444;
+                font-size: 1.7rem;
+                border-top: 3px solid #212121;
                 border-bottom: 1px solid #dcdcdc;
-                background-color: #f9f9f9;
+                background-color: #ffffff;
                 text-align: center;
-                vertical-align: middle;
                 width: 100px;
 
             }
             tbody {
-                color: #333;
-                font-size: 1.4rem;
-                font-weight: 400;
-                line-height: 1;
-                letter-spacing: 0;
-                border-collapse: collapse;
-                border-spacing: 0;
-                word-break: break-all;
-                margin: 0px;
-                padding: 0px;
-                vertical-align: top;
                 tr {   
                     &:hover{
                         background-color: rgba(248, 238, 172, 0.15)
                         } 
                     td {
-                        font-weight: 400;
-                        letter-spacing: 0;
-                        border-collapse: collapse;
-                        border-spacing: 0;
-                        word-break: break-all;
+                        font-family: 'IBMPlexSansKR-Regular';
                         margin: 0px;
-                        height: 57px;
-                        padding: 0 10px;
+                        height: 60px;
+                        padding: 10px 10px;
                         color: #333;
-                        font-size: 1.4rem;
+                        font-size: 1.7rem;
                         line-height: 16px;
                         border-top: 1px solid #dcdcdc;
                         text-align: center;
@@ -162,6 +124,14 @@ html {
                         a:link {text-decoration: none; color: rgb(29, 29, 29);}
                         a:visited {text-decoration: none; color: rgb(29,29,29);}
                     }// ted end
+                    .td-title {
+                        font-family: 'IBMPlexSansKR-Regular';
+                        text-align: left;
+                        padding-left: 50px;
+                        a{
+                            font-family: 'IBMPlexSansKR-Medium';
+                        }
+                    }
             }// tr end
             }// tbody end
         }// list end
@@ -173,7 +143,7 @@ html {
     align-items: center;
     margin-top: 30px;
     button {
-        font-size: 14px;
+        font-size: 16px;
         margin: 20px auto;
     }
 } 
