@@ -5,7 +5,9 @@ import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+
 import BannerFree from "./BannerFree";
+
 
 function FreeBoard() {
   const [posts, setPosts] = useState([]);
@@ -48,15 +50,80 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
+
       <div data-aos="fade-down"
         data-aos-duration="1000">
         <BannerFree />
+
+      </div>
+      <div className="ClocationData">
+        <div className="inner">
+          <div className="btnHome">
+            <i class="fas fa-home"></i>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <div className="navMenu">
+                  COMMUNITY
+                  <div className="navInnerMenu">
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+                </div>
+                <ul className="navList">
+                  <li>
+                    <a>INTODUCTION</a>
+                  </li>
+                  <li>
+                    <a>MAP</a>
+                  </li>
+                  <li>
+                    <a>COMMUNITY</a>
+                  </li>
+                  <li>
+                    <a>CONTACT</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <a>
+                  <div className="navMenu">
+                    FREE BOARD
+                    <div className="navInnerMenu">
+                      <i class="fas fa-caret-down"></i>
+                    </div>
+                  </div>
+                </a>
+                <ul className="navList">
+                  <li>
+                    <a>NOTICE</a>
+                  </li>
+                  <li>
+                    <a>FREE BOARD</a>
+                  </li>
+                  <li>
+                    <a>TIP BOARD</a>
+                  </li>
+                  <li>
+                    <a>NEWS BOARD</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="contentsBoard">
         <div className="banner">
           <p className="banner-title">자유게시판</p>
           <br></br>
-          <p className="subtitle">이용자들과 자유로운 의견 교환을 하실 수 있습니다.</p>
+          <p className="subtitle">
+            이용자들과 자유로운 의견 교환을 하실 수 있습니다.
+          </p>
         </div>
         <table className="list">
           <thead>
@@ -71,8 +138,10 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
+
                 <td >{post.id}</td>
                 <td key={post.id} className="td-title">
+
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
                 <td>작성자</td>
@@ -91,7 +160,6 @@ function Posts({ posts, loading }) {
               ></FontAwesomeIcon>
             </button>
           ) : null}
-
         </div>
       </div>
     </>
