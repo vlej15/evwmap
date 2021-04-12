@@ -22,11 +22,27 @@ import BoardWrite from "./BoardWrite";
 import BoardChange from "./BoardChange";
 import InfoChange from "./InfoChange";
 import Activity from "./Activity";
+import axios from "axios";
 
 function App() {
   const [a1, setA1] = useState();
   const [a2, setA2] = useState();
-  useEffect(() => {
+  const [marker, setMarker] = useState([]);
+  useEffect(async () => {
+    var config = {
+      method: "get",
+      url: "http://3.36.160.255:8081/api/marker",
+      headers: {},
+    };
+
+    await axios(config)
+      .then(function (response) {
+        setMarker(response.data);
+        console.log(marker);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     if (navigator.geolocation) {
       // GPS를 지원하면
 
@@ -46,7 +62,7 @@ function App() {
         }
       );
     }
-  });
+  }, []);
   return (
     <div>
       <div className="page-container">
@@ -69,7 +85,7 @@ function App() {
           <Inquiry />
         </Route>
         <Route exact path="/navigate">
-          <FindingAWay a1={a1} a2={a2} />
+          <FindingAWay a1={a1} a2={a2} marker={marker} />
         </Route>
         {/* COMMUNITY */}
         <Route exact path="/notice">

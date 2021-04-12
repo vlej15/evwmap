@@ -48,16 +48,78 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
-      <div data-aos="fade-down"
-        data-aos-duration="1000">
+      <div data-aos="fade-down" data-aos-duration="1000">
         <BannerCommunity />
+      </div>
+      <div className="ClocationData">
+        <div className="inner">
+          <div className="btnHome">
+            <i class="fas fa-home"></i>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <div className="navMenu">
+                  <div className="navInnerMenu">COMMUNITY</div>
+                  <div className="navInnerMenu">
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+                </div>
+                <ul className="navList">
+                  <li>
+                    <a>INTODUCTION</a>
+                  </li>
+                  <li>
+                    <a>MAP</a>
+                  </li>
+                  <li>
+                    <a>COMMUNITY</a>
+                  </li>
+                  <li>
+                    <a>CONTACT</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <a>
+                  <div className="navMenu">
+                    NOTICE
+                    <div className="navInnerMenu">
+                      <i class="fas fa-caret-down"></i>
+                    </div>
+                  </div>
+                </a>
+                <ul className="navList">
+                  <li>
+                    <a>NOTICE</a>
+                  </li>
+                  <li>
+                    <a>FREE BOARD</a>
+                  </li>
+                  <li>
+                    <a>TIP BOARD</a>
+                  </li>
+                  <li>
+                    <a>NEWS BOARD</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
         <div className="banner">
           <p className="banner-title">공지사항</p>
           <br></br>
-          <p className="subtitle">EV WMAP의 공지 및 업데이트 소식을 전합니다.</p>
+          <p className="subtitle">
+            EV WMAP의 공지 및 업데이트 소식을 전합니다.
+          </p>
         </div>
         <table className="list">
           <thead>
@@ -72,7 +134,7 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td >{post.id}</td>
+                <td>{post.id}</td>
                 <td key={post.id}>
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
@@ -106,7 +168,11 @@ function Pagination({
   return (
     <div className="pageNation">
       <div>
-        <APagination count={pageNumbers.length} size="large" onChange={handleChange} />
+        <APagination
+          count={pageNumbers.length}
+          size="large"
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
