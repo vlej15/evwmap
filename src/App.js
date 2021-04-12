@@ -23,7 +23,11 @@ import BoardChange from "./BoardChange";
 import InfoChange from "./InfoChange";
 import Activity from "./Activity";
 import axios from "axios";
+<<<<<<< Updated upstream
 import News from './News';
+=======
+import CardRegistration from "./CardRegistration";
+>>>>>>> Stashed changes
 
 function App() {
   const [a1, setA1] = useState();
@@ -129,8 +133,15 @@ function App() {
           <InfoChange />
         </Route>
 
+<<<<<<< Updated upstream
         <Route exact path="/news">
           <News />
+=======
+        {/* CARD */}
+
+        <Route exact path="/card">
+          <CardRegistration />
+>>>>>>> Stashed changes
         </Route>
 
         {/* FOOTER */}
