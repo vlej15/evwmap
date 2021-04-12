@@ -48,13 +48,17 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
+
       <BannerNotice />
+
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
         <div className="banner">
           <p className="banner-title">공지사항</p>
           <br></br>
-          <p className="subtitle">EV WMAP의 공지 및 업데이트 소식을 전합니다.</p>
+          <p className="subtitle">
+            EV WMAP의 공지 및 업데이트 소식을 전합니다.
+          </p>
         </div>
         <table className="list">
           <thead>
@@ -71,6 +75,7 @@ function Posts({ posts, loading }) {
               <tr>
                 <td >{post.id}</td>
                 <td key={post.id} className="td-title">
+
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
                 <td>작성자</td>
@@ -103,7 +108,11 @@ function Pagination({
   return (
     <div className="pageNation">
       <div>
-        <APagination count={pageNumbers.length} size="large" onChange={handleChange} />
+        <APagination
+          count={pageNumbers.length}
+          size="large"
+          onChange={handleChange}
+        />
       </div>
     </div>
   );

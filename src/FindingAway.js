@@ -10,10 +10,13 @@ const { Tmapv2 } = window;
 function FindingAWay(props) {
   const a1 = props.a1;
   const a2 = props.a2;
+  const marker = props.marker;
+  let lat = 0;
+  let lng = 0;
   var map;
   var markerInfo;
   //출발지,도착지 마커
-  var marker_s, marker_e, marker_p;
+  var marker_s, marker_e, marker_p, markers;
   //경로그림정보
   var drawInfoArr = [];
   var drawInfoArr2 = [];
@@ -21,20 +24,39 @@ function FindingAWay(props) {
   var chktraffic = [];
   var resultdrawArr = [];
   var resultMarkerArr = [];
+
+  var markerLayer;
+  const getId = localStorage.getItem("id");
+
   useEffect(() => {
     const map = new Tmapv2.Map("map_div", {
       // 지도가 생성될 div
       width: "600px", // 지도의 넓이
       height: "600px", // 지도의 높이
     });
+
+    marker.map((mk) => {
+      markers = new Tmapv2.Marker({
+        position: new Tmapv2.LatLng(mk.stat_lat, mk.stat_lng),
+        icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+        iconSize: new Tmapv2.Size(24, 38),
+        map: map,
+      });
+      markers.addListener("click", function (evt) {
+        console.log(mk.stat_lat, mk.stat_lng);
+        lat = mk.stat_lat;
+        lng = mk.stat_lng;
+        console.log(lat, lng);
+      });
+    });
     marker_s = new Tmapv2.Marker({
-      position: new Tmapv2.LatLng(a1, a2),
-      icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+      position: new Tmapv2.LatLng(a2, a1),
+      icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
       iconSize: new Tmapv2.Size(24, 38),
       map: map,
     });
     marker_e = new Tmapv2.Marker({
-      position: new Tmapv2.LatLng(37.403049076341794, 127.10331814639885),
+      position: new Tmapv2.LatLng(lng, lat),
       icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
       iconSize: new Tmapv2.Size(24, 38),
       map: map,
@@ -52,10 +74,10 @@ function FindingAWay(props) {
         async: false,
         data: {
           appKey: "l7xx7e0f3fa63ea24325bc1914cf5d911bf7",
-          startX: a1,
-          startY: a2,
-          endX: "127.10331814639885",
-          endY: "37.403049076341794",
+          startX: a2,
+          startY: a1,
+          endX: lng,
+          endY: lat,
           reqCoordType: "WGS84GEO",
           resCoordType: "EPSG3857",
           searchOption: searchOption,
@@ -430,7 +452,6 @@ function FindingAWay(props) {
           <p className="banner-title">길찾기</p>
           <br></br>
           <p className="subtitle">원하는 충전소까지의 길을 찾을 수 있습니다.</p>
-
         </div>
         <div className="faw-box">
           <div className="map-content-box">
