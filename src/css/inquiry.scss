@@ -17,8 +17,7 @@
     transition-delay: .2s;
     opacity: 1;
     top: 0px;
-    width: 1200px;
-    // margin-bottom: 400px;
+    width: 90%;
 
     .banner{
     color: #222;
@@ -40,12 +39,13 @@
             margin: 0px;
             padding: 0px;
             vertical-align: top;
-            font-size: 2.7rem;
+            font-size: 2.9rem;
             font-weight: bold;
         }
         .subtitle {
-            width: 500px;
-            font-size: 1.6rem;
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 570px;
+            font-size: 1.85rem;
             margin: 0 auto;
             background-color: rgba(255, 232, 100, 0.3);
         }
