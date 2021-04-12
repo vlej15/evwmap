@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import "./css/inquiry.scss";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const { Tmapv2 } = window;
 
 function Inquiry() {
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = data => console.log(data);
   useEffect(() => {
     var map = new Tmapv2.Map("map_div", {
       center: new Tmapv2.LatLng(35.89584, 128.622362),
@@ -30,6 +33,57 @@ function Inquiry() {
           <p className="banner-title">충전소 조회</p>
           <br></br>
           <p className="subtitle">전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인 하실 수 있습니다.</p>
+        </div>
+        <div class="char-search">
+          <div class="form-group col2">
+            <label>지역선택</label>
+            <select id="entrprsArea" name="entrprsArea" class="select" onchange="fnSidoSelect()">
+              <option value="">시도 선택</option>
+
+              <option value="11">서울</option>
+
+              <option value="26">부산</option>
+
+              <option value="27">대구</option>
+
+              <option value="28">인천</option>
+
+              <option value="29">광주</option>
+
+              <option value="30">대전</option>
+
+              <option value="31">울산</option>
+
+              <option value="36">세종</option>
+
+              <option value="41">경기도</option>
+
+              <option value="42">강원도</option>
+
+              <option value="43">충청북도</option>
+
+              <option value="44">충청남도</option>
+
+              <option value="45">전라북도</option>
+
+              <option value="46">전라남도</option>
+
+              <option value="47">경상북도</option>
+
+              <option value="48">경상남도</option>
+
+              <option value="50">제주특별자치도</option>
+
+
+            </select>
+            <select name="searchGugun" class="select" id="searchGugun">
+              <option value="">구군 선택</option>
+            </select>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input className="insert" name="searchKeyword" placeholder="충전소" type="text" />
+            <input type="submit" className="search-btn" value="검색" />
+          </form>
         </div>
         <div className="inquiry_box">
           <div className="left_box">

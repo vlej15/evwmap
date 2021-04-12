@@ -3,13 +3,13 @@ import axios from "axios";
 import "./css/Notice.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
-import BannerCommunity from "./BannerCommunity";
+import BannerNotice from "./BannerNotice";
 
 function Notice() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(9);
+  const [postsPerPage, setPostsPerPage] = useState(10);
   const data = JSON.stringify({
     u_id: "youngsik1",
   });
@@ -48,10 +48,7 @@ function Posts({ posts, loading }) {
   return (
     <>
       <div className="end"></div>
-      <div data-aos="fade-down"
-        data-aos-duration="1000">
-        <BannerCommunity />
-      </div>
+      <BannerNotice />
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
         <div className="banner">
@@ -73,7 +70,7 @@ function Posts({ posts, loading }) {
             {posts.map((post) => (
               <tr>
                 <td >{post.id}</td>
-                <td key={post.id}>
+                <td key={post.id} className="td-title">
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
                 <td>작성자</td>
