@@ -28,7 +28,7 @@ const QWrite = () => {
             <div className="type">
               <label for=""><p className="write-subtitle">문의유형 <span class="required">*</span></p></label>
               <div className="select">
-                <label for="good"><input ref={register({ required: true })} className="form_type" name="check" value="칭찬" type="radio" id="good" /><span>칭찬 </span></label>
+                <label for="good"><input ref={register({ required: true })} className="form_type" name="check" value="칭찬" type="radio" id="good" required /><span>칭찬 </span></label>
                 <label for="hate"><input ref={register({ required: true })} className="form_type" name="check" value="불만" type="radio" id="hate" /> <span>불만 </span></label>
                 <label for="prop"><input ref={register({ required: true })} className="form_type" name="check" value="제안" type="radio" id="prop" /><span>제안 </span></label>
               </div>

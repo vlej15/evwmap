@@ -18,6 +18,7 @@
     opacity: 1;
     top: 0px;
     width: 90%;
+    // margin-bottom: 400px;
 
     .banner{
     color: #222;
@@ -57,7 +58,26 @@
         margin-bottom: 35px;
         position: relative;
         text-align: right;
-    
+        
+        .sigugun {
+            -webkit-text-size-adjust: none;
+            margin: 0;
+            vertical-align: middle;
+            padding: 0 30px 0 8px;
+            // background: #fff url('../images/common/bg_select.png') no-repeat right 50%;
+            border: 1px solid #ccc;
+            height: 50px;
+            line-height: 50px;
+            color: #666;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 15px;
+            font-weight: 300;
+            border-radius: 0px;
+            appearance: none;
+            width: 120px;
+            margin-right: 5px;
+        }
         .insert {
             height: 50px;
             padding: 0 10px;
@@ -66,6 +86,7 @@
             font-size: 1.6rem;
             color: #666;
             width: 230px;
+            margin-right: 5px;
         }
         
         .search-btn {
