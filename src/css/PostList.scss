@@ -1,0 +1,184 @@
+.postWrap{
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    .gideLine{
+        width:100%;
+        height: 1px;
+        border-bottom: 1px solid #d2d2d2;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    .commTitle{
+        color:#464646;
+    }
+
+    .smBtnWrap{
+        display: flex;
+        justify-content: flex-end;
+        width: 1200px;
+        height: 100px;
+        @media (min-width: 320px) and (max-width: 479px) {
+            width:100%;
+        }
+        @media (min-width: 480px) and (max-width: 1024px) {
+            width:100%;
+        }
+        @media (min-width: 1025px) and (max-width: 1140px) {
+            width:100%;
+            
+        }
+    }
+    .smBtn{
+        // border-radius: 3px;
+        color:#464646;
+        background-color: #f6f5f5;
+        border:none;
+        width:100px;
+        height: 30px;
+        margin:0px;
+        margin-top:4px;
+    }
+    .wBtnWrap{
+        display: flex;
+        justify-content: flex-end;
+        width: 1200px;
+        @media (min-width: 320px) and (max-width: 479px) {
+            width:100%;
+        }
+        @media (min-width: 480px) and (max-width: 1024px) {
+            width:100%;
+        }
+        @media (min-width: 1025px) and (max-width: 1140px) {
+            width:100%;
+            
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border: none;
+            color: white;
+            background-color: #464646;
+        }
+        .backBtn{
+            margin-right: 3px;
+        }
+        .tBtnWrap{
+            width:100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+    .post{
+        width:1200px;
+        height: 80px;
+        margin:auto;
+        .postBody{
+            p{
+                font-size: 16px;
+                margin-top:10px;
+                margin-bottom:10px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+        .commWriter{
+            font-size: 13px;
+            margin:0px;
+            margin-top:3px;
+            margin-bottom: 3px;
+
+        }
+        .commBody{
+            font-size: 13px;
+            margin:0px;
+            margin-top:3px;
+            margin-bottom: 3px;
+        }
+        .commDate{
+            width:1100px;
+            margin:0px;
+            margin-top:3px;
+            margin-right: 0px;
+            color:#a8a7a7;
+        }
+        @media (min-width: 320px) and (max-width: 479px) {
+            width:410px;
+        }
+        @media (min-width: 480px) and (max-width: 1024px) {
+            width:500px;
+        }
+        @media (min-width: 1025px) and (max-width: 1140px) {
+            width:900px;
+        }
+
+        .title{
+            background-color: #f2f2f2;
+            height: 80px;
+            border-bottom:1px solid #d2d2d2;
+            border-top:2px solid #464646;
+            display: flex;
+            align-items: center;
+            @media (min-width: 320px) and (max-width: 479px) {
+                height:auto;
+            }
+            @media (min-width: 480px) and (max-width: 1024px) {
+                height:auto;
+            }
+            // border-bottom: 1px solid rgb(173, 173, 173);
+            h1{
+                color: #464646;
+                font-size: 26px;
+                margin:0px;
+                font-weight: 500;
+            }
+            p{
+                color:#a8a7a7;
+                margin:0px;
+                font-size: 14px;
+            }
+            
+        }
+    }
+    .repleForm{
+        width: 1200px;
+        height: 100px;
+        border: 1px solid #464646;;
+        // border-radius: 5px;
+        margin-bottom: 100px;
+        @media (min-width: 320px) and (max-width: 479px) {
+            width:100%;
+        }
+        @media (min-width: 480px) and (max-width: 1024px) {
+            width:500px;
+        }
+        @media (min-width: 1025px) and (max-width: 1140px) {
+            width:900px;
+        }
+        .textBtn{
+            border: none;
+            background-color: #f6f5f5;
+            width: 1100px;
+            height: 40px;
+            margin-left: 10px;
+            @media (min-width: 320px) and (max-width: 479px) {
+                width:200px;
+            }
+            @media (min-width: 480px) and (max-width: 1024px) {
+                width:400px;
+            }
+            @media (min-width: 1025px) and (max-width: 1140px) {
+                width:800px;
+            }
+            &:focus{
+                outline:none;
+            }
+        }
+        p{
+            margin: 0px;
+            margin-left: 10px;
+            margin-top: 10px;
+
+        }
+    }
+}

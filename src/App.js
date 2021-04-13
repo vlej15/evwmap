@@ -25,12 +25,27 @@ import Activity from "./Activity";
 import axios from "axios";
 import News from "./News";
 import CardRegistration from "./CardRegistration";
+import Post from "./Post";
 
 function App() {
   const [a1, setA1] = useState();
   const [a2, setA2] = useState();
   const [marker, setMarker] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   useEffect(async () => {
+    // 게시판 데이터
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    const recommend = await axios.get(
+      "https://jsonplaceholder.typicode.com/comments"
+    );
+    setPosts(response.data);
+    setComments(recommend.data);
+    console.log(posts, comments);
+
+    // 마커찍을 충전소 데이터 받아오기
     var config = {
       method: "get",
       url: "http://3.36.160.255:8081/api/marker",
@@ -45,6 +60,7 @@ function App() {
       .catch(function (error) {
         console.log(error);
       });
+
     if (navigator.geolocation) {
       // GPS를 지원하면
 
@@ -95,13 +111,16 @@ function App() {
 
         {/* COMMUNITY */}
         <Route exact path="/notice">
-          <Notice />
+          <Notice posts={posts} comments={comments} />
         </Route>
         <Route exact path="/tipboard">
           <TipBoard />
         </Route>
         <Route exact path="/freeboard">
           <FreeBoard />
+        </Route>
+        <Route exact path="/notice/:id">
+          <Post posts={posts} comments={comments} />
         </Route>
 
         {/* CONTACT */}
