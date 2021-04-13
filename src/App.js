@@ -23,11 +23,8 @@ import BoardChange from "./BoardChange";
 import InfoChange from "./InfoChange";
 import Activity from "./Activity";
 import axios from "axios";
-<<<<<<< Updated upstream
-import News from './News';
-=======
+import News from "./News";
 import CardRegistration from "./CardRegistration";
->>>>>>> Stashed changes
 
 function App() {
   const [a1, setA1] = useState();
@@ -74,10 +71,12 @@ function App() {
         <div className="content-wrap">
           <Header />
         </div>
+
         {/* INTRODUCTION */}
         <Route exact path="/introduction">
           <BrandStory />
         </Route>
+
         {/* LOGIN/JOIN */}
         <Route exact path="/login">
           <Login />
@@ -85,6 +84,7 @@ function App() {
         <Route exact path="/signup">
           <Signup />
         </Route>
+
         {/* MAP */}
         <Route exact path="/map">
           <Inquiry />
@@ -92,6 +92,7 @@ function App() {
         <Route exact path="/navigate">
           <FindingAWay a1={a1} a2={a2} marker={marker} />
         </Route>
+
         {/* COMMUNITY */}
         <Route exact path="/notice">
           <Notice />
@@ -102,6 +103,7 @@ function App() {
         <Route exact path="/freeboard">
           <FreeBoard />
         </Route>
+
         {/* CONTACT */}
         <Route exact path="/faq">
           <FAQ />
@@ -112,6 +114,7 @@ function App() {
         <Route exact path="/qlist">
           <QList />
         </Route>
+
         {/* FIND ID / PW */}
         <Route exact path="/findid">
           <FindId />
@@ -119,8 +122,8 @@ function App() {
         <Route exact path="/findpw">
           <FindPw />
         </Route>
-        {/* My Page */}
 
+        {/* My Page */}
         <Route exact path="/activity">
           <Activity />
         </Route>
@@ -133,19 +136,16 @@ function App() {
           <InfoChange />
         </Route>
 
-<<<<<<< Updated upstream
         <Route exact path="/news">
           <News />
-=======
-        {/* CARD */}
+        </Route>
 
+        {/* CARD */}
         <Route exact path="/card">
           <CardRegistration />
->>>>>>> Stashed changes
         </Route>
 
         {/* FOOTER */}
-
         <Footer />
       </div>
     </div>
