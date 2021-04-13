@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
-import './css/FAQ.scss';
+import React, { useState } from "react";
+import "./css/FAQ.scss";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import BannerQ from "./BannerQ";
 
-
 const handleChange = (e) => {
   console.log(e.target.valut);
-}
-
+};
 
 const FAQ = () => {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
   let [modal, modal변경] = useState(false);
   let [modal01, modal변경01] = useState(false);
-  let [modal02, modal변경02] = useState(false);
-  let [modal03, modal변경03] = useState(false);
-  let [modal04, modal변경04] = useState(false);
-  let [modal05, modal변경05] = useState(false);
-  let [modal06, modal변경06] = useState(false);
-  let [modal07, modal변경07] = useState(false);
+  // let [modal02, modal변경02] = useState(false);
+  // let [modal03, modal변경03] = useState(false);
+  // let [modal04, modal변경04] = useState(false);
+  // let [modal05, modal변경05] = useState(false);
+  // let [modal06, modal변경06] = useState(false);
+  // let [modal07, modal변경07] = useState(false);
 
   return (
     <>
+
       {/* <div className="end"></div> */}
       <div data-aos="fade-down"
         data-aos-duration="1000">
@@ -39,28 +38,43 @@ const FAQ = () => {
         </div>
         <div class="banner-search">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input className="insert" name="searchKeyword" placeholder="검색어를 입력해 주세요" type="text" />
+            <input
+              className="insert"
+              name="searchKeyword"
+              placeholder="검색어를 입력해 주세요"
+              type="text"
+            />
             <input type="submit" className="search-btn" value="검색"></input>
           </form>
         </div>
         <ul className="faq-area">
           <li className="faq-li">
             <p className="faq-title">Q</p>
-            <p className="q">충전소 별로 회원카드는 어떻게 등록하나요?<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경(!modal) }} /></p>
-            {
-              modal === true
-                ? <Modal></Modal>
-                : null
-            }
+            <p className="q">
+              충전소 별로 회원카드는 어떻게 등록하나요?
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className="arrow-btn"
+                onClick={() => {
+                  modal변경(!modal);
+                }}
+              />
+            </p>
+            {modal === true ? <Modal></Modal> : null}
           </li>
           <li className="faq-li">
             <p className="faq-title">Q</p>
-            <p className="q">완속 충전기 사용법에 대해 궁금합니다.<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경01(!modal01) }} /></p>
-            {
-              modal01 === true
-                ? <Modal></Modal>
-                : null
-            }
+            <p className="q">
+              완속 충전기 사용법에 대해 궁금합니다.
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className="arrow-btn"
+                onClick={() => {
+                  modal변경01(!modal01);
+                }}
+              />
+            </p>
+            {modal01 === true ? <Modal></Modal> : null}
           </li>
           {/* <li className="faq-li">
             <p className="faq-title">Q</p>
@@ -120,15 +134,24 @@ const FAQ = () => {
         {/* <div className="paging"></div> */}
       </div>
     </>
-  )
-}
+  );
+};
 
 function Modal() {
   return (
     <>
-      <div className="a"><p className="a-plus">문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.</p></div>
+      <div className="a">
+        <p className="a-plus">
+          문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란
+          입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의
+          답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란
+          입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의
+          답변란 입니다.문의 답변란 입니다.문의 답변란 입니다.문의 답변란
+          입니다.문의 답변란 입니다.문의 답변란 입니다.
+        </p>
+      </div>
     </>
-  )
+  );
 }
 
 export default FAQ;

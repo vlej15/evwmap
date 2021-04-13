@@ -30,6 +30,7 @@ function FindingAWay(props) {
 
   useEffect(() => {
     const map = new Tmapv2.Map("map_div", {
+      center: new Tmapv2.LatLng(a1, a2),
       // 지도가 생성될 div
       width: "600px", // 지도의 넓이
       height: "600px", // 지도의 높이
@@ -50,7 +51,7 @@ function FindingAWay(props) {
       });
     });
     marker_s = new Tmapv2.Marker({
-      position: new Tmapv2.LatLng(a2, a1),
+      position: new Tmapv2.LatLng(a1, a2),
       icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
       iconSize: new Tmapv2.Size(24, 38),
       map: map,
@@ -96,10 +97,8 @@ function FindingAWay(props) {
             "분,";
           var tFare =
             " 총 요금 : " + resultData[0].properties.totalFare + "원,";
-          var taxiFare =
-            " 예상 택시 요금 : " + resultData[0].properties.taxiFare + "원";
 
-          $("#result").text(tDistance + tTime + tFare + taxiFare);
+          $("#result").text(tDistance + tTime + tFare);
 
           //교통정보 표출 옵션값을 체크
           if (trafficInfochk == "Y") {

@@ -49,6 +49,11 @@ function Activity(props) {
                 </Link>
                 <ul className="navList">
                   <li>
+                    <Link to="card">
+                      <a>카드 등록</a>
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="activity">
                       <a>활동 내역</a>
                     </Link>
