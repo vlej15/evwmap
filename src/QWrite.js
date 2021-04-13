@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import "./css/QWrite.scss";
 import { useForm } from "react-hook-form";
+import BannerReq1 from "./BannerReq1";
 
 const QWrite = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => console.log(data);
   return (
     <>
-      <div className="end"></div>
+      <div data-aos="fade-down"
+        data-aos-duration="1000">
+        <BannerReq1 />
+      </div>
       <div className="contentsQWrite">
         <div className="banner">
           <p className="banner-title">문의하기</p>
@@ -18,8 +22,8 @@ const QWrite = () => {
           <div className="form-input">
             <div className="write-title">
               <label for="form_name"><p className="write-subtitle">제목 <span className="required">*</span></p></label>
-              <input ref={register({ required: true })} type="text" className="input-title" name="form_title" id="form_title" size="91" required="" />
-              {errors.form_title && <div className="alert">필수 입력항목입니다.</div>}
+              <input ref={register({ required: true })} type="text" className="input-title" name="form_title" id="form_title" size="91" required />
+              {/* {errors.form_title && <div className="alert">필수 입력항목입니다.</div>} */}
             </div>
             <div className="type">
               <label for=""><p className="write-subtitle">문의유형 <span class="required">*</span></p></label>
@@ -28,11 +32,10 @@ const QWrite = () => {
                 <label for="hate"><input ref={register({ required: true })} className="form_type" name="check" value="불만" type="radio" id="hate" /> <span>불만 </span></label>
                 <label for="prop"><input ref={register({ required: true })} className="form_type" name="check" value="제안" type="radio" id="prop" /><span>제안 </span></label>
               </div>
-              {errors.check && <div className="alert2">필수 입력항목입니다.</div>}
             </div>
             <div className="form-content">
               <p className="write-subtitle">내용 <span className="required">*</span></p>
-              <textarea ref={register({ required: true })} name="form_content" id="form_content" cols="30" rows="10" required="" className="input-content"></textarea>
+              <textarea ref={register({ required: true })} name="form_content" id="form_content" cols="30" rows="10" required className="input-content"></textarea>
               {errors.form_content && <div className="alert2">필수 입력항목입니다.</div>}
             </div>
             <div className="file">

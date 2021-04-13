@@ -62,7 +62,7 @@ html, body {
             font-family: 'Black Han Sans', sans-serif;
             text-align: center;
             font-size: 50px;
-            padding-top: 25vh;
+            padding-top: 37vh;
 
             span {
                 display: inline-block;
@@ -130,7 +130,7 @@ html, body {
         position: relative;
         width: 100vw;
         height: 100vh;
-        background-color: #ffffff;
+        background-color: #bbbbbb;
         font-family: 'ChosunKm';
         overflow: hidden;
 
@@ -139,7 +139,7 @@ html, body {
             color: #262626;
             position: absolute;
             padding-left: 55%;
-            padding-top: 20%;
+            padding-top: 25%;
 
             .section3-title {
                 font-size: 60px;
@@ -147,13 +147,24 @@ html, body {
                 font-weight: 600;
             }
             .section3-subtitle{
-                color: #757171;
+                color: #444;
                 font-size: 16px;
-                padding-left: 5px;
+                text-align: right;
                 padding-top: 15px;
                 font-family: 'ChosunKm';
             }
-            
+            .qr {
+                width: 130px;
+                float: right;
+            }
+            .section3-download {
+                font-weight: bold;
+                margin-top: 15px;
+                font-size: 16px;
+                font-family: 'IBMPlexSansKR-Regular';
+                color: #333;
+                text-align: right;
+            }
             // .img2 {
             //     width: 18px;
             //     object-fit: cover;
@@ -181,7 +192,7 @@ html, body {
             object-fit: cover;
             position: absolute;
             top: 0;
-            margin-top: 4%;
+            margin-top: 10%;
             .img1 {
                 width: 100%;
                 // object-fit: fill;
@@ -193,14 +204,16 @@ html, body {
             color: #eeeeee;
             font-size: 14px;
             top: 0;
+            font-weight: bold;
             .mobile {
-                padding-top: 30px;
-                padding-left: 40px;
-                
+                font-family: 'IBMPlexSansKR-Regular';
+                padding-top: 170px;
+                padding-left: 50px;    
             }
             .app {
+                font-family: 'IBMPlexSansKR-Regular';
                 padding-top: 10px;
-                padding-left: 40px;
+                padding-left: 50px;
             }
         }
     }
@@ -208,39 +221,4 @@ html, body {
 
 * {
     box-sizing: border-box;
-}
-
-#bouncer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: inline-block;
-    width: 2.8vmin;
-    height: 2.8vmin;
-    will-change: transform;
-    z-index: 10;
-}
-
-.y {
-    display: inline-block;
-    background: #fe7842;
-    width: 2.8vmin;
-    height: 2.8vmin;
-    border-radius: 50%;
-    will-change: transform;
-}
-
-p {
-    width: 100%;
-}
-
-span {
-    display: inline-block;
-    opacity: .6;
-    transition: opacity .15s .15s ease-in;
-    will-change: opacity;
-}
-
-span.bounced {
-    opacity: 1;
 }

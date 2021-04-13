@@ -26,7 +26,7 @@ const FAQ = () => {
 
   return (
     <>
-      <div className="end"></div>
+      {/* <div className="end"></div> */}
       <div data-aos="fade-down"
         data-aos-duration="1000">
         <BannerQ />

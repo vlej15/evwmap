@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import $ from 'jquery';
-import BannerQ from "./BannerQ";
+import BannerReq2 from "./BannerReq2";
 
 
 const QList = () => {
@@ -40,10 +40,9 @@ const QList = () => {
 
   return (
     <>
-      <div className="end"></div>
       <div data-aos="fade-down"
         data-aos-duration="1000">
-        <BannerQ />
+        <BannerReq2 />
       </div>
       <div className="contentsQList">
         <div className="banner">

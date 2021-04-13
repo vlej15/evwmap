@@ -7,6 +7,7 @@ import img2 from "./playstore.png";
 import { useEffect } from "react";
 import "./css/BrandStory.scss";
 import img3 from "./phone333.png";
+import qr from './css/qr.png'
 
 const StyledSlider = styled(Slider)`
     .slick-slide div {
@@ -27,7 +28,7 @@ export default class SimpleSlider extends Component {
         };
         return (
             <>
-                <div className="end"></div>
+                {/* <div className="end"></div> */}
                 <div className="contentsTest">
                     {/* <h2> Single Item</h2> */}
                     <Slider {...settings}>
@@ -105,6 +106,8 @@ export default class SimpleSlider extends Component {
                                 <p className="section3-subtitle">
                                     Electric Vehicle World Map APP
                                 </p>
+                                <p className="section3-download">Play Store 다운로드</p>
+                                <img className="qr" src={qr}></img>
                                 {/* <img src={img2} class="img2"></img>
                                 <p className="playstore">Play Store</p> */}
                             </div>
@@ -114,7 +117,7 @@ export default class SimpleSlider extends Component {
                             </div>
                             <div className="mobile-app">
                                 <div className="mobile">
-                                    M<br />B<br />I<br />L<br />E
+                                    M<br />O<br />B<br />I<br />L<br />E
                                 </div>
                                 <div class="app">
                                     A<br />P<br />P
