@@ -1,0 +1,213 @@
+.passmodal_background{
+    position: fixed;
+    top:0; left: 0; bottom: 0; right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0px;
+    .passModal{
+        position: absolute;
+        top: calc(50vh - 190px); left: calc(50vw - 320px);
+        background-color: #f6f5f5;
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        height: 430px;
+        border-radius: 20px;
+        .mdPass{
+            margin-top:20px;
+            margin-bottom:20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .closeWrap{
+            text-align: right;
+            width: 400px;
+            margin:0px;
+            p{
+                align-items: center;
+            }
+            .closeBtn{
+                position: absolute;
+                top: 10px; right: 10px;
+                font-size: 30px;
+                color:#464646;
+                margin-top: 4px;
+                margin-right: 9px;
+                &:hover{
+                    color:#f2b640;
+                }
+            }
+        }
+        
+    }
+    .searchTable{
+        margin-top: 10px;
+        p{
+            margin:0px;
+            text-align: center;
+            font-size: 12px;
+        }
+    }
+    .ulType{
+        width:100%;
+        height: 200px;
+        margin:0px;
+        margin-top: 0px;
+        display: flex;
+        align-items: center;
+        flex-direction:column;
+        div{
+            margin-bottom: 20px;
+        }
+        input{
+            border:none;
+            margin-right: 5px;
+        }
+        .timeResorve{
+            width:360px;
+            height: 30px;
+            border:1px solid black;
+            border-left: 0px;
+            border-right: 0px;
+            border-bottom: 0px;
+            background-color: #f2b640;
+            color:white;
+            font-size: 16px;
+
+        }
+        .timeTable{
+            
+            width:360px;
+            height: 30px;
+            overflow-y:scroll;
+            li{
+                float:left;
+                line-height: 30px;
+                height: 30px;
+                margin-right: 6px;
+            }
+
+            
+        }
+        ul{
+            padding:0px;
+            
+            .typeBtn{
+                float:left;
+                color:white;
+                text-align: center;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 60px;
+                width:60px;
+                height:60px;
+                background-color: rgb(26,26,26);
+                margin-right: 15px;
+                border-radius: 10px;
+                // width:50px;
+                &:hover{
+                    background-color:#f2b640;
+                }
+            }
+        }  
+    }
+    .resorveTap{
+        display: flex;
+        margin-top: 30px;
+        width:610px;
+        height: 120px;
+        background-color: white;
+        box-shadow: 1px 3px 13px rgb(146, 146, 146);
+        border-radius: 3px;
+        .checkTap{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width:200px;
+            ul{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: 40px;
+                li{
+                    margin:0px;
+                }
+                .resorveY{
+                    background-color: rgb(26,26,26);
+                    width:20px;
+                    height: 20px;
+                    border-radius: 3px;
+                    margin-right: 0px;
+                }
+                .resorveN{
+                    background-color: #f2b640;
+                    width:20px;
+                    height: 20px;
+                    border-radius: 3px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .resorveCheckTap{
+            display: flex;
+            align-items: center;
+            width:200px;
+            ul{
+                .resorveY{
+                    float:left;
+                    background-color: rgb(26,26,26);
+                    width:50px;
+                    height: 60px;
+                    margin-right: 0px;
+                    text-align:  center;
+                    p{
+                        margin-top:14px;
+                        color:white;
+                        font-size: 13px;
+                    }
+                }
+                .resorveN{
+                    float:left;
+                    background-color: #a8a8a8;
+                    width:120px;
+                    height: 60px;
+                    border-radius: 0px 10px 10px 0px;
+                    p{
+                        text-align: center;
+                        margin:0px;
+                        line-height: 60px;
+                        color:white;
+                        font-size: 50px;
+                        font-weight:600;
+                    }
+                }
+            }
+        }
+        .resorveCheckTap2{
+            display: flex;
+            align-items: center;
+            width:200px;
+            ul{
+                .resorveN2{
+                    float:left;
+                    background-color: #f2b640;
+                    width:120px;
+                    height: 60px;
+                    border-radius: 10px 10px 10px 10px;
+                    box-shadow: 3px 3px 10px rgb(163, 163, 163);
+                    p{
+                        text-align: center;
+                        margin:0px;
+                        line-height: 60px;
+                        color:white;
+                        font-size: 30px;
+                        font-weight:600;
+                    }
+                }
+            }
+        }
+        
+    }
+}

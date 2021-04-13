@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./css/Resolve1.scss";
 import "./css/inquiry.scss";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import $ from "jquery";
 
 const { Tmapv2 } = window;
+
 
 $("document").ready(function () {
   var area0 = [
@@ -271,6 +275,11 @@ $("document").ready(function () {
   ];
   var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
 
+function Inquiry() {
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+
   // 시/도 선택 박스 초기화
   $("select[name^=sido]").each(function () {
     console.log($(this));
@@ -283,6 +292,7 @@ $("document").ready(function () {
     selsido.next().append("<option value=''>구/군 선택</option>");
   });
   // 시/도 선택시 구/군 설정
+
 
   $("select[name^=sido]").change(function () {
     var area =
@@ -300,6 +310,32 @@ $("document").ready(function () {
         );
       });
     }
+
+    // 시/도 선택 박스 초기화
+    $("select[name^=sido]").each(function () {
+      console.log($(this));
+      let selsido = $(this);
+      $.each(eval(area0), function () {
+        selsido.append("<option value='" + this + "'>" + this + "</option>");
+      });
+      selsido.next().append("<option value=''>구/군 선택</option>");
+    });
+    // 시/도 선택시 구/군 설정
+
+    $("select[name^=sido]").change(function () {
+      var area =
+        "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
+      var $gugun = $(this).next(); // 선택영역 군구 객체
+      $("option", $gugun).remove(); // 구군 초기화
+
+      if (area == "area0")
+        $gugun.append("<option value=''>구/군 선택</option>");
+      else {
+        $.each(eval(area), function () {
+          $gugun.append("<option value='" + this + "'>" + this + "</option>");
+        });
+      }
+    });
   });
 });
 
@@ -323,6 +359,130 @@ function Inquiry() {
       iconSize: new Tmapv2.Size(24, 38), //마커 아이콘 사이즈 (생략시 이미지의 크기 적용)
     });
   }, []);
+
+  const [pass, setPass] = useState(0);
+  const [resorve, setResove] = useState("");
+
+  function passModal() {
+    return pass == 1 ? (
+      <div className="passmodal_background">
+        <div className="passModal">
+          <div className="mdPass">
+            <h3>충전기 예약</h3>
+          </div>
+          <div className="closeWrap">
+            <FontAwesomeIcon
+              icon={faTimes}
+              className="closeBtn"
+              onClick={() => {
+                setPass(0);
+              }}
+            />
+          </div>
+          <form>
+            <div className="ulType">
+              <div>
+                <ul>
+                  <li
+                    className="typeBtn"
+                    onClick={() => {
+                      setResove(1);
+                    }}
+                  >
+                    1
+                  </li>
+                  <li
+                    className="typeBtn"
+                    onClick={() => {
+                      setResove(2);
+                    }}
+                  >
+                    2
+                  </li>
+                  <li
+                    className="typeBtn"
+                    onClick={() => {
+                      setResove(3);
+                    }}
+                  >
+                    3
+                  </li>
+                  <li
+                    className="typeBtn"
+                    onClick={() => {
+                      setResove(4);
+                    }}
+                  >
+                    4
+                  </li>
+                  <li
+                    className="typeBtn"
+                    onClick={() => {
+                      setResove(5);
+                    }}
+                  >
+                    5
+                  </li>
+                </ul>
+              </div>
+              <div className="searchTable">
+                <p>예약현황목록</p>
+                <p>현재 예약된 시간대를 제외하고 입력해주시기 바랍니다.</p>
+                <ul className="timeTable">
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                  <li>09:00 ~ 09:30</li>
+                </ul>
+                <input placeholder="시작시간입력 ex) 1400" />
+                <input placeholder="종료시간입력 ex) 1430" />
+              </div>
+              <div className="resorveTap">
+                <div className="checkTap">
+                  <ul>
+                    <li className="resorveY"></li>
+                    <li>예약가능</li>
+                    <li className="resorveN"></li>
+                    <li>예약불가</li>
+                  </ul>
+                </div>
+                <div className="resorveCheckTap">
+                  <ul>
+                    <li className="resorveY">
+                      <p>선택한충전기</p>
+                    </li>
+                    <li className="resorveN">
+                      <p>{resorve}</p>
+                    </li>
+                  </ul>
+                </div>
+                <div className="resorveCheckTap2">
+                  <ul>
+                    <li className="resorveN2 ">
+                      <p
+                        onClick={() => {
+                          alert("예약이 완료되었습니다.");
+                        }}
+                      >
+                        예약
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div></div>
+      </div>
+    ) : null;
+  }
+
   return (
     <>
       <div className="end"></div>
@@ -330,13 +490,25 @@ function Inquiry() {
         <div className="banner">
           <p className="banner-title">충전소 조회</p>
           <br></br>
-          <p className="subtitle">전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인 하실 수 있습니다.</p>
+          <p className="subtitle">
+            전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인 하실 수
+            있습니다.
+          </p>
         </div>
         <div class="char-search">
           <form onSubmit={handleSubmit(onSubmit)}>
+
             <select className="sigugun" name="sido1" id="sido1"></select>
             <select className="sigugun" name="gugun1" id="gugun1"></select>
             <input className="insert" name="searchKeyword" placeholder="충전소" type="text" />
+
+            <input
+              className="insert"
+              name="searchKeyword"
+              placeholder="충전소"
+              type="text"
+            />
+
             <input type="submit" className="search-btn" value="검색" />
           </form>
         </div>
@@ -356,7 +528,9 @@ function Inquiry() {
           <div className="right_box">
             <div className="chargeInfo_box">
               <div className="charge_title">
-                <h1 className="charge_name">[대영채비] 영진전문대학 글로벌캠퍼스</h1>
+                <h1 className="charge_name">
+                  [대영채비] 영진전문대학 글로벌캠퍼스
+                </h1>
                 <button className="report_btn">
                   <FontAwesomeIcon
                     icon={faExclamationTriangle}
@@ -367,13 +541,36 @@ function Inquiry() {
               </div>
               <div className="infomation">
                 <ul>
-                  <li><p className="info-p">도로명 주소</p><span>경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장</span></li>
-                  <li><p className="info-p">이용가능시간</p><span>24시간 이용가능</span></li>
-                  <li><p className="info-p">연락처</p><span>1522-2573</span></li>
+                  <li>
+                    <p className="info-p">도로명 주소</p>
+                    <span>
+                      경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장
+                    </span>
+                  </li>
+                  <li>
+                    <p className="info-p">이용가능시간</p>
+                    <span>24시간 이용가능</span>
+                  </li>
+                  <li>
+                    <p className="info-p">연락처</p>
+                    <span>1522-2573</span>
+                  </li>
                 </ul>
               </div>
               <div className="now">
-                <p className="now-title">충전기 정보<button className="rsvt-btn">예약</button></p>
+                <p className="now-title">
+                  충전기 정보
+                  <button
+                    className="rsvt-btn"
+                    type="button"
+                    onClick={() => {
+                      setPass(!pass);
+                    }}
+                  >
+                    예약
+                  </button>
+                </p>
+                {passModal()}
                 <table className="now-list">
                   <thead>
                     <tr>
@@ -413,7 +610,9 @@ function Inquiry() {
                       <td className="re_td_id">피카츄</td>
                     </tr>
                     <tr className="re_tr">
-                      <td className="re_input">다가갔더니 불 붙어서 터졋어요</td>
+                      <td className="re_input">
+                        다가갔더니 불 붙어서 터졋어요
+                      </td>
                       <td className="re_td_date">2021-03-26</td>
                       <td className="re_td_id">파이리</td>
                     </tr>

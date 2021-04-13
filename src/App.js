@@ -23,17 +23,29 @@ import BoardChange from "./BoardChange";
 import InfoChange from "./InfoChange";
 import Activity from "./Activity";
 import axios from "axios";
-<<<<<<< Updated upstream
-import News from './News';
-=======
+import News from "./News";
 import CardRegistration from "./CardRegistration";
->>>>>>> Stashed changes
+import Post from "./Post";
 
 function App() {
   const [a1, setA1] = useState();
   const [a2, setA2] = useState();
   const [marker, setMarker] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   useEffect(async () => {
+    // 게시판 데이터
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    const recommend = await axios.get(
+      "https://jsonplaceholder.typicode.com/comments"
+    );
+    setPosts(response.data);
+    setComments(recommend.data);
+    console.log(posts, comments);
+
+    // 마커찍을 충전소 데이터 받아오기
     var config = {
       method: "get",
       url: "http://3.36.160.255:8081/api/marker",
@@ -48,6 +60,7 @@ function App() {
       .catch(function (error) {
         console.log(error);
       });
+
     if (navigator.geolocation) {
       // GPS를 지원하면
 
@@ -74,10 +87,12 @@ function App() {
         <div className="content-wrap">
           <Header />
         </div>
+
         {/* INTRODUCTION */}
         <Route exact path="/introduction">
           <BrandStory />
         </Route>
+
         {/* LOGIN/JOIN */}
         <Route exact path="/login">
           <Login />
@@ -85,6 +100,7 @@ function App() {
         <Route exact path="/signup">
           <Signup />
         </Route>
+
         {/* MAP */}
         <Route exact path="/map">
           <Inquiry />
@@ -92,9 +108,10 @@ function App() {
         <Route exact path="/navigate">
           <FindingAWay a1={a1} a2={a2} marker={marker} />
         </Route>
+
         {/* COMMUNITY */}
         <Route exact path="/notice">
-          <Notice />
+          <Notice posts={posts} comments={comments} />
         </Route>
         <Route exact path="/tipboard">
           <TipBoard />
@@ -102,6 +119,10 @@ function App() {
         <Route exact path="/freeboard">
           <FreeBoard />
         </Route>
+        <Route exact path="/notice/:id">
+          <Post posts={posts} comments={comments} />
+        </Route>
+
         {/* CONTACT */}
         <Route exact path="/faq">
           <FAQ />
@@ -112,6 +133,7 @@ function App() {
         <Route exact path="/qlist">
           <QList />
         </Route>
+
         {/* FIND ID / PW */}
         <Route exact path="/findid">
           <FindId />
@@ -119,8 +141,8 @@ function App() {
         <Route exact path="/findpw">
           <FindPw />
         </Route>
-        {/* My Page */}
 
+        {/* My Page */}
         <Route exact path="/activity">
           <Activity />
         </Route>
@@ -133,19 +155,16 @@ function App() {
           <InfoChange />
         </Route>
 
-<<<<<<< Updated upstream
         <Route exact path="/news">
           <News />
-=======
-        {/* CARD */}
+        </Route>
 
+        {/* CARD */}
         <Route exact path="/card">
           <CardRegistration />
->>>>>>> Stashed changes
         </Route>
 
         {/* FOOTER */}
-
         <Footer />
       </div>
     </div>

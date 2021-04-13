@@ -73,10 +73,9 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td >{post.id}</td>
+                <td>{post.id}</td>
                 <td key={post.id} className="td-title">
-
-                  <Link to={`/post/${post.id}`}>{post.title}</Link>
+                  <Link to={`/notice/${post.id}`}>{post.title}</Link>
                 </td>
                 <td>작성자</td>
                 <td>작성일</td>
