@@ -1,6 +1,7 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 h3 { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 
+
 .end {
     // position: absolute;
     // top: 0;
@@ -22,6 +23,8 @@ img {
 }// img-area end
 
 .text-area {
+    font-family: 'ChosunKm';
+
     position: absolute;
     width: 100%;
     height: auto;
@@ -31,7 +34,6 @@ img {
     color: rgba(255, 255, 255, 0.9);
     font-size: 50px;
     top: 90px;
-    text-decoration:underline;
     background-color: none;
     z-index: 0;
 }

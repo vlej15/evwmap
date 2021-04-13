@@ -1,19 +1,19 @@
 import React from "react";
 import './css/Banner.scss'
-import img1 from './css/free.jpg'
+import img1 from './css/img5.jpg'
 
-function BannerFree() {
+function BannerTip() {
     return (
         <>
             <div className="img-area">
                 <img src={img1} />
             </div>
             <div className="text-area">
-                <h3>F R E E B O A R D</h3>
+                <h3>C O N T A C T</h3>
             </div>
             {/* <div className="end"></div> */}
         </>
     );
 }
 
-export default BannerFree;
+export default BannerTip;
