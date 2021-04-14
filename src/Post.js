@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/Post.scss";
 import "./css/PostList.scss";
+
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
@@ -37,62 +38,64 @@ function Post() {
   // const comment = comments.filter((commend) => commend.postId == id);
   // console.log(post.id);
   return (
-    <div className="postWrap">
-      <div className="post">
-        <div className="title">
-          <div>
-            <h1>{post.title}</h1>
-            <p>작성자 | 2011.11.01</p>
+    <>
+      <BannerNotice />
+      <div className="contentsPost">
+        <div className="post-area">
+          <div className="title-area">
+            <span className="title">{post.title}</span>
+            <span className="writer">작성자 | 2020.02.01</span>
           </div>
-        </div>
-        <div className="postBody">
-          <p>{post.body}</p>
-        </div>
-        <div className="gideLine"></div>
-        <div className="wBtnWrap">
-          <div className="tBtnWrap">
-            <Link to="/post">
-              <button>목록으로</button>
-            </Link>
+          <div className="body-area">
+            <p>{post.body}</p>
+            <div className="btn-area">
+              {/* <button className="btn">수정</button> */}
+              <button className="notify">신고</button>
+            </div> {/* body-area end */}
           </div>
-          <button className="backBtn">글 수정</button>
-          <button>신고하기</button>
-        </div>
-        <h1 className="commTitle">댓글</h1>
-        {comment.map((comm) => (
-          <div>
-            <p>
-              <p className="commWriter">이진화</p>
-              <p className="commBody">{comm.body}</p>
-              <p className="commDate">2021-01-01</p>
-              <button
-                onClick={() => {
-                  console.log(comm.body);
-                }}
-              >
-                수정
-              </button>
-              <button> 삭제</button>
-              <div className="gideLine"></div>
-            </p>
-            {console.log(comm.name)}
-          </div>
-        ))}
-        <div className="repleForm">
+          <div className="command-area">
+            <ul>
+              <li><p className="command-title">댓글</p></li>
+              <li><a className="type">등록순</a></li>
+              <li><a className="type">최신순</a></li>
+            </ul>
+            {comment.map((comm) => (
+              <div>
+                <div className="command">
+                  <p className="comm-writer">박박디라라<FontAwesomeIcon
+                    icon={faEllipsisV} className="plus" /></p>
+                  <p className="comm-body">{comm.body}</p>
+                  <p className="comm-date">2021-01-01</p>
+                  {/* <button onClick={() => { console.log(comm.body); }}>수정</button>
+                  <button> 삭제</button> */}
+                </div>
+                {console.log(comm.name)}
+              </div>
+            ))}
+          </div>{/* command-area end */}
+        </div> {/* post-area end */}
+
+        <div className="reple-area">
           <form>
-            <p>아이디</p>
+            <p className="id">아이디</p>
             <input
               type="textarea"
-              className="textBtn"
-              placeholder="댓글을 남겨보세요"
+              className="reple-text"
+              placeholder="댓글을 남겨보세요."
             />
-            <div className="smBtnWrap">
-              <input type="submit" value="댓글 등록" className="smBtn" />
+            <div className="replybtn-area">
+              <input type="submit" value="등록" className="reply-btn" />
             </div>
           </form>
+        </div> {/* repleForm end */}
+
+        <div className="list">
+          <Link to="/post">
+            <button>목록</button>
+          </Link>
         </div>
-      </div>
-    </div>
+      </div> {/* contents end */}
+    </>
   );
 }
 export default Post;
