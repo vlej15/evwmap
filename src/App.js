@@ -43,7 +43,7 @@ function App() {
     );
     setPosts(response.data);
     setComments(recommend.data);
-    console.log(posts, comments);
+    // console.log(posts, comments);
 
     // 마커찍을 충전소 데이터 받아오기
     var config = {
@@ -109,20 +109,6 @@ function App() {
           <FindingAWay a1={a1} a2={a2} marker={marker} />
         </Route>
 
-        {/* COMMUNITY */}
-        <Route exact path="/notice">
-          <Notice posts={posts} comments={comments} />
-        </Route>
-        <Route exact path="/tipboard">
-          <TipBoard />
-        </Route>
-        <Route exact path="/freeboard">
-          <FreeBoard />
-        </Route>
-        <Route exact path="/notice/:id">
-          <Post posts={posts} comments={comments} />
-        </Route>
-
         {/* CONTACT */}
         <Route exact path="/faq">
           <FAQ />
@@ -162,6 +148,25 @@ function App() {
         {/* CARD */}
         <Route exact path="/card">
           <CardRegistration />
+        </Route>
+
+        {/* COMMUNITY */}
+        <Route exact path="/notice">
+          <Notice posts={posts} comments={comments} />
+        </Route>
+        {/* <Route
+          exact
+          path="/notice"
+          render={() => <Notice posts={posts} comments={comments} />}
+        /> */}
+        <Route exact path="/tipboard">
+          <TipBoard />
+        </Route>
+        <Route exact path="/freeboard">
+          <FreeBoard />
+        </Route>
+        <Route exact path="/notice/:id">
+          <Post posts={posts} comments={comments} />
         </Route>
 
         {/* FOOTER */}
