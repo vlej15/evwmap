@@ -10,7 +10,6 @@ import $ from "jquery";
 
 const { Tmapv2 } = window;
 
-
 $("document").ready(function () {
   var area0 = [
     "시/도 선택",
@@ -275,39 +274,27 @@ $("document").ready(function () {
   ];
   var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
 
-function Inquiry() {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
-
-
   // 시/도 선택 박스 초기화
   $("select[name^=sido]").each(function () {
     console.log($(this));
     let selsido = $(this);
     $.each(eval(area0), function () {
-      selsido.append(
-        "<option value='" + this + "'>" + this + "</option>"
-      );
+      selsido.append("<option value='" + this + "'>" + this + "</option>");
     });
     selsido.next().append("<option value=''>구/군 선택</option>");
   });
   // 시/도 선택시 구/군 설정
 
-
   $("select[name^=sido]").change(function () {
     var area =
-      "area" +
-      $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
+      "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
     var $gugun = $(this).next(); // 선택영역 군구 객체
     $("option", $gugun).remove(); // 구군 초기화
 
-    if (area == "area0")
-      $gugun.append("<option value=''>구/군 선택</option>");
+    if (area == "area0") $gugun.append("<option value=''>구/군 선택</option>");
     else {
       $.each(eval(area), function () {
-        $gugun.append(
-          "<option value='" + this + "'>" + this + "</option>"
-        );
+        $gugun.append("<option value='" + this + "'>" + this + "</option>");
       });
     }
 
@@ -341,7 +328,7 @@ function Inquiry() {
 
 function Inquiry() {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
   useEffect(() => {
     var map = new Tmapv2.Map("map_div", {
@@ -497,10 +484,14 @@ function Inquiry() {
         </div>
         <div class="char-search">
           <form onSubmit={handleSubmit(onSubmit)}>
-
             <select className="sigugun" name="sido1" id="sido1"></select>
             <select className="sigugun" name="gugun1" id="gugun1"></select>
-            <input className="insert" name="searchKeyword" placeholder="충전소" type="text" />
+            <input
+              className="insert"
+              name="searchKeyword"
+              placeholder="충전소"
+              type="text"
+            />
 
             <input
               className="insert"
