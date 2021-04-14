@@ -1,19 +1,41 @@
 import React from "react";
 import "./css/Post.scss";
 import "./css/PostList.scss";
-
 import { Link, useHistory, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 
-function Post(props) {
-  const posts = props.posts;
-  console.log(props.posts);
-  const comments = props.comments;
+function Post() {
+  const [post, setPost] = useState([]);
+  const [comment, setComment] = useState([]);
   const { id } = useParams();
-  const post = posts.find((post) => post.id == id);
-  const comment = comments.filter((commend) => commend.postId == id);
+  useEffect(async () => {
+    // 게시판 데이터
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    const recommend = await axios.get(
+      "https://jsonplaceholder.typicode.com/comments"
+    );
+    const p_result = response.data;
+    const c_result = recommend.data;
+
+    const p_data = p_result.find((item) => item.id == id);
+    const c_data = c_result.filter((commend) => commend.postId == id);
+    setPost(p_data);
+    setComment(c_data);
+    console.log(p_data, c_data);
+  }, []);
+
+  // const posts = props.posts;
+  // const comments = props.comments;
+
+  // const { id } = useParams();
+
+  // const post = posts.find((post) => post.id == id);
+  // const comment = comments.filter((commend) => commend.postId == id);
+  // console.log(post.id);
   return (
     <div className="postWrap">
       <div className="post">

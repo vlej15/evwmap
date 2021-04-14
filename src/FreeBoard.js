@@ -70,11 +70,13 @@ function Posts({ posts, loading }) {
                 </div>
                 <ul className="navList">
                   <li>
-                    <a>INTODUCTION</a>
+                    <a>INTRODUCTION</a>
                   </li>
-                  <li>
-                    <a>MAP</a>
-                  </li>
+                  <Link to="/map">
+                    <li>
+                      <a>MAP</a>
+                    </li>
+                  </Link>
                   <li>
                     <a>COMMUNITY</a>
                   </li>
