@@ -8,19 +8,20 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import $ from 'jquery';
+import $ from "jquery";
 
 $(function () {
-  $('.type').on('click', function () {
-    $('.type').css('color', 'black');
-    $(this).css('color', '#888');
-  })
+  $(".type").on("click", function () {
+    $(".type").css("color", "black");
+    $(this).css("color", "#888");
+  });
 });
 
 function Post() {
   const [post, setPost] = useState([]);
   const [comment, setComment] = useState([]);
   const { id } = useParams();
+  const [type, setType] = useState(0);
   useEffect(async () => {
     // 게시판 데이터
     const response = await axios.get(
@@ -47,6 +48,7 @@ function Post() {
   // const post = posts.find((post) => post.id == id);
   // const comment = comments.filter((commend) => commend.postId == id);
   // console.log(post.id);
+
   return (
     <>
       <BannerNotice />
@@ -61,19 +63,28 @@ function Post() {
             <div className="btn-area">
               {/* <button className="btn">수정</button> */}
               <button className="notify">신고</button>
-            </div> {/* body-area end */}
+            </div>
+            {/* body-area end */}
           </div>
           <div className="command-area">
             <ul>
-              <li><p className="command-title">댓글</p></li>
-              <li><a className="type active">등록순</a></li>
-              <li><a className="type">최신순</a></li>
+              <li>
+                <p className="command-title">댓글</p>
+              </li>
+              <li>
+                <a className="type active">등록순</a>
+              </li>
+              <li>
+                <a className="type">최신순</a>
+              </li>
             </ul>
             {comment.map((comm) => (
               <div>
                 <div className="command">
-                  <p className="comm-writer">박박디라라<FontAwesomeIcon
-                    icon={faEllipsisV} className="plus" /></p>
+                  <p className="comm-writer">
+                    박박디라라
+                    <FontAwesomeIcon icon={faEllipsisV} className="plus" />
+                  </p>
                   <p className="comm-body">{comm.body}</p>
                   <p className="comm-date">2021-01-01</p>
                   {/* <button onClick={() => { console.log(comm.body); }}>수정</button>
@@ -82,9 +93,10 @@ function Post() {
                 {console.log(comm.name)}
               </div>
             ))}
-          </div>{/* command-area end */}
-        </div> {/* post-area end */}
-
+          </div>
+          {/* command-area end */}
+        </div>{" "}
+        {/* post-area end */}
         <div className="reple-area">
           <form>
             <p className="id">아이디</p>
@@ -97,14 +109,15 @@ function Post() {
               <input type="submit" value="등록" className="reply-btn" />
             </div>
           </form>
-        </div> {/* repleForm end */}
-
+        </div>{" "}
+        {/* repleForm end */}
         <div className="list">
           <Link to="/post">
             <button>목록</button>
           </Link>
         </div>
-      </div> {/* contents end */}
+      </div>{" "}
+      {/* contents end */}
     </>
   );
 }

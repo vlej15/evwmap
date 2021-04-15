@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./css/FAQ.scss";
+import "./css/FaqBoard.scss";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import BannerQ from "./BannerQ";
+import { Link } from "react-router-dom";
 
 const handleChange = (e) => {
   console.log(e.target.valut);
@@ -24,11 +26,81 @@ const FAQ = () => {
 
   return (
     <>
-
       {/* <div className="end"></div> */}
-      <div data-aos="fade-down"
-        data-aos-duration="1000">
+      <div data-aos="fade-down" data-aos-duration="1000">
         <BannerQ />
+      </div>
+      <div className="FaqlocationData">
+        <div className="inner">
+          <div className="btnHome">
+            <i class="fas fa-home"></i>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <div className="navMenu">
+                  CONTACT
+                  <div className="navInnerMenu">
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+                </div>
+                <ul className="navList">
+                  <Link to="/introduction">
+                    <li>
+                      <a>INTRODUCTION</a>
+                    </li>
+                  </Link>
+                  <Link to="/map">
+                    <li>
+                      <a>MAP</a>
+                    </li>
+                  </Link>
+                  <Link to="/notice">
+                    <li>
+                      <a>COMMUNITY</a>
+                    </li>
+                  </Link>
+                  <Link to="/faq">
+                    <li>
+                      <a>CONTACT</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <a>
+                  <div className="navMenu">
+                    FAQ
+                    <div className="navInnersMenu">
+                      <i class="fas fa-caret-down"></i>
+                    </div>
+                  </div>
+                </a>
+                <ul className="navList">
+                  <Link to="/notice">
+                    <li>
+                      <a>FAQ</a>
+                    </li>
+                  </Link>
+                  <Link to="/freeboard">
+                    <li>
+                      <a>문의하기</a>
+                    </li>
+                  </Link>
+                  <Link to="/tipboard">
+                    <li>
+                      <a>문의내역</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="contentsFAQ">
         <div className="banner">

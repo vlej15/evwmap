@@ -1,0 +1,143 @@
+.NTlocationData{
+    z-index: 10;
+    // margin-top: 10px;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height: 50px;
+    background-color: white;
+    border-top: 1px solid #e4e8eb;
+    border-bottom: 1px solid #e4e8eb;
+    color:black;
+    margin-top: -4px;
+    .inner{
+        display: flex;
+        width:1200px;
+        height: 48px;
+        background-color: white;
+        // border-bottom: 1px solid #e4e8eb;
+        .btnHome{
+                a {
+                    color: #464646;
+                    text-decoration: none;
+                    outline: none;
+                    &:hover{
+                        color:#f2b640 ;
+                    }
+                }
+
+            
+            text-align: center;
+            line-height: 52px;
+            width:61px;
+            height: 50px;
+            color:#464646;
+            font-size: 22px;
+            background-color: white;
+            border-left: 1px solid #e4e8eb;
+            border-right: 1px solid #e4e8eb;
+            &:hover{
+                color:#f2b640 ;
+            }
+        }
+        .navTitle{
+            
+            font-size: 15px;
+            width: 240px;
+            height: 48px;
+            border-right: 1px solid #e4e8eb;
+        .ulTitle{
+            
+            margin:0px;
+            padding:0px;
+            
+        }
+        .navMenu{
+            color:black;
+            padding: 0px 20px;
+            line-height: 50px;
+            height: 48px;;
+            width:260px;
+            display: flex;
+            color:black;
+            &:hover{
+                color:#f2b640;
+            }
+            p{
+                width:110px;
+            }
+            .navInnerMenu{
+                color:black;
+                width: 100px;
+                text-align: end;
+                font-size: 25px;
+                &:hover{
+                    color:#f2b640;
+                }
+            }
+            .navInnersMenu{
+                color:black;
+                width: 134px;
+                text-align: end;
+                font-size: 25px;
+                &:hover{
+                    color:#f2b640;
+                }
+            }
+        }
+        .liTitleOpen{
+            font-size: 15px;
+            color:#9c9c9c;
+            font-weight: 400;
+            .navList{
+                background-color: white;
+                padding:0px 20px;
+                height: 0px;
+                opacity: 0;
+                transition: all 1s ease;
+                color:black;
+                li{
+                    display: none;
+                    color:black;
+                    &:hover{
+                        
+                    }
+                    margin-top: 20px;
+
+                    a{
+                        color:black;
+                        height: 0px;
+                    }
+                }
+            }
+        }
+        
+        .liTitleOpen:hover{
+            border-top: 1px solid rgb(26,26,26);
+            border-left: 1px solid rgb(26,26,26);
+            border-right: 1px solid rgb(26,26,26);
+            border-bottom: 1px solid rgb(26,26,26);
+            .navList{
+                padding:20px 20px;
+                height: 230px;
+                opacity: 1;
+                transform: translateY(0);
+                // border-left: 1px solid #d8e4ec;
+                border-right: 1px solid #e4e8eb;
+                border-bottom: 1px solid #e4e8eb;
+                li{
+                    display: block;
+                }
+                li:hover{
+                    color:#f2b640;
+                    a{
+                        color:#f2b640;
+                        // height: 240px;
+                    }
+                }
+            }
+        }
+        }
+    }
+}

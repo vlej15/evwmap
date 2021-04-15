@@ -152,6 +152,9 @@ html {
                         margin-left: 5px;
                         float: left;
                         line-height: 30px;
+                        &:active {
+                            color: #222;
+                        }
                     }
                     .type:visited {
                         color: #222;
@@ -159,6 +162,7 @@ html {
                     .active{
                         color:#333;  
                     }
+
                 }// li end
                 
             }// ul end
