@@ -32,20 +32,8 @@ function App() {
   const [a1, setA1] = useState();
   const [a2, setA2] = useState();
   const [marker, setMarker] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([]);
-  useEffect(async () => {
-    // 게시판 데이터
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    const recommend = await axios.get(
-      "https://jsonplaceholder.typicode.com/comments"
-    );
-    setPosts(response.data);
-    setComments(recommend.data);
-    // console.log(posts, comments);
 
+  useEffect(async () => {
     // 마커찍을 충전소 데이터 받아오기
     var config = {
       method: "get",
@@ -167,7 +155,7 @@ function App() {
         {/* COMMUNITY */}
 
         <Route exact path="/notice">
-          <Notice posts={posts} comments={comments} />
+          <Notice />
         </Route>
         {/* <Route
           exact
@@ -181,7 +169,7 @@ function App() {
           <FreeBoard />
         </Route>
         <Route exact path="/notice/:id">
-          <Post posts={posts} comments={comments} />
+          <Post />
         </Route>
 
         {/* FOOTER */}

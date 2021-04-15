@@ -16,6 +16,31 @@ function FreeBoard() {
   const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(async () => {
+    // var data = JSON.stringify({
+    //   page: 1,
+    //   keyWord: "",
+    //   ser: 0,
+    //   cat_cd: "0",
+    // });
+
+    // var config = {
+    //   method: "get",
+    //   url: "http://3.36.160.255:8081/api/board/list",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: data,
+    // };
+
+    // axios(config)
+    //   .then(function (response) {
+    //     console.log(JSON.stringify(response.data));
+    //     setPosts(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
     setLoading(true);
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/posts"
@@ -26,11 +51,13 @@ function FreeBoard() {
 
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
+
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;
   }
+
   return (
     <div className="comunityTop">
       <Posts posts={currentPosts(posts)} loading={loading} />

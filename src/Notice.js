@@ -11,32 +11,41 @@ function Notice() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const data = JSON.stringify({
+    u_id: "youngsik1",
+  });
 
   useEffect(async () => {
-    var data = JSON.stringify({
-      page: 1,
-      keyWord: "",
-      ser: "",
-      cat_cd: "0",
-    });
+    // var data = JSON.stringify({
+    //   page: 0,
+    //   keyWord: "",
+    //   ser: 0,
+    //   cat_cd: "1",
+    // });
 
-    var config = {
-      method: "get",
-      url: "http://3.36.160.255:8081/api/board/list",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+    // var config = {
+    //   method: "get",
+    //   url: "http://3.36.160.255:8081/api/board/list",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: data,
+    // };
 
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        setPosts(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // axios(config)
+    //   .then(function (response) {
+    //     console.log(JSON.stringify(response.data));
+    //     setPosts(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
+    setLoading(true);
+    const response = await axios("https://jsonplaceholder.typicode.com/posts");
+    setPosts(response.data);
+    setLoading(false);
+    console.log(posts);
   }, []);
 
   const indexOfLast = currentPage * postsPerPage;
@@ -65,9 +74,10 @@ function Posts({ posts, loading }) {
   return (
     <>
       {/* <div className="end"></div> */}
-      <div data-aos="fade-down"
-        data-aos-duration="1000">
+
+      <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNotice />
+      </div>
 
       <div className="NTlocationData">
         <div className="inner">
@@ -168,13 +178,13 @@ function Posts({ posts, loading }) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.cat_cd}</td>
-                <td key={post.cat_cd} className="td-title">
-                  <Link to={`/notice/${post.cat_cd}`}>{post.b_title}</Link>
+                <td>{post.id}</td>
+                <td key={post.id} className="td-title">
+                  <Link to={`/notice/${post.id}`}>{post.title}</Link>
                 </td>
-                <td>{post.u_id}</td>
-                <td>{post.b_dtt}</td>
-                <td>{post.b_visite}</td>
+                <td>작성자</td>
+                <td>작성일</td>
+                <td>10</td>
               </tr>
             ))}
           </tbody>
