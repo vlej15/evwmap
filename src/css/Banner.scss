@@ -10,32 +10,33 @@ h3 { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
     height: 90px;
 }
 
-.img-area {
-    // margin-bottom: 10px;
-    // position: relative;
-    // width: 100%;
-    // height: auto;
-    // z-index: -1;
-img {
-    width: 100%;
-    height: auto;
+.banner {
+    .img-area {
+        // margin-bottom: 10px;
+        // position: relative;
+        // width: 100%;
+        // height: auto;
+        // z-index: -1;
+    img {
+        width: 100%;
+        height: auto;
+        }
+    }// img-area end
+
+    .text-area {
+        font-family: 'ChosunKm';
+        position: absolute;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        line-height: 400px;
+        font-size: 45px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 50px;
+        top: 30vh;
+        background-color: none;
+        z-index: 0;
     }
-}// img-area end
-
-.text-area {
-    font-family: 'ChosunKm';
-
-    position: absolute;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    line-height: 400px;
-    font-size: 45px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 50px;
-    top: 90px;
-    background-color: none;
-    z-index: 0;
 }
 
 @media screen and (max-width: 479px) {

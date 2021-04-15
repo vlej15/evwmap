@@ -493,13 +493,6 @@ function Inquiry() {
               type="text"
             />
 
-            <input
-              className="insert"
-              name="searchKeyword"
-              placeholder="충전소"
-              type="text"
-            />
-
             <input type="submit" className="search-btn" value="검색" />
           </form>
         </div>

@@ -2,9 +2,9 @@ import React from "react";
 import './css/Banner.scss'
 import img1 from './css/img4.jpg'
 
-function BannerTip() {
+function BannerReq2() {
     return (
-        <>
+        <div className="banner">
             <div className="img-area">
                 <img src={img1} />
             </div>
@@ -12,8 +12,8 @@ function BannerTip() {
                 <h3>L I S T</h3>
             </div>
             {/* <div className="end"></div> */}
-        </>
+        </div>
     );
 }
 
-export default BannerTip;
+export default BannerReq2;

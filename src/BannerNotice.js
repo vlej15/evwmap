@@ -2,9 +2,9 @@ import React from "react";
 import './css/Banner.scss'
 import img1 from './css/img1.jpeg'
 
-function BannerCommunity() {
+function BannerNotice() {
     return (
-        <>
+        <div className="banner">
             <div className="img-area">
                 <img src={img1} />
             </div>
@@ -12,8 +12,8 @@ function BannerCommunity() {
                 <h3>N O T I C E</h3>
             </div>
             {/* <div className="end"></div> */}
-        </>
+        </div>
     );
 }
 
-export default BannerCommunity;
+export default BannerNotice;

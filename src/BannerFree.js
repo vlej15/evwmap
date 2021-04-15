@@ -4,7 +4,7 @@ import img1 from './css/free.jpg'
 
 function BannerFree() {
     return (
-        <>
+        <div className="banner">
             <div className="img-area">
                 <img src={img1} />
             </div>
@@ -12,7 +12,7 @@ function BannerFree() {
                 <h3>F R E E B O A R D</h3>
             </div>
             {/* <div className="end"></div> */}
-        </>
+        </div>
     );
 }
 

@@ -1,0 +1,138 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+h3 { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+
+
+.img-area {
+    // margin-bottom: 10px;
+    // position: relative;
+    // width: 100%;
+    // height: auto;
+    // z-index: -1;
+img {
+    width: 100%;
+    height: auto;
+    }
+}// img-area end
+
+.text-area {
+    font-family: 'ChosunKm';
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 55px;
+    top: 350px;
+    background-color: none;
+    z-index: 0;
+
+    h3 {
+        letter-spacing: 8px;
+        line-height: 60px;
+
+        span {
+            font-size: 15px;
+            line-height: 0px;
+        }
+    }
+}
+
+.frame {
+    text-align: center;
+    border: 0;
+    position: absolute;
+    left: 50%;
+    top: 230px;
+    width: 510px;
+    height: 350px;
+    margin-left: -255px;
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+
+    .topline {
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        border: 1px solid #d4d4d4;
+        opacity: 0.3;
+        top: 0;
+        border-bottom: 0;
+    }
+
+    .bottomline {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        border: 1px solid #d4d4d4;
+        opacity: 0.3;
+        bottom: 0;
+        border-top: 0;
+    }
+    
+    .topedge {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        box-sizing: border-box;
+        border: 1px solid #fff;
+        left: 0;
+        top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    .bottomedge {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        box-sizing: border-box;
+        border: 1px solid #fff;
+        right: 0;
+        bottom: 0;
+        border-top: 0;
+        border-left: 0;
+    }
+}
+
+.arrow-area {
+    position: absolute;
+    top: 730px;
+    left: 50%;
+    text-align: center;
+    .arrow-icon {
+        font-family: 'IBMPlexSansKR-Light';
+        color: rgb(243, 243, 243);
+        font-size: 23px;
+    }
+    .arrow-title {
+        font-family: 'IBMPlexSansKR-Light';
+        color: #d4d4d4;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .img-area {
+        max-width: 100%;
+    }
+    .end {
+        height: 50px;
+    }
+    .text-area {
+        font-size: 11px;
+        top: 100px;
+    }
+} // media end

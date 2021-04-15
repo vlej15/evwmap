@@ -1,11 +1,21 @@
 import React from "react";
 import "./css/Post.scss";
 import "./css/PostList.scss";
-
+import BannerNotice from "./BannerNotice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import $ from 'jquery';
+
+$(function () {
+  $('.type').on('click', function () {
+    $('.type').css('color', 'black');
+    $(this).css('color', '#888');
+  })
+});
 
 function Post() {
   const [post, setPost] = useState([]);
@@ -56,7 +66,7 @@ function Post() {
           <div className="command-area">
             <ul>
               <li><p className="command-title">댓글</p></li>
-              <li><a className="type">등록순</a></li>
+              <li><a className="type active">등록순</a></li>
               <li><a className="type">최신순</a></li>
             </ul>
             {comment.map((comm) => (

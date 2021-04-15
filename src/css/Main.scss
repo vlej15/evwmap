@@ -1,0 +1,167 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//fonts.googleapis.com/css?family=Black+Han+Sans:400);
+@import url(//fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean);
+@font-face {
+    font-family: 'IBMPlexSansKR-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ChosunKm';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKm.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBMPlexSansKR-Regular';
+    }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+}
+
+.contentsMain {
+    position: relative;
+    margin: 0 auto;
+    .section1, .section2, .section3, .section4 {
+        width: 100vw;
+        height: 100vh;
+
+        .title {
+            line-height: 1.6;
+            word-break: keep-all;
+            padding: 0;
+            border: 0;
+            font-weight: normal;
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 80px;
+            font-size: 64px;
+            color: #000;
+            box-sizing: border-box;
+            z-index: 2;
+            opacity: 0.742268;
+            transform: translate3d(-15.4639px, 0px, 0px);
+        }
+    }
+    .section1 {
+        margin-top: 10vh;
+
+        img {
+            width: 430px;
+        }
+        .line {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            word-break: keep-all;
+            -webkit-text-size-adjust: none;
+            -webkit-user-select: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 1px solid #e5e5e5;
+        }
+    }
+    .section2 {
+     
+        background-color: yellow;
+    }
+    .section3 {
+
+        background-color: green;
+    }
+    .section4 {
+        
+        .body-area {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            position: relative;
+            margin-top: 25px;
+            border-top: 3px solid #000;
+            width: 70%;
+
+            table {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #666;
+                word-break: keep-all;
+                -webkit-text-size-adjust: none;
+                -webkit-user-select: none;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                text-align: center;
+                table-layout: fixed;
+
+                tr {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    color: #666;
+                    word-break: keep-all;
+                    -webkit-text-size-adjust: none;
+                    -webkit-user-select: none;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+
+                    .tr-title {
+                        font-family: "cjBody",sans-serif;
+                        font-size: 16px;
+                        word-break: keep-all;
+                        -webkit-text-size-adjust: none;
+                        -webkit-user-select: none;
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        margin: 0;
+                        border: 0;
+                        text-align: left;
+                        color: #000;
+                        border-bottom: 1px solid #f2f2f2;
+                        padding: 21px 20px 18px;
+                        vertical-align: middle;
+                        line-height: 1.6;
+                    }
+                    .tr-date {
+                        font-family: "cjBody",sans-serif;
+                        font-size: 16px;
+                        word-break: keep-all;
+                        -webkit-text-size-adjust: none;
+                        -webkit-user-select: none;
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        margin: 0;
+                        border: 0;
+                        color: #000;
+                        border-bottom: 1px solid #f2f2f2;
+                        padding: 21px 20px 18px;
+                        vertical-align: middle;
+                        line-height: 1.6;
+                        width: 130px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+} // contentsMain end
