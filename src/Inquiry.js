@@ -4,6 +4,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/Resolve1.scss";
 import "./css/inquiry.scss";
+import { Link } from "react-router-dom";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import $ from "jquery";
@@ -472,6 +473,83 @@ function Inquiry() {
 
   return (
     <>
+      <div className="FlocationData">
+        <div className="inner">
+          <div className="btnHome">
+            <i class="fas fa-home"></i>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <div className="navMenu">
+                  COMMUNITY
+                  <div className="navInnerMenu">
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+                </div>
+                <ul className="navList">
+                  <Link to="/introduction">
+                    <li>
+                      <a>INTRODUCTION</a>
+                    </li>
+                  </Link>
+                  <Link to="/map">
+                    <li>
+                      <a>MAP</a>
+                    </li>
+                  </Link>
+                  <Link to="/notice">
+                    <li>
+                      <a>COMMUNITY</a>
+                    </li>
+                  </Link>
+                  <Link to="/faq">
+                    <li>
+                      <a>CONTACT</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <a>
+                  <div className="navMenu">
+                    FREE BOARD
+                    <div className="navInnersMenu">
+                      <i class="fas fa-caret-down"></i>
+                    </div>
+                  </div>
+                </a>
+                <ul className="navList">
+                  <Link to="/notice">
+                    <li>
+                      <a>NOTICE</a>
+                    </li>
+                  </Link>
+                  <Link to="/freeboard">
+                    <li>
+                      <a>FREE BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/tipboard">
+                    <li>
+                      <a>TIP BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/news">
+                    <li>
+                      <a>NEWS BOARD</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div className="end"></div>
       <div className="contentsInquiry">
         <div className="banner">

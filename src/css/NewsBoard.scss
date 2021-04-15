@@ -1,4 +1,4 @@
-.ClocationData{
+.NlocationData{
     z-index: 10;
     // margin-top: 10px;
     position:relative;
@@ -62,7 +62,7 @@
             display: flex;
             color:black;
             &:hover{
-                color:#000000;
+                color:#f2b640;
             }
             p{
                 width:110px;
@@ -72,6 +72,18 @@
                 width: 100px;
                 text-align: end;
                 font-size: 25px;
+                &:hover{
+                    color:#f2b640;
+                }
+            }
+            .navInnersMenu{
+                color:black;
+                width: 146px;
+                text-align: end;
+                font-size: 25px;
+                &:hover{
+                    color:#f2b640;
+                }
             }
         }
         .liTitleOpen{
@@ -89,7 +101,7 @@
                     display: none;
                     color:black;
                     &:hover{
-                        color:#000000;
+                        
                     }
                     margin-top: 20px;
 
@@ -118,9 +130,9 @@
                     display: block;
                 }
                 li:hover{
-                    color:black;
+                    color:#f2b640;
                     a{
-                        color:black;
+                        color:#f2b640;
                         // height: 240px;
                     }
                 }
