@@ -21,7 +21,10 @@ const Main = () => {
             <div className="contentsMain">
                 <div className="section1">
                     <div data-aos="fade-right" data-aos-duration="1500">
-                        <p className="title">MENU</p>
+                        <p className="title">Category</p>
+                        <div className="img-area">
+                            <img src={section1}></img>
+                        </div>
                     </div>
                     {/* <img src={section1} /> */}
                     {/* <span className="line"></span> */}
@@ -53,12 +56,22 @@ const Main = () => {
                                     <td className="tr-title">제목란제목란제목란제목란제목란제목란신미란</td>
                                     <td className="tr-date">1999.04.24</td>
                                 </tr>
+                                <tr>
+                                    <td className="tr-title">제목란제목란제목란제목란제목란제목란신미란</td>
+                                    <td className="tr-date">1999.04.24</td>
+                                </tr>
+                                <tr>
+                                    <td className="tr-title">제목란제목란제목란제목란제목란제목란신미란</td>
+                                    <td className="tr-date">1999.04.24</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-                    <button className="more">VIEW MORE  <FontAwesomeIcon
-                        icon={faChevronRight}
-                    /></button>
+                    <div className="btnmore-area">
+                        <button className="more">VIEW MORE<FontAwesomeIcon
+                            icon={faChevronRight} className="arrow-right"
+                        /></button>
+                    </div>
                 </div>
             </div> {/* contents end */}
         </>
