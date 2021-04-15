@@ -139,7 +139,7 @@ html, body {
             color: #262626;
             position: absolute;
             padding-left: 55%;
-            padding-top: 25%;
+            padding-top: 22%;
 
             .section3-title {
                 font-size: 60px;
@@ -149,21 +149,25 @@ html, body {
             .section3-subtitle{
                 color: #444;
                 font-size: 16px;
-                text-align: right;
+                text-align: left;
                 padding-top: 15px;
                 font-family: 'ChosunKm';
             }
-            .qr {
-                width: 130px;
-                float: right;
-            }
+
             .section3-download {
                 font-weight: bold;
-                margin-top: 15px;
-                font-size: 16px;
+                margin-top: 40px;
+                font-size: 17px;
                 font-family: 'IBMPlexSansKR-Regular';
                 color: #333;
-                text-align: right;
+                text-align: center;
+                border: 1px solid rgb(112, 112, 112);
+                padding: 15px 0;
+                width: 230px;
+                &:hover{
+                    background-color: rgba(134, 134, 134, 0.3);
+                    color: #222;
+                }
             }
             // .img2 {
             //     width: 18px;
@@ -192,7 +196,7 @@ html, body {
             object-fit: cover;
             position: absolute;
             top: 0;
-            margin-top: 10%;
+            margin-top: 8%;
             .img1 {
                 width: 100%;
                 // object-fit: fill;

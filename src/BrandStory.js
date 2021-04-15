@@ -107,7 +107,7 @@ export default class SimpleSlider extends Component {
                                     Electric Vehicle World Map APP
                                 </p>
                                 <p className="section3-download">Play Store 다운로드</p>
-                                <img className="qr" src={qr}></img>
+                                {/* <img className="qr" src={qr}></img> */}
                                 {/* <img src={img2} class="img2"></img>
                                 <p className="playstore">Play Store</p> */}
                             </div>

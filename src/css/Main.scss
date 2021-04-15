@@ -28,7 +28,7 @@ html, body {
 .contentsMain {
     position: relative;
     margin: 0 auto;
-    .section1, .section2, .section3, .section4 {
+    .section1, .section2, .section3 {
         width: 100vw;
         height: 100vh;
 
@@ -37,13 +37,13 @@ html, body {
             word-break: keep-all;
             padding: 0;
             border: 0;
-            font-weight: normal;
+            font-weight: bold;
             position: relative;
             width: 100%;
             max-width: 1000px;
             margin: 0 auto;
             padding-left: 80px;
-            font-size: 64px;
+            font-size: 54px;
             color: #000;
             box-sizing: border-box;
             z-index: 2;
@@ -77,14 +77,9 @@ html, body {
         }
     }
     .section2 {
-     
-        background-color: yellow;
+        border: 1px solid #d4d4d4;
     }
     .section3 {
-
-        background-color: green;
-    }
-    .section4 {
         
         .body-area {
             margin: 0;
@@ -93,7 +88,8 @@ html, body {
             position: relative;
             margin-top: 25px;
             border-top: 3px solid #000;
-            width: 70%;
+            width: 60%;
+            margin-left: 360px;
 
             table {
                 font-size: 16px;
@@ -112,7 +108,7 @@ html, body {
                 table-layout: fixed;
 
                 tr {
-                    font-size: 16px;
+                    font-size: 1.7rem;
                     line-height: 1.6;
                     color: #666;
                     word-break: keep-all;
@@ -127,7 +123,7 @@ html, body {
 
                     .tr-title {
                         font-family: "cjBody",sans-serif;
-                        font-size: 16px;
+                        font-size: 1.8rem;
                         word-break: keep-all;
                         -webkit-text-size-adjust: none;
                         -webkit-user-select: none;
@@ -138,13 +134,13 @@ html, body {
                         text-align: left;
                         color: #000;
                         border-bottom: 1px solid #f2f2f2;
-                        padding: 21px 20px 18px;
+                        padding: 21px 20px 21px 5px;
                         vertical-align: middle;
                         line-height: 1.6;
                     }
                     .tr-date {
                         font-family: "cjBody",sans-serif;
-                        font-size: 16px;
+                        font-size: 1.8rem;
                         word-break: keep-all;
                         -webkit-text-size-adjust: none;
                         -webkit-user-select: none;
@@ -161,6 +157,22 @@ html, body {
                         text-align: right;
                     }
                 }
+            }
+        }
+        .more {
+            margin-top: 50px;
+            font-family: 'IBMPlexSansKR-Regular';
+            font-weight: bold;
+            width: 130px;
+            height: 50px;
+            border: 3px solid #333;
+            background: none;
+            font-size: 1.7rem;
+            color: #333;
+            outline: none;
+            &:hover{
+                background-color: rgba(134, 134, 134, 0.3);
+                color: #222;
             }
         }
     }

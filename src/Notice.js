@@ -48,9 +48,10 @@ function Posts({ posts, loading }) {
   return (
     <>
       {/* <div className="end"></div> */}
-
-      <BannerNotice />
-
+      <div data-aos="fade-down"
+        data-aos-duration="1000">
+        <BannerNotice />
+      </div>
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
         <div className="banner">
