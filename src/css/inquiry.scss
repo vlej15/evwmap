@@ -53,7 +53,7 @@
     }//banner
 
     .char-search {
-        margin-top: 50px;
+        margin-top: 10vh;
         width: 100%;
         margin-bottom: 35px;
         position: relative;
@@ -61,8 +61,6 @@
         
         .sigugun {
             -webkit-text-size-adjust: none;
-            margin: 0;
-            vertical-align: middle;
             padding: 0 30px 0 8px;
             // background: #fff url('../images/common/bg_select.png') no-repeat right 50%;
             border: 1px solid #ccc;
@@ -77,6 +75,7 @@
             appearance: none;
             width: 120px;
             margin-right: 5px;
+
         }
         .insert {
             height: 50px;

@@ -26,6 +26,7 @@ import axios from "axios";
 import News from "./News";
 import CardRegistration from "./CardRegistration";
 import Post from "./Post";
+import Main from "./Main";
 
 function App() {
   const [a1, setA1] = useState();
@@ -87,7 +88,9 @@ function App() {
         <div className="content-wrap">
           <Header />
         </div>
-
+        <Route exact path="/main">
+          <Main />
+        </Route>
         {/* INTRODUCTION */}
         <Route exact path="/introduction">
           <BrandStory />
