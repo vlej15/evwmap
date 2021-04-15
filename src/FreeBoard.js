@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Board.scss";
-import "./css/Community.scss";
+import "./css/FreeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,7 +54,7 @@ function Posts({ posts, loading }) {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerFree />
       </div>
-      <div className="ClocationData">
+      <div className="FlocationData">
         <div className="inner">
           <div className="btnHome">
             <i class="fas fa-home"></i>
@@ -69,20 +69,26 @@ function Posts({ posts, loading }) {
                   </div>
                 </div>
                 <ul className="navList">
-                  <li>
-                    <a>INTRODUCTION</a>
-                  </li>
+                  <Link to="/introduction">
+                    <li>
+                      <a>INTRODUCTION</a>
+                    </li>
+                  </Link>
                   <Link to="/map">
                     <li>
                       <a>MAP</a>
                     </li>
                   </Link>
-                  <li>
-                    <a>COMMUNITY</a>
-                  </li>
-                  <li>
-                    <a>CONTACT</a>
-                  </li>
+                  <Link to="/notice">
+                    <li>
+                      <a>COMMUNITY</a>
+                    </li>
+                  </Link>
+                  <Link to="/faq">
+                    <li>
+                      <a>CONTACT</a>
+                    </li>
+                  </Link>
                 </ul>
               </li>
             </ul>
@@ -93,24 +99,32 @@ function Posts({ posts, loading }) {
                 <a>
                   <div className="navMenu">
                     FREE BOARD
-                    <div className="navInnerMenu">
+                    <div className="navInnersMenu">
                       <i class="fas fa-caret-down"></i>
                     </div>
                   </div>
                 </a>
                 <ul className="navList">
-                  <li>
-                    <a>NOTICE</a>
-                  </li>
-                  <li>
-                    <a>FREE BOARD</a>
-                  </li>
-                  <li>
-                    <a>TIP BOARD</a>
-                  </li>
-                  <li>
-                    <a>NEWS BOARD</a>
-                  </li>
+                  <Link to="/notice">
+                    <li>
+                      <a>NOTICE</a>
+                    </li>
+                  </Link>
+                  <Link to="/freeboard">
+                    <li>
+                      <a>FREE BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/tipboard">
+                    <li>
+                      <a>TIP BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/news">
+                    <li>
+                      <a>NEWS BOARD</a>
+                    </li>
+                  </Link>
                 </ul>
               </li>
             </ul>

@@ -10,7 +10,7 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const basicId = "test1901107";
   // 이메일인증함수
-  function emailCheck() { }
+  function emailCheck() {}
   // 아이디체크함수
   function idCheck(e) {
     e.preventDefault();
@@ -136,7 +136,7 @@ export default function Signup() {
                   type="email"
                   placeholder="이메일"
                   ref={register({
-                    required: true
+                    required: true,
                   })}
                 />
                 <button href="#" className="btn-ct" onClick={emailCheck}>
@@ -152,7 +152,7 @@ export default function Signup() {
                 <button href="#" className="btn-ct">
                   확인
                 </button>
-              </div>{" "}
+              </div>
               {/* form-email2 end */}
               <div className="form-carNumber">
                 <label for="">

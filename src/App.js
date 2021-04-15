@@ -49,14 +49,14 @@ function App() {
     // 마커찍을 충전소 데이터 받아오기
     var config = {
       method: "get",
-      url: "http://3.36.160.255:8081/api/marker",
+      url: "http://3.36.160.255:8081/api/map/marker",
       headers: {},
     };
 
-    await axios(config)
+    axios(config)
       .then(function (response) {
+        console.log(JSON.stringify(response.data));
         setMarker(response.data);
-        console.log(marker);
       })
       .catch(function (error) {
         console.log(error);
@@ -113,25 +113,35 @@ function App() {
         </Route>
 
         {/* CONTACT */}
+
         <Route exact path="/faq">
           <FAQ />
         </Route>
+
         <Route exact path="/questions">
           <QWrite />
         </Route>
+
         <Route exact path="/qlist">
           <QList />
         </Route>
 
+        <Route exact path="/boardwrite">
+          <BoardWrite />
+        </Route>
+
         {/* FIND ID / PW */}
+
         <Route exact path="/findid">
           <FindId />
         </Route>
+
         <Route exact path="/findpw">
           <FindPw />
         </Route>
 
         {/* My Page */}
+
         <Route exact path="/activity">
           <Activity />
         </Route>
@@ -149,11 +159,13 @@ function App() {
         </Route>
 
         {/* CARD */}
+
         <Route exact path="/card">
           <CardRegistration />
         </Route>
 
         {/* COMMUNITY */}
+
         <Route exact path="/notice">
           <Notice posts={posts} comments={comments} />
         </Route>

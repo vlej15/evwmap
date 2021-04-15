@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Board.scss";
+import "./css/TipBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -50,6 +51,83 @@ function Posts({ posts, loading }) {
       {/* <div className="end"></div> */}
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerTip />
+      </div>
+      <div className="TlocationData">
+        <div className="inner">
+          <div className="btnHome">
+            <i class="fas fa-home"></i>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <div className="navMenu">
+                  COMMUNITY
+                  <div className="navInnerMenu">
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+                </div>
+                <ul className="navList">
+                  <Link to="/introduction">
+                    <li>
+                      <a>INTRODUCTION</a>
+                    </li>
+                  </Link>
+                  <Link to="/map">
+                    <li>
+                      <a>MAP</a>
+                    </li>
+                  </Link>
+                  <Link to="/notice">
+                    <li>
+                      <a>COMMUNITY</a>
+                    </li>
+                  </Link>
+                  <Link to="/faq">
+                    <li>
+                      <a>CONTACT</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <a>
+                  <div className="navMenu">
+                    TIP
+                    <div className="navInnersMenu">
+                      <i class="fas fa-caret-down"></i>
+                    </div>
+                  </div>
+                </a>
+                <ul className="navList">
+                  <Link to="/notice">
+                    <li>
+                      <a>NOTICE</a>
+                    </li>
+                  </Link>
+                  <Link to="/freeboard">
+                    <li>
+                      <a>FREE BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/tipboard">
+                    <li>
+                      <a>TIP BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/news">
+                    <li>
+                      <a>NEWS BOARD</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="contentsBoard">
         <div className="start"></div>
