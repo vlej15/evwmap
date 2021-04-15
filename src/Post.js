@@ -11,10 +11,12 @@ import axios from "axios";
 import $ from "jquery";
 
 $(function () {
-  $(".type").on("click", function () {
-    $(".type").css("color", "black");
-    $(this).css("color", "#888");
-  });
+  $('.command-area').find('.type').click(function () {
+
+    $("a").removeClass('active');
+    $(this).addClass('active');
+
+  })
 });
 
 function Post() {
@@ -68,15 +70,11 @@ function Post() {
           </div>
           <div className="command-area">
             <ul>
-              <li>
-                <p className="command-title">댓글</p>
-              </li>
-              <li>
-                <a className="type active">등록순</a>
-              </li>
-              <li>
-                <a className="type">최신순</a>
-              </li>
+
+              <li><p className="command-title">댓글</p></li>
+              <li><a className="type active">오래된순</a></li>
+              <li><a className="type">최신순</a></li>
+
             </ul>
             {comment.map((comm) => (
               <div>

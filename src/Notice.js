@@ -65,8 +65,10 @@ function Posts({ posts, loading }) {
   return (
     <>
       {/* <div className="end"></div> */}
+      <div data-aos="fade-down"
+        data-aos-duration="1000">
+        <BannerNotice />
 
-      <BannerNotice />
       <div className="NTlocationData">
         <div className="inner">
           <div className="btnHome">
