@@ -19,6 +19,7 @@ function Notice() {
     const response = await axios(
       "https://jsonplaceholder.typicode.com/posts"
     );
+
     setPosts(response.data);
     setLoading(false);
     console.log(posts);
@@ -50,8 +51,70 @@ function Posts({ posts, loading }) {
   return (
     <>
       {/* <div className="end"></div> */}
+
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNotice />
+
+                      <a>INTRODUCTION</a>
+                    </li>
+                  </Link>
+                  <Link to="/map">
+                    <li>
+                      <a>MAP</a>
+                    </li>
+                  </Link>
+                  <Link to="/notice">
+                    <li>
+                      <a>COMMUNITY</a>
+                    </li>
+                  </Link>
+                  <Link to="/faq">
+                    <li>
+                      <a>CONTACT</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div className="navTitle">
+            <ul className="ulTitle">
+              <li className="liTitleOpen">
+                <a>
+                  <div className="navMenu">
+                    NOTICE
+                    <div className="navInnersMenu">
+                      <i class="fas fa-caret-down"></i>
+                    </div>
+                  </div>
+                </a>
+                <ul className="navList">
+                  <Link to="/notice">
+                    <li>
+                      <a>NOTICE</a>
+                    </li>
+                  </Link>
+                  <Link to="/freeboard">
+                    <li>
+                      <a>FREE BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/tipboard">
+                    <li>
+                      <a>TIP BOARD</a>
+                    </li>
+                  </Link>
+                  <Link to="/news">
+                    <li>
+                      <a>NEWS BOARD</a>
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
@@ -80,6 +143,7 @@ function Posts({ posts, loading }) {
                   <Link to={`/notice/${post.id}`}>
                     {post.title}
                   </Link>
+
                 </td>
                 <td>작성자</td>
                 <td>작성일</td>
