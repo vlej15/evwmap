@@ -84,14 +84,13 @@
             border: 1px solid #ccc;
             font-size: 1.6rem;
             color: #666;
-            width: 210px;
+            width: 230px;
             margin-right: 5px;
         }
         
         .search-btn {
             height: 50px;
             padding: 0 10px;
-            margin-right: 114px;
             border: 1px solid #212121;
             font-size: 1.6rem;
             line-height: 50px;
@@ -121,29 +120,7 @@
     display: inline-block;
     width: 50%;
     height: 700px;
-    .ft_select{
-        display: flex;
-        justify-content: center;
-        width:555px;
-        
-    }
-    p{
-        text-align: center;
-        margin-top: 10px;
-    }
-    .ft_area{
-        padding-top: 20px;
-        margin-left: 30px;
-        
-        button{
-            width: 60px;
-            height: 30px;
-            border:none;
-            color:white;
-            background-color: #212121;
-            margin-left: 10px;
-        }
-    }
+
     .chargeMap_box {
         width: 555px;
         height: 335px;
@@ -156,8 +133,8 @@
 
     .facility_box {
         width: 555px;
-        height: 300px;
-        margin: 31px 15px 10px 29px;
+        height: 330px;
+        margin: 100px 15px 10px 29px;
         text-align: center;
         border: 1px solid #d4d4d4;
         background-color: #d4d4d4;

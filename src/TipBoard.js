@@ -11,33 +11,18 @@ import BannerTip from "./BannerTip";
 function TipBoard() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState("");
-  const token = localStorage.getItem("id");
-
-  useEffect(async () => {
-    var config = {
-      method: "get",
-      url: "http://3.36.160.255:8081/api/boardlist?page=0&cat_cd=2",
-      headers: {
-        Authorization: token,
-        "Content-Type": "application/json",
-      },
-    };
-
-    await axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        setPosts(response.data.boardList);
-        setPage(response.data.pagination);
-        console.log("전" + response.data.pagination);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  const totalPage = page.totalPageCnt;
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+
+  useEffect(async () => {
+    setLoading(true);
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    setPosts(response.data);
+    setLoading(false);
+  }, []);
+
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   function currentPosts(tmp) {
@@ -56,9 +41,6 @@ function TipBoard() {
         page={currentPage}
         setCurrentPage={setCurrentPage}
         setPostsPerPage={setPostsPerPage}
-        totalPage={totalPage}
-        setPosts={setPosts}
-        setPage={setPage}
       ></Pagination>
     </div>
   );
@@ -171,11 +153,11 @@ function Posts({ posts, loading }) {
               <tr>
                 <td>{post.id}</td>
                 <td key={post.id} className="td-title">
-                  <Link to={`/post/${post.id}`}>{post.b_title}</Link>
+                  <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </td>
-                <td>{post.u_id}</td>
-                <td>{post.date + post.time}</td>
-                <td>{post.b_visite}</td>
+                <td>작성자</td>
+                <td>작성일</td>
+                <td>10</td>
               </tr>
             ))}
           </tbody>
@@ -202,37 +184,27 @@ function Pagination({
   page,
   setCurrentPage,
   setPostsPerPage,
-  totalPage,
-  setPosts,
-  setPage,
 }) {
-  const pageNumbers = totalPage;
+  let pageNumber = 0;
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
+    pageNumber += 1;
+  }
+
   return (
     <div className="pageNation">
       <div>
-        <APagination count={pageNumbers} size="large" onChange={handleChange} />
+        <APagination
+          count={pageNumbers.length}
+          color="standard"
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
   function handleChange(e, value) {
-    var config = {
-      method: "get",
-
-      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=2",
-      headers: {
-        Authorization: localStorage.getItem("id"),
-        "Content-Type": "application/json",
-      },
-    };
-
-    axios(config)
-      .then(function (response) {
-        setPosts(response.data.boardList);
-        setPage(response.data.pagination);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    paginate(value);
   }
 }
 

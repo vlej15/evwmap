@@ -27,7 +27,6 @@ import News from "./News";
 import CardRegistration from "./CardRegistration";
 import Post from "./Post";
 import Main from "./Main";
-import Test from "./Test";
 
 function App() {
   const [a1, setA1] = useState();
@@ -44,7 +43,7 @@ function App() {
 
     axios(config)
       .then(function (response) {
-        // console.log(JSON.stringify(response.data));
+        console.log(JSON.stringify(response.data));
         setMarker(response.data);
       })
       .catch(function (error) {
@@ -76,9 +75,8 @@ function App() {
       <div className="page-container">
         <div className="content-wrap">
           <Header />
-          <Test />
         </div>
-        <Route exact path="/">
+        <Route exact path="/main">
           <Main />
         </Route>
         {/* INTRODUCTION */}
@@ -96,11 +94,11 @@ function App() {
 
         {/* MAP */}
         <Route exact path="/map">
-          <Inquiry a1={a1} a2={a2} marker={marker} />
+          <Inquiry />
         </Route>
-        {/* <Route exact path="/navigate">
+        <Route exact path="/navigate">
           <FindingAWay a1={a1} a2={a2} marker={marker} />
-        </Route> */}
+        </Route>
 
         {/* CONTACT */}
 

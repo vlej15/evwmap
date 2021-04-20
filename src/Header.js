@@ -24,7 +24,7 @@ function Header(props) {
               </a>
             </h2>
             <h1 className="mainlogo">
-              <Link to="/">
+              <Link to="/main">
                 <a href="#" className="Logo">
                   "EV WMap"
                 </a>
