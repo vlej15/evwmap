@@ -7,14 +7,12 @@ import BannerNotice from "./BannerNotice";
 
 function Notice() {
   const [posts, setPosts] = useState([]);
+  const [page, setPage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-  const data = JSON.stringify({
-    u_id: "youngsik1",
-  });
+  const token = localStorage.getItem("id");
 
   useEffect(async () => {
+<<<<<<< Updated upstream
     setLoading(true);
     const response = await axios(
       "https://jsonplaceholder.typicode.com/posts"
@@ -23,8 +21,34 @@ function Notice() {
     setPosts(response.data);
     setLoading(false);
     console.log(posts);
+=======
+    var config = {
+      method: "get",
+      url: "http://3.36.160.255:8081/api/boardlist?page=0&cat_cd=0",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setPosts(response.data.boardList);
+        setPage(response.data.pagination);
+        console.log("전" + response.data.pagination);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+>>>>>>> Stashed changes
   }, []);
 
+  const totalPage = page.totalPageCnt;
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+  console.log("현재 페이지 번호 " + page.page);
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   function currentPosts(tmp) {
@@ -43,11 +67,16 @@ function Notice() {
         page={currentPage}
         setCurrentPage={setCurrentPage}
         setPostsPerPage={setPostsPerPage}
+        totalPage={totalPage}
+        setPosts={setPosts}
+        setPage={setPage}
       ></Pagination>
     </div>
   );
 }
-function Posts({ posts, loading }) {
+function Posts(props) {
+  const posts = props.posts;
+  console.log(posts);
   return (
     <>
       {/* <div className="end"></div> */}
@@ -140,10 +169,14 @@ function Posts({ posts, loading }) {
               <tr>
                 <td>{post.id}</td>
                 <td key={post.id} className="td-title">
+<<<<<<< Updated upstream
                   <Link to={`/notice/${post.id}`}>
                     {post.title}
                   </Link>
 
+=======
+                  <Link to={`/notice/${post.b_dtt}`}>{post.b_title}</Link>
+>>>>>>> Stashed changes
                 </td>
                 <td>작성자</td>
                 <td>작성일</td>
@@ -156,7 +189,6 @@ function Posts({ posts, loading }) {
     </>
   );
 }
-
 function Pagination({
   postsPerPage,
   totalPosts,
@@ -164,28 +196,44 @@ function Pagination({
   page,
   setCurrentPage,
   setPostsPerPage,
+  totalPage,
+  setPosts,
+  setPage,
 }) {
-  let pageNumber = 0;
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-    pageNumber += 1;
-  }
-
+  const pageNumbers = totalPage;
   return (
     <div className="pageNation">
       <div>
-        <APagination
-          count={pageNumbers.length}
-          size="large"
-          onChange={handleChange}
-        />
+        <APagination count={pageNumbers} size="large" onChange={handleChange} />
       </div>
     </div>
   );
   function handleChange(e, value) {
-    paginate(value);
+    var config = {
+      method: "get",
+
+      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=0",
+      headers: {
+        Authorization: localStorage.getItem("id"),
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setPosts(response.data.boardList);
+        setPage(response.data.pagination);
+        console.log("후" + response.data.pagination);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 }
+<<<<<<< Updated upstream
 
 export default Notice;
+=======
+export default Notice;
+>>>>>>> Stashed changes
