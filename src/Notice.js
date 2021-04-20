@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Notice.scss";
-import "./css/NoticeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import BannerNotice from "./BannerNotice";
@@ -16,33 +15,11 @@ function Notice() {
   });
 
   useEffect(async () => {
-    // var data = JSON.stringify({
-    //   page: 0,
-    //   keyWord: "",
-    //   ser: 0,
-    //   cat_cd: "1",
-    // });
-
-    // var config = {
-    //   method: "get",
-    //   url: "http://3.36.160.255:8081/api/board/list",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   data: data,
-    // };
-
-    // axios(config)
-    //   .then(function (response) {
-    //     console.log(JSON.stringify(response.data));
-    //     setPosts(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-
     setLoading(true);
-    const response = await axios("https://jsonplaceholder.typicode.com/posts");
+    const response = await axios(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+
     setPosts(response.data);
     setLoading(false);
     console.log(posts);
@@ -77,25 +54,7 @@ function Posts({ posts, loading }) {
 
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNotice />
-      </div>
 
-      <div className="NTlocationData">
-        <div className="inner">
-          <div className="btnHome">
-            <i class="fas fa-home"></i>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  COMMUNITY
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
-                </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
                       <a>INTRODUCTION</a>
                     </li>
                   </Link>
@@ -155,6 +114,7 @@ function Posts({ posts, loading }) {
             </ul>
           </div>
         </div>
+
       </div>
       <div className="contentsNotice">
         {/* <div className="start"></div> */}
@@ -163,7 +123,7 @@ function Posts({ posts, loading }) {
           <br></br>
           <p className="subtitle">
             EV WMAP의 공지 및 업데이트 소식을 전합니다.
-          </p>
+                    </p>
         </div>
         <table className="list">
           <thead>
@@ -180,7 +140,10 @@ function Posts({ posts, loading }) {
               <tr>
                 <td>{post.id}</td>
                 <td key={post.id} className="td-title">
-                  <Link to={`/notice/${post.id}`}>{post.title}</Link>
+                  <Link to={`/notice/${post.id}`}>
+                    {post.title}
+                  </Link>
+
                 </td>
                 <td>작성자</td>
                 <td>작성일</td>
