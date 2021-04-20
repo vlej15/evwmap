@@ -33,9 +33,9 @@ html, body {
         height: 100vh;
 
         .title {
+            padding-top: 120px;
             line-height: 1.6;
             word-break: keep-all;
-            padding: 0;
             border: 0;
             font-weight: bold;
             position: relative;
@@ -52,10 +52,33 @@ html, body {
         }
     }
     .section1 {
-        margin-top: 10vh;
 
-        img {
-            width: 430px;
+        .map-img {
+            width: 400px;
+            margin-left: 370px;
+            margin-top: 30px;
+            float: left;
+            
+            &:hover p {
+                opacity: 1;
+            }
+            p {
+                position: absolute;
+                text-align: center;
+                color: white;
+                font-size: 28px;
+                z-index: 1;
+                opacity: 0;
+            }
+                img{
+                width: 400px;
+                &:hover {
+                    filter: brightness(50%);
+                }
+            }
+        }
+        .card-img {
+            width: 400px;
         }
         .line {
             font-size: 16px;

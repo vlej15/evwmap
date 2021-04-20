@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Aos from "aos"
 import "aos/dist/aos.css";
 import section1 from './css/section1.jpg'
+import section1_2 from './css/section1_2.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,9 +23,18 @@ const Main = () => {
                 <div className="section1">
                     <div data-aos="fade-right" data-aos-duration="1500">
                         <p className="title">Category</p>
-                        <div className="img-area">
+                    </div>
+                    <div className="img-area">
+                        <div className="map-img">
+                            <p>충전소 조회<br />길찾기</p>
                             <img src={section1}></img>
                         </div>
+                        <div className="card-img">
+                            <img src={section1_2}></img>
+                        </div>
+                        {/* <img src={ } className=""></img>
+                        <img src={ } className=""></img>
+                        <img src={ } className=""></img> */}
                     </div>
                     {/* <img src={section1} /> */}
                     {/* <span className="line"></span> */}

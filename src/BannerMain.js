@@ -3,6 +3,14 @@ import './css/BannerMain.scss'
 import img1 from './css/main.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltDown } from "@fortawesome/free-solid-svg-icons";
+import $ from 'jquery';
+
+$(document).ready(function () {
+    $(".arrow-icon").click(function () {
+        var offset = $(".section1").offset();
+        $('html').animate({ scrollTop: offset.top }, 1400);
+    })
+});
 
 function BannerMain() {
 
@@ -23,7 +31,7 @@ function BannerMain() {
                 <p className="bottomedge"></p>
             </div>
             <div className="arrow-area">
-                <FontAwesomeIcon icon={faLongArrowAltDown} className="arrow-icon" />
+                <button className="arrow-icon" ><FontAwesomeIcon icon={faLongArrowAltDown} /></button>
                 <p className="arrow-title">Scroll</p>
             </div>
         </div>

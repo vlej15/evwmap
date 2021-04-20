@@ -1,0 +1,175 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+.banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+html { 
+    font-size:62.5%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+.contentsNews {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 10vh;
+    // padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 90%;
+    // margin-bottom: 400px;
+
+    .banner{
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    padding: 0px;
+    vertical-align: top;
+
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.9rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 410px;
+            font-size: 1.85rem;
+            margin: 0 auto;
+            background-color: rgba(255, 232, 100, 0.3);
+        }
+    }//banner
+
+    .news-area {
+        word-break: keep-all;
+        -webkit-text-size-adjust: none;
+        -webkit-user-select: none;
+        list-style: none;
+        width: 100%;
+        border-top: 3px solid #212121;
+        margin-top: 10vh;
+
+        li {
+            position: relative;
+            width: 100%;
+            padding: 40px 400px 40px 100px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #d4d4d4;
+
+            a {
+                cursor: pointer;
+
+                &:hover dt{
+                    color: #f2b640;
+                    font-weight: bold;
+                }
+            dl {
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+
+                dt {
+                    word-break:keep-all;
+                    border: 0;
+                    max-height: 80px;
+                    font-size: 30px;
+                    color: #000;
+                    margin-bottom: 25px;
+                    line-height: 1.3;
+                    overflow: hidden;
+                    overflow-wrap: break-word;
+                }
+                dd {
+                    p {
+                        font-size: 16px;
+                        line-height: 1.6;
+                        word-break: keep-all;
+                        list-style: none;
+                        color: #666;
+                        margin: 0;
+                        padding: 0;
+                        border: 0;
+                        margin-top: 15px;
+                    } // p end
+                }// dd end
+            }//dl end
+
+            .img-area {
+                position: absolute;
+                right: 100px;
+                top: 15px;
+                width: 288px;
+                height: 172px;
+                overflow: hidden;
+
+                img {
+                    vertical-align: top;
+                }
+            }
+        }
+        }//li end
+    }
+}// contentsNotice end
+
+            
+.write-btn{
+    position: absolute;
+    right: 200px;
+    max-height: 99999px;
+    margin: 0;
+    font-style: normal;
+    height: 55px;
+    width: 55px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 55px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-color: #393e46;
+    background-color: #393e46;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    border-radius: 50%;
+
+    .pencil {
+        margin-left: 2px;
+    }
+}// write-btn
+
+.pageNation {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    button {
+        font-size: 16px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+} 
