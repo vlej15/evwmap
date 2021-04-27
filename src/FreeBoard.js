@@ -9,11 +9,15 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 import BannerFree from "./BannerFree";
 
-function FreeBoard() {
+function FreeBoard(props) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+
+  const token = localStorage.getItem("id");
+  const setCategory = props.setCategory;
+  setCategory(1);
 
   useEffect(async () => {
     // var data = JSON.stringify({

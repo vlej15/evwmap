@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Notice.scss";
 import APagination from "@material-ui/lab/Pagination";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BannerNotice from "./BannerNotice";
 
-function Notice() {
+function Notice(props) {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("id");
+  const setPagevalue = props.setPagevalue;
+  const setCategory = props.setCategory;
+  setCategory(0);
+
+  const { id } = useParams();
 
   useEffect(async () => {
     var config = {
@@ -40,14 +45,20 @@ function Notice() {
   console.log("현재 페이지 번호 " + page.page);
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
+
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;
   }
+
   return (
     <div className="comunityTop">
-      <Posts posts={currentPosts(posts)} loading={loading} />
+      <Posts
+        posts={currentPosts(posts)}
+        loading={loading}
+        setPagevalue={setPagevalue}
+      />
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
@@ -59,13 +70,16 @@ function Notice() {
         totalPage={totalPage}
         setPosts={setPosts}
         setPage={setPage}
+        setCategory={setCategory}
       ></Pagination>
     </div>
   );
 }
 function Posts(props) {
   const posts = props.posts;
+  const setPagevalue = props.setPagevalue;
   console.log(posts);
+
   return (
     <>
       {/* <div className="end"></div> */}
@@ -174,8 +188,12 @@ function Posts(props) {
               <tr>
                 <td>{post.id}</td>
                 <td key={post.id} className="td-title">
-                  <Link to={`/notice/${post.id}`}>{post.title}</Link>
-                  <Link to={`/notice/${post.b_dtt}`}>{post.b_title}</Link>
+                  <Link
+                    to={`/notice/${post.b_dtt}`}
+                    onClick={setPagevalue(post.b_dtt)}
+                  >
+                    {post.b_title}
+                  </Link>
                 </td>
                 <td>작성자</td>
                 <td>작성일</td>

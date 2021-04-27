@@ -11,45 +11,48 @@ import axios from "axios";
 import $ from "jquery";
 
 $(function () {
-  $('.command-area').find('.type').click(function () {
-
-    $("a").removeClass('active');
-    $(this).addClass('active');
-
-  })
+  $(".command-area")
+    .find(".type")
+    .click(function () {
+      $("a").removeClass("active");
+      $(this).addClass("active");
+    });
 });
 
-function Post() {
+function Post(props) {
   const [post, setPost] = useState([]);
   const [comment, setComment] = useState([]);
-  const { id } = useParams();
-  const [type, setType] = useState(0);
+  const token = localStorage.getItem("id");
+  const pagevalue = props.pagevalue;
+  console.log("페이지 값" + pagevalue);
   useEffect(async () => {
-    // 게시판 데이터
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    const recommend = await axios.get(
-      "https://jsonplaceholder.typicode.com/comments"
-    );
-    const p_result = response.data;
-    const c_result = recommend.data;
+    var data = JSON.stringify({
+      criteria: {},
+      b_dtt: pagevalue,
+    });
 
-    const p_data = p_result.find((item) => item.id == id);
-    const c_data = c_result.filter((commend) => commend.postId == id);
-    setPost(p_data);
-    setComment(c_data);
-    console.log(p_data, c_data);
+    var config = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/gboard",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    console.log(pagevalue);
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setPost(response.data.board);
+        setComment(response.data.replyList);
+        console.log(post);
+        console.log(comment);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
-
-  // const posts = props.posts;
-  // const comments = props.comments;
-
-  // const { id } = useParams();
-
-  // const post = posts.find((post) => post.id == id);
-  // const comment = comments.filter((commend) => commend.postId == id);
-  // console.log(post.id);
 
   return (
     <>
@@ -57,7 +60,7 @@ function Post() {
       <div className="contentsPost">
         <div className="post-area">
           <div className="title-area">
-            <span className="title">{post.title}</span>
+            <span className="title">{post.b_title}</span>
             <span className="writer">작성자 | 2020.02.01</span>
           </div>
           <div className="body-area">
@@ -70,11 +73,15 @@ function Post() {
           </div>
           <div className="command-area">
             <ul>
-
-              <li><p className="command-title">댓글</p></li>
-              <li><a className="type active">오래된순</a></li>
-              <li><a className="type">최신순</a></li>
-
+              <li>
+                <p className="command-title">댓글</p>
+              </li>
+              <li>
+                <a className="type active">오래된순</a>
+              </li>
+              <li>
+                <a className="type">최신순</a>
+              </li>
             </ul>
             {comment.map((comm) => (
               <div>

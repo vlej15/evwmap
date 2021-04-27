@@ -8,11 +8,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import BannerTip from "./BannerTip";
 
-function TipBoard() {
+function TipBoard(props) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const token = localStorage.getItem("id");
+  const setCategory = props.setCategory;
+  setCategory(2);
 
   useEffect(async () => {
     setLoading(true);
