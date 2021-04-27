@@ -10,6 +10,25 @@ $(document).ready(function () {
         var offset = $(".section1").offset();
         $('html').animate({ scrollTop: offset.top }, 1400);
     })
+
+    // $(window).scroll(function () {
+    //     let pos = $(window).scrollTop();
+    //     // console.log(pos)
+    //     function getSize() {
+    //         let size = $(".wecreate").css("font-size");
+    //         size = parseInt(size, 10);
+    //         $("#font-size").text(size);
+    //     }
+
+    //     getSize();
+    // if (pos < 500) {
+    //     num = num * 0.8;
+    // }
+
+    //     if (pos < 350) {
+    //         $(".wecreate").width('100px');
+    //     }
+    // });
 });
 
 function BannerMain() {
@@ -21,7 +40,7 @@ function BannerMain() {
             </div>
 
             <div className="text-area">
-                <h3>WE CREATE NEW CULTURE<br /><span>부제목 부제목 부제목 부제목</span></h3>
+                <h3 className="wecreate">WE CREATE NEW CULTURE<br /></h3>
 
             </div>
             <div className="frame">

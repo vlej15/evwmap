@@ -124,7 +124,7 @@ const QList = () => {
           <thead>
             <tr>
               <th>상태</th>
-              <th>제목</th>
+              <th className="th-title">제목</th>
               <th>등록일</th>
             </tr>
           </thead>
@@ -164,8 +164,8 @@ const QList = () => {
           </tbody>
         </table>
       </div>
-      <div className="btn-area">
-        <button className="write-btn">
+      <div className="QList-btn">
+        <button className="QList-write">
           <FontAwesomeIcon
             icon={faPencilAlt}
             className="pencil"

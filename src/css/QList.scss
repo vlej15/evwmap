@@ -6,9 +6,6 @@ html {
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: #f6f5f5;
-}
 
 .contentsQList {
     font-style: normal;
@@ -29,7 +26,7 @@ body {
     transition-delay: .2s;
     opacity: 1;
     top: 0px;
-    width: 1200px;
+    width: 90%;
     // margin-bottom: 400px;
 
     .banner{
@@ -52,95 +49,77 @@ body {
             margin: 0px;
             padding: 0px;
             vertical-align: top;
-            font-size: 2.7rem;
+            font-size: 2.9rem;
             font-weight: bold;
         }
         .subtitle {
+            font-family: 'IBMPlexSansKR-Regular';
             width: 300px;
-            font-size: 1.6rem;
+            font-size: 1.85rem;
             margin: 0 auto;
             background-color: rgba(255, 232, 100, 0.3);
         }
     }//banner
 
 .list {
-    color: #222;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    margin: 5vh 0 0 0;
-    padding: 0px;
+    margin: 10vh 0 0 0;
     vertical-align: top;
     border-collapse: collapse;
-    border-spacing: 0;
-    word-break: break-all;
     width: 100%;
-    // border-top: 1px solid #222;
     border-bottom: 1px solid #c8c8c8;
-    background: #fff;
     table-layout: fixed;
 
-        thead {
-            color: #222;
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1;
-            letter-spacing: 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
-            margin: 0px;
-            padding: 0px;
-            vertical-align: top;
-        }
-        
         th {
-            letter-spacing: 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
-            margin: 0px;
-            font-weight: 400;
-            padding: 20px 10px;
-            color: #333;
-            font-size: 1.6rem;
-            line-height: 18px;
+            padding: 0 10px;
+            color: #444;
+            font-size: 1.7rem;
+            border-top: 3px solid #212121;
             border-bottom: 1px solid #dcdcdc;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             text-align: center;
-            vertical-align: middle;
+            padding: 25px 10px;
+        }
+        .th-title {
+            width: 600px;
+            padding: 0 10px;
+            color: #444;
+            font-size: 1.7rem;
+            border-top: 3px solid #212121;
+            border-bottom: 1px solid #dcdcdc;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 25px 10px;
         }
         
         tbody {
-            color: #222;
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1;
-            letter-spacing: 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
-            margin: 0px;
-            padding: 0px;
-            vertical-align: top;
-        }
-        
+
         .list-td {
-            font-weight: 400;
-            letter-spacing: 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
+            font-family: 'IBMPlexSansKR-Regular';
             margin: 0px;
-            color: #666 !important;
-            height: 70px;
-            padding: 0 10px;
-            font-size: 1.4rem;
+            height: 60px;
+            padding: 10px 10px;
+            color: #333;
+            font-size: 1.7rem;
             line-height: 16px;
             border-top: 1px solid #dcdcdc;
             text-align: center;
             vertical-align: middle;
+            a:link {text-decoration: none; color: rgb(29, 29, 29);}
+            a:visited {text-decoration: none; color: rgb(29,29,29);}
+            // font-weight: 400;
+            // letter-spacing: 0;
+            // border-collapse: collapse;
+            // border-spacing: 0;
+            // word-break: break-all;
+            // margin: 0px;
+            // color: #666 !important;
+            // height: 70px;
+            // padding: 0 10px;
+            // font-size: 1.4rem;
+            // line-height: 16px;
+            // border-top: 1px solid #dcdcdc;
+            // text-align: center;
+            // vertical-align: middle;
         }
         
         .list-span1 {
@@ -149,15 +128,13 @@ body {
             border-collapse: collapse;
             border-spacing: 0;
             word-break: break-all;
-            margin: 0px;
-            padding: 0px;
             vertical-align: top;
             display: inline-block;
-            width: 53px;
-            height: 28px;
+            width: 65px;
+            height: 35px;
             color: black;
-            font-size: 1.2rem;
-            line-height: 28px;
+            font-size: 1.5rem;
+            line-height: 35px;
             border: 1px solid #393e46;
             text-align: center;
         }
@@ -167,34 +144,28 @@ body {
             border-collapse: collapse;
             border-spacing: 0;
             word-break: break-all;
-            margin: 0px;
-            padding: 0px;
             vertical-align: top;
             display: inline-block;
-            width: 53px;
-            height: 28px;
+            width: 65px;
+            height: 35px;
             color: black;
-            font-size: 1.2rem;
-            line-height: 28px;
+            font-size: 1.5rem;
+            line-height: 35px;
             border: 1px solid #393e46;
             text-align: center;
             background-color: #f2b640;
         }
         .list-title {
-            font-weight: 400;
-            letter-spacing: 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
-            margin: 0px;
-            text-align: left !important;
-            height: 70px;
-            padding: 0 10px;
-            color: #999;
-            font-size: 1.4rem;
+            height: 60px;
+            padding: 10px 10px;
+            color: #333;
+            font-size: 1.7rem;
             line-height: 16px;
             border-top: 1px solid #dcdcdc;
+            text-align: center;
             vertical-align: middle;
+            font-family: 'IBMPlexSansKR-Regular';
+            text-align: left;
         }
         
         .list-link {
@@ -212,13 +183,18 @@ body {
             position: relative;
             display: inline-block;
             max-width: 100%;
-            color: #222;
-            font-size: 1.6rem;
+            color: #333;
+            font-size: 1.7rem;
             line-height: 24px;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
             box-sizing: border-box;
+
+            &:hover {
+                color: #f2b640;
+                font-weight: bold;
+            }
         }
         
         .list-date{
@@ -230,53 +206,40 @@ body {
             margin: 0px;
             height: 70px;
             padding: 0 10px;
-            color: #999;
-            font-size: 1.4rem;
+            color: #333;
+            font-size: 1.7rem;
             line-height: 16px;
             border-top: 1px solid #dcdcdc;
             text-align: center;
             vertical-align: middle;
         }
+    }
     }// list end
-    .btn-area {
-        color: #222;
-        font-size: 1.4rem;
-        font-weight: 400;
-        line-height: 1;
-        letter-spacing: 0;
-        word-break: break-all;
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        vertical-align: top;
-        margin-top: 15px;
-        
-        .write-btn{
-            max-height: 99999px;
-            margin: 0;
-            font-style: normal;
-            height: 55px;
-            width: 55px;
-            padding: 0 5px;
-            border: 1px solid #ccc;
-            font-weight: 400;
-            font-size: 1.9rem;
-            line-height: 55px;
-            display: inline-block;
-            box-sizing: border-box;
-            border-color: #212121;
-            background-color: #212121;
-            color: #fff;
-            cursor: pointer;
-            float: right;
-            border-radius: 50%;
-
-            .pencil {
-                margin-left: 2px;
-            }
-        }// write-btn
-    }// btn-area
 }// contentsQlist
+.QList-btn{
+    .QList-write{
+        margin-right: 100px;
+        outline: none;
+        height: 55px;
+        width: 55px;
+        padding: 0 5px;
+        border: 1px solid #ccc;
+        font-weight: 400;
+        font-size: 1.9rem;
+        line-height: 55px;
+        box-sizing: border-box;
+        border-color: #46393a;
+        background-color: #393e46;
+        color: #fff;
+        cursor: pointer;
+        float: right;
+        border-radius: 50%;
+    
+        .pencil {
+            margin-left: 2px;
+        }
+    }// write-btn
+}
 
 @media screen and (max-width: 479px) {
     .contentsQList {
