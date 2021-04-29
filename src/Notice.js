@@ -16,8 +16,6 @@ function Notice(props) {
 
   setCategory(0);
 
-  const { id } = useParams();
-
   useEffect(async () => {
     var config = {
       method: "get",
@@ -44,22 +42,17 @@ function Notice(props) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  console.log("현재 페이지 번호 " + page.page);
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
-
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;
   }
-
   return (
     <div className="comunityTop">
-      <Posts
-        posts={currentPosts(posts)}
-        loading={loading}
-        setPagevalue={setPagevalue}
-      />
+      <Posts posts={currentPosts(posts)} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
@@ -71,16 +64,13 @@ function Notice(props) {
         totalPage={totalPage}
         setPosts={setPosts}
         setPage={setPage}
-        setCategory={setCategory}
       ></Pagination>
     </div>
   );
 }
 function Posts(props) {
   const posts = props.posts;
-  const setPagevalue = props.setPagevalue;
   console.log(posts);
-
   return (
     <>
       {/* <div className="end"></div> */}
@@ -88,7 +78,7 @@ function Posts(props) {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNotice />
       </div>
-      <div className="NlocationData">
+      <div className="FlocationData">
         <div className="inner">
           <div className="btnHome">
             <i class="fas fa-home"></i>
@@ -132,7 +122,7 @@ function Posts(props) {
               <li className="liTitleOpen">
                 <a>
                   <div className="navMenu">
-                    NOTICE
+                    FREE BOARD
                     <div className="navInnersMenu">
                       <i class="fas fa-caret-down"></i>
                     </div>
@@ -187,18 +177,14 @@ function Posts(props) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{i++}</td>
+                <td>{post.id}</td>
                 <td key={post.id} className="td-title">
-                  <Link
-                    to={`/notice/${post.b_dtt}`}
-                    onClick={setPagevalue(post.b_dtt)}
-                  >
-                    {post.b_title}
-                  </Link>
+                  <Link to={`/notice/${post.id}`}>{post.title}</Link>
+                  <Link to={`/notice/${post.b_dtt}`}>{post.b_title}</Link>
                 </td>
-                <td>{post.u_id}</td>
-                <td>{post.date}</td>
-                <td>{post.b_visite}</td>
+                <td>작성자</td>
+                <td>작성일</td>
+                <td>10</td>
               </tr>
             ))}
           </tbody>

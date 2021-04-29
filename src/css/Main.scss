@@ -29,6 +29,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    font-size:62.5%;
     // overflow: hidden;
 }
 
@@ -50,7 +51,7 @@ html, body {
             max-width: 1000px;
             margin: 0 auto;
             padding-left: 80px;
-            font-size: 54px;
+            font-size: 5.4rem;
             color: #000;
             box-sizing: border-box;
             z-index: 2;
@@ -70,7 +71,7 @@ html, body {
                 font-family: 'NEXON Lv1 Gothic OTF';
                 color: #111;
                 text-align: center;
-                font-size: 30px;
+                font-size: 3rem;
                 letter-spacing: 7px;
                 font-weight: bold;
             }// section-title
@@ -78,14 +79,14 @@ html, body {
                 font-family: 'NEXON Lv1 Gothic OTF';
                 color: #666;
                 text-align: center;
-                font-size: 15px;
+                font-size: 1.5rem;
                 letter-spacing: 5px;
                 margin-top: 5px;
             }// section-subtitle
             .section1-text {
                 font-family: 'IBMPlexSansKR-Regular';
                 text-align: center;
-                font-size: 21px;
+                font-size: 2.1rem;
                 color: #444;
                 margin-top: 40px;
 
@@ -105,9 +106,9 @@ html, body {
                 font-family: 'IBMPlexSansKR-Regular';
                 // width: 150px;
                 height: 55px;
-                border: 2.5px solid #c9d6df;
+                border: 2.5px solid #afbac2;
                 // background: none;
-                background-color: #c9d6df;
+                background-color: #afbac2;
                 font-size: 1.7rem;
                 padding: 0 30px;
                 color: #333;
@@ -129,7 +130,7 @@ html, body {
             z-index: 1;
         }
         .section1-div {
-            background-color: #c9d6df;
+            background-color: #afbac2;
             width: 280px;
             height: 470px;
             position: absolute;
@@ -142,7 +143,7 @@ html, body {
             color: #111;
             font-weight: 500;
             text-align: center;
-            font-size: 30px;
+            font-size: 3rem;
             position: absolute;
             top: 22%;
             left: -0.1%;
@@ -164,7 +165,7 @@ html, body {
                 text-align: center;
                 font-family: 'NEXON Lv1 Gothic OTF';
                 color: #ffffff;
-                font-size: 30px;
+                font-size: 3rem;
                 letter-spacing: 3px;
 
                 span {
@@ -173,10 +174,16 @@ html, body {
                     font-weight: bold;
                     margin-left: 9px;
                 }
+                .none {
+                    display: none;
+                }
+            }
+            .section2-title2 {
+                display: none;
             }
             .section2-subtitle {
                 text-align-last: center;
-                font-size: 16px;
+                font-size: 1.6rem;
                 margin-top: 15px;
                 color: #eeeeee;
             }
@@ -206,19 +213,22 @@ html, body {
             margin-left: 210px;
         }
     }
+    .section3-media, .section3-media2 {
+        display: none;
+    }
     .section3 {
         max-height: 9999px;
         min-height: 950px;
         .section3-title {
             width: 215px;
-            font-size: 30px;
+            font-size: 3rem;
             font-family: 'NEXON Lv1 Gothic OTF';
             margin-top: 150px;
             margin-bottom: 30px;
             font-weight: bold;
             text-align: center;
             margin-left: 1155px;
-            background-color: #c9d6df;
+            background-color: #afbac2;
 
             color: #222;
         }
@@ -227,7 +237,7 @@ html, body {
             width: 1200px;
             margin: 0 auto;
             text-align: center;
-            .section3-divarea {
+            .section3-divarea1, .section3-divarea2, .section3-divarea3 {
                 width: 385px;
                 display: inline-block;
                 .img3 {
@@ -237,18 +247,208 @@ html, body {
                 .section3-text1 {
                     font-family: 'NEXON Lv1 Gothic OTF';
                     text-align: center;
-                    font-size: 17px;
+                    font-size: 1.7rem;
                     letter-spacing: 10px;
-                    margin: 10px 0;
+                    margin: 20px 0 15px 0;
                     font-weight: bold;
                     color: #333;
                 }
                 .section3-text2 {
                     text-align: center;
                     font-family: 'NEXON Lv1 Gothic OTF';
-                    font-size: 14px;
+                    font-size: 1.4rem;
                 }
             }// section3-divarea
         }// section3-imgarea
     }// section3 end
 } // contentsMain end
+
+
+//m
+//e
+//d
+//i
+//a
+
+
+@media screen and (max-width: 479px) {
+    .contentsMain {
+        background-color: #eeeeee;
+        max-width: 100%;
+        margin: 0;
+        .section1 {
+            width: 100%;
+            margin: 0 auto;
+            min-height: 200px;
+            .section-textarea {
+                float: none;
+                margin: 0 auto;
+                margin-top: 30px;
+                .section1-title {
+                    font-size: 1.5rem;
+                }// section-title
+                .section1-subtitle {
+                    font-size: 1.2rem;
+                    letter-spacing: 2px;
+                }
+                .section1-text {
+                    font-size: 1.45rem;
+                    margin-top: 20px;
+                }
+                .section1-line {
+                    height: 20px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    border-left: 2px solid #52616b;
+                    margin-right: 175px;
+
+                }
+                .map-btn {
+                    font-size: 1.35rem;
+                    height: 37px;
+                    padding: 0 20px;
+                    margin-left: 85px;
+                }
+            }//section1-textarea end
+            .img1, .section1-div, .section1-imgtitle {
+                display: none;
+            }
+        }//section1 end
+
+        .section2 {
+            width: 100%;
+            height: 60%;
+            .section2-textarea{
+                width: 100%;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-left: 0;
+                    .section2-title {
+                    text-align: center;
+                    font-family: 'NEXON Lv1 Gothic OTF';
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                    letter-spacing: 3px;
+                    margin-bottom: 20px;
+
+                    span {
+                        font-family: 'NEXON Lv1 Gothic OTF';
+                        letter-spacing: 3px;
+                        font-weight: bold;
+                        margin-left: 9px;
+                    }
+                    .none {
+                        display: inline;
+                    }
+                }
+                .section2-title2 {
+                    display: inline;
+                    font-family: 'NEXON Lv1 Gothic OTF';
+                    text-align: center;
+                    font-size: 1.45rem;
+                    letter-spacing: 10px;
+                    font-weight: bold;
+                    color: #fff;
+                }
+                .section2-subtitle {
+                    text-align-last: center;
+                    font-size: 1.45rem;
+                    margin-top: 15px;
+                    color: #eeeeee;
+                }
+                .section2-line {
+                    display: none;
+                }
+                .card-btn {
+                    display: none;
+                }
+            }// section2-textarea
+        .img2 {
+            display: none;
+            }
+        }// section2 end
+
+        .section3-media {
+            width: 100%;
+            display: inline;
+            .media-textarea {
+                width: 100%;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-left: 0;
+                .media-title {
+                text-align: center;
+                font-family: 'NEXON Lv1 Gothic OTF';
+                color: #111;
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+                margin-bottom: 20px;
+
+                span {
+                    font-family: 'NEXON Lv1 Gothic OTF';
+                    letter-spacing: 3px;
+                    font-weight: bold;
+                    margin-left: 9px;
+                    }
+                }
+                .media-title2 {
+                    font-family: 'NEXON Lv1 Gothic OTF';
+                    text-align: center;
+                    font-size: 1.45rem;
+                    letter-spacing: 10px;
+                    font-weight: bold;
+                    color: #111;
+                }
+                .media-subtitle {
+                    text-align-last: center;
+                    font-size: 1.45rem;
+                    margin-top: 15px;
+                    color: #111;
+                }
+            }
+        }// section3-media
+        .section3-media2 {
+            display: inline;
+            .media-textarea {
+                width: 100%;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-left: 0;
+                background-color: #52616b;
+                .media-title {
+                text-align: center;
+                font-family: 'NEXON Lv1 Gothic OTF';
+                color: #ffffff;
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+                margin-bottom: 20px;
+
+                span {
+                    font-family: 'NEXON Lv1 Gothic OTF';
+                    letter-spacing: 3px;
+                    font-weight: bold;
+                    margin-left: 9px;
+                    }
+                }
+                .media-title2 {
+                    font-family: 'NEXON Lv1 Gothic OTF';
+                    text-align: center;
+                    font-size: 1.45rem;
+                    letter-spacing: 10px;
+                    margin: 20px 0 15px 0;
+                    font-weight: bold;
+                    color: #fff;
+                }
+                .media-subtitle {
+                    text-align-last: center;
+                    font-size: 1.45rem;
+                    margin-top: 15px;
+                    color: #eeeeee;
+                }
+            }
+        }// section3-media
+        .section3 {
+            display: none;
+        }// section3 end
+    }//contentsMain end
+}// media end

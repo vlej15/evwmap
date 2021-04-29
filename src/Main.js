@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 import BannerMain from "./BannerMain";
 import "./css/Main.scss";
 import { useState, useEffect } from "react";
