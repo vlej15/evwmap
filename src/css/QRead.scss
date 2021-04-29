@@ -28,7 +28,7 @@ html {
     opacity: 1;
     top: 0px;
     width: 1200px;
-    // margin-bottom: 400px;
+    margin-bottom: 5vh;
 
     .banner{
     color: #222;
@@ -54,10 +54,11 @@ html {
             font-weight: bold;
         }
         .subtitle {
+            font-family: 'IBMPlexSansKR-Regular';
             width: 280px;
-            font-size: 1.6rem;
+            font-size: 1.85rem;
             margin: 0 auto;
-            background-color: rgba(255, 232, 100, 0.3);
+            background-color: #f0f5f9;
         }
     }//banner
     

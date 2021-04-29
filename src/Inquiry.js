@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 
+import BannerMap from "./BannerMap";
+
 const { Tmapv2 } = window;
 
 function Inquiry(props) {
@@ -306,13 +308,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-              request.status +
-              "\n" +
-              "message:" +
-              request.responseText +
-              "\n" +
-              "error:" +
-              error
+            request.status +
+            "\n" +
+            "message:" +
+            request.responseText +
+            "\n" +
+            "error:" +
+            error
           );
         },
       });
@@ -635,6 +637,9 @@ function Inquiry(props) {
 
   return (
     <>
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <BannerMap />
+      </div>
       <div className="FlocationData">
         <div className="inner">
           <div className="btnHome">
@@ -772,8 +777,8 @@ function Inquiry(props) {
                 <h1 className="charge_name">
                   충전소 명 :
                   {station.map((a) => (
-                    <span>{a.stat_nm}</span>
-                  ))}
+                  <span>{a.stat_nm}</span>
+                ))}
                 </h1>
                 <button className="report_btn">
                   <FontAwesomeIcon
@@ -875,14 +880,14 @@ function Inquiry(props) {
                       disabled
                     />
                   ) : (
-                    <input
-                      ref={register}
-                      className="review_text"
-                      type="text"
-                      placeholder="리뷰를 입력해주세요."
-                      name="review"
-                    />
-                  )}
+                      <input
+                        ref={register}
+                        className="review_text"
+                        type="text"
+                        placeholder="리뷰를 입력해주세요."
+                        name="review"
+                      />
+                    )}
 
                   <button type="submit" className="create">
                     입력

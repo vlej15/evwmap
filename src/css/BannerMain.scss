@@ -132,12 +132,27 @@ img {
 @media screen and (max-width: 479px) {
     .img-area {
         max-width: 100%;
-    }
-    .end {
-        height: 50px;
+        img {
+            height: 250px;
+        }
     }
     .text-area {
-        font-size: 11px;
-        top: 100px;
+        width: 100%;
+
+        h3 {
+            
+        }
+    }
+    .frame {
+        display: none;
+    }
+    .arrow-area {
+        .arrow-icon {
+            display: none;
+        }
+        .arrow-title {
+            display: none;
+        }
     }
 } // media end
+

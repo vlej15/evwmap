@@ -30,36 +30,37 @@ html {
     opacity: 1;
     top: 0px;
     width: 1200px;
-    margin-bottom: 50px;
+    margin-bottom: 5vh;
 
     .banner{
-    color: #222;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    word-break: break-all;
-    text-align: center;
-    padding: 0px;
-    vertical-align: top;
-
-        .banner-title {
-            color: #222;
-            line-height: 1.4;
-            letter-spacing: 0;
-            word-break: break-all;
-            text-align: center;
-            margin: 0px;
-            padding: 0px;
-            vertical-align: top;
-            font-size: 2.7rem;
-            font-weight: bold;
-        }
+        color: #222;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        padding: 0px;
+        vertical-align: top;
+        margin-bottom: 5vh;
+            .banner-title {
+                color: #222;
+                line-height: 1.4;
+                letter-spacing: 0;
+                word-break: break-all;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: top;
+                font-size: 2.9rem;
+                font-weight: bold;
+            }
         .subtitle {
-            width: 470px;
-            font-size: 1.6rem;
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 520px;
+            font-size: 1.85rem;
             margin: 0 auto;
-            background-color: rgba(255, 232, 100, 0.3);
+            background-color: #c9d6df;
         }
     }//banner
 }
@@ -85,7 +86,7 @@ html {
         height: 44px;
         padding: 0 14px;
         color: #222;
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         border: 1px solid #dedede;
         background-color: #fff;
         outline: 0;
@@ -120,7 +121,7 @@ html {
     
     .form-check {
         color: #222;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 400;
         letter-spacing: 0;
         word-break: break-all;
@@ -135,7 +136,7 @@ html {
     
     .check {
         color: #222;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 400;
         letter-spacing: 0;
         word-break: break-all;
@@ -160,7 +161,7 @@ html {
     }
     
     .find {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         text-decoration: none;
         color: black;
     }
@@ -189,10 +190,10 @@ html {
     margin: 0px;
     padding: 0px;
     vertical-align: top;
-    margin-top: 40px;
+    margin-top: 5vh;
 
     .btn-subtitle {
-        font-size: 1.6rem;
+        font-size: 1.85rem;
         text-align: center;
     }
 
@@ -204,14 +205,14 @@ html {
         cursor: pointer;
         display: inline-block;
         margin: 4px;
-        font-size: 1.8rem;
+        font-size: 1.85rem;
         line-height: 54px;
         text-align: center;
         box-sizing: border-box;
         text-decoration: none;
         color: white;
-        border: 1px solid #212121;
-        background-color: #212121;
+        border: 1px solid #1e2022;
+        background-color: #1e2022;
         width: 460px;
         padding: 0;
     }

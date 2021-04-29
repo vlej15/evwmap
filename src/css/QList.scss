@@ -57,7 +57,7 @@ html {
             width: 300px;
             font-size: 1.85rem;
             margin: 0 auto;
-            background-color: rgba(255, 232, 100, 0.3);
+            background-color: #c9d6df;
         }
     }//banner
 
@@ -148,12 +148,12 @@ html {
             display: inline-block;
             width: 65px;
             height: 35px;
-            color: black;
+            color: #fff;
             font-size: 1.5rem;
             line-height: 35px;
             border: 1px solid #393e46;
             text-align: center;
-            background-color: #f2b640;
+            background-color: #52616b;
         }
         .list-title {
             height: 60px;
@@ -192,7 +192,7 @@ html {
             box-sizing: border-box;
 
             &:hover {
-                color: #f2b640;
+                color: #145b79;
                 font-weight: bold;
             }
         }

@@ -146,7 +146,7 @@ const FAQ = () => {
           </li>
           <li className="faq-li" onClick={() => { modal변경02(!modal02) }} >
             <p className="q"><span>Q</span>
-            아놔 급속인데도 충전 느려요......ㅡㅡ<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
+            급속 충전기임에도 불구하고 충전 속도가 많이 느립니다.<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal02 === true
                 ? <Modal></Modal>
@@ -155,7 +155,7 @@ const FAQ = () => {
           </li>
           <li className="faq-li" onClick={() => { modal변경03(!modal03) }}>
             <p className="q"><span>Q</span>
-전기차 충전소는 모두 24시간인가요??!?!?!?!?!?!?!?!??!?!!??!?!?!?!!!!!!!!?!?!?!?!?!?급해요!!!!!!!!!!!!!!!!!!!!!!!!<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
+            완속충전기 커플러가 충전기에서 빠지지 않습니다.<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal03 === true
                 ? <Modal></Modal>
@@ -164,7 +164,7 @@ const FAQ = () => {
           </li>
           <li className="faq-li" onClick={() => { modal변경04(!modal04) }}>
             <p className="q"><span>Q</span>
-질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
+전기자동차 차종별로 급속 충전 방식은 어떻게 다른가요?<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal04 === true
                 ? <Modal></Modal>
@@ -173,7 +173,7 @@ const FAQ = () => {
           </li>
           <li className="faq-li" onClick={() => { modal변경05(!modal05) }} >
             <p className="q"><span>Q</span>
-질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
+전기자동차 충전소는 모두 24시간 운영되나요?<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal05 === true
                 ? <Modal></Modal>
@@ -182,7 +182,7 @@ const FAQ = () => {
           </li>
           <li className="faq-li" onClick={() => { modal변경06(!modal06) }}>
             <p className="q"><span>Q</span>
-질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
+전기자동차 충전이 안되는 경우는 어떻게 하나요?<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal06 === true
                 ? <Modal></Modal>
@@ -191,7 +191,7 @@ const FAQ = () => {
           </li>
           <li className="faq-li" onClick={() => { modal변경07(!modal07) }} >
             <p className="q"><span>Q</span>
-질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
+SM3 ZE의 경우 커넥터 분리가 힘들어요.<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal07 === true
                 ? <Modal></Modal>
