@@ -45,7 +45,6 @@ function App() {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         setMarker(response.data);
       })
       .catch(function (error) {
@@ -78,7 +77,7 @@ function App() {
         <div className="content-wrap">
           <Header />
         </div>
-        <Route exact path="/main">
+        <Route exact path="/">
           <Main />
         </Route>
         {/* INTRODUCTION */}
@@ -162,11 +161,11 @@ function App() {
         {console.log("카테고리" + category)}
 
         <Route exact path="/tipboard">
-          <TipBoard setCategory={setCategory} />
+          <TipBoard setPagevalue={setPagevalue} setCategory={setCategory} />
         </Route>
 
         <Route exact path="/freeboard">
-          <FreeBoard setCategory={setCategory} />
+          <FreeBoard setPagevalue={setPagevalue} setCategory={setCategory} />
         </Route>
 
         <Route exact path="/notice/:id">

@@ -3,40 +3,64 @@ import axios from "axios";
 import "./css/Board.scss";
 import "./css/TipBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import BannerTip from "./BannerTip";
 
-function TipBoard(props) {
+function FreeBoard(props) {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("id");
+  const setPagevalue = props.setPagevalue;
   const setCategory = props.setCategory;
   setCategory(2);
 
+  const { id } = useParams();
+
   useEffect(async () => {
-    setLoading(true);
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    setPosts(response.data);
-    setLoading(false);
+    var config = {
+      method: "get",
+      url: "http://3.36.160.255:8081/api/boardlist?page=0&cat_cd=2",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setPosts(response.data.boardList);
+        setPage(response.data.pagination);
+        console.log("전" + response.data.pagination);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
 
+  const totalPage = page.totalPageCnt;
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
+
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;
   }
+
   return (
     <div className="comunityTop">
-      <Posts posts={currentPosts(posts)} loading={loading} />
+      <Posts
+        posts={currentPosts(posts)}
+        loading={loading}
+        setPagevalue={setPagevalue}
+      />
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
@@ -45,14 +69,23 @@ function TipBoard(props) {
         page={currentPage}
         setCurrentPage={setCurrentPage}
         setPostsPerPage={setPostsPerPage}
+        totalPage={totalPage}
+        setPosts={setPosts}
+        setPage={setPage}
+        setCategory={setCategory}
       ></Pagination>
     </div>
   );
 }
-function Posts({ posts, loading }) {
+function Posts(props) {
+  const posts = props.posts;
+  const setPagevalue = props.setPagevalue;
+  console.log(posts);
+
   return (
     <>
       {/* <div className="end"></div> */}
+
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerTip />
       </div>
@@ -133,8 +166,8 @@ function Posts({ posts, loading }) {
           </div>
         </div>
       </div>
-      <div className="contentsBoard">
-        <div className="start"></div>
+      <div className="contentsNotice">
+        {/* <div className="start"></div> */}
         <div className="banner">
           <p className="banner-title">TIP 게시판</p>
           <br></br>
@@ -157,30 +190,36 @@ function Posts({ posts, loading }) {
               <tr>
                 <td>{post.id}</td>
                 <td key={post.id} className="td-title">
-                  <Link to={`/post/${post.id}`}>{post.title}</Link>
+                  <Link
+                    to={`/notice/${post.b_dtt}`}
+                    onClick={setPagevalue(post.b_dtt)}
+                  >
+                    {post.b_title}
+                  </Link>
                 </td>
-                <td>작성자</td>
-                <td>작성일</td>
-                <td>10</td>
+                <td>{post.u_id}</td>
+                <td>{post.date}</td>
+                <td>{post.b_visite}</td>
               </tr>
             ))}
           </tbody>
         </table>
         <div className="btn-area">
           {localStorage.getItem("id") != null ? (
-            <button className="write-btn">
-              <FontAwesomeIcon
-                icon={faPencilAlt}
-                className="pencil"
-              ></FontAwesomeIcon>
-            </button>
+            <Link to="boardwrite">
+              <button className="write-btn">
+                <FontAwesomeIcon
+                  icon={faPencilAlt}
+                  className="pencil"
+                ></FontAwesomeIcon>
+              </button>
+            </Link>
           ) : null}
         </div>
       </div>
     </>
   );
 }
-
 function Pagination({
   postsPerPage,
   totalPosts,
@@ -188,28 +227,40 @@ function Pagination({
   page,
   setCurrentPage,
   setPostsPerPage,
+  totalPage,
+  setPosts,
+  setPage,
 }) {
-  let pageNumber = 0;
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-    pageNumber += 1;
-  }
-
+  const pageNumbers = totalPage;
   return (
     <div className="pageNation">
       <div>
-        <APagination
-          count={pageNumbers.length}
-          color="standard"
-          onChange={handleChange}
-        />
+        <APagination count={pageNumbers} size="large" onChange={handleChange} />
       </div>
     </div>
   );
   function handleChange(e, value) {
-    paginate(value);
+    var config = {
+      method: "get",
+
+      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=0",
+      headers: {
+        Authorization: localStorage.getItem("id"),
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setPosts(response.data.boardList);
+        setPage(response.data.pagination);
+        console.log("후" + response.data.pagination);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 }
 
-export default TipBoard;
+export default FreeBoard;
