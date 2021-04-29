@@ -4,6 +4,7 @@ import { Link, Route, Switch } from "react-router-dom";
 function Heam() {
   function logout() {
     localStorage.removeItem("id");
+    localStorage.removeItem("id_value");
     window.location.replace("/");
   }
   return (
@@ -18,12 +19,12 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-                <Link to="/">
-                  <a className="login_box" href="#" onClick={logout}>
-                    LOGOUT
+              <Link to="/">
+                <a className="login_box" href="#" onClick={logout}>
+                  LOGOUT
                 </a>
-                </Link>
-              )}
+              </Link>
+            )}
           </li>
           <li className="global_list">
             {localStorage.getItem("id") == null ? (
@@ -33,12 +34,12 @@ function Heam() {
                 </a>
               </Link>
             ) : (
-                <Link to="/activity">
-                  <a className="join_box" href="#">
-                    MY PAGE
+              <Link to="/activity">
+                <a className="join_box" href="#">
+                  MY PAGE
                 </a>
-                </Link>
-              )}
+              </Link>
+            )}
           </li>
         </ul>
       </div>

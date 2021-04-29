@@ -5,7 +5,7 @@ import "./css/NoticeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link, useParams } from "react-router-dom";
 import BannerNotice from "./BannerNotice";
-
+let i = 1;
 function Notice(props) {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState("");
@@ -13,6 +13,7 @@ function Notice(props) {
   const token = localStorage.getItem("id");
   const setPagevalue = props.setPagevalue;
   const setCategory = props.setCategory;
+
   setCategory(0);
 
   const { id } = useParams();
@@ -186,7 +187,7 @@ function Posts(props) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
+                <td>{i++}</td>
                 <td key={post.id} className="td-title">
                   <Link
                     to={`/notice/${post.b_dtt}`}
