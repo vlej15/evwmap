@@ -9,7 +9,12 @@ import { Link } from "react-router-dom";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 
+import BannerFree from "./BannerFree";
+
 const { Tmapv2 } = window;
+
+var lat = 1;
+var lng = 1;
 
 function Inquiry(props) {
   const { register, handleSubmit, errors, watch, getValues } = useForm();
@@ -18,16 +23,20 @@ function Inquiry(props) {
   const [facilityList, setFacilityList] = useState([]);
   const [reviewtag, setReviewtag] = useState(false);
   const [statid, setStatid] = useState([]);
+  const [stationlist, setStationlist] = useState([]);
 
   const token = localStorage.getItem("id");
 
   const a1 = props.a1;
   const a2 = props.a2;
   const marker = props.marker;
-  let lat = 0;
-  let lng = 0;
+
+  let lat1 = 0;
+  let lng1 = 0;
+
   var map;
   var markerInfo;
+
   //출발지,도착지 마커
   var marker_s, marker_e, marker_p, markers;
   //경로그림정보
@@ -41,35 +50,27 @@ function Inquiry(props) {
   var markerLayer;
   const getId = localStorage.getItem("id");
 
-  const onSubmit = () => {
+  useEffect(() => {
+    //충전기 정보 받아오는 곳
     var axios = require("axios");
-    var data = JSON.stringify({
-      stat_id: statid,
-      re_content: getValues("review"),
-      re_writer: localStorage.getItem("id_value"),
-    });
-    console.log(getValues("review"));
 
     var config = {
-      method: "post",
-      url: "http://3.36.160.255:8081/api/review",
+      method: "get",
+      url: "http://3.36.160.255:8081/api/station/list",
       headers: {
         Authorization: token,
-        "Content-Type": "application/json",
       },
-      data: data,
     };
-    console.log(token);
+
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        // console.log(JSON.stringify(response.data));
+        setStationlist(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-  };
 
-  useEffect(() => {
     const map = new Tmapv2.Map("map_div", {
       center: new Tmapv2.LatLng(a1, a2),
       // 지도가 생성될 div
@@ -87,9 +88,10 @@ function Inquiry(props) {
 
       markers.addListener("click", function (evt) {
         console.log(mk.stat_lat, mk.stat_lng);
+        lat1 = mk.stat_lng;
+        lat1 = mk.stat_lat;
         lat = mk.stat_lat;
         lng = mk.stat_lng;
-        console.log(lat, lng);
         var config = {
           method: "get",
           url:
@@ -108,14 +110,13 @@ function Inquiry(props) {
             setFacilityList(response.data.facilityList);
             setReviewtag(true);
             setStatid(response.data.station[0]["stat_id"]);
-            console.log("리뷰 정보 출력 : " + response.data.reviewList);
-            console.log("충전소 정보 출력 : " + response.data.station);
           })
           .catch(function (error) {
             console.log(error);
           });
       });
     });
+
     marker_s = new Tmapv2.Marker({
       position: new Tmapv2.LatLng(a1, a2),
       icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_s.png",
@@ -509,11 +510,58 @@ function Inquiry(props) {
       resultdrawArr = [];
     }
   }, []);
+  const onClick = () => {
+    var axios = require("axios");
+    var data = JSON.stringify({
+      stat_id: statid,
+      re_content: getValues("review"),
+      re_writer: localStorage.getItem("id_value"),
+    });
+    console.log(getValues("review"));
+
+    var config = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/review",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    axios(config)
+      .then(function (response) {})
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    //데이터 업데이트
+    var config1 = {
+      method: "get",
+      url:
+        "http://3.36.160.255:8081/api/station?stat_lng=" +
+        lng +
+        "&stat_lat=" +
+        lat,
+      headers: {
+        Authorization: token,
+      },
+    };
+    axios(config1)
+      .then(function (response) {
+        setReview(response.data.reviewList);
+        console.log(response.data.reviewList);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   const [pass, setPass] = useState(0);
   const [resorve, setResove] = useState("");
 
   function passModal() {
+    let charger = stationlist.find((slist) => slist.stat_id == statid);
+    console.log(charger);
     return pass == 1 ? (
       <div className="passmodal_background">
         <div className="passModal">
@@ -635,6 +683,9 @@ function Inquiry(props) {
 
   return (
     <>
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <BannerFree />
+      </div>
       <div className="FlocationData">
         <div className="inner">
           <div className="btnHome">
@@ -723,7 +774,7 @@ function Inquiry(props) {
           </p>
         </div>
         <div class="char-search">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit}>
             <select className="sigugun" name="sido1" id="sido1"></select>
             <select className="sigugun" name="gugun1" id="gugun1"></select>
             <input
@@ -804,15 +855,28 @@ function Inquiry(props) {
               <div className="now">
                 <p className="now-title">
                   충전기 정보
-                  <button
-                    className="rsvt-btn"
-                    type="button"
-                    onClick={() => {
-                      setPass(!pass);
-                    }}
-                  >
-                    예약
-                  </button>
+                  {reviewtag == false ? (
+                    <button
+                      className="rsvt-btn"
+                      type="button"
+                      onClick={() => {
+                        setPass(!pass);
+                      }}
+                      disabled
+                    >
+                      예약
+                    </button>
+                  ) : (
+                    <button
+                      className="rsvt-btn"
+                      type="button"
+                      onClick={() => {
+                        setPass(!pass);
+                      }}
+                    >
+                      예약
+                    </button>
+                  )}
                 </p>
                 {passModal()}
                 <table className="now-list">
@@ -858,14 +922,14 @@ function Inquiry(props) {
                     {review.map((rev) => (
                       <tr className="re_tr">
                         <td className="re_input">{rev.re_content}</td>
-                        <td className="re_td_date">{rev.re_reg_dtt}</td>
+                        <td className="re_td_date">{rev.date}</td>
                         <td className="re_td_id">{rev.re_writer}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form>
                 <div className="review_input">
                   {reviewtag == false ? (
                     <input
@@ -883,8 +947,7 @@ function Inquiry(props) {
                       name="review"
                     />
                   )}
-
-                  <button type="submit" className="create">
+                  <button type="button" onClick={onClick} className="create">
                     입력
                   </button>
                 </div>

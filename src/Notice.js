@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Notice.scss";
+import "./css/NoticeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link, useParams } from "react-router-dom";
 import BannerNotice from "./BannerNotice";
@@ -42,7 +43,6 @@ function Notice(props) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
-  console.log("현재 페이지 번호 " + page.page);
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
 
@@ -87,7 +87,7 @@ function Posts(props) {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNotice />
       </div>
-      <div className="FlocationData">
+      <div className="NlocationData">
         <div className="inner">
           <div className="btnHome">
             <i class="fas fa-home"></i>
@@ -131,7 +131,7 @@ function Posts(props) {
               <li className="liTitleOpen">
                 <a>
                   <div className="navMenu">
-                    FREE BOARD
+                    NOTICE
                     <div className="navInnersMenu">
                       <i class="fas fa-caret-down"></i>
                     </div>
@@ -195,9 +195,9 @@ function Posts(props) {
                     {post.b_title}
                   </Link>
                 </td>
-                <td>작성자</td>
-                <td>작성일</td>
-                <td>10</td>
+                <td>{post.u_id}</td>
+                <td>{post.date}</td>
+                <td>{post.b_visite}</td>
               </tr>
             ))}
           </tbody>

@@ -7,6 +7,7 @@ import FormData from "form-data";
 function BoardWrite() {
   const { register, handleSubmit, watch, errors, getValues } = useForm();
   const [files, setFiles] = useState([]);
+  const token = localStorage.getItem("id");
 
   //   const onSubmit = (e) => {
   // const title = getValues("b_title");
@@ -30,7 +31,7 @@ function BoardWrite() {
     // 서버의 upload API 호출
 
     var data = JSON.stringify({
-      cat_cd: 0,
+      cat_cd: getValues("cat_cd"),
       b_title: getValues("b_title"),
       b_content: getValues("b_content"),
       u_id: localStorage.getItem("id_value"),
@@ -40,7 +41,7 @@ function BoardWrite() {
       method: "post",
       url: "http://3.36.160.255:8081/api/board",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("id"),
+        Authorization: token,
         "Content-Type": "application/json",
       },
       data: data,
