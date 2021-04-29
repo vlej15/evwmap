@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Notice.scss";
+import "./css/NoticeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BannerNotice from "./BannerNotice";
 
 function Notice() {

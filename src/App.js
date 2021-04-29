@@ -32,6 +32,8 @@ function App() {
   const [a1, setA1] = useState();
   const [a2, setA2] = useState();
   const [marker, setMarker] = useState([]);
+  const [pagevalue, setPagevalue] = useState(0);
+  const [category, setCategory] = useState(0);
 
   useEffect(async () => {
     // 마커찍을 충전소 데이터 받아오기
@@ -43,7 +45,6 @@ function App() {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         setMarker(response.data);
       })
       .catch(function (error) {
@@ -76,7 +77,7 @@ function App() {
         <div className="content-wrap">
           <Header />
         </div>
-        <Route exact path="/main">
+        <Route exact path="/">
           <Main />
         </Route>
         {/* INTRODUCTION */}
@@ -94,7 +95,7 @@ function App() {
 
         {/* MAP */}
         <Route exact path="/map">
-          <Inquiry />
+          <Inquiry a1={a1} a2={a2} marker={marker} />
         </Route>
         <Route exact path="/navigate">
           <FindingAWay a1={a1} a2={a2} marker={marker} />
@@ -155,21 +156,20 @@ function App() {
         {/* COMMUNITY */}
 
         <Route exact path="/notice">
-          <Notice />
+          <Notice setPagevalue={setPagevalue} setCategory={setCategory} />
         </Route>
-        {/* <Route
-          exact
-          path="/notice"
-          render={() => <Notice posts={posts} comments={comments} />}
-        /> */}
+        {console.log("카테고리" + category)}
+
         <Route exact path="/tipboard">
-          <TipBoard />
+          <TipBoard setPagevalue={setPagevalue} setCategory={setCategory} />
         </Route>
+
         <Route exact path="/freeboard">
-          <FreeBoard />
+          <FreeBoard setPagevalue={setPagevalue} setCategory={setCategory} />
         </Route>
+
         <Route exact path="/notice/:id">
-          <Post />
+          <Post category={category} pagevalue={pagevalue} />
         </Route>
 
         {/* FOOTER */}

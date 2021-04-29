@@ -1,9 +1,16 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 h3 { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 
+@font-face {
+    font-family: 'Wemakeprice-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Wemakeprice-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 .img-area {
+    background-color: #eeeeee;
     // margin-bottom: 10px;
     // position: relative;
     // width: 100%;
@@ -20,21 +27,15 @@ img {
     position: absolute;
     width: 100%;
     text-align: center;
-    font-size: 50px;
     color: rgba(255, 255, 255, 0.9);
-    font-size: 55px;
+    font-size: 60px;
     top: 350px;
     background-color: none;
     z-index: 0;
-
     h3 {
-        letter-spacing: 8px;
-        line-height: 60px;
-
-        span {
-            font-size: 15px;
-            line-height: 0px;
-        }
+        letter-spacing: 5px;
+        line-height: 125px;
+        font-family: 'Wemakeprice-Bold';
     }
 }
 
@@ -43,9 +44,9 @@ img {
     border: 0;
     position: absolute;
     left: 50%;
-    top: 230px;
+    top: 260px;
     width: 510px;
-    height: 350px;
+    height: 320px;
     margin-left: -255px;
     opacity: 1;
     transform: scaleX(1) scaleY(1);

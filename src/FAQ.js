@@ -17,12 +17,12 @@ const FAQ = () => {
 
   let [modal, modal변경] = useState(false);
   let [modal01, modal변경01] = useState(false);
-  // let [modal02, modal변경02] = useState(false);
-  // let [modal03, modal변경03] = useState(false);
-  // let [modal04, modal변경04] = useState(false);
-  // let [modal05, modal변경05] = useState(false);
-  // let [modal06, modal변경06] = useState(false);
-  // let [modal07, modal변경07] = useState(false);
+  let [modal02, modal변경02] = useState(false);
+  let [modal03, modal변경03] = useState(false);
+  let [modal04, modal변경04] = useState(false);
+  let [modal05, modal변경05] = useState(false);
+  let [modal06, modal변경06] = useState(false);
+  let [modal07, modal변경07] = useState(false);
 
   return (
     <>
@@ -120,88 +120,84 @@ const FAQ = () => {
           </form>
         </div>
         <ul className="faq-area">
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">
+          <li className="faq-li" onClick={() => { modal변경(!modal); }}>
+            {/* <p className="faq-title">Q</p> */}
+            <p className="q"><span>Q</span>
               충전소 별로 회원카드는 어떻게 등록하나요?
               <FontAwesomeIcon
                 icon={faChevronDown}
                 className="arrow-btn"
-                onClick={() => {
-                  modal변경(!modal);
-                }}
               />
             </p>
             {modal === true ? <Modal></Modal> : null}
           </li>
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">
+          <li className="faq-li" onClick={() => {
+            modal변경01(!modal01);
+          }}>
+            <p className="q"><span>Q</span>
               완속 충전기 사용법에 대해 궁금합니다.
               <FontAwesomeIcon
                 icon={faChevronDown}
                 className="arrow-btn"
-                onClick={() => {
-                  modal변경01(!modal01);
-                }}
+
               />
             </p>
             {modal01 === true ? <Modal></Modal> : null}
           </li>
-          {/* <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">아놔 급속인데도 충전 느려요......ㅡㅡ<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경02(!modal02) }} /></p>
+          <li className="faq-li" onClick={() => { modal변경02(!modal02) }} >
+            <p className="q"><span>Q</span>
+            아놔 급속인데도 충전 느려요......ㅡㅡ<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal02 === true
                 ? <Modal></Modal>
                 : null
             }
           </li>
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">전기차 충전소는 모두 24시간인가요??!?!?!?!?!?!?!?!??!?!!??!?!?!?!!!!!!!!?!?!?!?!?!?급해요!!!!!!!!!!!!!!!!!!!!!!!!<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경03(!modal03) }} /></p>
+          <li className="faq-li" onClick={() => { modal변경03(!modal03) }}>
+            <p className="q"><span>Q</span>
+전기차 충전소는 모두 24시간인가요??!?!?!?!?!?!?!?!??!?!!??!?!?!?!!!!!!!!?!?!?!?!?!?급해요!!!!!!!!!!!!!!!!!!!!!!!!<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal03 === true
                 ? <Modal></Modal>
                 : null
             }
           </li>
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경04(!modal04) }} /></p>
+          <li className="faq-li" onClick={() => { modal변경04(!modal04) }}>
+            <p className="q"><span>Q</span>
+질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal04 === true
                 ? <Modal></Modal>
                 : null
             }
           </li>
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경05(!modal05) }} /></p>
+          <li className="faq-li" onClick={() => { modal변경05(!modal05) }} >
+            <p className="q"><span>Q</span>
+질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal05 === true
                 ? <Modal></Modal>
                 : null
             }
           </li>
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경06(!modal06) }} /></p>
+          <li className="faq-li" onClick={() => { modal변경06(!modal06) }}>
+            <p className="q"><span>Q</span>
+질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal06 === true
                 ? <Modal></Modal>
                 : null
             }
           </li>
-          <li className="faq-li">
-            <p className="faq-title">Q</p>
-            <p className="q">질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" onClick={() => { modal변경07(!modal07) }} /></p>
+          <li className="faq-li" onClick={() => { modal변경07(!modal07) }} >
+            <p className="q"><span>Q</span>
+질문<FontAwesomeIcon icon={faChevronDown} className="arrow-btn" /></p>
             {
               modal07 === true
                 ? <Modal></Modal>
                 : null
             }
-          </li> */}
+          </li>
         </ul>
         {/* <div className="paging"></div> */}
       </div>

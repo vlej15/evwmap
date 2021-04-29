@@ -4,355 +4,564 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/Resolve1.scss";
 import "./css/inquiry.scss";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import $ from "jquery";
+
+import BannerFree from "./BannerFree";
 
 const { Tmapv2 } = window;
 
+var lat = 1;
+var lng = 1;
 
+function Inquiry(props) {
+  const { register, handleSubmit, errors, watch, getValues } = useForm();
+  const [review, setReview] = useState([]);
+  const [station, setStation] = useState([]);
+  const [facilityList, setFacilityList] = useState([]);
+  const [reviewtag, setReviewtag] = useState(false);
+  const [statid, setStatid] = useState([]);
+  const [stationlist, setStationlist] = useState([]);
 
-function Inquiry() {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const token = localStorage.getItem("id");
+
+  const a1 = props.a1;
+  const a2 = props.a2;
+  const marker = props.marker;
+
+  let lat1 = 0;
+  let lng1 = 0;
+
+  var map;
+  var markerInfo;
+
+  //출발지,도착지 마커
+  var marker_s, marker_e, marker_p, markers;
+  //경로그림정보
+  var drawInfoArr = [];
+  var drawInfoArr2 = [];
+
+  var chktraffic = [];
+  var resultdrawArr = [];
+  var resultMarkerArr = [];
+
+  var markerLayer;
+  const getId = localStorage.getItem("id");
 
   useEffect(() => {
-    $("document").ready(function () {
-      var area0 = [
-        "시/도 선택",
-        "서울특별시",
-        "인천광역시",
-        "대전광역시",
-        "광주광역시",
-        "대구광역시",
-        "울산광역시",
-        "부산광역시",
-        "경기도",
-        "강원도",
-        "충청북도",
-        "충청남도",
-        "전라북도",
-        "전라남도",
-        "경상북도",
-        "경상남도",
-        "제주도",
-      ];
-      var area1 = [
-        "강남구",
-        "강동구",
-        "강북구",
-        "강서구",
-        "관악구",
-        "광진구",
-        "구로구",
-        "금천구",
-        "노원구",
-        "도봉구",
-        "동대문구",
-        "동작구",
-        "마포구",
-        "서대문구",
-        "서초구",
-        "성동구",
-        "성북구",
-        "송파구",
-        "양천구",
-        "영등포구",
-        "용산구",
-        "은평구",
-        "종로구",
-        "중구",
-        "중랑구",
-      ];
-      var area2 = [
-        "계양구",
-        "남구",
-        "남동구",
-        "동구",
-        "부평구",
-        "서구",
-        "연수구",
-        "중구",
-        "강화군",
-        "옹진군",
-      ];
-      var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
-      var area4 = ["광산구", "남구", "동구", "북구", "서구"];
-      var area5 = [
-        "남구",
-        "달서구",
-        "동구",
-        "북구",
-        "서구",
-        "수성구",
-        "중구",
-        "달성군",
-      ];
-      var area6 = ["남구", "동구", "북구", "중구", "울주군"];
-      var area7 = [
-        "강서구",
-        "금정구",
-        "남구",
-        "동구",
-        "동래구",
-        "부산진구",
-        "북구",
-        "사상구",
-        "사하구",
-        "서구",
-        "수영구",
-        "연제구",
-        "영도구",
-        "중구",
-        "해운대구",
-        "기장군",
-      ];
-      var area8 = [
-        "고양시",
-        "과천시",
-        "광명시",
-        "광주시",
-        "구리시",
-        "군포시",
-        "김포시",
-        "남양주시",
-        "동두천시",
-        "부천시",
-        "성남시",
-        "수원시",
-        "시흥시",
-        "안산시",
-        "안성시",
-        "안양시",
-        "양주시",
-        "오산시",
-        "용인시",
-        "의왕시",
-        "의정부시",
-        "이천시",
-        "파주시",
-        "평택시",
-        "포천시",
-        "하남시",
-        "화성시",
-        "가평군",
-        "양평군",
-        "여주군",
-        "연천군",
-      ];
-      var area9 = [
-        "강릉시",
-        "동해시",
-        "삼척시",
-        "속초시",
-        "원주시",
-        "춘천시",
-        "태백시",
-        "고성군",
-        "양구군",
-        "양양군",
-        "영월군",
-        "인제군",
-        "정선군",
-        "철원군",
-        "평창군",
-        "홍천군",
-        "화천군",
-        "횡성군",
-      ];
-      var area10 = [
-        "제천시",
-        "청주시",
-        "충주시",
-        "괴산군",
-        "단양군",
-        "보은군",
-        "영동군",
-        "옥천군",
-        "음성군",
-        "증평군",
-        "진천군",
-        "청원군",
-      ];
-      var area11 = [
-        "계룡시",
-        "공주시",
-        "논산시",
-        "보령시",
-        "서산시",
-        "아산시",
-        "천안시",
-        "금산군",
-        "당진군",
-        "부여군",
-        "서천군",
-        "연기군",
-        "예산군",
-        "청양군",
-        "태안군",
-        "홍성군",
-      ];
-      var area12 = [
-        "군산시",
-        "김제시",
-        "남원시",
-        "익산시",
-        "전주시",
-        "정읍시",
-        "고창군",
-        "무주군",
-        "부안군",
-        "순창군",
-        "완주군",
-        "임실군",
-        "장수군",
-        "진안군",
-      ];
-      var area13 = [
-        "광양시",
-        "나주시",
-        "목포시",
-        "순천시",
-        "여수시",
-        "강진군",
-        "고흥군",
-        "곡성군",
-        "구례군",
-        "담양군",
-        "무안군",
-        "보성군",
-        "신안군",
-        "영광군",
-        "영암군",
-        "완도군",
-        "장성군",
-        "장흥군",
-        "진도군",
-        "함평군",
-        "해남군",
-        "화순군",
-      ];
-      var area14 = [
-        "경산시",
-        "경주시",
-        "구미시",
-        "김천시",
-        "문경시",
-        "상주시",
-        "안동시",
-        "영주시",
-        "영천시",
-        "포항시",
-        "고령군",
-        "군위군",
-        "봉화군",
-        "성주군",
-        "영덕군",
-        "영양군",
-        "예천군",
-        "울릉군",
-        "울진군",
-        "의성군",
-        "청도군",
-        "청송군",
-        "칠곡군",
-      ];
-      var area15 = [
-        "거제시",
-        "김해시",
-        "마산시",
-        "밀양시",
-        "사천시",
-        "양산시",
-        "진주시",
-        "진해시",
-        "창원시",
-        "통영시",
-        "거창군",
-        "고성군",
-        "남해군",
-        "산청군",
-        "의령군",
-        "창녕군",
-        "하동군",
-        "함안군",
-        "함양군",
-        "합천군",
-      ];
-      var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
+    //충전기 정보 받아오는 곳
+    var axios = require("axios");
 
-      // 시/도 선택 박스 초기화
-      $("select[name^=sido]").each(function () {
-        console.log($(this));
-        let selsido = $(this);
-        $.each(eval(area0), function () {
-          selsido.append("<option value='" + this + "'>" + this + "</option>");
-        });
-        selsido.next().append("<option value=''>구/군 선택</option>");
+    var config = {
+      method: "get",
+      url: "http://3.36.160.255:8081/api/station/list",
+      headers: {
+        Authorization: token,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        // console.log(JSON.stringify(response.data));
+        setStationlist(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-      // 시/도 선택시 구/군 설정
 
-      $("select[name^=sido]").change(function () {
-        var area =
-          "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
-        var $gugun = $(this).next(); // 선택영역 군구 객체
-        $("option", $gugun).remove(); // 구군 초기화
-
-        if (area == "area0") $gugun.append("<option value=''>구/군 선택</option>");
-        else {
-          $.each(eval(area), function () {
-            $gugun.append("<option value='" + this + "'>" + this + "</option>");
-          });
-        }
-
-        // 시/도 선택 박스 초기화
-        $("select[name^=sido]").each(function () {
-          console.log($(this));
-          let selsido = $(this);
-          $.each(eval(area0), function () {
-            selsido.append("<option value='" + this + "'>" + this + "</option>");
-          });
-          selsido.next().append("<option value=''>구/군 선택</option>");
-        });
-        // 시/도 선택시 구/군 설정
-
-        $("select[name^=sido]").change(function () {
-          var area =
-            "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
-          var $gugun = $(this).next(); // 선택영역 군구 객체
-          $("option", $gugun).remove(); // 구군 초기화
-
-          if (area == "area0")
-            $gugun.append("<option value=''>구/군 선택</option>");
-          else {
-            $.each(eval(area), function () {
-              $gugun.append("<option value='" + this + "'>" + this + "</option>");
-            });
-          }
-        });
-      });
-    });
-    var map = new Tmapv2.Map("map_div", {
-      center: new Tmapv2.LatLng(35.89584, 128.622362),
+    const map = new Tmapv2.Map("map_div", {
+      center: new Tmapv2.LatLng(a1, a2),
       // 지도가 생성될 div
       width: "555px", // 지도의 넓이
       height: "400px", // 지도의 높이
-      zoom: 17,
     });
-    var marker = new Tmapv2.Marker({
-      position: new Tmapv2.LatLng(35.89584, 128.622362), //Marker의 중심좌표 설정.
-      map: map, //Marker가 표시될 Map 설정..
-      offset: new Tmapv2.Point(12, 38), // 마커 아이콘의 오프셋 설정(생략시 Point(폭/2, 높이)로 설정)
-      icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_a.png", //마커 아이콘 설정.(생략시 기본이미지 적용)
-      iconSize: new Tmapv2.Size(24, 38), //마커 아이콘 사이즈 (생략시 이미지의 크기 적용)
+
+    marker.map((mk) => {
+      markers = new Tmapv2.Marker({
+        position: new Tmapv2.LatLng(mk.stat_lat, mk.stat_lng),
+        icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+        iconSize: new Tmapv2.Size(24, 38),
+        map: map,
+      });
+
+      markers.addListener("click", function (evt) {
+        console.log(mk.stat_lat, mk.stat_lng);
+        lat1 = mk.stat_lng;
+        lat1 = mk.stat_lat;
+        lat = mk.stat_lat;
+        lng = mk.stat_lng;
+        var config = {
+          method: "get",
+          url:
+            "http://3.36.160.255:8081/api/station?stat_lng=" +
+            lng +
+            "&stat_lat=" +
+            lat,
+          headers: {
+            Authorization: token,
+          },
+        };
+        axios(config)
+          .then(function (response) {
+            setReview(response.data.reviewList);
+            setStation(response.data.station);
+            setFacilityList(response.data.facilityList);
+            setReviewtag(true);
+            setStatid(response.data.station[0]["stat_id"]);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      });
     });
+
+    marker_s = new Tmapv2.Marker({
+      position: new Tmapv2.LatLng(a1, a2),
+      icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_s.png",
+      iconSize: new Tmapv2.Size(24, 38),
+      map: map,
+    });
+    marker_e = new Tmapv2.Marker({
+      position: new Tmapv2.LatLng(lng, lat),
+      icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+      iconSize: new Tmapv2.Size(24, 38),
+      map: map,
+    });
+    $("#btn_select").click(function () {
+      //기존 맵에 있던 정보들 초기화
+      resettingMap();
+      var searchOption = $("#selectLevel").val();
+      var trafficInfochk = $("#year").val();
+      //JSON TYPE EDIT [S]
+      $.ajax({
+        type: "POST",
+        url:
+          "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result",
+        async: false,
+        data: {
+          appKey: "l7xx7e0f3fa63ea24325bc1914cf5d911bf7",
+          startX: a2,
+          startY: a1,
+          endX: lng,
+          endY: lat,
+          reqCoordType: "WGS84GEO",
+          resCoordType: "EPSG3857",
+          searchOption: searchOption,
+          trafficInfo: trafficInfochk,
+        },
+        success: function (response) {
+          var resultData = response.features;
+
+          var tDistance =
+            "총 거리 : " +
+            (resultData[0].properties.totalDistance / 1000).toFixed(1) +
+            "km,";
+          var tTime =
+            " 총 시간 : " +
+            (resultData[0].properties.totalTime / 60).toFixed(0) +
+            "분,";
+          var tFare =
+            " 총 요금 : " + resultData[0].properties.totalFare + "원,";
+
+          $("#result").text(tDistance + tTime + tFare);
+
+          //교통정보 표출 옵션값을 체크
+          if (trafficInfochk == "Y") {
+            for (var i in resultData) {
+              //for문 [S]
+              var geometry = resultData[i].geometry;
+              var properties = resultData[i].properties;
+
+              if (geometry.type == "LineString") {
+                //교통 정보도 담음
+                chktraffic.push(geometry.traffic);
+                var sectionInfos = [];
+                var trafficArr = geometry.traffic;
+
+                for (var j in geometry.coordinates) {
+                  // 경로들의 결과값들을 포인트 객체로 변환
+                  var latlng = new Tmapv2.Point(
+                    geometry.coordinates[j][0],
+                    geometry.coordinates[j][1]
+                  );
+                  // 포인트 객체를 받아 좌표값으로 변환
+                  var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
+                    latlng
+                  );
+
+                  sectionInfos.push(convertPoint);
+                }
+
+                drawLine(sectionInfos, trafficArr);
+              } else {
+                var markerImg = "";
+                var pType = "";
+
+                if (properties.pointType == "S") {
+                  //출발지 마커
+                  markerImg =
+                    "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+                  pType = "S";
+                } else if (properties.pointType == "E") {
+                  //도착지 마커
+                  markerImg =
+                    "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+                  pType = "E";
+                } else {
+                  //각 포인트 마커
+                  markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+                  pType = "P";
+                }
+
+                // 경로들의 결과값들을 포인트 객체로 변환
+                var latlon = new Tmapv2.Point(
+                  geometry.coordinates[0],
+                  geometry.coordinates[1]
+                );
+                // 포인트 객체를 받아 좌표값으로 다시 변환
+                var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
+                  latlon
+                );
+
+                var routeInfoObj = {
+                  markerImage: markerImg,
+                  lng: convertPoint._lng,
+                  lat: convertPoint._lat,
+                  pointType: pType,
+                };
+                // 마커 추가
+                addMarkers(routeInfoObj);
+              }
+            } //for문 [E]
+          } else {
+            for (var i in resultData) {
+              //for문 [S]
+              var geometry = resultData[i].geometry;
+              var properties = resultData[i].properties;
+
+              if (geometry.type == "LineString") {
+                for (var j in geometry.coordinates) {
+                  // 경로들의 결과값들을 포인트 객체로 변환
+                  var latlng = new Tmapv2.Point(
+                    geometry.coordinates[j][0],
+                    geometry.coordinates[j][1]
+                  );
+                  // 포인트 객체를 받아 좌표값으로 변환
+                  var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
+                    latlng
+                  );
+                  // 포인트객체의 정보로 좌표값 변환 객체로 저장
+                  var convertChange = new Tmapv2.LatLng(
+                    convertPoint._lat,
+                    convertPoint._lng
+                  );
+                  // 배열에 담기
+                  drawInfoArr.push(convertChange);
+                }
+                drawLine(drawInfoArr, "0");
+              } else {
+                var markerImg = "";
+                var pType = "";
+
+                if (properties.pointType == "S") {
+                  //출발지 마커
+                  markerImg =
+                    "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+                  pType = "S";
+                } else if (properties.pointType == "E") {
+                  //도착지 마커
+                  markerImg =
+                    "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+                  pType = "E";
+                } else {
+                  //각 포인트 마커
+                  markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+                  pType = "P";
+                }
+
+                // 경로들의 결과값들을 포인트 객체로 변환
+                var latlon = new Tmapv2.Point(
+                  geometry.coordinates[0],
+                  geometry.coordinates[1]
+                );
+                // 포인트 객체를 받아 좌표값으로 다시 변환
+                var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
+                  latlon
+                );
+
+                var routeInfoObj = {
+                  markerImage: markerImg,
+                  lng: convertPoint._lng,
+                  lat: convertPoint._lat,
+                  pointType: pType,
+                };
+
+                // Marker 추가
+                addMarkers(routeInfoObj);
+              }
+            } //for문 [E]
+          }
+        },
+        error: function (request, status, error) {
+          console.log(
+            "code:" +
+              request.status +
+              "\n" +
+              "message:" +
+              request.responseText +
+              "\n" +
+              "error:" +
+              error
+          );
+        },
+      });
+      //JSON TYPE EDIT [E]
+    });
+    function addComma(num) {
+      var regexp = /\B(?=(\d{3})+(?!\d))/g;
+      return num.toString().replace(regexp, ",");
+    }
+
+    function addMarkers(infoObj) {
+      var size = new Tmapv2.Size(24, 38); //아이콘 크기 설정합니다.
+
+      if (infoObj.pointType == "P") {
+        //포인트점일때는 아이콘 크기를 줄입니다.
+        size = new Tmapv2.Size(8, 8);
+      }
+
+      marker_p = new Tmapv2.Marker({
+        position: new Tmapv2.LatLng(infoObj.lat, infoObj.lng),
+        icon: infoObj.markerImage,
+        iconSize: size,
+        map: map,
+      });
+
+      resultMarkerArr.push(marker_p);
+    }
+    function drawLine(arrPoint, traffic) {
+      var polyline_;
+
+      if (chktraffic.length != 0) {
+        // 교통정보 혼잡도를 체크
+        // strokeColor는 교통 정보상황에 다라서 변화
+        // traffic :  0-정보없음, 1-원활, 2-서행, 3-지체, 4-정체  (black, green, yellow, orange, red)
+
+        var lineColor = "";
+
+        if (traffic != "0") {
+          if (traffic.length == 0) {
+            //length가 0인것은 교통정보가 없으므로 검은색으로 표시
+
+            lineColor = "#06050D";
+            //라인그리기[S]
+            polyline_ = new Tmapv2.Polyline({
+              path: arrPoint,
+              strokeColor: lineColor,
+              strokeWeight: 6,
+              map: map,
+            });
+            resultdrawArr.push(polyline_);
+            //라인그리기[E]
+          } else {
+            //교통정보가 있음
+
+            if (traffic[0][0] != 0) {
+              //교통정보 시작인덱스가 0이 아닌경우
+              var trafficObject = "";
+              var tInfo = [];
+
+              for (var z = 0; z < traffic.length; z++) {
+                trafficObject = {
+                  startIndex: traffic[z][0],
+                  endIndex: traffic[z][1],
+                  trafficIndex: traffic[z][2],
+                };
+                tInfo.push(trafficObject);
+              }
+
+              var noInfomationPoint = [];
+
+              for (var p = 0; p < tInfo[0].startIndex; p++) {
+                noInfomationPoint.push(arrPoint[p]);
+              }
+
+              //라인그리기[S]
+              polyline_ = new Tmapv2.Polyline({
+                path: noInfomationPoint,
+                strokeColor: "#06050D",
+                strokeWeight: 6,
+                map: map,
+              });
+              //라인그리기[E]
+              resultdrawArr.push(polyline_);
+
+              for (var x = 0; x < tInfo.length; x++) {
+                var sectionPoint = []; //구간선언
+
+                for (var y = tInfo[x].startIndex; y <= tInfo[x].endIndex; y++) {
+                  sectionPoint.push(arrPoint[y]);
+                }
+
+                if (tInfo[x].trafficIndex == 0) {
+                  lineColor = "#06050D";
+                } else if (tInfo[x].trafficIndex == 1) {
+                  lineColor = "#61AB25";
+                } else if (tInfo[x].trafficIndex == 2) {
+                  lineColor = "#FFFF00";
+                } else if (tInfo[x].trafficIndex == 3) {
+                  lineColor = "#E87506";
+                } else if (tInfo[x].trafficIndex == 4) {
+                  lineColor = "#D61125";
+                }
+
+                //라인그리기[S]
+                polyline_ = new Tmapv2.Polyline({
+                  path: sectionPoint,
+                  strokeColor: lineColor,
+                  strokeWeight: 6,
+                  map: map,
+                });
+                //라인그리기[E]
+                resultdrawArr.push(polyline_);
+              }
+            } else {
+              //0부터 시작하는 경우
+
+              var trafficObject = "";
+              var tInfo = [];
+
+              for (var z = 0; z < traffic.length; z++) {
+                trafficObject = {
+                  startIndex: traffic[z][0],
+                  endIndex: traffic[z][1],
+                  trafficIndex: traffic[z][2],
+                };
+                tInfo.push(trafficObject);
+              }
+
+              for (var x = 0; x < tInfo.length; x++) {
+                var sectionPoint = []; //구간선언
+
+                for (var y = tInfo[x].startIndex; y <= tInfo[x].endIndex; y++) {
+                  sectionPoint.push(arrPoint[y]);
+                }
+
+                if (tInfo[x].trafficIndex == 0) {
+                  lineColor = "#06050D";
+                } else if (tInfo[x].trafficIndex == 1) {
+                  lineColor = "#61AB25";
+                } else if (tInfo[x].trafficIndex == 2) {
+                  lineColor = "#FFFF00";
+                } else if (tInfo[x].trafficIndex == 3) {
+                  lineColor = "#E87506";
+                } else if (tInfo[x].trafficIndex == 4) {
+                  lineColor = "#D61125";
+                }
+
+                //라인그리기[S]
+                polyline_ = new Tmapv2.Polyline({
+                  path: sectionPoint,
+                  strokeColor: lineColor,
+                  strokeWeight: 6,
+                  map: map,
+                });
+                //라인그리기[E]
+                resultdrawArr.push(polyline_);
+              }
+            }
+          }
+        } else {
+        }
+      } else {
+        polyline_ = new Tmapv2.Polyline({
+          path: arrPoint,
+          strokeColor: "#ffee00",
+          strokeWeight: 4,
+          outline: true,
+          outlineColor: "#000000",
+          map: map,
+        });
+        resultdrawArr.push(polyline_);
+      }
+    }
+    function resettingMap() {
+      //기존마커는 삭제
+      marker_s.setMap(null);
+      marker_e.setMap(null);
+
+      if (resultMarkerArr.length > 0) {
+        for (var i = 0; i < resultMarkerArr.length; i++) {
+          resultMarkerArr[i].setMap(null);
+        }
+      }
+
+      if (resultdrawArr.length > 0) {
+        for (var i = 0; i < resultdrawArr.length; i++) {
+          resultdrawArr[i].setMap(null);
+        }
+      }
+
+      chktraffic = [];
+      drawInfoArr = [];
+      resultMarkerArr = [];
+      resultdrawArr = [];
+    }
   }, []);
+  const onClick = () => {
+    var axios = require("axios");
+    var data = JSON.stringify({
+      stat_id: statid,
+      re_content: getValues("review"),
+      re_writer: localStorage.getItem("id_value"),
+    });
+    console.log(getValues("review"));
+
+    var config = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/review",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    axios(config)
+      .then(function (response) {})
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    //데이터 업데이트
+    var config1 = {
+      method: "get",
+      url:
+        "http://3.36.160.255:8081/api/station?stat_lng=" +
+        lng +
+        "&stat_lat=" +
+        lat,
+      headers: {
+        Authorization: token,
+      },
+    };
+    axios(config1)
+      .then(function (response) {
+        setReview(response.data.reviewList);
+        console.log(response.data.reviewList);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   const [pass, setPass] = useState(0);
   const [resorve, setResove] = useState("");
 
   function passModal() {
+    let charger = stationlist.find((slist) => slist.stat_id == statid);
+    console.log(charger);
     return pass == 1 ? (
       <div className="passmodal_background">
         <div className="passModal">
@@ -474,6 +683,9 @@ function Inquiry() {
 
   return (
     <>
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <BannerFree />
+      </div>
       <div className="FlocationData">
         <div className="inner">
           <div className="btnHome">
@@ -562,7 +774,7 @@ function Inquiry() {
           </p>
         </div>
         <div class="char-search">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit}>
             <select className="sigugun" name="sido1" id="sido1"></select>
             <select className="sigugun" name="gugun1" id="gugun1"></select>
             <input
@@ -585,14 +797,34 @@ function Inquiry() {
               </div>
             </div>
             <div className="facility_box">
-              <div className="facility_info">주변 시설 정보</div>
+              <table className="now-list">
+                <thead>
+                  <tr>
+                    <th>시설명</th>
+                    <th>시설정보</th>
+                    <th>전화번호</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {facilityList.map((fac) => (
+                    <tr>
+                      <td>{fac.name}</td>
+                      <td>승용차 AC 완속</td>
+                      <td>충전대기</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
           <div className="right_box">
             <div className="chargeInfo_box">
               <div className="charge_title">
                 <h1 className="charge_name">
-                  [대영채비] 영진전문대학 글로벌캠퍼스
+                  충전소 명 :
+                  {station.map((a) => (
+                    <span>{a.stat_nm}</span>
+                  ))}
                 </h1>
                 <button className="report_btn">
                   <FontAwesomeIcon
@@ -606,9 +838,9 @@ function Inquiry() {
                 <ul>
                   <li>
                     <p className="info-p">도로명 주소</p>
-                    <span>
-                      경상북도 칠곡군 지천면 금송로 60 입구 야외 주차장
-                    </span>
+                    {station.map((a) => (
+                      <span>{a.stat_addr}</span>
+                    ))}
                   </li>
                   <li>
                     <p className="info-p">이용가능시간</p>
@@ -623,15 +855,28 @@ function Inquiry() {
               <div className="now">
                 <p className="now-title">
                   충전기 정보
-                  <button
-                    className="rsvt-btn"
-                    type="button"
-                    onClick={() => {
-                      setPass(!pass);
-                    }}
-                  >
-                    예약
-                  </button>
+                  {reviewtag == false ? (
+                    <button
+                      className="rsvt-btn"
+                      type="button"
+                      onClick={() => {
+                        setPass(!pass);
+                      }}
+                      disabled
+                    >
+                      예약
+                    </button>
+                  ) : (
+                    <button
+                      className="rsvt-btn"
+                      type="button"
+                      onClick={() => {
+                        setPass(!pass);
+                      }}
+                    >
+                      예약
+                    </button>
+                  )}
                 </p>
                 {passModal()}
                 <table className="now-list">
@@ -667,29 +912,46 @@ function Inquiry() {
               <div className="review_list">
                 <table className="review_table">
                   <tbody className="review_tbody">
-                    <tr className="re_tr">
-                      <td className="re_input">전기에 감전됏서요</td>
-                      <td className="re_td_date">2021-03-26</td>
-                      <td className="re_td_id">피카츄</td>
-                    </tr>
-                    <tr className="re_tr">
-                      <td className="re_input">
-                        다가갔더니 불 붙어서 터졋어요
-                      </td>
-                      <td className="re_td_date">2021-03-26</td>
-                      <td className="re_td_id">파이리</td>
-                    </tr>
+                    {review.map((review) => {
+                      <tr className="re_tr">
+                        <td className="re_input">{review.re_content}</td>
+                        <td className="re_td_date">2021-03-26</td>
+                        <td className="re_td_id">{review.re_writer}</td>
+                      </tr>;
+                    })}
+                    {review.map((rev) => (
+                      <tr className="re_tr">
+                        <td className="re_input">{rev.re_content}</td>
+                        <td className="re_td_date">{rev.date}</td>
+                        <td className="re_td_id">{rev.re_writer}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
-              <div className="review_input">
-                <input
-                  className="review_text"
-                  type="text"
-                  placeholder="리뷰를 입력해주세요."
-                />
-                <button className="create">입력</button>
-              </div>
+              <form>
+                <div className="review_input">
+                  {reviewtag == false ? (
+                    <input
+                      className="review_text"
+                      type="text"
+                      placeholder="리뷰를 입력해주세요."
+                      disabled
+                    />
+                  ) : (
+                    <input
+                      ref={register}
+                      className="review_text"
+                      type="text"
+                      placeholder="리뷰를 입력해주세요."
+                      name="review"
+                    />
+                  )}
+                  <button type="button" onClick={onClick} className="create">
+                    입력
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

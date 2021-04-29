@@ -8,48 +8,82 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 import $ from "jquery";
 
 $(function () {
-  $('.command-area').find('.type').click(function () {
-
-    $("a").removeClass('active');
-    $(this).addClass('active');
-
-  })
+  $(".command-area")
+    .find(".type")
+    .click(function () {
+      $("a").removeClass("active");
+      $(this).addClass("active");
+    });
 });
 
-function Post() {
+function Post(props) {
   const [post, setPost] = useState([]);
   const [comment, setComment] = useState([]);
+  const token = localStorage.getItem("id");
+  const pagevalue = props.pagevalue;
+  const category = props.category;
   const { id } = useParams();
-  const [type, setType] = useState(0);
-  useEffect(async () => {
-    // 게시판 데이터
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    const recommend = await axios.get(
-      "https://jsonplaceholder.typicode.com/comments"
-    );
-    const p_result = response.data;
-    const c_result = recommend.data;
+  const { register, handleSubmit, watch, errors, getValues } = useForm();
 
-    const p_data = p_result.find((item) => item.id == id);
-    const c_data = c_result.filter((commend) => commend.postId == id);
-    setPost(p_data);
-    setComment(c_data);
-    console.log(p_data, c_data);
+  useEffect(async () => {
+    var data = JSON.stringify({
+      criteria: {},
+      b_dtt: id,
+    });
+    var config = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/gboard",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    console.log(pagevalue);
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+        setPost(response.data.board);
+        setComment(response.data.replyList);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
 
-  // const posts = props.posts;
-  // const comments = props.comments;
+  const onClick = () => {
+    const rep = getValues("reply");
+    var axios = require("axios");
+    var data = JSON.stringify({
+      cat_cd: category,
+      b_dtt: id,
+      r_content: rep,
+      r_writer: localStorage.getItem("id_value"),
+    });
+    console.log(rep);
 
-  // const { id } = useParams();
+    var config = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/reply",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-  // const post = posts.find((post) => post.id == id);
-  // const comment = comments.filter((commend) => commend.postId == id);
-  // console.log(post.id);
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -57,11 +91,13 @@ function Post() {
       <div className="contentsPost">
         <div className="post-area">
           <div className="title-area">
-            <span className="title">{post.title}</span>
-            <span className="writer">작성자 | 2020.02.01</span>
+            <span className="title">{post.b_title}</span>
+            <span className="writer">
+              {post.u_id} | {post.date}
+            </span>
           </div>
           <div className="body-area">
-            <p>{post.body}</p>
+            <p>{post.b_content}</p>
             <div className="btn-area">
               {/* <button className="btn">수정</button> */}
               <button className="notify">신고</button>
@@ -70,21 +106,25 @@ function Post() {
           </div>
           <div className="command-area">
             <ul>
-
-              <li><p className="command-title">댓글</p></li>
-              <li><a className="type active">오래된순</a></li>
-              <li><a className="type">최신순</a></li>
-
+              <li>
+                <p className="command-title">댓글</p>
+              </li>
+              <li>
+                <a className="type active">오래된순</a>
+              </li>
+              <li>
+                <a className="type">최신순</a>
+              </li>
             </ul>
             {comment.map((comm) => (
               <div>
                 <div className="command">
                   <p className="comm-writer">
-                    박박디라라
+                    {comm.r_writer}
                     <FontAwesomeIcon icon={faEllipsisV} className="plus" />
                   </p>
-                  <p className="comm-body">{comm.body}</p>
-                  <p className="comm-date">2021-01-01</p>
+                  <p className="comm-body">{comm.r_content}</p>
+                  <p className="comm-date">{comm.r_dtt}</p>
                   {/* <button onClick={() => { console.log(comm.body); }}>수정</button>
                   <button> 삭제</button> */}
                 </div>
@@ -96,25 +136,27 @@ function Post() {
         </div>{" "}
         {/* post-area end */}
         <div className="reple-area">
-          <form>
+          <form onSubmit={handleSubmit(onClick)}>
             <p className="id">아이디</p>
             <input
+              ref={register}
               type="textarea"
               className="reple-text"
               placeholder="댓글을 남겨보세요."
+              name="reply"
             />
             <div className="replybtn-area">
               <input type="submit" value="등록" className="reply-btn" />
             </div>
           </form>
-        </div>{" "}
+        </div>
         {/* repleForm end */}
         <div className="list">
           <Link to="/post">
             <button>목록</button>
           </Link>
         </div>
-      </div>{" "}
+      </div>
       {/* contents end */}
     </>
   );

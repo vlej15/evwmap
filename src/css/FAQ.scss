@@ -113,8 +113,8 @@ html {
         display: inline-block;
         border-bottom: 1px solid #d4d4d4;
         width: 100%;
-        height: 60px;
         position: relative;
+        cursor: pointer;
 
             
         .faq-title {
@@ -124,19 +124,21 @@ html {
             font-size: 2.1rem;
             line-height: 60px;
             color: #333;
-            width: 100px;
-            padding-right: 110px;
-            padding-left: 70px;
             float: left;
-            text-align: center;
         }// faq-title
         .q {
-
+            margin-left: 100px;
+            padding: 5px 0;
             font-family: 'IBMPlexSansKR-Regular';
             line-height: 60px;
             font-weight: 600;
             font-size: 1.7rem;
             color: #333;
+
+            span {
+                font-size: 2.1rem;
+                padding-right: 30px;
+            }
         }
     }
     
@@ -145,6 +147,7 @@ html {
         margin: 0;
         padding: 30px 65px 60px 175px;
         background-color: #f8f8fa;
+        border-top: 1px solid #d4d4d4;
     }
     
     .a-plus {
@@ -158,7 +161,7 @@ html {
     
     .arrow-btn {
         color: #464646;
-        width: 26px;
+        width: 100px;
         height: 26px;
         margin-top: 15px;
         
