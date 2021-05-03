@@ -6,10 +6,11 @@ import "./css/Resolve1.scss";
 import "./css/inquiry.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 
-import BannerFree from "./BannerFree";
+import BannerMap from "./BannerMap";
 
 const { Tmapv2 } = window;
 

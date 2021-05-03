@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./css/QWrite.scss";
 import { useForm } from "react-hook-form";
 import BannerReq1 from "./BannerReq1";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 const QWrite = (props) => {
     useEffect(() => {

@@ -10,15 +10,6 @@ const Login = (props) => {
     useEffect(() => {
         props.setCount(1);
     }, []);
-    // alert(props.getCount);
-
-    // const [onLogin, setLogin] = useState(false);
-    //html 로딩 후 header변화
-    // useEffect(() => {
-    //     setLogin(true);
-    //     <Header onLogin={onLogin} setLogin={setLogin} />;
-    //     // alert(onLogin);
-    // }, []);
 
     const history = useHistory();
     const [idtoken, setIdtoken] = useState("");

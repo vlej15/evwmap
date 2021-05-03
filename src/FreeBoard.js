@@ -5,6 +5,7 @@ import "./css/FreeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 import BannerFree from "./BannerFree";
@@ -86,7 +87,6 @@ function Posts(props) {
     return (
         <>
             {/* <div className="end"></div> */}
-
             <div data-aos="fade-down" data-aos-duration="1000">
                 <BannerFree />
             </div>

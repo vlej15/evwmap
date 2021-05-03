@@ -30,6 +30,11 @@ function Footer() {
                   <i class="fab fa-facebook-f"></i>
                 </a>
               </li>
+              <li>
+                <a href="https://play.google.com/store?utm_source=apac_med&utm_medium=hasem&utm_content=Apr0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-kr-1003227-med-hasem-py-Evergreen-Apr0121-Text_Search_BKWS-BKWS%7cONSEM_kwid_43700058439438676_creativeid_477136209358_device_c&gclid=CjwKCAjwm7mEBhBsEiwA_of-TMuMRHCQ42Tp23eVOxJtGqqKot28cy5-cdbYm65b_1UkWUPL6lu6WhoC42IQAvD_BwE&gclsrc=aw.ds">
+                  <i class="fab fa-google-play"></i>
+                </a>
+              </li>
               <li className="callLi">
                 <p>070.1234.5678</p>
               </li>

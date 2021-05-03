@@ -13,23 +13,23 @@
         height: 50px;
         position:relative;
         // transform: translateY(100%);
-        border-bottom: 2.5px solid #eeeeee;
+        border-bottom: 2px solid #eeeeee;
         padding-bottom: 50px;
         li{
             font-size: 15.5px;
-            font-weight: 500;
+            font-weight: 00;
             color: black;
             float:left;
             margin-right: 13px;
             line-height: 49px;
             div{
                 line-height: 29px;
-                margin-top: 11px;
+                margin-top: 9px;
                 text-align: center;
                 width:  80px;
                 height: 30px;
-                border-radius: 20px;
-                background-color: #1e2022;
+                border-radius: 40px;
+                background-color: #f2b640;
 
                 .aaa {
                     color : #eeeeee ;
@@ -63,9 +63,9 @@
         padding: 0px 5px;
         width:1200px;
         height: 100px;
-        color:rgba(255, 255, 255, 0.8);
+        color:rgba(255, 255, 255, 0.9);
         font-size: 16.5px;
-        font-weight: 500;
+        font-weight:100;
         // padding-left: 40px;
         // img{
         //     margin-top: 20px;
@@ -82,6 +82,7 @@
             margin-right: 16px;
             p{
                 margin-bottom: 5px;
+                
             }
         } 
     }

@@ -100,7 +100,7 @@ function Header(props) {
                     <div className="menu-back">
                         <div className="inner">
                             <h1 className="mainlogo">
-                                <Link to="/main">
+                                <Link to="/">
                                     <a href="#" className="Logo">
                                         EV WMAP
                                     </a>
@@ -169,7 +169,7 @@ function Heam2() {
         localStorage.removeItem("id");
         window.location.replace("/");
     }
-
+    const userPoint = localStorage.getItem("userPoint");
     const [getCommunity, setCommunity] = useState(false);
     const [getContact, setContact] = useState(false);
 
@@ -195,9 +195,11 @@ function Heam2() {
                     <div className="global_box">
                         <ul className="global_join_box">
                             <li className="global_list">
-                                <a className="point_box" href="#">
-                                    POINT
-                                </a>
+                                {localStorage.getItem("id") == null ? null : (
+                                    <a className="point_box" href="#">
+                                        POINT : {userPoint}P
+                                    </a>
+                                )}
                             </li>
                             <li className="global_list login">
                                 {localStorage.getItem("id") == null ? (

@@ -7,6 +7,7 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 import BannerReq2 from "./BannerReq2";
 import { Link } from "react-router-dom";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 const QList = (props) => {
     const [posts, setPosts] = useState([]);

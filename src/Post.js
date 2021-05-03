@@ -32,11 +32,10 @@ function Post(props) {
   useEffect(async () => {
     var data = JSON.stringify({
       criteria: {},
-      b_dtt: id,
     });
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/gboard",
+      url: "http://3.36.160.255:8081/api/board/" + id,
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -59,11 +58,14 @@ function Post(props) {
     const rep = getValues("reply");
     var axios = require("axios");
     var data = JSON.stringify({
-      cat_cd: category,
-      b_dtt: id,
+      cat_cd: "" + category,
+      b_no: id,
       r_content: rep,
       r_writer: localStorage.getItem("id_value"),
     });
+    console.log("카테고리값" + category);
+    console.log("btt" + id);
+
     console.log(rep);
 
     var config = {
@@ -79,6 +81,29 @@ function Post(props) {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    var data1 = JSON.stringify({
+      criteria: {},
+    });
+    var config1 = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/board/" + id,
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data1,
+    };
+    console.log(pagevalue);
+    axios(config1)
+      .then(function (response) {
+        console.log(response.data);
+        setPost(response.data.board);
+        setComment(response.data.replyList);
       })
       .catch(function (error) {
         console.log(error);
