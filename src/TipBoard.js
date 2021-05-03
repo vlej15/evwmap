@@ -5,6 +5,7 @@ import "./css/TipBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import BannerTip from "./BannerTip";
 
@@ -89,29 +90,22 @@ function Posts(props) {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerTip />
       </div>
-      <div className="TlocationData">
-        <div className="inner">
-          <div className="btnHome">
+
+      <div className="FlocationData">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <i class="fas fa-home"></i>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  COMMUNITY
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
+                <div className="sec1-title">COMMUNITY
+                <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                 </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
-                      <a>INTRODUCTION</a>
-                    </li>
-                  </Link>
+                <ul className="sec-list">
                   <Link to="/map">
                     <li>
-                      <a>MAP</a>
+                      <a>ROADMAP</a>
                     </li>
                   </Link>
                   <Link to="/notice">
@@ -128,18 +122,16 @@ function Posts(props) {
               </li>
             </ul>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section2">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <a>
-                  <div className="navMenu">
-                    TIP
-                    <div className="navInnersMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
+                  <div className="sec2-title">
+                    TIP BOARD
+                    <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                   </div>
                 </a>
-                <ul className="navList">
+                <ul className="sec-list">
                   <Link to="/notice">
                     <li>
                       <a>NOTICE</a>
@@ -172,7 +164,7 @@ function Posts(props) {
           <p className="banner-title">TIP 게시판</p>
           <br></br>
           <p className="subtitle">
-            전기차와 관련된 다양한 TIP을 공유 하실 수 있습니다.
+            이용자들과 다양한 TIP을 공유 하실 수 있습니다.
           </p>
         </div>
         <table className="list">
