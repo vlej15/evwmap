@@ -32,11 +32,10 @@ function Post(props) {
   useEffect(async () => {
     var data = JSON.stringify({
       criteria: {},
-      b_dtt: id,
     });
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/gboard",
+      url: "http://3.36.160.255:8081/api/board/" + id,
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -60,7 +59,7 @@ function Post(props) {
     var axios = require("axios");
     var data = JSON.stringify({
       cat_cd: "" + category,
-      b_dtt: id,
+      b_no: id,
       r_content: rep,
       r_writer: localStorage.getItem("id_value"),
     });
@@ -89,11 +88,10 @@ function Post(props) {
 
     var data1 = JSON.stringify({
       criteria: {},
-      b_dtt: id,
     });
     var config1 = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/gboard",
+      url: "http://3.36.160.255:8081/api/board/" + id,
       headers: {
         Authorization: token,
         "Content-Type": "application/json",

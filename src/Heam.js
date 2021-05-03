@@ -10,10 +10,12 @@ function Heam() {
     <div className="pcmenu">
       <div className="global_box">
         <ul className="global_join_box">
-          <li className="global_list">
-            <a className="point_box" href="#">
-              POINT
-            </a>
+          <li className="global_list_point">
+            {localStorage.getItem("id") == null ? null : (
+              <a className="point_box" href="#">
+                MY POINT : {localStorage.getItem("user_point")}P
+              </a>
+            )}
           </li>
           <li className="global_list login">
             {localStorage.getItem("id") == null ? (

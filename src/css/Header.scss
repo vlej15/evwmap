@@ -202,7 +202,7 @@ body {
             margin: 0;
             padding: 0;
             z-index: 2;
-
+            
             .global_list {
                 float: left;
                 height: 85px;
@@ -213,6 +213,33 @@ body {
                     font-size: 13px;
                     font-weight: 700;
                     width: 80px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    margin-top: 30px;
+                    font-style:normal;
+                }
+                .login_box:hover {
+                    color: #f2b640;
+                }
+                .point_box:hover {
+                    color: #f2b640;
+                }
+                .join_box {
+                    background-color: #f2b640;
+                    color: black;
+                }
+            }
+            .global_list_point {
+                float: left;
+                height: 85px;
+
+                a {
+                    display: block;
+                    color: white;
+                    font-size: 13px;
+                    font-weight: 700;
+                    width: 120px;
                     height: 30px;
                     line-height: 30px;
                     text-align: center;
@@ -334,7 +361,7 @@ body {
                 background-color: #52616b;
                 height: 40px;
                 line-height: 40px;
-
+                
                 .global_join_box {
                     float: right;
                     margin-right: 10px;
@@ -344,6 +371,11 @@ body {
                         float: left;
                         text-align: center;
                     }
+                    .global_list_point{
+                    width: 100px;
+                    float: left;
+                    text-align: center;
+                }
                 }
             }
 

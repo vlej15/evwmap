@@ -177,8 +177,8 @@ function Posts(props) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
-                <td key={post.id} className="td-title">
+                <td>{post.b_no}</td>
+                <td key={post.b_no} className="td-title">
                   <Link to={`/notice/${post.id}`}>{post.title}</Link>
                   <Link to={`/notice/${post.b_dtt}`}>{post.b_title}</Link>
                 </td>

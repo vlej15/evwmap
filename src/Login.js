@@ -32,6 +32,7 @@ const Login = () => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         window.localStorage.setItem("id", response.data.token);
+        window.localStorage.setItem("user_point", response.data.userPoint);
         if (response.data.token != null) {
           window.location.replace("/");
         }

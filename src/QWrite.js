@@ -2,11 +2,39 @@ import React, { useState } from "react";
 import "./css/QWrite.scss";
 import { useForm } from "react-hook-form";
 import BannerReq1 from "./BannerReq1";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const QWrite = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, watch, errors, getValues } = useForm();
+  const onSubmit = () => {
+    var data = JSON.stringify({
+      q_content: getValues("form_content"),
+      q_cat: getValues("check"),
+      u_id: localStorage.getItem("id_value"),
+      q_title: getValues("form_title"),
+    });
+    console.log(data);
+
+    var config = {
+      method: "post",
+      url: "http://3.36.160.255:8081/api/question",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjE5NzYyNzQ0LCJleHAiOjE2MTk3ODA3NDR9.YPVlLn3lv3l2YRi-9XX5TnM1V5wQBIKITEtXUm1-fVy6DIW78PXQtY4fv1Fle_2WpCozzJFqTp5j-PY4bncFWg",
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div data-aos="fade-down" data-aos-duration="1000">
@@ -123,7 +151,7 @@ const QWrite = () => {
                     ref={register({ required: true })}
                     className="form_type"
                     name="check"
-                    value="칭찬"
+                    value="0"
                     type="radio"
                     id="good"
                     required
@@ -135,7 +163,7 @@ const QWrite = () => {
                     ref={register({ required: true })}
                     className="form_type"
                     name="check"
-                    value="불만"
+                    value="1"
                     type="radio"
                     id="hate"
                   />{" "}
@@ -146,7 +174,7 @@ const QWrite = () => {
                     ref={register({ required: true })}
                     className="form_type"
                     name="check"
-                    value="제안"
+                    value="2"
                     type="radio"
                     id="prop"
                   />

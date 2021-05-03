@@ -947,9 +947,20 @@ function Inquiry(props) {
                       name="review"
                     />
                   )}
-                  <button type="button" onClick={onClick} className="create">
-                    입력
-                  </button>
+                  {reviewtag == false ? (
+                    <button
+                      disabled
+                      type="button"
+                      onClick={onClick}
+                      className="create"
+                    >
+                      입력
+                    </button>
+                  ) : (
+                    <button type="button" onClick={onClick} className="create">
+                      입력
+                    </button>
+                  )}
                 </div>
               </form>
             </div>

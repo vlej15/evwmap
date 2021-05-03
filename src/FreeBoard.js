@@ -187,10 +187,10 @@ function Posts(props) {
           <tbody>
             {posts.map((post) => (
               <tr>
-                <td>{post.id}</td>
-                <td key={post.id} className="td-title">
+                <td>{post.b_no}</td>
+                <td key={post.b_no} className="td-title">
                   <Link
-                    to={`/notice/${post.b_dtt}`}
+                    to={`/notice/${post.b_no}`}
                     onClick={setPagevalue(post.b_dtt)}
                   >
                     {post.b_title}

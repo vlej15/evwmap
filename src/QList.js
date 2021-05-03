@@ -17,20 +17,24 @@ const QList = () => {
     u_id: "youngsik1",
   });
 
-  useEffect(() => {
-    const config = {
-      method: "post",
-      url: "http://3.36.160.255:8081/api/my-question",
+  useEffect(async () => {
+    var data = JSON.stringify({
+      u_id: localStorage.getItem("id_value"),
+    });
+
+    var config = {
+      method: "get",
+      url: "http://3.36.160.255:8081/api/user/my-question",
       headers: {
-        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("id"),
       },
       data: data,
     };
 
     axios(config)
       .then(function (response) {
+        console.log(JSON.stringify(response.data));
         setQdata(response.data);
-        console.log(qdata);
       })
       .catch(function (error) {
         console.log(error);
@@ -140,15 +144,7 @@ const QList = () => {
                 <td className="list-date">{post.date}</td>
               </tr>
             ))}
-            <tr>
-              <td class="list-td">
-                <span className="list-span1">답변대기</span>
-              </td>
-              <td className="list-title">
-                <a className="list-link">아니~ 카드 인식이 안된다니까요??</a>
-              </td>
-              <td className="list-date">2021.02.14</td>
-            </tr>
+
             <tr>
               <td class="list-td">
                 <span className="list-span2">답변완료</span>
