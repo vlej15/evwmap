@@ -23,16 +23,16 @@ function Heam() {
                                 </a>
                             </Link>
                         ) : (
-                            <Link to="/">
-                                <a
-                                    className="login_box"
-                                    href="#"
-                                    onClick={logout}
-                                >
-                                    LOGOUT
+                                <Link to="/">
+                                    <a
+                                        className="login_box"
+                                        href="#"
+                                        onClick={logout}
+                                    >
+                                        LOGOUT
                                 </a>
-                            </Link>
-                        )}
+                                </Link>
+                            )}
                     </li>
                     <li className="global_list">
                         {localStorage.getItem("id") == null ? (
@@ -42,12 +42,12 @@ function Heam() {
                                 </a>
                             </Link>
                         ) : (
-                            <Link to="/activity">
-                                <a className="join_box" href="#">
-                                    MY PAGE
+                                <Link to="/activity">
+                                    <a className="join_box" href="#">
+                                        MY PAGE
                                 </a>
-                            </Link>
-                        )}
+                                </Link>
+                            )}
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@ function Heam() {
                         <li className="gub_02 main_li">
                             <Link to="/map">
                                 <a className="map_a main_menu_list" href="">
-                                    <h3 className="main_bar">LOAD MAP</h3>
+                                    <h3 className="main_bar">ROADMAP</h3>
                                 </a>
                             </Link>
                         </li>

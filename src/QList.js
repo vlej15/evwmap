@@ -7,6 +7,8 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 import BannerReq2 from "./BannerReq2";
 import { Link } from "react-router-dom";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+
 
 const QList = () => {
   const [posts, setPosts] = useState([]);
@@ -42,29 +44,22 @@ const QList = () => {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerReq2 />
       </div>
-      <div className="FaqlocationData">
-        <div className="inner">
-          <div className="btnHome">
+
+      <div className="ContactData">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <i class="fas fa-home"></i>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  CONTACT
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
+                <div className="sec1-title">
+                  CONTACT<div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                 </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
-                      <a>INTRODUCTION</a>
-                    </li>
-                  </Link>
+                <ul className="sec-list">
                   <Link to="/map">
                     <li>
-                      <a>MAP</a>
+                      <a>ROADMAP</a>
                     </li>
                   </Link>
                   <Link to="/notice">
@@ -81,29 +76,27 @@ const QList = () => {
               </li>
             </ul>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section2">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <a>
-                  <div className="navMenu">
-                    FAQ
-                    <div className="navInnersMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
+                  <div className="sec2-title">
+                    문의내역
+                                        <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                   </div>
                 </a>
-                <ul className="navList">
-                  <Link to="/notice">
+                <ul className="sec-list">
+                  <Link to="/faq">
                     <li>
                       <a>FAQ</a>
                     </li>
                   </Link>
-                  <Link to="/freeboard">
+                  <Link to="/questions">
                     <li>
                       <a>문의하기</a>
                     </li>
                   </Link>
-                  <Link to="/tipboard">
+                  <Link to="/qlist">
                     <li>
                       <a>문의내역</a>
                     </li>
@@ -114,6 +107,7 @@ const QList = () => {
           </div>
         </div>
       </div>
+
       <div className="contentsQList">
         <div className="banner">
           <p className="banner-title">문의내역</p>

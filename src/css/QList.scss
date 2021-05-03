@@ -57,7 +57,7 @@ html {
             width: 300px;
             font-size: 1.85rem;
             margin: 0 auto;
-            background-color: #c9d6df;
+            background-color: #87a7b363;
         }
     }//banner
 
@@ -75,7 +75,7 @@ html {
             font-size: 1.7rem;
             border-top: 3px solid #212121;
             border-bottom: 1px solid #dcdcdc;
-            background-color: #ffffff;
+            background-color: #f1f1f1;
             text-align: center;
             padding: 25px 10px;
         }
@@ -86,7 +86,7 @@ html {
             font-size: 1.7rem;
             border-top: 3px solid #212121;
             border-bottom: 1px solid #dcdcdc;
-            background-color: #ffffff;
+            background-color: #f1f1f1;
             text-align: center;
             padding: 25px 10px;
         }
@@ -94,7 +94,7 @@ html {
         tbody {
 
         .list-td {
-            font-family: 'IBMPlexSansKR-Regular';
+            font-family: 'IBMPlexSansKR-Medium';
             margin: 0px;
             height: 60px;
             padding: 10px 10px;
@@ -164,8 +164,9 @@ html {
             border-top: 1px solid #dcdcdc;
             text-align: center;
             vertical-align: middle;
-            font-family: 'IBMPlexSansKR-Regular';
+            font-family: 'IBMPlexSansKR-Medium';
             text-align: left;
+            font-weight: bold;
         }
         
         .list-link {

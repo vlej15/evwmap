@@ -4,6 +4,7 @@ import "./css/FaqBoard.scss";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import BannerQ from "./BannerQ";
 import { Link } from "react-router-dom";
 
@@ -30,29 +31,22 @@ const FAQ = () => {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerQ />
       </div>
-      <div className="FaqlocationData">
-        <div className="inner">
-          <div className="btnHome">
+
+      <div className="ContactData">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <i class="fas fa-home"></i>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  CONTACT
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
+                <div className="sec1-title">
+                  CONTACT<div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                 </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
-                      <a>INTRODUCTION</a>
-                    </li>
-                  </Link>
+                <ul className="sec-list">
                   <Link to="/map">
                     <li>
-                      <a>MAP</a>
+                      <a>ROADMAP</a>
                     </li>
                   </Link>
                   <Link to="/notice">
@@ -69,29 +63,27 @@ const FAQ = () => {
               </li>
             </ul>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section2">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <a>
-                  <div className="navMenu">
+                  <div className="sec2-title">
                     FAQ
-                    <div className="navInnersMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
+                                        <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                   </div>
                 </a>
-                <ul className="navList">
-                  <Link to="/notice">
+                <ul className="sec-list">
+                  <Link to="/faq">
                     <li>
                       <a>FAQ</a>
                     </li>
                   </Link>
-                  <Link to="/freeboard">
+                  <Link to="/questions">
                     <li>
                       <a>문의하기</a>
                     </li>
                   </Link>
-                  <Link to="/tipboard">
+                  <Link to="/qlist">
                     <li>
                       <a>문의내역</a>
                     </li>
@@ -108,7 +100,7 @@ const FAQ = () => {
           <br></br>
           <p className="subtitle">이용자들이 가장 자주 묻는 질문입니다.</p>
         </div>
-        <div class="banner-search">
+        {/* <div class="banner-search">
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               className="insert"
@@ -118,7 +110,7 @@ const FAQ = () => {
             />
             <input type="submit" className="search-btn" value="검색"></input>
           </form>
-        </div>
+        </div> */}
         <ul className="faq-area">
           <li className="faq-li" onClick={() => { modal변경(!modal); }}>
             {/* <p className="faq-title">Q</p> */}

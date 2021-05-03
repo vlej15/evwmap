@@ -6,10 +6,11 @@ import "./css/Resolve1.scss";
 import "./css/inquiry.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 
-import BannerFree from "./BannerFree";
+import BannerMap from "./BannerMap";
 
 const { Tmapv2 } = window;
 
@@ -307,13 +308,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-              request.status +
-              "\n" +
-              "message:" +
-              request.responseText +
-              "\n" +
-              "error:" +
-              error
+            request.status +
+            "\n" +
+            "message:" +
+            request.responseText +
+            "\n" +
+            "error:" +
+            error
           );
         },
       });
@@ -529,7 +530,7 @@ function Inquiry(props) {
       data: data,
     };
     axios(config)
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -684,31 +685,23 @@ function Inquiry(props) {
   return (
     <>
       <div data-aos="fade-down" data-aos-duration="1000">
-        <BannerFree />
+        <BannerMap />
       </div>
       <div className="FlocationData">
-        <div className="inner">
-          <div className="btnHome">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <i class="fas fa-home"></i>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  COMMUNITY
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
+                <div className="sec1-title">
+                  ROADMAP<div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                 </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
-                      <a>INTRODUCTION</a>
-                    </li>
-                  </Link>
+                <ul className="sec-list">
                   <Link to="/map">
                     <li>
-                      <a>MAP</a>
+                      <a>ROADMAP</a>
                     </li>
                   </Link>
                   <Link to="/notice">
@@ -719,42 +712,6 @@ function Inquiry(props) {
                   <Link to="/faq">
                     <li>
                       <a>CONTACT</a>
-                    </li>
-                  </Link>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    FREE BOARD
-                    <div className="navInnersMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <Link to="/notice">
-                    <li>
-                      <a>NOTICE</a>
-                    </li>
-                  </Link>
-                  <Link to="/freeboard">
-                    <li>
-                      <a>FREE BOARD</a>
-                    </li>
-                  </Link>
-                  <Link to="/tipboard">
-                    <li>
-                      <a>TIP BOARD</a>
-                    </li>
-                  </Link>
-                  <Link to="/news">
-                    <li>
-                      <a>NEWS BOARD</a>
                     </li>
                   </Link>
                 </ul>
@@ -823,8 +780,8 @@ function Inquiry(props) {
                 <h1 className="charge_name">
                   충전소 명 :
                   {station.map((a) => (
-                    <span>{a.stat_nm}</span>
-                  ))}
+                  <span>{a.stat_nm}</span>
+                ))}
                 </h1>
                 <button className="report_btn">
                   <FontAwesomeIcon
@@ -867,16 +824,16 @@ function Inquiry(props) {
                       예약
                     </button>
                   ) : (
-                    <button
-                      className="rsvt-btn"
-                      type="button"
-                      onClick={() => {
-                        setPass(!pass);
-                      }}
-                    >
-                      예약
-                    </button>
-                  )}
+                      <button
+                        className="rsvt-btn"
+                        type="button"
+                        onClick={() => {
+                          setPass(!pass);
+                        }}
+                      >
+                        예약
+                      </button>
+                    )}
                 </p>
                 {passModal()}
                 <table className="now-list">
@@ -939,14 +896,14 @@ function Inquiry(props) {
                       disabled
                     />
                   ) : (
-                    <input
-                      ref={register}
-                      className="review_text"
-                      type="text"
-                      placeholder="리뷰를 입력해주세요."
-                      name="review"
-                    />
-                  )}
+                      <input
+                        ref={register}
+                        className="review_text"
+                        type="text"
+                        placeholder="리뷰를 입력해주세요."
+                        name="review"
+                      />
+                    )}
                   <button type="button" onClick={onClick} className="create">
                     입력
                   </button>

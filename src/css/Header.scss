@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Wemakeprice-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Wemakeprice-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Arita-dotum-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: auto;
 }
@@ -31,7 +44,7 @@ body {
 .sub-list {
     height: 0px;
     transition: height 0.3 ease;
-    padding-left: 405px;
+    padding-left: 410px;
     z-index: 999;
 
     .sub-ul-02 {
@@ -52,9 +65,13 @@ body {
         transition-delay: 0s;
 
         a {
-            color: black;
-            font-size: 12px;
-            font-family: 'IBMPlexSansKR-Regular';
+            color: #444;
+            font-size: 16.5px;
+            font-family: 'Arita-dotum-Medium';
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -81,6 +98,8 @@ body {
     .inner{
         .mainlogo {
             .Logo {
+
+
                 color: black;
             }
         }
@@ -111,7 +130,7 @@ body {
 }
 
 .menu-back-on-plus {
-    height: 250px;
+    height: 265px;
     border-bottom: 1px solid #d4d4d4;
 
     .inner {
@@ -179,13 +198,14 @@ body {
             line-height: 35px;
 
             .Logo {
+                font-family: 'Wemakeprice-Bold';
                 position: absolute;
                 top: 0;
                 left: 0;
                 display: block;
                 width: 100%;
                 height: 100%;
-                font-size: 32px;
+                font-size: 27px;
                 z-index: 2;
             }
         }
@@ -209,7 +229,7 @@ body {
 
                 a {
                     display: block;
-                    color: white;
+                    color: #eeeeee;
                     font-size: 13px;
                     font-weight: 700;
                     width: 80px;
@@ -220,14 +240,14 @@ body {
                     font-style:normal;
                 }
                 .login_box:hover {
-                    color: #f2b640;
+                    color: #52616b;
                 }
                 .point_box:hover {
-                    color: #f2b640;
+                    color: #52616b;
                 }
                 .join_box {
-                    background-color: #f2b640;
-                    color: black;
+                    background-color: #52616b;
+                    color: #fff;
                 }
             }
 
@@ -264,15 +284,15 @@ body {
                     .main_bar::after {
                         display: block;
                         content: '';
-                        border-bottom: 3px solid #f2b640;
+                        border-bottom: 3px solid #52616b;
                         border-radius: 2px;
                         transform: scaleX(0);
                         transition: transform 300ms ease-in-out;
                     }
 
                     .main_bar:hover::after {
-                        transform: scaleX(1);
-                        transform-origin: 0% 50%;
+                        // transform: scaleX(1);
+                        // transform-origin: 0% 50%;
                     }
                 }
 
@@ -292,7 +312,7 @@ body {
 
                 .main_menu_list {
                     display: block;
-                    color: white;
+                    color: #dddddd;
                     font-size: 14px;
                     font-weight: 700;
                     line-height: 100px;

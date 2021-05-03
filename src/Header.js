@@ -75,9 +75,9 @@ function Header(props) {
                         <FontAwesomeIcon
                             icon={faBars}
                             className="arrow-btn"
-                            // onClick={() => {
-                            //     props.setMenu(!props.menu);
-                            // }}
+                        // onClick={() => {
+                        //     props.setMenu(!props.menu);
+                        // }}
                         />
                     </a>
                 </h2>
@@ -87,10 +87,10 @@ function Header(props) {
                     <div className="menu-back">
                         <div className="inner">
                             <h1 className="mainlogo">
-                                <Link to="/main">
+                                <Link to="/">
                                     <a href="#" className="Logo">
                                         EV WMAP
-                                    </a>
+                  </a>
                                 </Link>
                             </h1>
                             <Heam />
@@ -184,41 +184,37 @@ function Heam2() {
                             <li className="global_list">
                                 <a className="point_box" href="#">
                                     POINT
-                                </a>
+                </a>
                             </li>
                             <li className="global_list login">
                                 {localStorage.getItem("id") == null ? (
                                     <Link to="/login">
                                         <a className="login_box" href="#">
                                             LOGIN
-                                        </a>
+                    </a>
                                     </Link>
                                 ) : (
-                                    <Link to="/">
-                                        <a
-                                            className="login_box"
-                                            href="#"
-                                            onClick={logout}
-                                        >
-                                            LOGOUT
-                                        </a>
-                                    </Link>
-                                )}
+                                        <Link to="/">
+                                            <a className="login_box" href="#" onClick={logout}>
+                                                LOGOUT
+                    </a>
+                                        </Link>
+                                    )}
                             </li>
                             <li className="global_list">
                                 {localStorage.getItem("id") == null ? (
                                     <Link to="/signup">
                                         <a className="join_box" href="#">
                                             JOIN
-                                        </a>
+                    </a>
                                     </Link>
                                 ) : (
-                                    <Link to="/activity">
-                                        <a className="join_box" href="#">
-                                            MY PAGE
-                                        </a>
-                                    </Link>
-                                )}
+                                        <Link to="/activity">
+                                            <a className="join_box" href="#">
+                                                MY PAGE
+                    </a>
+                                        </Link>
+                                    )}
                             </li>
                         </ul>
                     </div>
@@ -227,13 +223,8 @@ function Heam2() {
                             <ul className="mainmenu_ul">
                                 <li className="gub_01 main_li">
                                     <Link to="/map">
-                                        <a
-                                            className="map_a main_menu_list"
-                                            href=""
-                                        >
-                                            <h3 className="main_bar">
-                                                LOAD MAP
-                                            </h3>
+                                        <a className="map_a main_menu_list" href="">
+                                            <h3 className="main_bar">LOAD MAP</h3>
                                         </a>
                                     </Link>
                                 </li>
@@ -247,10 +238,8 @@ function Heam2() {
                                             }}
                                         >
                                             COMMUNITY
-                                        </h3>
-                                        {getCommunity === true
-                                            ? communityAdd()
-                                            : communityDelete()}
+                    </h3>
+                                        {getCommunity === true ? communityAdd() : communityDelete()}
                                     </a>
                                     {/* </Link> */}
                                     <ul className="sub-list_ul sub-ul-02">
@@ -288,10 +277,8 @@ function Heam2() {
                                             }}
                                         >
                                             CONTACT
-                                        </h3>
-                                        {getContact === true
-                                            ? contactAdd()
-                                            : contactDelete()}
+                    </h3>
+                                        {getContact === true ? contactAdd() : contactDelete()}
                                     </a>
                                     {/* </Link> */}
                                     <ul className="sub-list_ul sub-ul-03">

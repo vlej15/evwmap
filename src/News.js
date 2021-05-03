@@ -5,6 +5,7 @@ import "./css/NewsBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import BannerNews from "./BannerNews";
 
@@ -15,29 +16,22 @@ function News() {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNews />
       </div>
-      <div className="NlocationData">
-        <div className="inner">
-          <div className="btnHome">
+
+      <div className="FlocationData">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <i class="fas fa-home"></i>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  COMMUNITY
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
+                <div className="sec1-title">COMMUNITY
+                <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                 </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
-                      <a>INTRODUCTION</a>
-                    </li>
-                  </Link>
+                <ul className="sec-list">
                   <Link to="/map">
                     <li>
-                      <a>MAP</a>
+                      <a>ROADMAP</a>
                     </li>
                   </Link>
                   <Link to="/notice">
@@ -54,18 +48,16 @@ function News() {
               </li>
             </ul>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section2">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <a>
-                  <div className="navMenu">
+                  <div className="sec2-title">
                     NEWS
-                    <div className="navInnersMenu">
-                      <i class="fas fa-caret-down"></i>
-                    </div>
+                    <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                   </div>
                 </a>
-                <ul className="navList">
+                <ul className="sec-list">
                   <Link to="/notice">
                     <li>
                       <a>NOTICE</a>
