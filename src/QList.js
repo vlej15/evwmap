@@ -8,172 +8,180 @@ import $ from "jquery";
 import BannerReq2 from "./BannerReq2";
 import { Link } from "react-router-dom";
 
-const QList = () => {
-  const [posts, setPosts] = useState([]);
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
-  const [qdata, setQdata] = useState([]);
-  var data = JSON.stringify({
-    u_id: "youngsik1",
-  });
+const QList = (props) => {
+    const [posts, setPosts] = useState([]);
+    const { register, handleSubmit, watch, errors } = useForm();
+    const onSubmit = (data) => console.log(data);
+    const [qdata, setQdata] = useState([]);
+    var data = JSON.stringify({
+        u_id: "youngsik1",
+    });
 
-  useEffect(() => {
-    const config = {
-      method: "post",
-      url: "http://3.36.160.255:8081/api/my-question",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+    useEffect(() => {
+        props.setCount(0);
 
-    axios(config)
-      .then(function (response) {
-        setQdata(response.data);
-        console.log(qdata);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+        const config = {
+            method: "post",
+            url: "http://3.36.160.255:8081/api/my-question",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            data: data,
+        };
 
-  return (
-    <>
-      <div data-aos="fade-down" data-aos-duration="1000">
-        <BannerReq2 />
-      </div>
-      <div className="FaqlocationData">
-        <div className="inner">
-          <div className="btnHome">
-            <i class="fas fa-home"></i>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <div className="navMenu">
-                  CONTACT
-                  <div className="navInnerMenu">
-                    <i class="fas fa-caret-down"></i>
-                  </div>
-                </div>
-                <ul className="navList">
-                  <Link to="/introduction">
-                    <li>
-                      <a>INTRODUCTION</a>
-                    </li>
-                  </Link>
-                  <Link to="/map">
-                    <li>
-                      <a>MAP</a>
-                    </li>
-                  </Link>
-                  <Link to="/notice">
-                    <li>
-                      <a>COMMUNITY</a>
-                    </li>
-                  </Link>
-                  <Link to="/faq">
-                    <li>
-                      <a>CONTACT</a>
-                    </li>
-                  </Link>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <a>
-                  <div className="navMenu">
-                    FAQ
-                    <div className="navInnersMenu">
-                      <i class="fas fa-caret-down"></i>
+        axios(config)
+            .then(function (response) {
+                setQdata(response.data);
+                console.log(qdata);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
+
+    return (
+        <>
+            <div data-aos="fade-down" data-aos-duration="1000">
+                <BannerReq2 />
+            </div>
+            <div className="FaqlocationData">
+                <div className="inner">
+                    <div className="btnHome">
+                        <i class="fas fa-home"></i>
                     </div>
-                  </div>
-                </a>
-                <ul className="navList">
-                  <Link to="/notice">
-                    <li>
-                      <a>FAQ</a>
-                    </li>
-                  </Link>
-                  <Link to="/freeboard">
-                    <li>
-                      <a>문의하기</a>
-                    </li>
-                  </Link>
-                  <Link to="/tipboard">
-                    <li>
-                      <a>문의내역</a>
-                    </li>
-                  </Link>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="contentsQList">
-        <div className="banner">
-          <p className="banner-title">문의내역</p>
-          <br></br>
-          <p className="subtitle">문의하신 내역을 확인할 수 있습니다.</p>
-        </div>
-        <table className="list">
-          <thead>
-            <tr>
-              <th>상태</th>
-              <th className="th-title">제목</th>
-              <th>등록일</th>
-            </tr>
-          </thead>
-          <tbody>
-            {qdata.map((post) => (
-              <tr>
-                <td class="list-td">
-                  <span className="list-span1">답변대기</span>
-                </td>
-                <td className="list-title">
-                  <a className="list-link">{post.q_content}</a>
-                </td>
-                <td className="list-date">{post.date}</td>
-              </tr>
-            ))}
-            <tr>
-              <td class="list-td">
-                <span className="list-span1">답변대기</span>
-              </td>
-              <td className="list-title">
-                <a className="list-link">아니~ 카드 인식이 안된다니까요??</a>
-              </td>
-              <td className="list-date">2021.02.14</td>
-            </tr>
-            <tr>
-              <td class="list-td">
-                <span className="list-span2">답변완료</span>
-              </td>
-              <td className="list-title">
-                <a className="list-link">
-                  아 아직도 할거 개많에
-                  아아아아아앙아가가가가누리마ㅜㄷ라ㅣㅈ두랒둥
-                </a>
-              </td>
-              <td className="list-date">2020.02.01</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div className="QList-btn">
-        <button className="QList-write">
-          <FontAwesomeIcon
-            icon={faPencilAlt}
-            className="pencil"
-          ></FontAwesomeIcon>
-        </button>
-      </div>
-    </>
-  );
+                    <div className="navTitle">
+                        <ul className="ulTitle">
+                            <li className="liTitleOpen">
+                                <div className="navMenu">
+                                    CONTACT
+                                    <div className="navInnerMenu">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
+                                </div>
+                                <ul className="navList">
+                                    <Link to="/introduction">
+                                        <li>
+                                            <a>INTRODUCTION</a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/map">
+                                        <li>
+                                            <a>MAP</a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/notice">
+                                        <li>
+                                            <a>COMMUNITY</a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/faq">
+                                        <li>
+                                            <a>CONTACT</a>
+                                        </li>
+                                    </Link>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="navTitle">
+                        <ul className="ulTitle">
+                            <li className="liTitleOpen">
+                                <a>
+                                    <div className="navMenu">
+                                        FAQ
+                                        <div className="navInnersMenu">
+                                            <i class="fas fa-caret-down"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul className="navList">
+                                    <Link to="/notice">
+                                        <li>
+                                            <a>FAQ</a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/freeboard">
+                                        <li>
+                                            <a>문의하기</a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/tipboard">
+                                        <li>
+                                            <a>문의내역</a>
+                                        </li>
+                                    </Link>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className="contentsQList">
+                <div className="banner">
+                    <p className="banner-title">문의내역</p>
+                    <br></br>
+                    <p className="subtitle">
+                        문의하신 내역을 확인할 수 있습니다.
+                    </p>
+                </div>
+                <table className="list">
+                    <thead>
+                        <tr>
+                            <th>상태</th>
+                            <th className="th-title">제목</th>
+                            <th>등록일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {qdata.map((post) => (
+                            <tr>
+                                <td class="list-td">
+                                    <span className="list-span1">답변대기</span>
+                                </td>
+                                <td className="list-title">
+                                    <a className="list-link">
+                                        {post.q_content}
+                                    </a>
+                                </td>
+                                <td className="list-date">{post.date}</td>
+                            </tr>
+                        ))}
+                        <tr>
+                            <td class="list-td">
+                                <span className="list-span1">답변대기</span>
+                            </td>
+                            <td className="list-title">
+                                <a className="list-link">
+                                    아니~ 카드 인식이 안된다니까요??
+                                </a>
+                            </td>
+                            <td className="list-date">2021.02.14</td>
+                        </tr>
+                        <tr>
+                            <td class="list-td">
+                                <span className="list-span2">답변완료</span>
+                            </td>
+                            <td className="list-title">
+                                <a className="list-link">
+                                    아 아직도 할거 개많에
+                                    아아아아아앙아가가가가누리마ㅜㄷ라ㅣㅈ두랒둥
+                                </a>
+                            </td>
+                            <td className="list-date">2020.02.01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div className="QList-btn">
+                <button className="QList-write">
+                    <FontAwesomeIcon
+                        icon={faPencilAlt}
+                        className="pencil"
+                    ></FontAwesomeIcon>
+                </button>
+            </div>
+        </>
+    );
 };
 
 export default QList;

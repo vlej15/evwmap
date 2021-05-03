@@ -8,6 +8,19 @@ import Heam from "./Heam.js";
 import $ from "jquery";
 
 function Header(props) {
+    let headerOn = function () {
+        $(".dHead").addClass("dHead-login");
+        $(".menu-back").addClass("menu-back-login");
+    };
+    let headerOff = function () {
+        $(".dHead").removeClass("dHead-login");
+        $(".menu-back").removeClass("menu-back-login");
+    };
+    {
+        props.getCount > 0 ? headerOn() : headerOff();
+        // props.setCount(0);
+    }
+
     $(function () {
         //Header top 위치 좌표
         var headerScroll = $(".dHead").offset();

@@ -6,13 +6,15 @@ import APagination from "@material-ui/lab/Pagination";
 import { Link, useParams } from "react-router-dom";
 import BannerNotice from "./BannerNotice";
 
-function Notice() {
+function Notice(props) {
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState("");
     const [loading, setLoading] = useState(false);
     const token = localStorage.getItem("id");
 
     useEffect(async () => {
+        props.setCount(0);
+
         var config = {
             method: "get",
             url: "http://3.36.160.255:8081/api/boardlist?page=0&cat_cd=0",
