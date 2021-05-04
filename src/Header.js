@@ -88,9 +88,9 @@ function Header(props) {
                         <FontAwesomeIcon
                             icon={faBars}
                             className="arrow-btn"
-                            // onClick={() => {
-                            //     props.setMenu(!props.menu);
-                            // }}
+                        // onClick={() => {
+                        //     props.setMenu(!props.menu);
+                        // }}
                         />
                     </a>
                 </h2>
@@ -101,7 +101,9 @@ function Header(props) {
                         <div className="inner">
                             <h1 className="mainlogo">
                                 <Link to="/">
-                                    <a href="#" className="Logo">
+                                    <a href="#" onClick={() => {
+                                        props.setCount(0);
+                                    }} className="Logo">
                                         EV WMAP
                                     </a>
                                 </Link>
@@ -209,16 +211,16 @@ function Heam2() {
                                         </a>
                                     </Link>
                                 ) : (
-                                    <Link to="/">
-                                        <a
-                                            className="login_box"
-                                            href="#"
-                                            onClick={logout}
-                                        >
-                                            LOGOUT
+                                        <Link to="/">
+                                            <a
+                                                className="login_box"
+                                                href="#"
+                                                onClick={logout}
+                                            >
+                                                LOGOUT
                                         </a>
-                                    </Link>
-                                )}
+                                        </Link>
+                                    )}
                             </li>
                             <li className="global_list">
                                 {localStorage.getItem("id") == null ? (
@@ -228,12 +230,12 @@ function Heam2() {
                                         </a>
                                     </Link>
                                 ) : (
-                                    <Link to="/activity">
-                                        <a className="join_box" href="#">
-                                            MY PAGE
+                                        <Link to="/activity">
+                                            <a className="join_box" href="#">
+                                                MY PAGE
                                         </a>
-                                    </Link>
-                                )}
+                                        </Link>
+                                    )}
                             </li>
                         </ul>
                     </div>

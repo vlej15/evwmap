@@ -22,8 +22,6 @@ function FreeBoard(props) {
     const { id } = useParams();
 
     useEffect(async () => {
-        props.setCount(0);
-
         var config = {
             method: "get",
             url: "http://3.36.160.255:8081/api/boardlist?page=0&cat_cd=1",
@@ -87,32 +85,26 @@ function Posts(props) {
     return (
         <>
             {/* <div className="end"></div> */}
+
             <div data-aos="fade-down" data-aos-duration="1000">
                 <BannerFree />
             </div>
+
             <div className="FlocationData">
-                <div className="inner">
-                    <div className="btnHome">
+                <div className="nav-area">
+                    <div className="nav-homearea">
                         <i class="fas fa-home"></i>
                     </div>
-                    <div className="navTitle">
-                        <ul className="ulTitle">
-                            <li className="liTitleOpen">
-                                <div className="navMenu">
-                                    COMMUNITY
-                                    <div className="navInnerMenu">
-                                        <i class="fas fa-caret-down"></i>
-                                    </div>
+                    <div className="nav-section1">
+                        <ul className="sec-ul">
+                            <li className="sec-li">
+                                <div className="sec1-title">COMMUNITY
+                <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                                 </div>
-                                <ul className="navList">
-                                    <Link to="/introduction">
-                                        <li>
-                                            <a>INTRODUCTION</a>
-                                        </li>
-                                    </Link>
+                                <ul className="sec-list">
                                     <Link to="/map">
                                         <li>
-                                            <a>MAP</a>
+                                            <a>ROADMAP</a>
                                         </li>
                                     </Link>
                                     <Link to="/notice">
@@ -129,18 +121,16 @@ function Posts(props) {
                             </li>
                         </ul>
                     </div>
-                    <div className="navTitle">
-                        <ul className="ulTitle">
-                            <li className="liTitleOpen">
+                    <div className="nav-section2">
+                        <ul className="sec-ul">
+                            <li className="sec-li">
                                 <a>
-                                    <div className="navMenu">
+                                    <div className="sec2-title">
                                         FREE BOARD
-                                        <div className="navInnersMenu">
-                                            <i class="fas fa-caret-down"></i>
-                                        </div>
+                    <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                                     </div>
                                 </a>
-                                <ul className="navList">
+                                <ul className="sec-list">
                                     <Link to="/notice">
                                         <li>
                                             <a>NOTICE</a>
@@ -167,6 +157,7 @@ function Posts(props) {
                     </div>
                 </div>
             </div>
+
             <div className="contentsBoard">
                 {/* <div className="start"></div> */}
                 <div className="banner">
@@ -174,7 +165,7 @@ function Posts(props) {
                     <br></br>
                     <p className="subtitle">
                         이용자들과 자유로운 의견 교환을 하실 수 있습니다.
-                    </p>
+          </p>
                 </div>
                 <table className="list">
                     <thead>
@@ -189,10 +180,10 @@ function Posts(props) {
                     <tbody>
                         {posts.map((post) => (
                             <tr>
-                                <td>{post.id}</td>
-                                <td key={post.id} className="td-title">
+                                <td>{post.b_no}</td>
+                                <td key={post.b_no} className="td-title">
                                     <Link
-                                        to={`/notice/${post.b_dtt}`}
+                                        to={`/notice/${post.b_no}`}
                                         onClick={setPagevalue(post.b_dtt)}
                                     >
                                         {post.b_title}
@@ -236,11 +227,7 @@ function Pagination({
     return (
         <div className="pageNation">
             <div>
-                <APagination
-                    count={pageNumbers}
-                    size="large"
-                    onChange={handleChange}
-                />
+                <APagination count={pageNumbers} size="large" onChange={handleChange} />
             </div>
         </div>
     );
@@ -248,10 +235,7 @@ function Pagination({
         var config = {
             method: "get",
 
-            url:
-                "http://3.36.160.255:8081/api/boardlist?page=" +
-                value +
-                "&cat_cd=0",
+            url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=0",
             headers: {
                 Authorization: localStorage.getItem("id"),
                 "Content-Type": "application/json",

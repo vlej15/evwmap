@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./css/QWrite.scss";
 import { useForm } from "react-hook-form";
 import BannerReq1 from "./BannerReq1";
@@ -7,40 +7,57 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
-const QWrite = (props) => {
-    useEffect(() => {
-        props.setCount(0);
-    }, []);
-    const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = (data) => console.log(data);
+const QWrite = () => {
+    const { register, handleSubmit, watch, errors, getValues } = useForm();
+    const onSubmit = () => {
+        var data = JSON.stringify({
+            q_content: getValues("form_content"),
+            q_cat: getValues("check"),
+            u_id: localStorage.getItem("id_value"),
+            q_title: getValues("form_title"),
+        });
+        console.log(data);
+
+        var config = {
+            method: "post",
+            url: "http://3.36.160.255:8081/api/question",
+            headers: {
+                Authorization:
+                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjE5NzYyNzQ0LCJleHAiOjE2MTk3ODA3NDR9.YPVlLn3lv3l2YRi-9XX5TnM1V5wQBIKITEtXUm1-fVy6DIW78PXQtY4fv1Fle_2WpCozzJFqTp5j-PY4bncFWg",
+                "Content-Type": "application/json",
+            },
+            data: data,
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
     return (
         <>
             <div data-aos="fade-down" data-aos-duration="1000">
                 <BannerReq1 />
             </div>
-            <div className="FaqlocationData">
-                <div className="inner">
-                    <div className="btnHome">
+
+            <div className="ContactData">
+                <div className="nav-area">
+                    <div className="nav-homearea">
                         <i class="fas fa-home"></i>
                     </div>
-                    <div className="navTitle">
-                        <ul className="ulTitle">
-                            <li className="liTitleOpen">
-                                <div className="navMenu">
-                                    CONTACT
-                                    <div className="navInnerMenu">
-                                        <i class="fas fa-caret-down"></i>
-                                    </div>
+                    <div className="nav-section1">
+                        <ul className="sec-ul">
+                            <li className="sec-li">
+                                <div className="sec1-title">
+                                    CONTACT<div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                                 </div>
-                                <ul className="navList">
-                                    <Link to="/introduction">
-                                        <li>
-                                            <a>INTRODUCTION</a>
-                                        </li>
-                                    </Link>
+                                <ul className="sec-list">
                                     <Link to="/map">
                                         <li>
-                                            <a>MAP</a>
+                                            <a>ROADMAP</a>
                                         </li>
                                     </Link>
                                     <Link to="/notice">
@@ -57,29 +74,27 @@ const QWrite = (props) => {
                             </li>
                         </ul>
                     </div>
-                    <div className="navTitle">
-                        <ul className="ulTitle">
-                            <li className="liTitleOpen">
+                    <div className="nav-section2">
+                        <ul className="sec-ul">
+                            <li className="sec-li">
                                 <a>
-                                    <div className="navMenu">
-                                        FAQ
-                                        <div className="navInnersMenu">
-                                            <i class="fas fa-caret-down"></i>
-                                        </div>
+                                    <div className="sec2-title">
+                                        문의하기
+                                        <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
                                     </div>
                                 </a>
-                                <ul className="navList">
-                                    <Link to="/notice">
+                                <ul className="sec-list">
+                                    <Link to="/faq">
                                         <li>
                                             <a>FAQ</a>
                                         </li>
                                     </Link>
-                                    <Link to="/freeboard">
+                                    <Link to="/questions">
                                         <li>
                                             <a>문의하기</a>
                                         </li>
                                     </Link>
-                                    <Link to="/tipboard">
+                                    <Link to="/qlist">
                                         <li>
                                             <a>문의내역</a>
                                         </li>
@@ -96,7 +111,7 @@ const QWrite = (props) => {
                     <br></br>
                     <p className="subtitle">
                         EV WMAP에 의견을 전해주세요. 항상 귀 기울이겠습니다.
-                    </p>
+          </p>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-input">
@@ -129,7 +144,7 @@ const QWrite = (props) => {
                                         ref={register({ required: true })}
                                         className="form_type"
                                         name="check"
-                                        value="칭찬"
+                                        value="0"
                                         type="radio"
                                         id="good"
                                         required
@@ -141,7 +156,7 @@ const QWrite = (props) => {
                                         ref={register({ required: true })}
                                         className="form_type"
                                         name="check"
-                                        value="불만"
+                                        value="1"
                                         type="radio"
                                         id="hate"
                                     />{" "}
@@ -152,7 +167,7 @@ const QWrite = (props) => {
                                         ref={register({ required: true })}
                                         className="form_type"
                                         name="check"
-                                        value="제안"
+                                        value="2"
                                         type="radio"
                                         id="prop"
                                     />
@@ -174,25 +189,15 @@ const QWrite = (props) => {
                                 className="input-content"
                             ></textarea>
                             {errors.form_content && (
-                                <div className="alert2">
-                                    필수 입력항목입니다.
-                                </div>
+                                <div className="alert2">필수 입력항목입니다.</div>
                             )}
                         </div>
                         <div className="file">
                             <p className="write-subtitle">파일첨부 </p>
-                            <input
-                                ref={register}
-                                type="file"
-                                className="write-file "
-                            />
+                            <input ref={register} type="file" className="write-file " />
                         </div>
                         <div className="form-btn">
-                            <input
-                                type="submit"
-                                className="submit"
-                                value="보내기"
-                            ></input>
+                            <input type="submit" className="submit" value="보내기"></input>
                         </div>
                     </div>
                 </form>

@@ -52,7 +52,6 @@ function Inquiry(props) {
     const getId = localStorage.getItem("id");
 
     useEffect(() => {
-        props.setCount(0);
         //충전기 정보 받아오는 곳
         var axios = require("axios");
 
@@ -83,8 +82,7 @@ function Inquiry(props) {
         marker.map((mk) => {
             markers = new Tmapv2.Marker({
                 position: new Tmapv2.LatLng(mk.stat_lat, mk.stat_lng),
-                icon:
-                    "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+                icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
                 iconSize: new Tmapv2.Size(24, 38),
                 map: map,
             });
@@ -122,15 +120,13 @@ function Inquiry(props) {
 
         marker_s = new Tmapv2.Marker({
             position: new Tmapv2.LatLng(a1, a2),
-            icon:
-                "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_s.png",
+            icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_s.png",
             iconSize: new Tmapv2.Size(24, 38),
             map: map,
         });
         marker_e = new Tmapv2.Marker({
             position: new Tmapv2.LatLng(lng, lat),
-            icon:
-                "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+            icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
             iconSize: new Tmapv2.Size(24, 38),
             map: map,
         });
@@ -161,18 +157,14 @@ function Inquiry(props) {
 
                     var tDistance =
                         "총 거리 : " +
-                        (resultData[0].properties.totalDistance / 1000).toFixed(
-                            1
-                        ) +
+                        (resultData[0].properties.totalDistance / 1000).toFixed(1) +
                         "km,";
                     var tTime =
                         " 총 시간 : " +
                         (resultData[0].properties.totalTime / 60).toFixed(0) +
                         "분,";
                     var tFare =
-                        " 총 요금 : " +
-                        resultData[0].properties.totalFare +
-                        "원,";
+                        " 총 요금 : " + resultData[0].properties.totalFare + "원,";
 
                     $("#result").text(tDistance + tTime + tFare);
 
@@ -220,8 +212,7 @@ function Inquiry(props) {
                                     pType = "E";
                                 } else {
                                     //각 포인트 마커
-                                    markerImg =
-                                        "http://topopen.tmap.co.kr/imgs/point.png";
+                                    markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
                                     pType = "P";
                                 }
 
@@ -287,8 +278,7 @@ function Inquiry(props) {
                                     pType = "E";
                                 } else {
                                     //각 포인트 마커
-                                    markerImg =
-                                        "http://topopen.tmap.co.kr/imgs/point.png";
+                                    markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
                                     pType = "P";
                                 }
 
@@ -318,13 +308,13 @@ function Inquiry(props) {
                 error: function (request, status, error) {
                     console.log(
                         "code:" +
-                            request.status +
-                            "\n" +
-                            "message:" +
-                            request.responseText +
-                            "\n" +
-                            "error:" +
-                            error
+                        request.status +
+                        "\n" +
+                        "message:" +
+                        request.responseText +
+                        "\n" +
+                        "error:" +
+                        error
                     );
                 },
             });
@@ -412,11 +402,7 @@ function Inquiry(props) {
                             for (var x = 0; x < tInfo.length; x++) {
                                 var sectionPoint = []; //구간선언
 
-                                for (
-                                    var y = tInfo[x].startIndex;
-                                    y <= tInfo[x].endIndex;
-                                    y++
-                                ) {
+                                for (var y = tInfo[x].startIndex; y <= tInfo[x].endIndex; y++) {
                                     sectionPoint.push(arrPoint[y]);
                                 }
 
@@ -460,11 +446,7 @@ function Inquiry(props) {
                             for (var x = 0; x < tInfo.length; x++) {
                                 var sectionPoint = []; //구간선언
 
-                                for (
-                                    var y = tInfo[x].startIndex;
-                                    y <= tInfo[x].endIndex;
-                                    y++
-                                ) {
+                                for (var y = tInfo[x].startIndex; y <= tInfo[x].endIndex; y++) {
                                     sectionPoint.push(arrPoint[y]);
                                 }
 
@@ -548,7 +530,7 @@ function Inquiry(props) {
             data: data,
         };
         axios(config)
-            .then(function (response) {})
+            .then(function (response) { })
             .catch(function (error) {
                 console.log(error);
             });
@@ -607,7 +589,7 @@ function Inquiry(props) {
                                         }}
                                     >
                                         1
-                                    </li>
+                  </li>
                                     <li
                                         className="typeBtn"
                                         onClick={() => {
@@ -615,7 +597,7 @@ function Inquiry(props) {
                                         }}
                                     >
                                         2
-                                    </li>
+                  </li>
                                     <li
                                         className="typeBtn"
                                         onClick={() => {
@@ -623,7 +605,7 @@ function Inquiry(props) {
                                         }}
                                     >
                                         3
-                                    </li>
+                  </li>
                                     <li
                                         className="typeBtn"
                                         onClick={() => {
@@ -631,7 +613,7 @@ function Inquiry(props) {
                                         }}
                                     >
                                         4
-                                    </li>
+                  </li>
                                     <li
                                         className="typeBtn"
                                         onClick={() => {
@@ -639,15 +621,12 @@ function Inquiry(props) {
                                         }}
                                     >
                                         5
-                                    </li>
+                  </li>
                                 </ul>
                             </div>
                             <div className="searchTable">
                                 <p>예약현황목록</p>
-                                <p>
-                                    현재 예약된 시간대를 제외하고 입력해주시기
-                                    바랍니다.
-                                </p>
+                                <p>현재 예약된 시간대를 제외하고 입력해주시기 바랍니다.</p>
                                 <ul className="timeTable">
                                     <li>09:00 ~ 09:30</li>
                                     <li>09:00 ~ 09:30</li>
@@ -686,13 +665,11 @@ function Inquiry(props) {
                                         <li className="resorveN2 ">
                                             <p
                                                 onClick={() => {
-                                                    alert(
-                                                        "예약이 완료되었습니다."
-                                                    );
+                                                    alert("예약이 완료되었습니다.");
                                                 }}
                                             >
                                                 예약
-                                            </p>
+                      </p>
                                         </li>
                                     </ul>
                                 </div>
@@ -708,31 +685,26 @@ function Inquiry(props) {
     return (
         <>
             <div data-aos="fade-down" data-aos-duration="1000">
-                <BannerFree />
+                <BannerMap />
             </div>
             <div className="FlocationData">
-                <div className="inner">
-                    <div className="btnHome">
+                <div className="nav-area">
+                    <div className="nav-homearea">
                         <i class="fas fa-home"></i>
                     </div>
-                    <div className="navTitle">
-                        <ul className="ulTitle">
-                            <li className="liTitleOpen">
-                                <div className="navMenu">
-                                    COMMUNITY
-                                    <div className="navInnerMenu">
-                                        <i class="fas fa-caret-down"></i>
+                    <div className="nav-section1">
+                        <ul className="sec-ul">
+                            <li className="sec-li">
+                                <div className="sec1-title">
+                                    ROADMAP
+                  <div className="nav-icon">
+                                        <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
                                     </div>
                                 </div>
-                                <ul className="navList">
-                                    <Link to="/introduction">
-                                        <li>
-                                            <a>INTRODUCTION</a>
-                                        </li>
-                                    </Link>
+                                <ul className="sec-list">
                                     <Link to="/map">
                                         <li>
-                                            <a>MAP</a>
+                                            <a>ROADMAP</a>
                                         </li>
                                     </Link>
                                     <Link to="/notice">
@@ -749,42 +721,6 @@ function Inquiry(props) {
                             </li>
                         </ul>
                     </div>
-                    <div className="navTitle">
-                        <ul className="ulTitle">
-                            <li className="liTitleOpen">
-                                <a>
-                                    <div className="navMenu">
-                                        FREE BOARD
-                                        <div className="navInnersMenu">
-                                            <i class="fas fa-caret-down"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                                <ul className="navList">
-                                    <Link to="/notice">
-                                        <li>
-                                            <a>NOTICE</a>
-                                        </li>
-                                    </Link>
-                                    <Link to="/freeboard">
-                                        <li>
-                                            <a>FREE BOARD</a>
-                                        </li>
-                                    </Link>
-                                    <Link to="/tipboard">
-                                        <li>
-                                            <a>TIP BOARD</a>
-                                        </li>
-                                    </Link>
-                                    <Link to="/news">
-                                        <li>
-                                            <a>NEWS BOARD</a>
-                                        </li>
-                                    </Link>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div className="end"></div>
@@ -793,22 +729,14 @@ function Inquiry(props) {
                     <p className="banner-title">충전소 조회</p>
                     <br></br>
                     <p className="subtitle">
-                        전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인
-                        하실 수 있습니다.
-                    </p>
+                        전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인 하실 수
+                        있습니다.
+          </p>
                 </div>
                 <div class="char-search">
                     <form onSubmit={handleSubmit}>
-                        <select
-                            className="sigugun"
-                            name="sido1"
-                            id="sido1"
-                        ></select>
-                        <select
-                            className="sigugun"
-                            name="gugun1"
-                            id="gugun1"
-                        ></select>
+                        <select className="sigugun" name="sido1" id="sido1"></select>
+                        <select className="sigugun" name="gugun1" id="gugun1"></select>
                         <input
                             className="insert"
                             name="searchKeyword"
@@ -816,11 +744,7 @@ function Inquiry(props) {
                             type="text"
                         />
 
-                        <input
-                            type="submit"
-                            className="search-btn"
-                            value="검색"
-                        />
+                        <input type="submit" className="search-btn" value="검색" />
                     </form>
                 </div>
                 <div className="inquiry_box">
@@ -858,9 +782,9 @@ function Inquiry(props) {
                             <div className="charge_title">
                                 <h1 className="charge_name">
                                     충전소 명 :
-                                    {station.map((a) => (
-                                        <span>{a.stat_nm}</span>
-                                    ))}
+                  {station.map((a) => (
+                                    <span>{a.stat_nm}</span>
+                                ))}
                                 </h1>
                                 <button className="report_btn">
                                     <FontAwesomeIcon
@@ -891,7 +815,7 @@ function Inquiry(props) {
                             <div className="now">
                                 <p className="now-title">
                                     충전기 정보
-                                    {reviewtag == false ? (
+                  {reviewtag == false ? (
                                         <button
                                             className="rsvt-btn"
                                             type="button"
@@ -903,16 +827,16 @@ function Inquiry(props) {
                                             예약
                                         </button>
                                     ) : (
-                                        <button
-                                            className="rsvt-btn"
-                                            type="button"
-                                            onClick={() => {
-                                                setPass(!pass);
-                                            }}
-                                        >
-                                            예약
-                                        </button>
-                                    )}
+                                            <button
+                                                className="rsvt-btn"
+                                                type="button"
+                                                onClick={() => {
+                                                    setPass(!pass);
+                                                }}
+                                            >
+                                                예약
+                                            </button>
+                                        )}
                                 </p>
                                 {passModal()}
                                 <table className="now-list">
@@ -950,28 +874,16 @@ function Inquiry(props) {
                                     <tbody className="review_tbody">
                                         {review.map((review) => {
                                             <tr className="re_tr">
-                                                <td className="re_input">
-                                                    {review.re_content}
-                                                </td>
-                                                <td className="re_td_date">
-                                                    2021-03-26
-                                                </td>
-                                                <td className="re_td_id">
-                                                    {review.re_writer}
-                                                </td>
+                                                <td className="re_input">{review.re_content}</td>
+                                                <td className="re_td_date">2021-03-26</td>
+                                                <td className="re_td_id">{review.re_writer}</td>
                                             </tr>;
                                         })}
                                         {review.map((rev) => (
                                             <tr className="re_tr">
-                                                <td className="re_input">
-                                                    {rev.re_content}
-                                                </td>
-                                                <td className="re_td_date">
-                                                    {rev.date}
-                                                </td>
-                                                <td className="re_td_id">
-                                                    {rev.re_writer}
-                                                </td>
+                                                <td className="re_input">{rev.re_content}</td>
+                                                <td className="re_td_date">{rev.date}</td>
+                                                <td className="re_td_id">{rev.re_writer}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -987,21 +899,28 @@ function Inquiry(props) {
                                             disabled
                                         />
                                     ) : (
-                                        <input
-                                            ref={register}
-                                            className="review_text"
-                                            type="text"
-                                            placeholder="리뷰를 입력해주세요."
-                                            name="review"
-                                        />
-                                    )}
-                                    <button
-                                        type="button"
-                                        onClick={onClick}
-                                        className="create"
-                                    >
-                                        입력
-                                    </button>
+                                            <input
+                                                ref={register}
+                                                className="review_text"
+                                                type="text"
+                                                placeholder="리뷰를 입력해주세요."
+                                                name="review"
+                                            />
+                                        )}
+                                    {reviewtag == false ? (
+                                        <button
+                                            disabled
+                                            type="button"
+                                            onClick={onClick}
+                                            className="create"
+                                        >
+                                            입력
+                                        </button>
+                                    ) : (
+                                            <button type="button" onClick={onClick} className="create">
+                                                입력
+                                            </button>
+                                        )}
                                 </div>
                             </form>
                         </div>
