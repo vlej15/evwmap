@@ -2,6 +2,8 @@ import React from "react";
 import "./css/CardRegistration.scss";
 import $ from "jquery";
 import { Link, Route, Switch } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 function CardRegistration() {
   $(function () {
@@ -36,51 +38,48 @@ function CardRegistration() {
 
   return (
     <>
-      <div className="locationData">
-        <div className="inner">
-          <div className="btnHome">
+      <div className="mypageData">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <Link to="/">
               <i class="fas fa-home"></i>
             </Link>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <Link to="activity">
                   <a>
-                    <div className="navMenu">
+                    <div className="sec1-title">
                       MYPAGE
-                      <div className="navInnerMenu">
-                        {/* <i class="fas fa-caret-down"></i> */}
-                      </div>
                     </div>
                   </a>
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
-                <Link to="/card">
+          <div className="nav-section2">
+            <ul className="sec-ul">
+              <li className="sec-li">
+                <Link to="activity">
                   <a>
-                    <div className="navMenu">
+                    <div className="sec2-title">
                       카드 등록
-                      <div className="navInnerMenu">
-                        <i class="fas fa-caret-down"></i>
+                      <div className="nav-icon">
+                        <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
                       </div>
                     </div>
                   </a>
                 </Link>
-                <ul className="navList">
+                <ul className="sec-list">
                   <li>
-                    <Link to="card">
-                      <a>카드 등록</a>
+                    <Link to="infochange">
+                      <a>정보 수정</a>
                     </Link>
                   </li>
                   <li>
-                    <Link to="activity">
-                      <a>활동 내역</a>
+                    <Link to="card">
+                      <a>카드 등록</a>
                     </Link>
                   </li>
                   <li>
@@ -89,8 +88,8 @@ function CardRegistration() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="infochange">
-                      <a>정보 수정</a>
+                    <Link to="activity">
+                      <a>활동 내역</a>
                     </Link>
                   </li>
                 </ul>
