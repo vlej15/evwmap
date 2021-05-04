@@ -9,7 +9,7 @@ import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import BannerTip from "./BannerTip";
 
-function FreeBoard(props) {
+function TipBoard(props) {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -260,4 +260,4 @@ function Pagination({
   }
 }
 
-export default FreeBoard;
+export default TipBoard;

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-let i = 1;
+let i = 2;
 function Notice(props) {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState("");
