@@ -41,14 +41,13 @@ body {
     }
 }
 
-.dHead-login {
-    background-color: #52616b;
-}
+
 
 .sub-list {
     height: 0px;
     transition: height 0.3 ease;
-    padding-left: 410px;
+    padding-top: 5px;
+    padding-left: 387px;
     z-index: 999;
 
     .sub-ul-02 {
@@ -106,8 +105,6 @@ body {
     .inner{
         .mainlogo {
             .Logo {
-
-
                 color: black;
             }
         }
@@ -180,6 +177,64 @@ body {
             height: 40px;
             opacity: 1;
             transition-delay: 0.1s;
+        }
+    }
+}
+
+.dHead-login {
+    background-color: #52616b;
+
+    .inner {
+        .mainlogo {
+            .Logo {
+                color: white;
+            }
+        }
+    }
+
+    .pcmenu {
+        .global_box {
+            .global_join_box {
+                .global_list {
+                    .login_box:hover {
+                        color: black;
+                    }
+                    .join_box {
+                        background-color: white;
+                        color: #52616b;
+                    }
+                }
+                
+            }
+        }
+        .global_menu {
+            .gub-wrap {
+                .mainmenu_ul {
+                    .main_li {
+                        .main_menu_list {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .global_box {
+            .global_join_box {
+
+                .point_box,
+                .login_box {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .sub-list {
+        .sub-list_li {
+            a {
+                color: white;
+            }
         }
     }
 }
@@ -333,7 +388,7 @@ body {
 
                 .gub_02 {
                     width: 140px;
-                    margin-right: 20px;
+                    // margin-right: 20px;
                 }
 
                 .gub_03 {
