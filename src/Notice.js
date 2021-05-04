@@ -82,6 +82,7 @@ function Posts(props) {
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerNotice />
       </div>
+
       <div className="FlocationData">
         <div className="nav-area">
           <div className="nav-homearea">

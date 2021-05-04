@@ -1,13 +1,15 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 .banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
-
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 html { 
     font-size:62.5%;
     margin: 0;
     padding: 0;
-}
-body {
-    background-color: #f7f7f7;
 }
 .contentsActivity {
     font-style: normal;
@@ -19,8 +21,8 @@ body {
     max-height: 99999px;
     min-height: 460px;
     margin:0 auto;
-    margin-top: 100px;
-    padding: 0 0 100px;
+    margin-top: 10vh;
+    // padding: 0 0 100px;
     position: relative;
     box-sizing: border-box;
     transition: all .7s ease-out;
@@ -28,8 +30,75 @@ body {
     transition-delay: .2s;
     opacity: 1;
     top: 0px;
-    width: 1200px;
-    margin-bottom: 400px;
+    width: 90%;
+
+    .banner{
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    word-break: break-all;
+    text-align: center;
+    padding: 0px;
+    vertical-align: top;
+
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.9rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 350px;
+            font-size: 1.85rem;
+            margin: 0 auto;
+            background-color: #87a7b363;
+        }
+    }//banner
+    .list {
+        margin: 10vh 0 0 0;
+        vertical-align: top;
+        border-collapse: collapse;
+        width: 100%;
+        border-bottom: 1px solid #c8c8c8;
+        table-layout: fixed;
+        thead {
+            padding: 0 10px;
+            color: #444;
+            font-size: 1.7rem;
+            border-top: 3px solid #212121;
+            border-bottom: 1px solid #dcdcdc;
+            background-color: red;
+            text-align: center;
+            width: 100px;
+            tr {
+                th {
+                    letter-spacing: 0;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    word-break: break-all;
+                    margin: 0px;
+                    font-weight: 400;
+                    padding: 26px 10px;
+                    color: #333;
+                    font-size: 1.6rem;
+                    line-height: 18px;
+                    border-bottom: 1px solid #dcdcdc;
+                    background-color: #f9f9f9;
+                    text-align: center;
+                    vertical-align: middle;
+                }// th end
+            }// tr end
+        }// thead end
+    }// .list end
     tbody {
         color: #222;
         font-size: 1.4rem;
@@ -101,100 +170,6 @@ body {
             text-align: center;
             vertical-align: middle;
         }
-    }
-    .banner{
-        color: #222;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1;
-        letter-spacing: 0;
-        word-break: break-all;
-        text-align: center;
-        margin-top: 10px;
-        padding: 0px;
-        vertical-align: top;
-    
-            .banner-title {
-                color: #222;
-                line-height: 1.4;
-                letter-spacing: 0;
-                word-break: break-all;
-                text-align: center;
-                margin: 0px;
-                padding: 0px;
-                vertical-align: top;
-                font-size: 2.7rem;
-                font-weight: bold;
-            }
-            .subtitle {
-                font-size: 1.6rem;
-                margin-top: 0;
-            }
-        }//banner end
-        .list {
-            color: #222;
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1;
-            letter-spacing: 0;
-            margin: 45px 0 0 0;
-            padding: 0px;
-            vertical-align: top;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
-            width: 100%;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #c8c8c8;
-            background: #fff;
-            table-layout: fixed;
-                thead {
-                    color: #222;
-                    font-size: 1.4rem;
-                    font-weight: 400;
-                    line-height: 1;
-                    letter-spacing: 0;
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                    word-break: break-all;
-                    margin: 0px;
-                    padding: 0px;
-                    vertical-align: top;
-                    th {
-                        letter-spacing: 0;
-                        border-collapse: collapse;
-                        border-spacing: 0;
-                        word-break: break-all;
-                        margin: 0px;
-                        font-weight: 400;
-                        padding: 26px 10px;
-                        color: #333;
-                        font-size: 1.6rem;
-                        line-height: 18px;
-                        border-bottom: 1px solid #dcdcdc;
-                        background-color: #f9f9f9;
-                        text-align: center;
-                        vertical-align: middle;
-                    }
-                }
-                .charge-title {
-                    letter-spacing: 0;
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                    word-break: break-all;
-                    margin: 0px;
-                    font-weight: 400;
-                    padding: 26px 10px;
-                    color: #333;
-                    font-size: 1.6rem;
-                    line-height: 18px;
-                    border-bottom: 1px solid #dcdcdc;
-                    background-color: #f9f9f9;
-                    text-align: center;
-                    vertical-align: middle;
-                    width: 400px;
-                } 
-                // tbody end
-            }// list end
+    }// tbody end
 }// contentsActivy end
 

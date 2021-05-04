@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./css/Activity.scss";
-import "./css/MypageMenu.scss";
+import "./css/FreeBoard.scss";
 import Data from "./data.js";
 import Replydata from "./replydata.js";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 function Activity(props) {
   let [board, setboard] = useState(Data);
@@ -11,51 +13,49 @@ function Activity(props) {
 
   return (
     <>
-      <div className="locationData">
-        <div className="inner">
-          <div className="btnHome">
+
+      <div className="mypageData">
+        <div className="nav-area">
+          <div className="nav-homearea">
             <Link to="/">
               <i class="fas fa-home"></i>
             </Link>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section1">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <Link to="activity">
                   <a>
-                    <div className="navMenu">
+                    <div className="sec1-title">
                       MYPAGE
-                      <div className="navInnerMenu">
-                        {/* <i class="fas fa-caret-down"></i> */}
-                      </div>
                     </div>
                   </a>
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="navTitle">
-            <ul className="ulTitle">
-              <li className="liTitleOpen">
+          <div className="nav-section2">
+            <ul className="sec-ul">
+              <li className="sec-li">
                 <Link to="activity">
                   <a>
-                    <div className="navMenu">
+                    <div className="sec2-title">
                       활동 내역
-                      <div className="navInnerMenu">
-                        <i class="fas fa-caret-down"></i>
+                      <div className="nav-icon">
+                        <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
                       </div>
                     </div>
                   </a>
                 </Link>
-                <ul className="navList">
+                <ul className="sec-list">
                   <li>
-                    <Link to="card">
-                      <a>카드 등록</a>
+                    <Link to="infochange">
+                      <a>정보 수정</a>
                     </Link>
                   </li>
                   <li>
-                    <Link to="activity">
-                      <a>활동 내역</a>
+                    <Link to="card">
+                      <a>카드 등록</a>
                     </Link>
                   </li>
                   <li>
@@ -64,8 +64,8 @@ function Activity(props) {
                     </Link>
                   </li>
                   <li>
-                    <Link to="infochange">
-                      <a>정보 수정</a>
+                    <Link to="activity">
+                      <a>활동 내역</a>
                     </Link>
                   </li>
                 </ul>
@@ -74,6 +74,7 @@ function Activity(props) {
           </div>
         </div>
       </div>
+
       <div className="contentsActivity">
         <div className="banner">
           <p className="banner-title">활동 내역</p>
@@ -118,9 +119,6 @@ function Boardlist(props) {
     <>
       <tr>
         <td className="list-title">
-          <div className="check-box">
-            <input type="checkbox" />
-          </div>
           <a className="list-link" href="#">
             {props.board.title}
           </a>
@@ -137,9 +135,6 @@ function ReplyData(props) {
     <>
       <tr>
         <td class="list-title">
-          <div className="check-box">
-            <input type="checkbox" />
-          </div>
           <a className="list-link" href="#">
             {props.reply.title}
           </a>
