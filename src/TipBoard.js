@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Board.scss";
-import "./css/TipBoard.scss";
+import "./css/FreeBoard.scss";
 import APagination from "@material-ui/lab/Pagination";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -99,8 +99,11 @@ function Posts(props) {
           <div className="nav-section1">
             <ul className="sec-ul">
               <li className="sec-li">
-                <div className="sec1-title">COMMUNITY
-                <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
+                <div className="sec1-title">
+                  COMMUNITY
+                  <div className="nav-icon">
+                    <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
+                  </div>
                 </div>
                 <ul className="sec-list">
                   <Link to="/map">
@@ -128,7 +131,9 @@ function Posts(props) {
                 <a>
                   <div className="sec2-title">
                     TIP BOARD
-                    <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
+                    <div className="nav-icon">
+                      <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
+                    </div>
                   </div>
                 </a>
                 <ul className="sec-list">
