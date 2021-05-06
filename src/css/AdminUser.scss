@@ -1,0 +1,83 @@
+// @import '../node_modules/react-vis/dist/style.css';
+.mainWrap{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    .titleWrap1{
+        width:600px;
+        text-align: center;
+        font-size:14px;
+    }
+    .titleWrap2{
+        font-size:14px;
+        width:550px;
+        text-align: center;
+    }
+}
+
+.writeChart{
+    margin: auto;
+    display: flex;
+    width:1200px;
+    height: 400px;
+    justify-content: center;
+
+    .writeTable{
+        width:600px;
+        height: 300px;
+    }
+    .adminButton{
+        width:100%;
+        display: flex;
+        justify-content:flex-end;
+        input{
+            
+            border:none;
+            margin-top: 5px;
+            width:150px;
+            height: 20px;
+        }
+        button{
+            margin-top: 5px;
+            width:50px;
+            height: 20px;
+            border:none;
+            color:white;
+            background-color: #464646;
+        }
+    }
+    
+    .chartTable{
+        border-collapse: collapse;
+        th{
+            position: sticky;
+            top: 0px;
+            font-weight: 100;
+            font-size:13px;
+            width:200px;
+            height: 25px;
+            padding: 0;
+            background-color: #464646;
+            color:white;
+        }
+        td{
+            
+            height: 25px;
+            text-align: center;
+            font-size:13px;
+            border-bottom: 1px solid rgb(173, 173, 173);
+        }
+    }
+    // ::-webkit-scrollbar { 
+    //     width: 7px; 
+    // }
+    // ::-webkit-scrollbar-track { background-color: #e2e2e2; }
+    // ::-webkit-scrollbar-thumb { 
+    //     background: #7c7c7caf;
+    //     border-radius: 20px;
+    // }
+
+}

@@ -28,6 +28,7 @@ import CardRegistration from "./CardRegistration";
 import Post from "./Post";
 import Main from "./Main";
 import Test1 from "./Test1";
+import AdminUser from "./AdminUser";
 
 function App() {
   const [a1, setA1] = useState();
@@ -83,7 +84,9 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
-
+        <Route exact path="/adminuser">
+          <AdminUser />
+        </Route>
         {/* INTRODUCTION */}
         <Route exact path="/introduction">
           <BrandStory />
