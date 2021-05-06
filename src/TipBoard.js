@@ -21,6 +21,7 @@ function TipBoard(props) {
   const { id } = useParams();
 
   useEffect(async () => {
+    props.setCount(0);
     var config = {
       method: "get",
       url: "http://3.36.160.255:8081/api/boardlist?page=0&cat_cd=2",

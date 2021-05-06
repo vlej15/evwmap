@@ -52,6 +52,7 @@ function Inquiry(props) {
   const getId = localStorage.getItem("id");
 
   useEffect(() => {
+    props.setCount(0);
     //충전기 정보 받아오는 곳
     var axios = require("axios");
 

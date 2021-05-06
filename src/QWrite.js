@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/QWrite.scss";
 import { useForm } from "react-hook-form";
 import BannerReq1 from "./BannerReq1";
@@ -7,7 +7,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
-const QWrite = () => {
+const QWrite = (props) => {
+  useEffect(() => {
+    props.setCount(0);
+  }, []);
   const { register, handleSubmit, watch, errors, getValues } = useForm();
   const onSubmit = () => {
     var data = JSON.stringify({

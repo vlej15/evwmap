@@ -9,7 +9,10 @@ import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import BannerNews from "./BannerNews";
 
-function News() {
+function News(props) {
+  useEffect(() => {
+    props.setCount(0);
+  }, []);
   return (
     <>
       {/* <div className="end"></div> */}
