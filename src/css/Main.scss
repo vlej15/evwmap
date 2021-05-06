@@ -64,14 +64,14 @@ html, body {
         min-height: 950px;
         .section-textarea {
             float: right;
-            margin-right: 230px;
+            margin-right: 370px;
             margin-top: 320px;
-            width: 350px;
+            width: 400px;
             .section1-title {
                 font-family: 'NEXON Lv1 Gothic OTF';
                 color: #111;
                 text-align: center;
-                font-size: 3rem;
+                font-size: 3.4rem;
                 letter-spacing: 7px;
                 font-weight: bold;
             }// section-title
@@ -79,14 +79,14 @@ html, body {
                 font-family: 'NEXON Lv1 Gothic OTF';
                 color: #666;
                 text-align: center;
-                font-size: 1.5rem;
+                font-size: 1.7rem;
                 letter-spacing: 5px;
                 margin-top: 5px;
             }// section-subtitle
             .section1-text {
                 font-family: 'IBMPlexSansKR-Regular';
                 text-align: center;
-                font-size: 2.1rem;
+                font-size: 2.3rem;
                 color: #444;
                 margin-top: 40px;
 
@@ -109,12 +109,12 @@ html, body {
                 border: 2.5px solid #afbac2;
                 // background: none;
                 background-color: #afbac2;
-                font-size: 1.7rem;
+                font-size: 1.9rem;
                 padding: 0 30px;
                 color: #333;
                 outline: none;
                 cursor: pointer;
-                margin-left: 63.5px;
+                margin-left: 82px;
                 &:hover{
                     background-color: #52616b;
                     border: 2.5px solid #52616b;
@@ -126,16 +126,16 @@ html, body {
             width: 670px;
             position: absolute;
             top: 7%;
-            left: 13%;
+            left: 17%;
             z-index: 1;
         }
         .section1-div {
             background-color: #afbac2;
-            width: 280px;
-            height: 470px;
+            width: 290px;
+            height: 490px;
             position: absolute;
-            left: 5.5%;
-            top: 4.5%;
+            left: 10.5%;
+            top: 4.8%;
         }
         .section1-imgtitle {
             -webkit-transform: rotate(270deg);
@@ -160,12 +160,12 @@ html, body {
         .section2-textarea{
             width: 600px;
             padding-top: 80px;
-            margin-left: 200px;
+            margin-left: 500px;
             .section2-title {
                 text-align: center;
                 font-family: 'NEXON Lv1 Gothic OTF';
                 color: #ffffff;
-                font-size: 3rem;
+                font-size: 3.3rem;
                 letter-spacing: 3px;
 
                 span {
@@ -183,7 +183,7 @@ html, body {
             }
             .section2-subtitle {
                 text-align-last: center;
-                font-size: 1.6rem;
+                font-size: 2rem;
                 margin-top: 15px;
                 color: #eeeeee;
             }
@@ -199,7 +199,7 @@ html, body {
                 height: 50px;
                 border: 2.5px solid #1e2022;
                 background-color: #1e2022;
-                font-size: 1.5rem;
+                font-size: 1.7rem;
                 padding: 0 40px;
                 color: #fff;
                 outline: none;
@@ -207,9 +207,9 @@ html, body {
             }
         }// section2-textarea
         .img2 {
-            position: absolute;
+            float: right;
             height: 375px;
-            margin-top: -314px;
+            margin-top: -323px;
             margin-left: 210px;
         }
     }
@@ -227,18 +227,18 @@ html, body {
             margin-bottom: 30px;
             font-weight: bold;
             text-align: center;
-            margin-left: 1155px;
+            margin-left: 1470px;
             background-color: #afbac2;
 
             color: #222;
         }
 
         .section3-imgarea {
-            width: 1200px;
+            width: 1500px;
             margin: 0 auto;
             text-align: center;
             .section3-divarea1, .section3-divarea2, .section3-divarea3 {
-                width: 385px;
+                width: 435px;
                 display: inline-block;
                 .img3 {
                     width: 370px;
@@ -247,7 +247,7 @@ html, body {
                 .section3-text1 {
                     font-family: 'NEXON Lv1 Gothic OTF';
                     text-align: center;
-                    font-size: 1.7rem;
+                    font-size: 1.8rem;
                     letter-spacing: 10px;
                     margin: 20px 0 15px 0;
                     font-weight: bold;
@@ -256,7 +256,7 @@ html, body {
                 .section3-text2 {
                     text-align: center;
                     font-family: 'NEXON Lv1 Gothic OTF';
-                    font-size: 1.4rem;
+                    font-size: 1.6rem;
                 }
             }// section3-divarea
         }// section3-imgarea

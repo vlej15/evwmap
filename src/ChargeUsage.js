@@ -90,12 +90,10 @@ function ChargeUsage(props) {
               <th>충전일</th>
               <th className="khw">
                 충전량
-                <br />
                 <span>(khw)</span>
               </th>
               <th className="price">
                 충전금액
-                <br />
                 <span>(원)</span>
               </th>
             </tr>
@@ -115,7 +113,7 @@ function Boardlist(props) {
   return (
     <>
       <tr>
-        <td className="list-title">{props.chhistory.title}</td>
+        <td className="list-title"><a>{props.chhistory.title}</a></td>
         <td className="list-date">{props.chhistory.date}</td>
         <td className="list-khw">{props.chhistory.khw}</td>
         <td className="list-price">{props.chhistory.price}</td>

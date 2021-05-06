@@ -75,8 +75,8 @@ function Inquiry(props) {
         const map = new Tmapv2.Map("map_div", {
             center: new Tmapv2.LatLng(a1, a2),
             // 지도가 생성될 div
-            width: "555px", // 지도의 넓이
-            height: "400px", // 지도의 높이
+            width: "750px", // 지도의 넓이
+            height: "550px", // 지도의 높이
         });
 
         marker.map((mk) => {
@@ -697,7 +697,7 @@ function Inquiry(props) {
                             <li className="sec-li">
                                 <div className="sec1-title">
                                     ROADMAP
-                  <div className="nav-icon">
+                                    <div className="nav-icon">
                                         <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
                                     </div>
                                 </div>
@@ -731,7 +731,7 @@ function Inquiry(props) {
                     <p className="subtitle">
                         전국 전기차 충전소 위치 및 관련 정보들을 손쉽게 확인 하실 수
                         있습니다.
-          </p>
+            </p>
                 </div>
                 <div class="char-search">
                     <form onSubmit={handleSubmit}>
@@ -756,33 +756,14 @@ function Inquiry(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="facility_box">
-                            <table className="now-list">
-                                <thead>
-                                    <tr>
-                                        <th>시설명</th>
-                                        <th>시설정보</th>
-                                        <th>전화번호</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {facilityList.map((fac) => (
-                                        <tr>
-                                            <td>{fac.name}</td>
-                                            <td>승용차 AC 완속</td>
-                                            <td>충전대기</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
+
                     <div className="right_box">
                         <div className="chargeInfo_box">
                             <div className="charge_title">
                                 <h1 className="charge_name">
                                     충전소 명 :
-                  {station.map((a) => (
+                                    {station.map((a) => (
                                     <span>{a.stat_nm}</span>
                                 ))}
                                 </h1>
@@ -815,7 +796,7 @@ function Inquiry(props) {
                             <div className="now">
                                 <p className="now-title">
                                     충전기 정보
-                  {reviewtag == false ? (
+                                    {reviewtag == false ? (
                                         <button
                                             className="rsvt-btn"
                                             type="button"
@@ -863,67 +844,93 @@ function Inquiry(props) {
                                             <td>승용차 AC 완속</td>
                                             <td>충전대기</td>
                                         </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>승용차 AC 완속</td>
+                                            <td>충전대기</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div className="review_box">
-                            <p className="review-title">충전소 리뷰</p>
-                            <div className="review_list">
-                                <table className="review_table">
-                                    <tbody className="review_tbody">
-                                        {review.map((review) => {
-                                            <tr className="re_tr">
-                                                <td className="re_input">{review.re_content}</td>
-                                                <td className="re_td_date">2021-03-26</td>
-                                                <td className="re_td_id">{review.re_writer}</td>
-                                            </tr>;
-                                        })}
-                                        {review.map((rev) => (
-                                            <tr className="re_tr">
-                                                <td className="re_input">{rev.re_content}</td>
-                                                <td className="re_td_date">{rev.date}</td>
-                                                <td className="re_td_id">{rev.re_writer}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                            <form>
-                                <div className="review_input">
-                                    {reviewtag == false ? (
+                    </div>
+                    <div className="review_box">
+                        <p className="review-title">충전소 리뷰</p>
+                        <div className="review_list">
+                            <table className="review_table">
+                                <tbody className="review_tbody">
+                                    {review.map((review) => {
+                                        <tr className="re_tr">
+                                            <td className="re_input">{review.re_content}</td>
+                                            <td className="re_td_date">2021-03-26</td>
+                                            <td className="re_td_id">{review.re_writer}</td>
+                                        </tr>;
+                                    })}
+                                    {review.map((rev) => (
+                                        <tr className="re_tr">
+                                            <td className="re_input">{rev.re_content}</td>
+                                            <td className="re_td_date">{rev.date}</td>
+                                            <td className="re_td_id">{rev.re_writer}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <form>
+                            <div className="review_input">
+                                {reviewtag == false ? (
+                                    <input
+                                        className="review_text"
+                                        type="text"
+                                        placeholder="리뷰를 입력해주세요."
+                                        disabled
+                                    />
+                                ) : (
                                         <input
+                                            ref={register}
                                             className="review_text"
                                             type="text"
                                             placeholder="리뷰를 입력해주세요."
-                                            disabled
+                                            name="review"
                                         />
-                                    ) : (
-                                            <input
-                                                ref={register}
-                                                className="review_text"
-                                                type="text"
-                                                placeholder="리뷰를 입력해주세요."
-                                                name="review"
-                                            />
-                                        )}
-                                    {reviewtag == false ? (
-                                        <button
-                                            disabled
-                                            type="button"
-                                            onClick={onClick}
-                                            className="create"
-                                        >
-                                            입력
+                                    )}
+                                {reviewtag == false ? (
+                                    <button
+                                        disabled
+                                        type="button"
+                                        onClick={onClick}
+                                        className="create"
+                                    >
+                                        입 력
+                                    </button>
+                                ) : (
+                                        <button type="button" onClick={onClick} className="create">
+                                            입 력
                                         </button>
-                                    ) : (
-                                            <button type="button" onClick={onClick} className="create">
-                                                입력
-                                            </button>
-                                        )}
-                                </div>
-                            </form>
-                        </div>
+                                    )}
+                            </div>
+                        </form>
+                    </div>
+                    <p className="review-title">주변 시설</p>
+                    <div className="facility_box">
+                        <table className="now-list">
+                            <thead>
+                                <tr>
+                                    <th>시설명</th>
+                                    <th>시설정보</th>
+                                    <th>전화번호</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {facilityList.map((fac) => (
+                                    <tr>
+                                        <td>{fac.name}</td>
+                                        <td>승용차 AC 완속</td>
+                                        <td>충전대기</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

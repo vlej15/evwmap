@@ -1,15 +1,13 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 .banner-title { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
-@font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+
 html { 
     font-size:62.5%;
     margin: 0;
     padding: 0;
+}
+body {
+    background-color: #f7f7f7;
 }
 .contentsActivity {
     font-style: normal;
@@ -63,113 +61,136 @@ html {
             background-color: #87a7b363;
         }
     }//banner
-    .list {
-        margin: 10vh 0 0 0;
-        vertical-align: top;
-        border-collapse: collapse;
-        width: 100%;
-        border-bottom: 1px solid #c8c8c8;
-        table-layout: fixed;
+
+.list1 {
+    color: #222;
+    margin: 10vh 0 0 0;
+    vertical-align: top;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid #c8c8c8;
+    table-layout: fixed;
         thead {
-            padding: 0 10px;
+            color: #222;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            word-break: break-all;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            th {
+                padding: 0 10px;
+                color: #333;
+                font-size: 1.7rem;
+                border-top: 3px solid #212121;
+                // border-bottom: 1px solid #dcdcdc;
+                background-color: #f1f1f1;
+                text-align: center;
+                width: 100px;
+                vertical-align: middle;
+            }
+        }
+        .th-title {
+            padding: 25px 10px;
             color: #444;
             font-size: 1.7rem;
             border-top: 3px solid #212121;
-            border-bottom: 1px solid #dcdcdc;
-            background-color: red;
+            background-color: #f1f1f1;
             text-align: center;
-            width: 100px;
-            tr {
-                th {
-                    letter-spacing: 0;
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                    word-break: break-all;
-                    margin: 0px;
-                    font-weight: 400;
-                    padding: 26px 10px;
-                    color: #333;
-                    font-size: 1.6rem;
-                    line-height: 18px;
-                    border-bottom: 1px solid #dcdcdc;
-                    background-color: #f9f9f9;
-                    text-align: center;
-                    vertical-align: middle;
-                }// th end
-            }// tr end
-        }// thead end
-    }// .list end
-    tbody {
-        color: #222;
-        font-size: 1.4rem;
-        font-weight: 400;
-        line-height: 1;
-        letter-spacing: 0;
-        border-collapse: collapse;
-        border-spacing: 0;
-        word-break: break-all;
-        margin: 0px;
-        padding: 0px;
-        vertical-align: top;
-        .list-title {
-            width:33.33%;
-            font-weight: 400;
-            letter-spacing: 0;
-            border-collapse: collapse;
-            border-spacing: 0;
-            word-break: break-all;
-            margin: 0px;
-            text-align: center !important;
-            height: 70px;
-            padding: 0 10px;
-            color: #999;
-            font-size: 1.4rem;
-            line-height: 16px;
-            border-top: 1px solid #dcdcdc;
             vertical-align: middle;
-            width: 400px;
-    
-            .list-link {
-                font-weight: 400;
-                letter-spacing: 0;
-                border-collapse: collapse;
-                border-spacing: 0;
-                word-break: break-all;
-                text-align: left !important;
+            width: 280px;
+        } 
+        
+        tbody {
+            td {
+                
+                font-family: 'IBMPlexSansKR-Regular';
                 margin: 0px;
-                padding: 0px;
-                vertical-align: top;
-                cursor: pointer;
-                text-decoration: none;
-                position: relative;
-                display: inline-block;
-                max-width: 100%;
-                color: #222;
-                font-size: 1.6rem;
-                line-height: 24px;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                box-sizing: border-box;
+                height: 60px;
+                padding: 10px 10px;
+                color: #333;
+                font-size: 1.7rem;
+                line-height: 16px;
+                border-top: 1px solid #dcdcdc;
+                text-align: center;
+                vertical-align: middle;
+    
+                a {
+                    color: #444;
+                    font-weight: bold;
+                    font-family: 'IBMPlexSansKR-Regular';
+                }
             }
         }
-        .list-date, .list-view{
-            width:33.33%;
+    }// list1 end
+
+.list2 {
+    color: #222;
+    margin: 10vh 0 10vh 0;
+    vertical-align: top;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid #c8c8c8;
+    table-layout: fixed;
+        thead {
+            color: #222;
+            font-size: 1.4rem;
             font-weight: 400;
+            line-height: 1;
             letter-spacing: 0;
             border-collapse: collapse;
             border-spacing: 0;
             word-break: break-all;
             margin: 0px;
-            height: 70px;
-            padding: 0 10px;
-            color: #666;
-            font-size: 1.4rem;
-            line-height: 16px;
-            border-top: 1px solid #dcdcdc;
+            padding: 0px;
+            vertical-align: top;
+            th {
+                padding: 0 10px;
+                color: #444;
+                font-size: 1.7rem;
+                border-top: 3px solid #212121;
+                // border-bottom: 1px solid #dcdcdc;
+                background-color: #f1f1f1;
+                text-align: center;
+                width: 100px;
+                vertical-align: middle;
+            }
+        }
+        .th-title {
+            padding: 25px 10px;
+            color: #444;
+            font-size: 1.7rem;
+            border-top: 3px solid #212121;
+            background-color: #f1f1f1;
             text-align: center;
             vertical-align: middle;
+            width: 280px;
+            font-family: 'IBMPlexSansKR-Regular';
+        } 
+        
+        tbody {
+            td {
+                margin: 0px;
+                height: 60px;
+                padding: 10px 10px;
+                color: #333;
+                font-size: 1.7rem;
+                line-height: 16px;
+                border-top: 1px solid #dcdcdc;
+                text-align: center;
+                vertical-align: middle;
+    
+                a {
+                    color: #333;
+                    font-weight: bold;
+                    font-family: 'IBMPlexSansKR-Regular';
+                }
+            }
         }
-    }// tbody end
-}// contentsActivy end
+    }// list2 end
 
+}// contentsActivy end
