@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
+import ModalNotify from "./ModalNotify";
 
 import BannerMap from "./BannerMap";
 
@@ -652,6 +653,7 @@ function Inquiry(props) {
 
   return (
     <>
+      <ModalNotify />
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerMap />
       </div>
@@ -743,6 +745,7 @@ function Inquiry(props) {
                   />
                 </button>
               </div>
+
               <div className="infomation">
                 <ul>
                   <li>
