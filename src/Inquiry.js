@@ -53,6 +53,7 @@ function Inquiry(props) {
   const getId = localStorage.getItem("id");
 
   useEffect(() => {
+    props.setCount(0);
     //충전기 정보 받아오는 곳
     var axios = require("axios");
 
@@ -309,13 +310,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-              request.status +
-              "\n" +
-              "message:" +
-              request.responseText +
-              "\n" +
-              "error:" +
-              error
+            request.status +
+            "\n" +
+            "message:" +
+            request.responseText +
+            "\n" +
+            "error:" +
+            error
           );
         },
       });
@@ -531,7 +532,7 @@ function Inquiry(props) {
       data: data,
     };
     axios(config)
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -653,7 +654,7 @@ function Inquiry(props) {
 
   return (
     <>
-      <ModalNotify />
+      {/* <ModalNotify /> */}
       <div data-aos="fade-down" data-aos-duration="1000">
         <BannerMap />
       </div>
@@ -734,8 +735,8 @@ function Inquiry(props) {
                 <h1 className="charge_name">
                   충전소 명 :
                   {station.map((a) => (
-                    <span>{a.stat_nm}</span>
-                  ))}
+                  <span>{a.stat_nm}</span>
+                ))}
                 </h1>
                 <button className="report_btn">
                   <FontAwesomeIcon
@@ -779,16 +780,16 @@ function Inquiry(props) {
                       예약
                     </button>
                   ) : (
-                    <button
-                      className="rsvt-btn"
-                      type="button"
-                      onClick={() => {
-                        setPass(!pass);
-                      }}
-                    >
-                      예약
-                    </button>
-                  )}
+                      <button
+                        className="rsvt-btn"
+                        type="button"
+                        onClick={() => {
+                          setPass(!pass);
+                        }}
+                      >
+                        예약
+                      </button>
+                    )}
                 </p>
                 {passModal()}
                 <table className="now-list">
@@ -857,14 +858,14 @@ function Inquiry(props) {
                     disabled
                   />
                 ) : (
-                  <input
-                    ref={register}
-                    className="review_text"
-                    type="text"
-                    placeholder="리뷰를 입력해주세요."
-                    name="review"
-                  />
-                )}
+                    <input
+                      ref={register}
+                      className="review_text"
+                      type="text"
+                      placeholder="리뷰를 입력해주세요."
+                      name="review"
+                    />
+                  )}
                 {reviewtag == false ? (
                   <button
                     disabled
@@ -875,10 +876,10 @@ function Inquiry(props) {
                     입 력
                   </button>
                 ) : (
-                  <button type="button" onClick={onClick} className="create">
-                    입 력
-                  </button>
-                )}
+                    <button type="button" onClick={onClick} className="create">
+                      입 력
+                    </button>
+                  )}
               </div>
             </form>
           </div>

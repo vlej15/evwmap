@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/FAQ.scss";
 import "./css/FaqBoard.scss";
 import { useForm } from "react-hook-form";
@@ -12,7 +12,10 @@ const handleChange = (e) => {
   console.log(e.target.valut);
 };
 
-const FAQ = () => {
+const FAQ = (props) => {
+  useEffect(() => {
+    props.setCount(0);
+  }, []);
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 

@@ -16,6 +16,7 @@ function Activity(props) {
 
     return (
         <>
+
             <div className="mypageData">
                 <div className="nav-area">
                     <div className="nav-homearea">
@@ -28,7 +29,9 @@ function Activity(props) {
                             <li className="sec-li">
                                 <Link to="activity">
                                     <a>
-                                        <div className="sec1-title">MYPAGE</div>
+                                        <div className="sec1-title">
+                                            MYPAGE
+                    </div>
                                     </a>
                                 </Link>
                             </li>
@@ -41,10 +44,8 @@ function Activity(props) {
                                     <a>
                                         <div className="sec2-title">
                                             활동 내역
-                                            <div className="nav-icon">
-                                                <FontAwesomeIcon
-                                                    icon={faSortDown}
-                                                ></FontAwesomeIcon>
+                      <div className="nav-icon">
+                                                <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
                                             </div>
                                         </div>
                                     </a>
@@ -76,42 +77,41 @@ function Activity(props) {
                     </div>
                 </div>
             </div>
+
             <div className="contentsActivity">
                 <div className="banner">
                     <p className="banner-title">활동 내역</p>
                     <br></br>
-                    <p className="subtitle">
-                        회원님의 활동내역을 확인 하실 수 있습니다.
-                    </p>
+                    <p className="subtitle">회원님의 활동내역을 확인 하실 수 있습니다.</p>
                 </div>
-                <table className="list">
+                <table className="list1">
                     <thead>
                         <tr>
-                            <th>게시글 제목</th>
+                            <th className="th-title">게시글 제목</th>
                             <th>작성일</th>
                             <th>조회수</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {board.map((a, i) => {
+                            return <Boardlist board={board[i]} i={i} key={i} />;
+                        })}
+                    </tbody>
                 </table>
-                <tbody>
-                    {board.map((a, i) => {
-                        return <Boardlist board={board[i]} i={i} key={i} />;
-                    })}
-                </tbody>
 
-                <table className="list">
+                <table className="list2">
                     <thead>
                         <tr>
-                            <th>댓글내용</th>
+                            <th className="th-title">댓글내용</th>
                             <th>작성일</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {reply.map((a, i) => {
+                            return <ReplyData reply={reply[i]} i={i} key={i} />;
+                        })}
+                    </tbody>
                 </table>
-                <tbody>
-                    {reply.map((a, i) => {
-                        return <ReplyData reply={reply[i]} i={i} key={i} />;
-                    })}
-                </tbody>
             </div>
         </>
     );
@@ -121,13 +121,13 @@ function Boardlist(props) {
     return (
         <>
             <tr>
-                <td className="list-title">
-                    <a className="list-link" href="#">
+                <td className="td-title">
+                    <a href="#">
                         {props.board.title}
                     </a>
                 </td>
-                <td class="list-date">{props.board.date}</td>
-                <td class="list-view">{props.board.hit}</td>
+                <td>{props.board.date}</td>
+                <td>{props.board.hit}</td>
             </tr>
         </>
     );
