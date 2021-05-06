@@ -590,38 +590,6 @@ function Inquiry(props) {
                   >
                     1
                   </li>
-                  <li
-                    className="typeBtn"
-                    onClick={() => {
-                      setResove(2);
-                    }}
-                  >
-                    2
-                  </li>
-                  <li
-                    className="typeBtn"
-                    onClick={() => {
-                      setResove(3);
-                    }}
-                  >
-                    3
-                  </li>
-                  <li
-                    className="typeBtn"
-                    onClick={() => {
-                      setResove(4);
-                    }}
-                  >
-                    4
-                  </li>
-                  <li
-                    className="typeBtn"
-                    onClick={() => {
-                      setResove(5);
-                    }}
-                  >
-                    5
-                  </li>
                 </ul>
               </div>
               <div className="searchTable">

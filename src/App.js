@@ -27,6 +27,7 @@ import News from "./News";
 import CardRegistration from "./CardRegistration";
 import Post from "./Post";
 import Main from "./Main";
+import Test1 from "./Test1";
 
 function App() {
   const [a1, setA1] = useState();
@@ -82,11 +83,14 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
+
         {/* INTRODUCTION */}
         <Route exact path="/introduction">
           <BrandStory />
         </Route>
-
+        <Route exact path="/test">
+          <Test1 />
+        </Route>
         {/* LOGIN/JOIN */}
         <Route exact path="/login">
           <Login getCount={getCount} setCount={setCount} />

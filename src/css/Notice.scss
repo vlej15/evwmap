@@ -101,12 +101,13 @@ html {
                 background-color: #f1f1f1;
                 text-align: center;
                 width: 100px;
+
             }
             tbody {
                 tr {   
                     &:hover{
                         background-color: #c5cfd65b;
-                    } 
+                        } 
                     td {
                         font-family: 'IBMPlexSansKR-Regular';
                         margin: 0px;
