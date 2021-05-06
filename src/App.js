@@ -139,15 +139,15 @@ function App() {
                 {/* My Page */}
 
                 <Route exact path="/activity">
-                    <Activity />
+                    <Activity getCount={getCount} setCount={setCount} />
                 </Route>
 
                 <Route exact path="/chargeusage">
-                    <ChargeUsage />
+                    <ChargeUsage getCount={getCount} setCount={setCount} />
                 </Route>
 
                 <Route exact path="/infochange">
-                    <InfoChange />
+                    <InfoChange getCount={getCount} setCount={setCount} />
                 </Route>
 
                 <Route exact path="/news">
@@ -157,7 +157,7 @@ function App() {
                 {/* CARD */}
 
                 <Route exact path="/card">
-                    <CardRegistration />
+                    <CardRegistration getCount={getCount} setCount={setCount} />
                 </Route>
 
                 {/* COMMUNITY */}

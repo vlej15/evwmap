@@ -9,7 +9,6 @@ import BannerReq2 from "./BannerReq2";
 import { Link } from "react-router-dom";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
-
 const QList = () => {
     const [posts, setPosts] = useState([]);
     const { register, handleSubmit, watch, errors } = useForm();
@@ -58,7 +57,12 @@ const QList = () => {
                         <ul className="sec-ul">
                             <li className="sec-li">
                                 <div className="sec1-title">
-                                    CONTACT<div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
+                                    CONTACT
+                                    <div className="nav-icon">
+                                        <FontAwesomeIcon
+                                            icon={faSortDown}
+                                        ></FontAwesomeIcon>
+                                    </div>
                                 </div>
                                 <ul className="sec-list">
                                     <Link to="/map">
@@ -86,7 +90,11 @@ const QList = () => {
                                 <a>
                                     <div className="sec2-title">
                                         문의내역
-                                        <div className="nav-icon"><FontAwesomeIcon icon={faSortDown} ></FontAwesomeIcon></div>
+                                        <div className="nav-icon">
+                                            <FontAwesomeIcon
+                                                icon={faSortDown}
+                                            ></FontAwesomeIcon>
+                                        </div>
                                     </div>
                                 </a>
                                 <ul className="sec-list">
@@ -116,7 +124,9 @@ const QList = () => {
                 <div className="banner">
                     <p className="banner-title">문의내역</p>
                     <br></br>
-                    <p className="subtitle">문의하신 내역을 확인할 수 있습니다.</p>
+                    <p className="subtitle">
+                        문의하신 내역을 확인할 수 있습니다.
+                    </p>
                 </div>
                 <table className="list">
                     <thead>
@@ -133,7 +143,9 @@ const QList = () => {
                                     <span className="list-span1">답변대기</span>
                                 </td>
                                 <td className="list-title">
-                                    <a className="list-link">{post.q_content}</a>
+                                    <a className="list-link">
+                                        {post.q_content}
+                                    </a>
                                 </td>
                                 <td className="list-date">{post.date}</td>
                             </tr>
@@ -145,9 +157,8 @@ const QList = () => {
                             </td>
                             <td className="list-title">
                                 <a className="list-link">
-                                    아 아직도 할거 개많에
                                     아아아아아앙아가가가가누리마ㅜㄷ라ㅣㅈ두랒둥
-                </a>
+                                </a>
                             </td>
                             <td className="list-date">2020.02.01</td>
                         </tr>
