@@ -5,11 +5,12 @@ import BannerNotice from "./BannerNotice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import $ from "jquery";
+import PostList from "./PostList";
 
 $(function () {
   $(".command-area")
@@ -23,8 +24,8 @@ $(function () {
 function Post(props) {
   const [post, setPost] = useState([]);
   const [comment, setComment] = useState([]);
+  const [modify, setModify] = useState(0);
   const token = localStorage.getItem("id");
-  const pagevalue = props.pagevalue;
   const category = props.category;
   const { id } = useParams();
   const { register, handleSubmit, watch, errors, getValues } = useForm();
@@ -42,12 +43,12 @@ function Post(props) {
       },
       data: data,
     };
-    console.log(pagevalue);
     axios(config)
       .then(function (response) {
         console.log(response.data);
         setPost(response.data.board);
         setComment(response.data.replyList);
+        props.setBoardid(id);
       })
       .catch(function (error) {
         console.log(error);
@@ -63,10 +64,6 @@ function Post(props) {
       r_content: rep,
       r_writer: localStorage.getItem("id_value"),
     });
-    console.log("카테고리값" + category);
-    console.log("btt" + id);
-
-    console.log(rep);
 
     var config = {
       method: "post",
@@ -98,7 +95,6 @@ function Post(props) {
       },
       data: data1,
     };
-    console.log(pagevalue);
     axios(config1)
       .then(function (response) {
         console.log(response.data);
@@ -110,6 +106,56 @@ function Post(props) {
       });
   };
 
+  function Delete() {
+    var data = JSON.stringify({
+      b_no: id,
+    });
+    var config = {
+      method: "delete",
+      url: "http://3.36.160.255:8081/api/board/",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  function changeModify() {
+    setModify(!modify);
+    console.log(modify);
+  }
+  function CommDelete() {
+    var data = JSON.stringify({
+      r_content: "가나다라마바사",
+      r_dtt: "2021-04-15T06:42:06.14421",
+    });
+
+    var config = {
+      method: "delete",
+      url: "http://localhost:8081/api/user/reply",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjE4NDY1NTUzLCJleHAiOjE2MTg0ODM1NTN9.GOnu6QUQ9-I0pf_ctRkJn8LIPhGXdB9dAc1gcISccV_87gCk8qi-fViFhQnIFydIEaaI5LTTxkmQTzcMWBBZPQ",
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   return (
     <>
       <BannerNotice />
@@ -123,10 +169,27 @@ function Post(props) {
           </div>
           <div className="body-area">
             <p>{post.b_content}</p>
+            {post.u_id == localStorage.getItem("id_value") ? (
+              <>
+                <div className="btn-area">
+                  {/* <button className="btn">수정</button> */}
+                  <button className="notify" onClick={Delete}>
+                    | 삭제
+                  </button>
+                </div>
+                <div className="btn-area">
+                  <Link to="/boardchange">
+                    <button className="notify">| 수정 </button>
+                  </Link>
+                </div>
+              </>
+            ) : null}
+
             <div className="btn-area">
               {/* <button className="btn">수정</button> */}
-              <button className="notify">신고</button>
+              <button className="notify">신고 </button>
             </div>
+
             {/* body-area end */}
           </div>
           <div className="command-area">
@@ -141,28 +204,19 @@ function Post(props) {
                 <a className="type">최신순</a>
               </li>
             </ul>
-            {comment.map((comm) => (
-              <div>
-                <div className="command">
-                  <p className="comm-writer">
-                    {comm.r_writer}
-                    <FontAwesomeIcon icon={faEllipsisV} className="plus" />
-                  </p>
-                  <p className="comm-body">{comm.r_content}</p>
-                  <p className="comm-date">{comm.r_dtt}</p>
-                  {/* <button onClick={() => { console.log(comm.body); }}>수정</button>
-                  <button> 삭제</button> */}
-                </div>
-                {console.log(comm.name)}
-              </div>
-            ))}
+            <PostList comment={comment} />
           </div>
           {/* command-area end */}
-        </div>{" "}
+        </div>
         {/* post-area end */}
         <div className="reple-area">
           <form onSubmit={handleSubmit(onClick)}>
-            <p className="id">아이디</p>
+            {localStorage.getItem("id_value") !== null ? (
+              <p className="id">{localStorage.getItem("id_value")}</p>
+            ) : (
+              <p className="id">아이디</p>
+            )}
+
             <input
               ref={register}
               type="textarea"

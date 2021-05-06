@@ -1,6 +1,11 @@
+
+// a:hover { color: blue; text-decoration: underline;}
+
 .FlocationData{
     z-index: 10;
     // margin-top: 10px;
+    a:link { color: red; text-decoration: none;}
+a:visited { color: rgb(0, 0, 0); text-decoration: none;}
     position:relative;
     display: flex;
     justify-content: center;
@@ -39,6 +44,8 @@
             font-size: 15px;
             width: 240px;
             height: 48px;
+
+
             .sec-ul {
                 margin:0px;
                 padding:0px;
@@ -67,6 +74,7 @@
                             right: 15px;
                             top: -5px;
                         }
+                        
 
                     }// sec1-title end
                     .sec-list {

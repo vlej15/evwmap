@@ -64,21 +64,22 @@
         color: #666;
         word-break: keep-all;
         max-height: 99999px;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
         margin-top: 10vh !important;
-        width: 100%;
+        width: 60%;
         border-width: 1px 0 1px;
         border-color: #fff;
         overflow: hidden;
         box-sizing: border-box;
     
         .write-title{
+            width:100%;
+            margin: 0 auto;
             color: #222;
             margin: 0;
             border-top: 3px solid #212121;
             border-bottom: 1px solid #d4d4d4;
-            padding: 0 10px 0 170px;   
             text-align: left;
             height: 80px;
 
@@ -93,7 +94,9 @@
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 80px;
-            }
+                padding-left: 30px;
+                }
+
             .required{
                 cursor: pointer;
                 font-size: 17px;
@@ -106,7 +109,7 @@
             // }
             .input-title {
                 height: 50px;
-                width: 800px;
+                width: 900px;
                 vertical-align: middle;
                 padding: 0 15px;
                 background: #fafafa;
@@ -114,14 +117,15 @@
                 font-size: 1.7rem;
                 letter-spacing: -0.1px;
                 color: #333;
-                margin: 15px 0 15px 0;
+                margin: 15px 0 15px 30px;
             }
         }// write-title
         .type{
+            width:100%;
             color: #222;
             margin: 0;
             border-bottom: 1px solid #d4d4d4;
-            padding: 0 10px 0 170px;   
+            // padding: 0 10px 0 500px;   
             text-align: left;
             height: 80px;
 
@@ -136,6 +140,7 @@
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 80px;
+                padding-left: 30px;
             }
             .required{
                 cursor: pointer;
@@ -146,7 +151,7 @@
             .select {
                 display: inline-block;
                 vertical-align: middle;
-
+                margin-left: 30px;
                 input {
                     position: relative;
                     top: 2.5px;
@@ -169,10 +174,10 @@
             // }
         }// type
         .form-content{
+            width:100%;
             color: #222;
             margin: 0;
-            border-bottom: 1px solid #d4d4d4;
-            padding: 0 10px 0 170px;   
+            border-bottom: 1px solid #d4d4d4; 
             text-align: left;
 
             .write-subtitle{
@@ -186,6 +191,7 @@
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 60px;
+                padding-left: 30px;
             }
             .required{
                 cursor: pointer;
@@ -195,7 +201,7 @@
             }
             .input-content {
                 height: 300px;
-                width: 800px;
+                width: 900px;
                 vertical-align: middle;
                 padding: 0 15px;
                 background: #fafafa;
@@ -205,6 +211,7 @@
                 color: #333;
                 margin: 20px 0 20px 0;
                 resize: none;
+                margin-left: 30px;
 
             }
             // .alert2 {
@@ -214,10 +221,10 @@
             // }
         } // form-content
         .file{
+            width:100%;
             color: #222;
             margin: 0;
             border-bottom: 1px solid #d4d4d4;
-            padding: 0 10px 0 170px;   
             text-align: left;
             height: 80px;
 
@@ -232,6 +239,7 @@
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 80px;
+                padding-left: 30px;
             }
             .write-file {
                 height: 80px;
@@ -240,6 +248,7 @@
                 display: inline-block;
                 padding: 20px 0 20px 0;
                 margin-top: 5px;
+                margin-left: 30px;
             }
         } // file
         .form-btn {
@@ -247,8 +256,8 @@
             color: #222;
             padding: 0;
             width: 150px;
-            margin: 25px auto 0;
-            margin-bottom: 25px;
+            margin: 40px auto 0;
+            margin-bottom: 5vh;
 
             .submit {
                 font-style: normal;
@@ -273,6 +282,7 @@
                 cursor: pointer;
                 position: relative;
                 margin: 0 5px;
+
                 }
         }// form-btn
     }// form-input

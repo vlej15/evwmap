@@ -41,7 +41,7 @@ const Main = () => {
           </div>
           <img src={main_section1} className="img1"></img>
           <div className="section1-div"></div>
-          <p className="section1-imgtitle">Electric Vehicle World MAP</p>
+          {/* <p className="section1-imgtitle">Electric Vehicle World MAP</p> */}
         </div>
         {/* section end */}
 
@@ -63,10 +63,10 @@ const Main = () => {
                 </button>
               </Link>
             ) : (
-              <Link to="/card">
-                <button className="card-btn">회원카드 등록하기</button>
-              </Link>
-            )}
+                <Link to="/card">
+                  <button className="card-btn">회원카드 등록하기</button>
+                </Link>
+              )}
           </div>
           <img src={main_section2} className="img2"></img>
         </div>

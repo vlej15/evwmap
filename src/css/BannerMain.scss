@@ -28,8 +28,8 @@ img {
     width: 100%;
     text-align: center;
     color: rgba(255, 255, 255, 0.9);
-    font-size: 60px;
-    top: 350px;
+    font-size: 75px;
+    top: 450px;
     background-color: none;
     z-index: 0;
     h3 {
@@ -44,9 +44,9 @@ img {
     border: 0;
     position: absolute;
     left: 50%;
-    top: 260px;
-    width: 510px;
-    height: 320px;
+    top: 330px;
+    width: 550px;
+    height: 350px;
     margin-left: -255px;
     opacity: 1;
     transform: scaleX(1) scaleY(1);
@@ -110,7 +110,7 @@ img {
 
 .arrow-area {
     position: absolute;
-    top: 730px;
+    top: 910px;
     left: 50%;
     text-align: center;
     .arrow-icon {
@@ -125,7 +125,7 @@ img {
     .arrow-title {
         font-family: 'IBMPlexSansKR-Light';
         color: #d4d4d4;
-        font-size: 15px;
+        font-size: 20px;
     }
 }
 

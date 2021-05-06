@@ -86,7 +86,9 @@ function Posts(props) {
       <div className="FlocationData">
         <div className="nav-area">
           <div className="nav-homearea">
-            <i class="fas fa-home"></i>
+            <Link to="/">
+              <i class="fas fa-home"></i>
+            </Link>
           </div>
           <div className="nav-section1">
             <ul className="sec-ul">
@@ -179,8 +181,7 @@ function Posts(props) {
               <tr>
                 <td>{post.b_no}</td>
                 <td key={post.b_no} className="td-title">
-                  <Link to={`/notice/${post.id}`}>{post.title}</Link>
-                  <Link to={`/notice/${post.b_dtt}`}>{post.b_title}</Link>
+                  <Link to={`/notice/${post.b_no}`}>{post.b_title}</Link>
                 </td>
                 <td>작성자</td>
                 <td>작성일</td>

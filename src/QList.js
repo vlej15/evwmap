@@ -9,7 +9,7 @@ import BannerReq2 from "./BannerReq2";
 import { Link } from "react-router-dom";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
-const QList = () => {
+const QList = (props) => {
     const [posts, setPosts] = useState([]);
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = (data) => console.log(data);
@@ -19,6 +19,8 @@ const QList = () => {
     });
 
     useEffect(async () => {
+        props.setCount(1);
+
         var data = JSON.stringify({
             u_id: localStorage.getItem("id_value"),
         });
@@ -157,6 +159,7 @@ const QList = () => {
                             </td>
                             <td className="list-title">
                                 <a className="list-link">
+                                    아 아직도 할거 개많에
                                     아아아아아앙아가가가가누리마ㅜㄷ라ㅣㅈ두랒둥
                                 </a>
                             </td>

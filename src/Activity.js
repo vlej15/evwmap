@@ -76,7 +76,6 @@ function Activity(props) {
                     </div>
                 </div>
             </div>
-
             <div className="contentsActivity">
                 <div className="banner">
                     <p className="banner-title">활동 내역</p>

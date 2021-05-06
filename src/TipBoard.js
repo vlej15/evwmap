@@ -188,7 +188,7 @@ function Posts(props) {
                 <td>{post.b_no}</td>
                 <td key={post.b_no} className="td-title">
                   <Link
-                    to={`/notice/${post.b_dtt}`}
+                    to={`/notice/${post.b_no}`}
                     onClick={setPagevalue(post.b_dtt)}
                   >
                     {post.b_title}
@@ -240,7 +240,7 @@ function Pagination({
     var config = {
       method: "get",
 
-      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=0",
+      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=2",
       headers: {
         Authorization: localStorage.getItem("id"),
         "Content-Type": "application/json",

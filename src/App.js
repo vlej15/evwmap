@@ -27,6 +27,8 @@ import News from "./News";
 import CardRegistration from "./CardRegistration";
 import Post from "./Post";
 import Main from "./Main";
+import Test1 from "./Test1";
+import AdminUser from "./AdminUser";
 
 function App() {
     const [a1, setA1] = useState();
@@ -35,6 +37,7 @@ function App() {
     const [pagevalue, setPagevalue] = useState(0);
     const [category, setCategory] = useState(0);
     const [getCount, setCount] = useState(0);
+    const [boardid, setBoardid] = useState(0);
 
     useEffect(async () => {
         // 마커찍을 충전소 데이터 받아오기
@@ -81,11 +84,16 @@ function App() {
                 <Route exact path="/">
                     <Main />
                 </Route>
+                <Route exact path="/adminuser">
+                    <AdminUser />
+                </Route>
                 {/* INTRODUCTION */}
                 <Route exact path="/introduction">
                     <BrandStory />
                 </Route>
-
+                <Route exact path="/test">
+                    <Test1 />
+                </Route>
                 {/* LOGIN/JOIN */}
                 <Route exact path="/login">
                     <Login getCount={getCount} setCount={setCount} />
@@ -157,7 +165,7 @@ function App() {
                 {/* CARD */}
 
                 <Route exact path="/card">
-                    <CardRegistration getCount={getCount} setCount={setCount} />
+                    <CardRegistration />
                 </Route>
 
                 {/* COMMUNITY */}
@@ -191,9 +199,16 @@ function App() {
                 </Route>
 
                 <Route exact path="/notice/:id">
-                    <Post category={category} pagevalue={pagevalue} />
+                    <Post
+                        category={category}
+                        pagevalue={pagevalue}
+                        setBoardid={setBoardid}
+                    />
                 </Route>
 
+                <Route exact path="/boardchange">
+                    <BoardChange boardid={boardid} />
+                </Route>
                 {/* FOOTER */}
                 <Footer />
             </div>
