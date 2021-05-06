@@ -240,7 +240,7 @@ function Pagination({
     var config = {
       method: "get",
 
-      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=0",
+      url: "http://3.36.160.255:8081/api/boardlist?page=" + value + "&cat_cd=2",
       headers: {
         Authorization: localStorage.getItem("id"),
         "Content-Type": "application/json",
