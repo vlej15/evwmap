@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/Activity.scss";
 import "./css/FreeBoard.scss";
 import Data from "./data.js";
