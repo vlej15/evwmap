@@ -160,8 +160,7 @@ const QList = (props) => {
                             </td>
                             <td className="list-title">
                                 <a className="list-link">
-                                    아 아직도 할거 개많에
-                                    아아아아아앙아가가가가누리마ㅜㄷ라ㅣㅈ두랒둥
+                                    도대체 제 문의는 언제 대답해주시나요?? 네??
                                 </a>
                             </td>
                             <td className="list-date">2020.02.01</td>

@@ -10,40 +10,38 @@ html {
     padding: 0;
 }
 
-.cardreg-title {
-    width: 1200px;
-    text-align: center;
-    margin: 10px auto;
+.banner{
+    margin-top: 5vh;
     color: #222;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0;
     word-break: break-all;
     text-align: center;
-    margin: 20px auto;
     padding: 0px;
     vertical-align: top;
 
-    .title-p {
-        color: #222;
-        line-height: 1.4;
-        letter-spacing: 0;
-        word-break: break-all;
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        vertical-align: top;
-        font-size: 2.7rem;
-        font-weight: bold;
-    }
-
-    .title-info {
-        font-size: 1.6rem;
-        text-align: center;
-        margin: 0;
-    }
-}
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.9rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 400px;
+            font-size: 1.85rem;
+            margin: 0 auto;
+            background-color: #87a7b363;
+        }
+    }//banner
 
 .card-reg {
     display: grid;
@@ -59,7 +57,7 @@ html {
         position: absolute;
         top: 500px;
         left: 50%;
-        margin: -180px 0 0 -140px;
+        margin: -120px 0 0 -140px;
         user-select: none;
         transform: translateX(0px);
         transition: all 1s ease-in;

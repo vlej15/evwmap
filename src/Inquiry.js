@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
-import ModalNotify from "./ModalNotify";
 
 import BannerMap from "./BannerMap";
 
@@ -55,6 +54,7 @@ function Inquiry(props) {
     useEffect(() => {
         //header
         props.setCount(0);
+
         //충전기 정보 받아오는 곳
         var axios = require("axios");
 

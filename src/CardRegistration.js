@@ -106,10 +106,10 @@ function CardRegistration(props) {
                     </div>
                 </div>
             </div>
-            <div className="cardreg-title">
-                <p className="title-p">카드등록 및 수정</p>
-                <br />
-                <p className="title-info">
+            <div className="banner">
+                <p className="banner-title">카드등록 및 수정</p>
+                <br></br>
+                <p className="subtitle">
                     충전소 회원카드의 정보를 등록 및 수정할 수 있습니다.
                 </p>
             </div>
@@ -125,12 +125,12 @@ function CardRegistration(props) {
                             </label>
                             <div className="select">
                                 <select className="card-select">
-                                    <option></option>
-                                    <option>RED VELVET</option>
-                                    <option>BLACK PINK</option>
-                                    <option>aespa</option>
-                                    <option>IZ*ONE</option>
-                                    <option>To Day is WENDY</option>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                    <option>E</option>
+                                    <option>F</option>
                                 </select>
                             </div>
                             {/* <input
@@ -228,20 +228,20 @@ function CardRegistration(props) {
             <div className="card-reg">
                 <div className="tariffCards">
                     <div className="economy div-box">
-                        <h3 className="div_h3">Economy Class</h3>
-                        <span className="div_span">Full Insurance</span>
+                        <h3 className="div_h3"></h3>
+                        <span className="div_span"></span>
                     </div>
                     <div className="premiumeconomy div-box">
-                        <h3 className="div_h3">Premium Economy Class</h3>
-                        <span className="div_span">Full Insurance</span>
+                        <h3 className="div_h3"></h3>
+                        <span className="div_span"></span>
                     </div>
                     <div className="business div-box">
-                        <h3 className="div_h3">Business Class</h3>
-                        <span className="div_span">Full Insurance</span>
+                        <h3 className="div_h3"></h3>
+                        <span className="div_span"></span>
                     </div>
                     <div className="first div-box">
-                        <h3 className="div_h3">First Class</h3>
-                        <span className="div_span">Full Insurance</span>
+                        <h3 className="div_h3"></h3>
+                        <span className="div_span"></span>
                     </div>
                 </div>
             </div>
