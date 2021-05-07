@@ -165,7 +165,7 @@ function App() {
                 {/* CARD */}
 
                 <Route exact path="/card">
-                    <CardRegistration />
+                    <CardRegistration getCount={getCount} setCount={setCount} />
                 </Route>
 
                 {/* COMMUNITY */}

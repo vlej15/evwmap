@@ -7,9 +7,11 @@ import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function InfoChange(props) {
+    //header
     useEffect(() => {
         props.setCount(1);
     }, []);
+
     const { register, handleSubmit, errors, watch } = useForm();
     const onSubmit = (data) => console.log(data);
     const password = useRef();

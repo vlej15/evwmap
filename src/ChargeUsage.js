@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 function ChargeUsage(props) {
+    //header
     useEffect(() => {
         props.setCount(1);
     }, []);
+
     let [chhistory, setboard] = useState(Data);
 
     return (

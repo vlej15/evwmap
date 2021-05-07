@@ -8,9 +8,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 function Activity(props) {
+    //header
     useEffect(() => {
         props.setCount(1);
     }, []);
+
     let [board, setboard] = useState(Data);
     let [reply, setreply] = useState(Replydata);
 

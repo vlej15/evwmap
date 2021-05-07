@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 function CardRegistration(props) {
+    //header
     useEffect(() => {
         props.setCount(1);
     }, []);
+
     let date = new Date();
     let getdate = date.getFullYear();
 

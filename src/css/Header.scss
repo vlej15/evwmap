@@ -41,13 +41,11 @@ body {
     }
 }
 
-
-
 .sub-list {
     height: 0px;
     transition: height 0.3 ease;
     padding-top: 5px;
-    padding-left: 387px;
+    padding-left: 310px;
     z-index: 999;
 
     .sub-ul-02 {
@@ -428,6 +426,10 @@ body {
         top: 10px;
         left: 10px;
         z-index: 999;
+
+        .arrow {
+            font-size: 14px;
+        }
     }
     .MH {
         display: block;
@@ -515,7 +517,7 @@ body {
                         height: 90px;
                         padding-left: 30px;
                         opacity: 1;
-                        transition-delay: opacity 0.16s;
+                        transition-delay: opacity 0.17s;
 
                         .sub-list_li {
                             height: 30px;

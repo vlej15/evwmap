@@ -19,7 +19,8 @@ const QList = (props) => {
     });
 
     useEffect(async () => {
-        props.setCount(1);
+        //header
+        props.setCount(0);
 
         var data = JSON.stringify({
             u_id: localStorage.getItem("id_value"),
