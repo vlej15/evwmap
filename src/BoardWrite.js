@@ -69,7 +69,7 @@ function BoardWrite() {
         <div className="banner">
           <p className="banner-title">게시글작성</p>
           <br></br>
-          <p className="subtitle"></p>
+          <p className="subtitle">타인을 비방하거나 홍보 게시글을 게시할 경우 서비스 이용 제한 및 게시글이 삭제됩니다.</p>
         </div>
         <form
           onSubmit={handleSubmit(onClick)}
@@ -143,7 +143,6 @@ function BoardWrite() {
                 rows="10"
                 required=""
                 className="input-content"
-                placeholder="내용을 입력하세요"
               ></textarea>
             </div>
             <div className="file">

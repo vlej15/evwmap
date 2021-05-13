@@ -46,6 +46,7 @@ const Main = () => {
         {/* section end */}
 
         <div className="section2">
+          <img src={main_section2} className="img2"></img>
           <div className="section2-textarea">
             <p className="section2-title">
               EV WMAP<span>SERVICE</span>
@@ -68,7 +69,6 @@ const Main = () => {
                 </Link>
               )}
           </div>
-          <img src={main_section2} className="img2"></img>
         </div>
 
         <div className="section3-media">

@@ -38,9 +38,9 @@ function CardRegistration(props) {
                     "linear-gradient(135deg, #bd7be8, #8063e1)"
                 );
             }
-            $(".tariffCards").css("transform", "translateX(-300px)");
-            $(".checkout").css("transform", "translateX(270px)");
-            $(".checkout").css("opacity", "1");
+            // $(".tariffCards").css("transform", "translateX(-150%)");
+            // $(".checkout").css("transform", "translateX(270px)");
+            // $(".checkout").css("opacity", "1");
         });
     });
 

@@ -38,16 +38,17 @@ function BannerMain() {
             <div className="img-area">
                 <img src={img1} />
             </div>
-
-            <div className="text-area">
-                <h3 className="wecreate">WE CREATE NEW CULTURE<br /></h3>
-
-            </div>
-            <div className="frame">
-                <div className="topline"></div>
-                <div className="bottomline"></div>
-                <p className="topedge"></p>
-                <p className="bottomedge"></p>
+            <div className="bm_box">
+                <div className="text-area">
+                    <h3 className="wecreate">WE CREATE NEW CULTURE</h3>
+                    <p className="new">전기차 시대를 선도하는 트렌드 리더로서<br />늘 편리한 서비스를 선사합니다.</p>
+                </div>
+                <div className="frame">
+                    <div className="topline"></div>
+                    <div className="bottomline"></div>
+                    <p className="topedge"></p>
+                    <p className="bottomedge"></p>
+                </div>
             </div>
             <div className="arrow-area">
                 <button className="arrow-icon" ><FontAwesomeIcon icon={faLongArrowAltDown} /></button>
