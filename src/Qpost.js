@@ -31,24 +31,25 @@ function Qpost(props) {
   const { register, handleSubmit, watch, errors, getValues } = useForm();
 
   useEffect(async () => {
+    var axios = require("axios");
     var data = JSON.stringify({
-      criteria: {},
+      q_dtt: id,
     });
+    console.log(id);
     var config = {
-      method: "post",
-      url: "http://3.36.160.255:8081/api/board/" + id,
+      method: "get",
+      url: "http://3.36.160.255:8081/api/question?q_dtt=" + id,
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
       },
       data: data,
     };
+
     axios(config)
       .then(function (response) {
-        console.log(response.data);
-        setPost(response.data.board);
-        setComment(response.data.replyList);
-        props.setBoardid(id);
+        console.log(JSON.stringify(response.data));
+        setPost(response.data.question);
       })
       .catch(function (error) {
         console.log(error);
@@ -105,85 +106,19 @@ function Qpost(props) {
         console.log(error);
       });
   };
-
-  function Delete() {
-    var data = JSON.stringify({
-      b_no: id,
-    });
-    var config = {
-      method: "delete",
-      url: "http://3.36.160.255:8081/api/board/",
-      headers: {
-        Authorization: token,
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
-    axios(config)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-  function changeModify() {
-    setModify(!modify);
-    console.log(modify);
-  }
-  function CommDelete() {
-    var data = JSON.stringify({
-      r_content: "가나다라마바사",
-      r_dtt: "2021-04-15T06:42:06.14421",
-    });
-
-    var config = {
-      method: "delete",
-      url: "http://localhost:8081/api/user/reply",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjE4NDY1NTUzLCJleHAiOjE2MTg0ODM1NTN9.GOnu6QUQ9-I0pf_ctRkJn8LIPhGXdB9dAc1gcISccV_87gCk8qi-fViFhQnIFydIEaaI5LTTxkmQTzcMWBBZPQ",
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
   return (
     <>
       <BannerNotice />
       <div className="contentsPost">
         <div className="post-area">
           <div className="title-area">
-            <span className="title">{post.b_title}</span>
+            <span className="title">{post.q_title}</span>
             <span className="writer">
               {post.u_id} | {post.date}
             </span>
           </div>
           <div className="body-area">
-            <p>{post.b_content}</p>
-            {post.u_id == localStorage.getItem("id_value") ? (
-              <>
-                <div className="btn-area">
-                  {/* <button className="btn">수정</button> */}
-                  <button className="notify" onClick={Delete}>
-                    | 삭제
-                  </button>
-                </div>
-                <div className="btn-area">
-                  <Link to="/boardchange">
-                    <button className="notify">| 수정 </button>
-                  </Link>
-                </div>
-              </>
-            ) : null}
+            <p>{post.q_content}</p>
 
             <div className="btn-area">
               {/* <button className="btn">수정</button> */}
@@ -192,43 +127,26 @@ function Qpost(props) {
 
             {/* body-area end */}
           </div>
-          <div className="command-area">
-            <ul>
-              <li>
-                <p className="command-title">댓글</p>
-              </li>
-              <li>
-                <a className="type active">오래된순</a>
-              </li>
-              <li>
-                <a className="type">최신순</a>
-              </li>
-            </ul>
-            <PostList comment={comment} />
-          </div>
+          <div className="command-area"></div>
           {/* command-area end */}
         </div>
         {/* post-area end */}
-        <div className="reple-area">
-          <form onSubmit={handleSubmit(onClick)}>
-            {localStorage.getItem("id_value") !== null ? (
-              <p className="id">{localStorage.getItem("id_value")}</p>
-            ) : (
-              <p className="id">아이디</p>
-            )}
-
-            <input
-              ref={register}
-              type="textarea"
-              className="reple-text"
-              placeholder="댓글을 남겨보세요."
-              name="reply"
-            />
-            <div className="replybtn-area">
-              <input type="submit" value="등록" className="reply-btn" />
-            </div>
-          </form>
-        </div>
+        {localStorage.getItem("id_value") == "evwmapadmin1" ? (
+          <div className="reple-area">
+            <form onSubmit={handleSubmit(onClick)}>
+              <input
+                ref={register}
+                type="textarea"
+                className="reple-text"
+                placeholder="문의 답변작성."
+                name="reply"
+              />
+              <div className="replybtn-area">
+                <input type="submit" value="등록" className="reply-btn" />
+              </div>
+            </form>
+          </div>
+        ) : null}
         {/* repleForm end */}
         <div className="list">
           <Link to="/post">
