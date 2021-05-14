@@ -106,7 +106,7 @@ function CardRegistration(props) {
                     </div>
                 </div>
             </div>
-            <div className="banner">
+            <div className="banner1">
                 <p className="banner-title">카드등록 및 수정</p>
                 <br></br>
                 <p className="subtitle">

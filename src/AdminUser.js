@@ -42,6 +42,7 @@ function AdminUser() {
 
   return (
     <div>
+
       <div className="mainWrap">
         <div className="titleWrap1">
           <p>게시판 그래프</p>

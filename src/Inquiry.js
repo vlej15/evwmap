@@ -78,8 +78,8 @@ function Inquiry(props) {
         const map = new Tmapv2.Map("map_div", {
             center: new Tmapv2.LatLng(a1, a2),
             // 지도가 생성될 div
-            width: "750px", // 지도의 넓이
-            height: "550px", // 지도의 높이
+            width: "100%", // 지도의 넓이
+            height: "500px", // 지도의 높이
         });
 
         marker.map((mk) => {
@@ -320,13 +320,13 @@ function Inquiry(props) {
                 error: function (request, status, error) {
                     console.log(
                         "code:" +
-                            request.status +
-                            "\n" +
-                            "message:" +
-                            request.responseText +
-                            "\n" +
-                            "error:" +
-                            error
+                        request.status +
+                        "\n" +
+                        "message:" +
+                        request.responseText +
+                        "\n" +
+                        "error:" +
+                        error
                     );
                 },
             });
@@ -550,7 +550,7 @@ function Inquiry(props) {
             data: data,
         };
         axios(config)
-            .then(function (response) {})
+            .then(function (response) { })
             .catch(function (error) {
                 console.log(error);
             });
@@ -755,68 +755,70 @@ function Inquiry(props) {
                         />
                     </form>
                 </div>
+
                 <div className="inquiry_box">
                     <div className="left_box">
-                        <div className="chargeMap_box">
-                            <div>
-                                <div className="map">
-                                    <div className="map_div" id="map_div"></div>
-                                </div>
-                            </div>
+                        <div>
+                            <div className="map_div" id="map_div"></div>
                         </div>
                     </div>
 
-                    <div className="right_box">
-                        <div className="chargeInfo_box">
-                            <div className="charge_title">
-                                <h1 className="charge_name">
-                                    충전소 명 :
-                                    {station.map((a) => (
-                                        <span>{a.stat_nm}</span>
-                                    ))}
-                                </h1>
-                                <button className="report_btn">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationTriangle}
-                                        className="notify_btn"
-                                        title="고장신고"
-                                    />
-                                </button>
-                            </div>
 
-                            <div className="infomation">
-                                <ul>
-                                    <li>
-                                        <p className="info-p">도로명 주소</p>
-                                        {station.map((a) => (
-                                            <span>{a.stat_addr}</span>
-                                        ))}
-                                    </li>
-                                    <li>
-                                        <p className="info-p">이용가능시간</p>
-                                        <span>24시간 이용가능</span>
-                                    </li>
-                                    <li>
-                                        <p className="info-p">연락처</p>
-                                        <span>1522-2573</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="now">
-                                <p className="now-title">
-                                    충전기 정보
+                    <div className="right_box">
+                        <div className="charge_title">
+                            <h1 className="charge_name">
+                                충전소 명 :
+                                    {station.map((a) => (
+                                <span>{a.stat_nm}</span>
+                            ))}
+                            </h1>
+                            <button className="report_btn">
+                                <FontAwesomeIcon
+                                    icon={faExclamationTriangle}
+                                    className="notify_btn"
+                                    title="고장신고"
+                                />
+                            </button>
+                        </div>
+
+                        <div className="infomation">
+                            <ul>
+                                <li>
+                                    <p className="info-p">도로명 주소</p>
+                                    {station.map((a) => (
+                                        <span>{a.stat_addr}</span>
+                                    ))}
+                                </li>
+                                <li>
+                                    <p className="info-p">이용가능시간</p>
+                                    <span>24시간 이용가능</span>
+                                </li>
+                                <li>
+                                    <p className="info-p">연락처</p>
+                                    <span>1522-2573</span>
+                                </li>
+                                <li>
+                                    <p className="info-p">경로안내</p>
+                                    <span>총 3시간 22분 소요</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="now">
+                            <p className="now-title">
+                                충전기 정보
                                     {reviewtag == false ? (
-                                        <button
-                                            className="rsvt-btn"
-                                            type="button"
-                                            onClick={() => {
-                                                setPass(!pass);
-                                            }}
-                                            disabled
-                                        >
-                                            예약
-                                        </button>
-                                    ) : (
+                                    <button
+                                        className="rsvt-btn"
+                                        type="button"
+                                        onClick={() => {
+                                            setPass(!pass);
+                                        }}
+                                        disabled
+                                    >
+                                        예약
+                                    </button>
+                                ) : (
                                         <button
                                             className="rsvt-btn"
                                             type="button"
@@ -827,42 +829,42 @@ function Inquiry(props) {
                                             예약
                                         </button>
                                     )}
-                                </p>
-                                {passModal()}
-                                <table className="now-list">
-                                    <thead>
-                                        <tr>
-                                            <th>순번</th>
-                                            <th>충전기 타입</th>
-                                            <th>충전기 상태</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>승용차 AC 완속</td>
-                                            <td>충전대기</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>승용차 AC 완속</td>
-                                            <td>충전대기</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>승용차 AC 완속</td>
-                                            <td>충전대기</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>승용차 AC 완속</td>
-                                            <td>충전대기</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            </p>
+                            {passModal()}
+                            <table className="now-list">
+                                <thead>
+                                    <tr>
+                                        <th>순번</th>
+                                        <th>충전기 타입</th>
+                                        <th>충전기 상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>승용차 AC 완속</td>
+                                        <td>충전대기</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>승용차 AC 완속</td>
+                                        <td>충전대기</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>승용차 AC 완속</td>
+                                        <td>충전대기</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>승용차 AC 완속</td>
+                                        <td>충전대기</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                     <div className="review_box">
                         <p className="review-title">충전소 리뷰</p>
                         <div className="review_list">
@@ -907,14 +909,14 @@ function Inquiry(props) {
                                         disabled
                                     />
                                 ) : (
-                                    <input
-                                        ref={register}
-                                        className="review_text"
-                                        type="text"
-                                        placeholder="리뷰를 입력해주세요."
-                                        name="review"
-                                    />
-                                )}
+                                        <input
+                                            ref={register}
+                                            className="review_text"
+                                            type="text"
+                                            placeholder="리뷰를 입력해주세요."
+                                            name="review"
+                                        />
+                                    )}
                                 {reviewtag == false ? (
                                     <button
                                         disabled
@@ -925,22 +927,23 @@ function Inquiry(props) {
                                         입 력
                                     </button>
                                 ) : (
-                                    <button
-                                        type="button"
-                                        onClick={onClick}
-                                        className="create"
-                                    >
-                                        입 력
-                                    </button>
-                                )}
+                                        <button
+                                            type="button"
+                                            onClick={onClick}
+                                            className="create"
+                                        >
+                                            입 력
+                                        </button>
+                                    )}
                             </div>
                         </form>
                     </div>
-                    <p className="review-title">주변 시설</p>
+
                     <div className="facility_box">
-                        <table className="now-list">
+                        <p className="facility-title">주변 시설 정보</p>
+                        <table className="facility-list">
                             <thead>
-                                <tr>
+                                <tr className="headth">
                                     <th>시설명</th>
                                     <th>시설정보</th>
                                     <th>전화번호</th>
