@@ -42,7 +42,7 @@ html {
         text-align: center;
         padding: 0px;
         vertical-align: top;
-        margin-bottom: 5vh;
+        margin-top: 3vh;
             .banner-title {
                 color: #222;
                 line-height: 1.4;
@@ -52,15 +52,15 @@ html {
                 margin: 0px;
                 padding: 0px;
                 vertical-align: top;
-                font-size: 2.9rem;
+                font-size: 2.7rem;
                 font-weight: bold;
             }
         .subtitle {
             font-family: 'IBMPlexSansKR-Regular';
-            width: 520px;
-            font-size: 1.85rem;
+            width: 515px;
+            font-size: 1.8rem;
             margin: 0 auto;
-            background-color: #c9d6df;
+            background-color: #87a7b363;
         }
     }//banner
 }
@@ -75,7 +75,7 @@ html {
         word-break: break-all;
         text-align: center;
         border: none;
-        margin-top: 35px;
+        margin-top: 50px;
     }
     
     .input-id, .input-pw {
@@ -190,10 +190,10 @@ html {
     margin: 0px;
     padding: 0px;
     vertical-align: top;
-    margin-top: 5vh;
+    margin-top: 50px;
 
     .btn-subtitle {
-        font-size: 1.85rem;
+        font-size: 1.7rem;
         text-align: center;
     }
 
@@ -205,7 +205,7 @@ html {
         cursor: pointer;
         display: inline-block;
         margin: 4px;
-        font-size: 1.85rem;
+        font-size: 1.8rem;
         line-height: 54px;
         text-align: center;
         box-sizing: border-box;
