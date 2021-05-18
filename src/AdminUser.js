@@ -41,195 +41,196 @@ function AdminUser() {
   ];
 
   return (
-    <div>
+    <div className="contentsAdminUser">
+      <div className="chart-area">
+        <p className="chart-title">게시판 그래프</p>
+        <div className="chart-content">
+          <LineChart
+            width={650}
+            height={350}
+            data={data}
+            margin={{ top: 5, right: 0, bottom: 0, left: 0 }}
+            stroke={"#eee"}
+            color={"#111"}
+          >
+            <Line type="monotone" dataKey="post" stroke="#76c8d3" />
+            <Line type="monotone" dataKey="reple" stroke="#e91756" />
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <XAxis dataKey="name"></XAxis>
+            <YAxis />
+            <Tooltip />
+          </LineChart>
+        </div>
+      </div>
 
-      <div className="mainWrap">
-        <div className="titleWrap1">
-          <p>게시판 그래프</p>
+      <div className="table-area">
+        <p className="table-title">게시판 경고 목록</p>
+        <table className="table-content">
+          <thead>
+            <th>제목</th>
+            <th>경고일</th>
+            <th>아이디</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="table-search">
+          <input type="text" placeholder="아이디 검색" />
+          <button>검색</button>
         </div>
-        <div className="titleWrap2">
-          <p>게시판 경고 목록</p>
+        <div className="pageNationA">
+          <div>
+            <APagination count="5" />
+          </div>
         </div>
       </div>
-      <div className="writeChart">
-        <LineChart
-          width={600}
-          height={337}
-          data={data}
-          margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-        >
-          <Line type="monotone" dataKey="post" stroke="#76c8d3" />
-          <Line type="monotone" dataKey="reple" stroke="#e91756" />
-          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-          <XAxis dataKey="name"></XAxis>
-          <YAxis />
-          <Tooltip />
-        </LineChart>
 
-        <div className="writeTable">
-          <table className="chartTable">
-            <thead>
-              <th>제목</th>
-              <th>경고 일</th>
-              <th>아이디</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="adminButton">
-            <input type="text" placeholder="아이디검색" />
-            <button>검색</button>
-          </div>
-          <div className="pageNation">
-            <div>
-              <APagination count="5" />
-            </div>
+
+      <div className="chart-area">
+        <p className="chart-title">리뷰 그래프</p>
+        <div className="chart-content">
+          <LineChart
+            width={650}
+            height={350}
+            data={data}
+            margin={{ top: 5, right: 0, bottom: 0, left: 0 }}
+            stroke={"#333"}
+            color={"#111"}
+          >
+            <Line type="monotone" dataKey="post" stroke="#76c8d3" />
+            <Line type="monotone" dataKey="reple" stroke="#e91756" />
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <XAxis dataKey="name"></XAxis>
+            <YAxis />
+            <Tooltip />
+          </LineChart>
+        </div>
+      </div>
+
+      <div className="table-area">
+        <p className="table-title">리뷰 경고 목록</p>
+        <table className="table-content">
+          <thead>
+            <th>제목</th>
+            <th>경고일</th>
+            <th>아이디</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+            <tr>
+              <td>게시글</td>
+              <td>욕설</td>
+              <td>dlwlsghk123</td>
+            </tr>
+          </tbody>
+        </table>
+        {/* <div className="table-search">
+          <input type="text" placeholder="아이디 검색" />
+          <button>검색</button>
+        </div> */}
+        <div className="pageNationA">
+          <div>
+            <APagination count="5" />
           </div>
         </div>
       </div>
-      <div className="mainWrap">
-        <div className="titleWrap1">
-          <p>리뷰 그래프</p>
-        </div>
-        <div className="titleWrap2">
-          <p>리뷰 경고 목록</p>
-        </div>
-      </div>
-      <div className="writeChart">
-        <LineChart
-          width={600}
-          height={337}
-          data={data}
-          margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-        >
-          <Line type="monotone" dataKey="post" stroke="#8e89f5" />
-          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-        </LineChart>
-        <div className="writeTable">
-          <table className="chartTable">
-            <thead>
-              <th>제목</th>
-              <th>경고 일</th>
-              <th>아이디</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-              <tr>
-                <td>게시글</td>
-                <td>욕설</td>
-                <td>dlwlsghk123</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="adminButton">
-            <input type="text" placeholder="아이디검색" />
-            <button>검색</button>
-          </div>
-          <div className="pageNation">
-            <div>
-              <APagination count="5" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+    </div >
   );
 }
 export default AdminUser;
