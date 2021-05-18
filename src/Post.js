@@ -204,7 +204,9 @@ function Post(props) {
                 <a className="type">최신순</a>
               </li>
             </ul>
-            <PostList comment={comment} />
+            {comment.map((comm, i) => (
+              <PostList comment={comm} i={i} />
+            ))}
           </div>
           {/* command-area end */}
         </div>

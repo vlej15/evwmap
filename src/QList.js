@@ -14,9 +14,6 @@ const QList = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
   const [qdata, setQdata] = useState([]);
-  var data = JSON.stringify({
-    u_id: "youngsik1",
-  });
 
   useEffect(async () => {
     //header
@@ -137,10 +134,14 @@ const QList = (props) => {
             {qdata.map((post) => (
               <tr>
                 <td class="list-td">
-                  <span className="list-span1">답변대기</span>
+                  {post.answerCnt == 0 ? (
+                    <span className="list-span1">답변대기</span>
+                  ) : (
+                    <span className="list-span2">답변완료</span>
+                  )}
                 </td>
                 <td className="list-title">
-                  <Link to={`/qlist/${post.b_dtt}`}>
+                  <Link to={`/qlist/${post.q_dtt}`}>
                     <a className="list-link">{post.q_content}</a>
                   </Link>
                 </td>

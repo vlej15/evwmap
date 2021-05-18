@@ -82,7 +82,7 @@ function App() {
   return (
     <div>
       <div className="page-container">
-        <div className="content-wrap">
+        <div className="content-wrap1">
           <Header getCount={getCount} setCount={setCount} />
         </div>
         <Route exact path="/">
@@ -143,6 +143,10 @@ function App() {
 
         <Route exact path="/qlist">
           <QList getCount={getCount} setCount={setCount} />
+        </Route>
+
+        <Route exact path="/qlist/:id">
+          <Qpost />
         </Route>
 
         <Route exact path="/boardwrite">
