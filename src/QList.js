@@ -25,7 +25,7 @@ const QList = (props) => {
 
     var config = {
       method: "get",
-      url: "http://3.36.160.255:8081/api/user/my-question",
+      url: "http://193.122.106.148:8081/api/user/my-question",
       headers: {
         Authorization: localStorage.getItem("id"),
       },

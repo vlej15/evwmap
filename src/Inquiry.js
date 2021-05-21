@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
+import DatePicker from "react-datepicker";
+import { NCPClient } from "node-sens";
 
 import BannerMap from "./BannerMap";
 
@@ -32,7 +34,10 @@ function Inquiry(props) {
 
   let today = new Date();
   let year = today.getFullYear(); // 년도
-  let month = today.getMonth() + 1; // 월
+  let month =
+    today.getMonth() + 1 < 10
+      ? "0" + (today.getMonth() + 1)
+      : today.getMonth() + 1;
   let date = today.getDate(); // 날짜
 
   const token = localStorage.getItem("id");
@@ -61,6 +66,7 @@ function Inquiry(props) {
   const getId = localStorage.getItem("id");
 
   useEffect(() => {
+    console.log("오늘의 날짜" + year + month + date);
     //header
     props.setCount(0);
 
@@ -69,7 +75,7 @@ function Inquiry(props) {
 
     var config = {
       method: "get",
-      url: "http://3.36.160.255:8081/api/station/list",
+      url: "http://193.122.106.148:8081/api/station/list",
       headers: {
         Authorization: token,
       },
@@ -108,7 +114,7 @@ function Inquiry(props) {
         var config = {
           method: "get",
           url:
-            "http://3.36.160.255:8081/api/station?stat_lng=" +
+            "http://193.122.106.148:8081/api/station?stat_lng=" +
             lng +
             "&stat_lat=" +
             lat,
@@ -518,6 +524,7 @@ function Inquiry(props) {
       resultdrawArr = [];
     }
   }, []);
+
   const onClick = () => {
     var axios = require("axios");
     var data = JSON.stringify({
@@ -528,7 +535,7 @@ function Inquiry(props) {
 
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/review",
+      url: "http://193.122.106.148:8081/api/review",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -545,7 +552,7 @@ function Inquiry(props) {
     var config1 = {
       method: "get",
       url:
-        "http://3.36.160.255:8081/api/station?stat_lng=" +
+        "http://193.122.106.148:8081/api/station?stat_lng=" +
         lng +
         "&stat_lat=" +
         lat,
@@ -572,7 +579,7 @@ function Inquiry(props) {
 
     var config = {
       method: "delete",
-      url: "http://3.36.160.255:8081/api/review",
+      url: "http://193.122.106.148:8081/api/review",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -583,6 +590,26 @@ function Inquiry(props) {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    var config1 = {
+      method: "get",
+      url:
+        "http://193.122.106.148:8081/api/station?stat_lng=" +
+        lng +
+        "&stat_lat=" +
+        lat,
+      headers: {
+        Authorization: token,
+      },
+    };
+    axios(config1)
+      .then(function (response) {
+        setReview(response.data.reviewList);
+        console.log(response.data.reviewList);
       })
       .catch(function (error) {
         console.log(error);
@@ -652,6 +679,28 @@ function Inquiry(props) {
                   <li>09:00 ~ 09:30</li>
                 </ul>
                 <p>예약시간 선택</p>
+
+                <p>시작일 선택 : </p>
+                <label for="start">Start date:</label>
+                <input
+                  ref={register}
+                  type="date"
+                  id="start"
+                  name="trip-start"
+                  min="2021-01-01"
+                  max="2021-12-31"
+                />
+                <p>종료일 선택 : </p>
+                <label for="end">End date:</label>
+                <input
+                  type="date"
+                  id="end"
+                  name="trip-start"
+                  min="2021-01-01"
+                  max="2021-12-31"
+                ></input>
+                <div className="calender"></div>
+
                 <div className="startTime">
                   <p>시작시간</p>
                   <select

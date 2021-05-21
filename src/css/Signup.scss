@@ -152,6 +152,13 @@ html {
                 font-weight: 500px;
             }
          }// form-id end
+         .form-carNumber{
+             i{
+                 font-size:30px;
+                 line-height: 45px;
+                 margin-left: 20px;
+             }
+         }
 
          .form-pw, .form-pw2, .form-name, .form-carNumber{
             display: flex;

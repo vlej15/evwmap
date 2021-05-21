@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switc, withRouter } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import BrandStory from "./BrandStory";
@@ -41,12 +41,13 @@ function App() {
   const [category, setCategory] = useState(0);
   const [getCount, setCount] = useState(0);
   const [boardid, setBoardid] = useState(0);
+  const [bno, setBno] = useState(0);
 
   useEffect(async () => {
     // 마커찍을 충전소 데이터 받아오기
     var config = {
       method: "get",
-      url: "http://3.36.160.255:8081/api/map/marker",
+      url: "http://193.122.106.148:8081/api/map/marker",
       headers: {},
     };
 
@@ -150,7 +151,7 @@ function App() {
         </Route>
 
         <Route exact path="/boardwrite">
-          <BoardWrite />
+          <BoardWrite bno={bno} />
         </Route>
 
         {/* FIND ID / PW */}
@@ -205,6 +206,7 @@ function App() {
             setCategory={setCategory}
             getCount={getCount}
             setCount={setCount}
+            setBno={setBno}
           />
         </Route>
 

@@ -19,7 +19,7 @@ function Activity(props) {
 
     var config = {
       method: "get",
-      url: "http://3.36.160.255:8081/api/" + id + "/boardlist",
+      url: "http://193.122.106.148:8081/api/" + id + "/boardlist",
       headers: {
         Authorization: token,
       },
@@ -38,7 +38,7 @@ function Activity(props) {
 
     var config1 = {
       method: "get",
-      url: "http://3.36.160.255:8081/api/" + id + "/replylist",
+      url: "http://193.122.106.148:8081/api/" + id + "/replylist",
       headers: {
         Authorization: token,
       },

@@ -19,7 +19,7 @@ function BoardChange(props) {
 
     var config = {
       method: "put",
-      url: "http://3.36.160.255:8081/api/board",
+      url: "http://193.122.106.148:8081/api/board",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ function BoardChange(props) {
     });
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/board/" + id,
+      url: "http://193.122.106.148:8081/api/board/" + id,
       headers: {
         Authorization: token,
         "Content-Type": "application/json",

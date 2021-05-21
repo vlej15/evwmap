@@ -18,20 +18,24 @@ function FindId(props) {
       <div className="end"></div>
       <div
         className="contentsFindId"
-      // onClick={() => {
-      //     props.setMenu(false);
-      // }}
+        // onClick={() => {
+        //     props.setMenu(false);
+        // }}
       >
         <div className="banner">
           <p className="banner-title">아이디 찾기</p>
           <br></br>
-          <p className="subtitle">아래 이메일 인증을 통해 아이디를 확인 하실 수 있습니다.</p>
+          <p className="subtitle">
+            아래 휴대폰 인증을 통해 아이디를 확인 하실 수 있습니다.
+          </p>
         </div>
         <div className="form">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-input">
               <div className="form-name">
-                <label for=""><p className="form-label">이름</p></label>
+                <label for="">
+                  <p className="form-label">이름</p>
+                </label>
                 <input
                   type="text"
                   className="input-text"
@@ -45,19 +49,23 @@ function FindId(props) {
                 />
               </div>
               <div className="form-email">
-                <label for=""><p className="form-label">이메일</p></label>
+                <label for="">
+                  <p className="form-label">휴대폰</p>
+                </label>
                 <input
                   type="email"
                   className="input-text"
                   name="email"
                   maxLength="100"
-                  placeholder="이메일"
+                  placeholder="휴대폰"
                   ref={register({
-                    required: true
+                    required: true,
                   })}
                   required
                 />
-                <button href="#" className="btn-ct">인증번호받기</button>
+                <button href="#" className="btn-ct">
+                  인증번호받기
+                </button>
               </div>
               <div className="form-insert">
                 <p className="form-label"></p>
@@ -79,9 +87,18 @@ function FindId(props) {
           </form>
         </div>
         <div className="find-pw">
-          <p className="btn-subtitle">비밀번호가 기억나지 않는다면?<Link to="/find_pw" className="go-pw">비밀번호 찾기 바로가기<FontAwesomeIcon icon={faChevronCircleRight} className="arrow-btn" /></Link></p>
+          <p className="btn-subtitle">
+            비밀번호가 기억나지 않는다면?
+            <Link to="/findpw" className="go-pw">
+              비밀번호 찾기 바로가기
+              <FontAwesomeIcon
+                icon={faChevronCircleRight}
+                className="arrow-btn"
+              />
+            </Link>
+          </p>
         </div>
-      </div >
+      </div>
     </>
   );
 }

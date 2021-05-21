@@ -70,8 +70,7 @@ function FindingAWay(props) {
       //JSON TYPE EDIT [S]
       $.ajax({
         type: "POST",
-        url:
-          "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result",
+        url: "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result",
         async: false,
         data: {
           appKey: "l7xx7e0f3fa63ea24325bc1914cf5d911bf7",
@@ -120,9 +119,8 @@ function FindingAWay(props) {
                     geometry.coordinates[j][1]
                   );
                   // 포인트 객체를 받아 좌표값으로 변환
-                  var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-                    latlng
-                  );
+                  var convertPoint =
+                    new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
 
                   sectionInfos.push(convertPoint);
                 }
@@ -154,9 +152,8 @@ function FindingAWay(props) {
                   geometry.coordinates[1]
                 );
                 // 포인트 객체를 받아 좌표값으로 다시 변환
-                var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-                  latlon
-                );
+                var convertPoint =
+                  new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
 
                 var routeInfoObj = {
                   markerImage: markerImg,
@@ -182,9 +179,8 @@ function FindingAWay(props) {
                     geometry.coordinates[j][1]
                   );
                   // 포인트 객체를 받아 좌표값으로 변환
-                  var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-                    latlng
-                  );
+                  var convertPoint =
+                    new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
                   // 포인트객체의 정보로 좌표값 변환 객체로 저장
                   var convertChange = new Tmapv2.LatLng(
                     convertPoint._lat,
@@ -220,9 +216,8 @@ function FindingAWay(props) {
                   geometry.coordinates[1]
                 );
                 // 포인트 객체를 받아 좌표값으로 다시 변환
-                var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-                  latlon
-                );
+                var convertPoint =
+                  new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
 
                 var routeInfoObj = {
                   markerImage: markerImg,

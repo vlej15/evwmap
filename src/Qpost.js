@@ -68,7 +68,7 @@ function Qpost(props) {
 
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/reply",
+      url: "http://193.122.106.148:8081/api/reply",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -89,7 +89,7 @@ function Qpost(props) {
     });
     var config1 = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/board/" + id,
+      url: "http://193.122.106.148:8081/api/board/" + id,
       headers: {
         Authorization: token,
         "Content-Type": "application/json",

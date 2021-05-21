@@ -10,6 +10,7 @@ html {
 .end {
     background-color: #f9f9f9;
 }
+
 .contentsLogin {
     font-style: normal;
     font-weight: normal;
@@ -31,6 +32,7 @@ html {
     top: 0px;
     width: 1200px;
     margin-bottom: 5vh;
+
 
     .banner{
         color: #222;
@@ -181,6 +183,7 @@ html {
 
 
 .btn-area {
+
     color: #222;
     font-weight: 400;
     line-height: 1;
@@ -190,8 +193,10 @@ html {
     margin: 0px;
     padding: 0px;
     vertical-align: top;
-    margin-top: 50px;
-
+    margin-top: 5vh;
+    .kakao_login{
+        width:460px;
+        }
     .btn-subtitle {
         font-size: 1.7rem;
         text-align: center;
@@ -205,8 +210,8 @@ html {
         cursor: pointer;
         display: inline-block;
         margin: 4px;
-        font-size: 1.8rem;
-        line-height: 54px;
+        font-size: 1.85rem;
+        line-height: 69px;
         text-align: center;
         box-sizing: border-box;
         text-decoration: none;
@@ -215,6 +220,7 @@ html {
         background-color: #1e2022;
         width: 460px;
         padding: 0;
+        height: 69px;
     }
 }
 

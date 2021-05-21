@@ -4,6 +4,7 @@ import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { Link, useHistory, useParams } from "react-router-dom";
 import "./css/MDbtn.scss";
 
 function PostList(props) {
@@ -11,6 +12,7 @@ function PostList(props) {
   const [submenu, setSubmenu] = useState(0);
   const { register, handleSubmit, watch, errors, getValues } = useForm();
   const token = localStorage.getItem("id");
+  const { id } = useParams();
 
   function changeModify() {
     setModify(!modify);
@@ -19,9 +21,10 @@ function PostList(props) {
 
   //댓글 수정 부분
 
-  function Modify(props) {
+  function Modify(props1) {
     console.log(getValues("reply"));
-    const dtt = props;
+    setSubmenu(0);
+    const dtt = props1;
     var data = JSON.stringify({
       r_content: getValues("reply"),
       r_dtt: dtt,
@@ -29,7 +32,7 @@ function PostList(props) {
 
     var config = {
       method: "patch",
-      url: "http://3.36.160.255:8081/api/reply",
+      url: "http://193.122.106.148:8081/api/reply",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -44,19 +47,39 @@ function PostList(props) {
       .catch(function (error) {
         console.log(error);
       });
+
+    var data1 = JSON.stringify({
+      criteria: {},
+    });
+    var config = {
+      method: "post",
+      url: "http://193.122.106.148:8081/api/board/" + id,
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data1,
+    };
+    axios(config)
+      .then(function (response) {
+        props.setComment(response.data.replyList);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   //댓글 삭제 부분
 
-  function Delete(props) {
-    const dtt = props;
+  function Delete(props1) {
+    const dtt = props1;
     var data = JSON.stringify({
       r_dtt: dtt,
     });
 
     var config = {
       method: "delete",
-      url: "http://3.36.160.255:8081/api/reply",
+      url: "http://193.122.106.148:8081/api/reply",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -67,6 +90,26 @@ function PostList(props) {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    var data1 = JSON.stringify({
+      criteria: {},
+    });
+    var config = {
+      method: "post",
+      url: "http://193.122.106.148:8081/api/board/" + id,
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data1,
+    };
+    axios(config)
+      .then(function (response) {
+        props.setComment(response.data.replyList);
       })
       .catch(function (error) {
         console.log(error);
@@ -115,6 +158,7 @@ function PostList(props) {
                 name="reply"
               />
               <button
+                type="button"
                 onClick={() => {
                   Modify(props.comment.r_dtt);
                 }}

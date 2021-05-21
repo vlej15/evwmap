@@ -26,7 +26,7 @@ const QWrite = (props) => {
 
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/question",
+      url: "http://193.122.106.148:8081/api/question",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
