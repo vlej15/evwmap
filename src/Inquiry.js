@@ -11,8 +11,8 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 import DatePicker from "react-datepicker";
 import { NCPClient } from "node-sens";
-
 import BannerMap from "./BannerMap";
+import ModalNotify from "./ModalNotify";
 
 const { Tmapv2 } = window;
 
@@ -31,6 +31,10 @@ function Inquiry(props) {
   const [sminute, setSminute] = useState("00");
   const [etime, setEtime] = useState("00");
   const [eminute, setEminute] = useState("00");
+  const [report, setReport] = useState(0);
+  const [chargerList, setChargerList] = useState([]);
+  const [Clist, setClist] = useState([]);
+  const [reservationTime, setReservationTime] = useState([]);
 
   let today = new Date();
   let year = today.getFullYear(); // 년도
@@ -128,7 +132,10 @@ function Inquiry(props) {
             setStation(response.data.station);
             setFacilityList(response.data.facilityList);
             setReviewtag(true);
-            setStatid(response.data.station[0]["stat_id"]);
+            setStatid(response.data.station[0].stat_id);
+            setChargerList(response.data.chargerList);
+            setClist(chargerList.filter(chargerList.chg_rsvt == "Y"));
+            console.log("예약가능좌석" + Clist);
           })
           .catch(function (error) {
             console.log(error);
@@ -631,7 +638,7 @@ function Inquiry(props) {
 
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/reservation",
+      url: "http://193.122.106.148:8081/api/reservation",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -649,9 +656,32 @@ function Inquiry(props) {
   }
 
   function passModal() {
-    let charger = stationlist.find((slist) => slist.stat_id == statid);
+    const charger = statid;
     console.log(charger);
-    console.log("차저" + charger);
+
+    const reservation = (props) => {
+      var config = {
+        method: "get",
+        url:
+          "http://193.122.106.148:8081/api/todays-reservation?chg_id=" +
+          props +
+          "&stat_id=" +
+          statid,
+        headers: {
+          Authorization: token,
+        },
+      };
+
+      axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          setReservationTime(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
     return pass == 1 ? (
       <div className="passmodal_background">
         <div className="passModal">
@@ -671,34 +701,31 @@ function Inquiry(props) {
             <div className="ulType">
               <div className="searchTable">
                 <p>예약현황목록</p>
-                <p>현재 예약된 시간대를 제외하고 입력해주시기 바랍니다.</p>
+                <p>
+                  충전기 선택 후 아래에 표기된 예약된 시간대를 제외하고
+                  입력해주시기 바랍니다. <br></br>선택 가능한 충전기가 없을 경우
+                  예약이 불가능한 충전소 입니다.
+                </p>
+                {chargerList.map((list) =>
+                  list.chg_rsvt == "Y" ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        reservation(list.chg_id);
+                      }}
+                    >
+                      {list.chg_id}
+                    </button>
+                  ) : null
+                )}
+
                 <ul className="timeTable">
-                  <li>09:00 ~ 09:30</li>
-                  <li>09:00 ~ 09:30</li>
-                  <li>09:00 ~ 09:30</li>
-                  <li>09:00 ~ 09:30</li>
+                  {reservationTime.map((list) => (
+                    <li>예약시간</li>
+                  ))}
                 </ul>
                 <p>예약시간 선택</p>
 
-                <p>시작일 선택 : </p>
-                <label for="start">Start date:</label>
-                <input
-                  ref={register}
-                  type="date"
-                  id="start"
-                  name="trip-start"
-                  min="2021-01-01"
-                  max="2021-12-31"
-                />
-                <p>종료일 선택 : </p>
-                <label for="end">End date:</label>
-                <input
-                  type="date"
-                  id="end"
-                  name="trip-start"
-                  min="2021-01-01"
-                  max="2021-12-31"
-                ></input>
                 <div className="calender"></div>
 
                 <div className="startTime">
@@ -833,7 +860,7 @@ function Inquiry(props) {
                     <li className="resorveN2 ">
                       <p
                         onClick={() => {
-                          resolve(charger.stat_id);
+                          resolve(charger);
                         }}
                       >
                         예약
@@ -892,6 +919,7 @@ function Inquiry(props) {
           </div>
         </div>
       </div>
+      <ModalNotify report={report} setReport={setReport} statid={statid} />
       <div className="end"></div>
       <div className="contentsInquiry">
         <div className="banner">
@@ -936,13 +964,30 @@ function Inquiry(props) {
                     <span>{a.stat_nm}</span>
                   ))}
                 </h1>
-                <button className="report_btn">
-                  <FontAwesomeIcon
-                    icon={faExclamationTriangle}
-                    className="notify_btn"
-                    title="고장신고"
-                  />
-                </button>
+                {reviewtag == false ? (
+                  <button className="report_btn">
+                    <FontAwesomeIcon
+                      icon={faExclamationTriangle}
+                      className="notify_btn"
+                      title="고장신고"
+                      onClick={() => {
+                        setReport(!report);
+                      }}
+                      disabled
+                    />
+                  </button>
+                ) : (
+                  <button className="report_btn">
+                    <FontAwesomeIcon
+                      icon={faExclamationTriangle}
+                      className="notify_btn"
+                      title="고장신고"
+                      onClick={() => {
+                        setReport(!report);
+                      }}
+                    />
+                  </button>
+                )}
               </div>
 
               <div className="infomation">
@@ -995,30 +1040,17 @@ function Inquiry(props) {
                     <tr>
                       <th>순번</th>
                       <th>충전기 타입</th>
-                      <th>충전기 상태</th>
+                      <th>예약가능 여부</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>승용차 AC 완속</td>
-                      <td>충전대기</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>승용차 AC 완속</td>
-                      <td>충전대기</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>승용차 AC 완속</td>
-                      <td>충전대기</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>승용차 AC 완속</td>
-                      <td>충전대기</td>
-                    </tr>
+                    {chargerList.map((list) => (
+                      <tr>
+                        <td>{list.chg_id}</td>
+                        <td>{list.chg_type}</td>
+                        <td>{list.chg_rsvt}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -1102,6 +1134,34 @@ function Inquiry(props) {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div class="ft_area">
+            <div class="ft_select_wrap">
+              <div class="ft_select">
+                <select id="selectLevel">
+                  <option value="0" selected="selected">
+                    교통최적+추천
+                  </option>
+                  <option value="1">교통최적+무료우선</option>
+                  <option value="2">교통최적+최소시간</option>
+                  <option value="3">교통최적+초보</option>
+                  <option value="4">교통최적+고속도로우선</option>
+                  <option value="10">최단거리+유/무료</option>
+                  <option value="12">이륜차도로우선</option>
+                  <option value="19">교통최적+어린이보호구역 회피</option>
+                </select>{" "}
+                <select id="year">
+                  <option value="N" selected="selected">
+                    교통정보 표출 옵션
+                  </option>
+                  <option value="Y">Y</option>
+                  <option value="N">N</option>
+                </select>
+                <button id="btn_select">적용하기</button>
+              </div>
+            </div>
+            <div class="map_act_btn_wrap clear_box"></div>
+            <div class="clear"></div>
           </div>
         </div>
       </div>

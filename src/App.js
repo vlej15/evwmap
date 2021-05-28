@@ -30,8 +30,8 @@ import Main from "./Main";
 import Test1 from "./Test1";
 import AdminUser from "./AdminUser";
 import Qpost from "./Qpost";
-import AdminBollard from "./AdminBollard"
-import AdminAgency from "./AdminAgency"
+import AdminBollard from "./AdminBollard";
+import AdminAgency from "./AdminAgency";
 
 function App() {
   const [a1, setA1] = useState();
@@ -101,7 +101,8 @@ function App() {
             a2={a2}
             marker={marker}
             getCount={getCount}
-            setCount={setCount} />
+            setCount={setCount}
+          />
         </Route>
         {/* INTRODUCTION */}
         <Route exact path="/introduction">

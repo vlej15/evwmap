@@ -136,7 +136,7 @@ function Activity(props) {
                 <td>
                   <Link to={`/notice/` + post.b_no}>{post.b_title}</Link>
                 </td>
-                <td>{post.b_dtt}</td>
+                <td>{post.date}</td>
                 <td>{post.b_visite}</td>
               </tr>
             ))}

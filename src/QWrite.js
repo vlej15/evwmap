@@ -3,12 +3,13 @@ import "./css/QWrite.scss";
 import { useForm } from "react-hook-form";
 import BannerReq1 from "./BannerReq1";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 const QWrite = (props) => {
   const token = localStorage.getItem("id");
+  const history = useHistory();
   //header
   useEffect(() => {
     props.setCount(0);
@@ -41,6 +42,7 @@ const QWrite = (props) => {
       .catch(function (error) {
         console.log(error);
       });
+    history.push("/qlist");
   };
   return (
     <>

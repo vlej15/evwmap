@@ -11,6 +11,7 @@ import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 const { Kakao } = window;
 const Login = (props) => {
+  let kakao_token;
   useEffect(() => {
     props.setCount(1);
   }, []);
@@ -42,6 +43,7 @@ const Login = (props) => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         window.localStorage.setItem("id", response.data.token);
+        window.localStorage.setItem("user_point", response.data.userPoint);
         if (response.data.token != null) {
           window.location.replace("/");
         }
@@ -55,6 +57,8 @@ const Login = (props) => {
     Kakao.Auth.login({
       success: function (authObj) {
         alert(JSON.stringify(authObj));
+        kakao_token = JSON.stringify(authObj.access_token);
+        console.log(kakao_token);
       },
       fail: function (err) {
         alert(JSON.stringify(err));

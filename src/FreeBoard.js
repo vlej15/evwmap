@@ -16,6 +16,7 @@ function FreeBoard(props) {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [total, setTotal] = useState(0);
   const token = localStorage.getItem("id");
   const setPagevalue = props.setPagevalue;
   const setCategory = props.setCategory;
@@ -41,6 +42,24 @@ function FreeBoard(props) {
       .then(function (response) {
         setPosts(response.data.boardList);
         setPage(response.data.pagination);
+        console.log(posts.length);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    var config1 = {
+      method: "get",
+      url: "http://193.122.106.148:8081/api/board/total",
+      headers: {},
+    };
+
+    await axios(config1)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setTotal(response.data[1]);
+        console.log("total" + total);
       })
       .catch(function (error) {
         console.log(error);
@@ -66,6 +85,7 @@ function FreeBoard(props) {
         posts={currentPosts(posts)}
         loading={loading}
         setPagevalue={setPagevalue}
+        total={total}
       />
       <Pagination
         postsPerPage={postsPerPage}
@@ -192,9 +212,9 @@ function Posts(props) {
             {posts.map((post, index) => (
               <tr>
                 {pagekey == 0 ? (
-                  <td>{index}</td>
+                  <td>{props.total - index}</td>
                 ) : (
-                  <td>{String(pagekey) + index}</td>
+                  <td>{props.total - (String(pagekey) + index)}</td>
                 )}
                 <td key={post.b_no} className="td-title">
                   <Link

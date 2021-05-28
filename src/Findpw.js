@@ -59,21 +59,21 @@ function FindPw(props) {
               {/*form-id end*/}
               <div className="form-email">
                 <label for="">
-                  <p className="form-label">휴대폰</p>
+                  <p className="form-label">이메일</p>
                 </label>
                 <input
                   type="phone"
                   className="input-text"
                   name="phone"
                   maxLength="100"
-                  placeholder="휴대폰"
+                  placeholder="이메일"
                   ref={register({
                     required: true,
                   })}
                   required
                 />
                 <button href="#" className="btn-ct">
-                  인증번호받기
+                  인증메일받기
                 </button>
               </div>{" "}
               {/*form-phone end*/}
@@ -137,7 +137,7 @@ function FindPw(props) {
                   className="btn-ct"
                   value="비밀번호변경"
                 ></input>
-              </div>{" "}
+              </div>
               {/*form-pw end*/}
             </div>
             {/*form-input end*/}

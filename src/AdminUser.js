@@ -16,28 +16,44 @@ import APagination from "@material-ui/lab/Pagination";
 function AdminUser() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [boardCnt, setBoardCnt] = useState([]);
+  const [replyCnt, setReplyCnt] = useState([]);
+  const token = localStorage.getItem("id");
 
   useEffect(async () => {
     setLoading(true);
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    setPosts(response.data);
-    setLoading(false);
+    var config = {
+      method: "get",
+      url: "http://193.122.106.148:8081/api/board/month-data",
+      headers: {
+        Authorization: token,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setBoardCnt(response.data.boardCnt);
+        setReplyCnt(response.data.replyCnt);
+        console.log("월 값" + boardCnt["2021-05"]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
   const data = [
-    { name: "1월", post: 400, reple: 300 },
-    { name: "2월", post: 200, reple: 270 },
-    { name: "3월", post: 700, reple: 1500 },
-    { name: "4월", post: 300, reple: 200 },
-    { name: "5월", post: 200, reple: 1820 },
-    { name: "6월", post: 1400, reple: 600 },
-    { name: "7월", post: 800, reple: 330 },
-    { name: "8월", post: 200, reple: 380 },
-    { name: "9월", post: 900, reple: 200 },
-    { name: "10월", post: 100, reple: 100 },
-    { name: "11월", post: 200, reple: 100 },
-    { name: "12월", post: 500, reple: 600 },
+    { name: "1월", post: 0, reple: 0 },
+    { name: "2월", post: 0, reple: 0 },
+    { name: "3월", post: 0, reple: 0 },
+    { name: "4월", post: 0, reple: 0 },
+    { name: "5월", post: boardCnt["2021-05"], reple: replyCnt["2021-05"] },
+    { name: "6월", post: 0, reple: 0 },
+    { name: "7월", post: 0, reple: 0 },
+    { name: "8월", post: 0, reple: 0 },
+    { name: "9월", post: 0, reple: 0 },
+    { name: "10월", post: 0, reple: 0 },
+    { name: "11월", post: 0, reple: 0 },
+    { name: "12월", post: 0, reple: 0 },
   ];
 
   return (
@@ -135,7 +151,6 @@ function AdminUser() {
         </div>
       </div>
 
-
       <div className="chart-area">
         <p className="chart-title">리뷰 그래프</p>
         <div className="chart-content">
@@ -228,9 +243,7 @@ function AdminUser() {
           </div>
         </div>
       </div>
-
-
-    </div >
+    </div>
   );
 }
 export default AdminUser;

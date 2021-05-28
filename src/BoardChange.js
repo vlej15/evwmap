@@ -9,6 +9,7 @@ function BoardChange(props) {
   const token = localStorage.getItem("id");
   const [post, setPost] = useState([]);
   const { register, handleSubmit, watch, errors, getValues } = useForm();
+
   const onSubmit = () => {
     var data = JSON.stringify({
       cat_cd: getValues("cat_cd"),
@@ -53,12 +54,24 @@ function BoardChange(props) {
       .then(function (response) {
         console.log(response.data);
         setPost(response.data.board);
+        setTitle(response.data.board.b_title);
+        setBody(response.data.board.b_content);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
 
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const onBodyChange = (e) => {
+    setBody(e.target.value);
+  };
+
+  const onTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
   return (
     <>
       <div className="end"></div>
@@ -85,7 +98,8 @@ function BoardChange(props) {
                 id="form_title"
                 size="91"
                 required=""
-                placeholder={post.b_title}
+                value={title}
+                onChange={onTitleChange}
               />
               {errors.form_title && (
                 <div className="alert">필수 입력항목입니다.</div>
@@ -136,7 +150,8 @@ function BoardChange(props) {
                 rows="10"
                 required=""
                 className="input-content"
-                placeholder={post.b_content}
+                value={body}
+                onChange={onBodyChange}
               ></textarea>
             </div>
             <div className="file">
