@@ -1,0 +1,342 @@
+
+.contentsAdminBollard {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 15vh;
+    // padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 90%;
+    margin-bottom: 5vh;
+
+    .banner{
+        color: #222;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        padding: 0px;
+        vertical-align: top;
+    
+            .banner-title {
+                color: #222;
+                line-height: 1.4;
+                letter-spacing: 0;
+                word-break: break-all;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: top;
+                font-size: 2.7rem;
+                font-weight: bold;
+            }
+        }
+
+    .content-box {
+        max-width: 1100px;
+        margin: 0 auto;
+        margin-top: 5vh;
+
+        .left-box {
+            width: 35%;
+            float: left;
+            .bollard-list {
+                height: 460px;
+                border: 2px solid #333;
+                display: inline-block;
+                width: 100%;
+                overflow: auto;
+                background-color: #fff;
+
+                .vehicle {
+                    height: 100px;
+                    border-bottom: 2px solid #333;
+                    text-align: center;
+                    line-height: 100px;
+                }
+
+                .vehicle:last-child {
+                    border: none;
+                }
+            }
+
+            .list-search {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                margin: 0 auto;
+                margin-top: 11px;
+                text-align: center;
+
+                .search-form {
+                    position: relative;
+                    width: 100%;
+                    height: 50px;
+                    margin: 0 auto;
+                    border: 2px solid #333;
+                    background: #fff;
+                    transition: all 0.3s ease;
+
+                    .search-input {
+                        position: absolute;
+                        top: 13px;
+                        left: 38px;
+                        font-size: 15px;
+                        background: none;
+                        color: #666;
+                        width: 220px;
+                        height: 20px;
+                        border: none;
+                        appearance: none;
+                        outline: none;
+
+                        &::-webkit-search-cancel-button {
+                            appearance: none;
+                        }
+                    }
+
+                    .search-button {
+                        position: absolute;
+                        top: 13px;
+                        left: 12px;
+                        height: 21px;
+                        width: 23px;
+                        padding: 0;
+                        margin: 0;
+                        border: none;
+                        background: none;
+                        outline: none !important;
+                        cursor: pointer;
+                    }
+                }
+            }// list-search end
+        }// left-box end
+
+        //스크롤 전체
+        .vehicle_list::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .right-box {
+            width: 660px;
+            float: right;
+            height: 526px;
+            border: 2px solid #333;
+            overflow: scroll;
+
+            .bollard-form {
+                line-height: 1; 
+                word-break: break-all;
+                text-align: center;
+                border: none;
+                align-items: center;
+                margin-left: 30px;
+                margin-top: 30px;
+
+                    .form-id{
+                        display: flex;
+                        flex-direction: row;
+                        margin: 0;
+                        padding: 10px 10px 10px 20px;
+                        text-align: left;
+
+                        .form-label {
+                            font-family: 'IBMPlexSansKR-Regular';
+                            font-weight: bold;
+                            font-size: 1.65rem;
+                            margin: 0;
+                            padding: 0;
+                            display: inline-block;
+                            vertical-align: top;
+                            letter-spacing: -0.1px;
+                            color: #3c3c3c;
+                            line-height: 40px;
+                            width: 120px;
+                        }
+                    
+                        .input-text {
+                            word-break: break-all;
+                            width: 300px;
+                            margin: 0px;
+                            height: 40px;
+                            padding: 0 14px;
+                            color: #222;
+                            font-size: 1.6rem;
+                            border: 1px solid #dedede;
+                            outline: 0;
+                            box-sizing: border-box;
+                            vertical-align: top;
+                            display: block;
+                        }
+                    }// form-id end
+
+                    .form-type{
+                        display: flex;
+                        flex-direction: row;
+                        margin: 0;
+                        padding: 10px 10px 10px 20px;
+                        text-align: left;
+                        // float: left;
+                        .form-label {
+                            font-family: 'IBMPlexSansKR-Regular';
+                            font-weight: bold;
+                            font-size: 1.65rem;
+                            margin: 0;
+                            padding: 0;
+                            display: inline-block;
+                            vertical-align: top;
+                            letter-spacing: -0.1px;
+                            color: #3c3c3c;
+                            line-height: 40px;
+                            width: 120px;
+                        }
+                        
+                        select {
+                            width: 300px;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                            word-break: break-all;
+                            height: 40px;
+                            padding: 0 14px;
+                            font-size: 1.6rem;
+                            border: 1px solid #dedede;
+                            outline: 0;
+                            box-sizing: border-box;
+                            vertical-align: top;
+                            display: block;
+                            color: #666;
+                        }
+                    }// form-id end
+
+                    .submit-btn {
+                        font-weight: 400;
+                        letter-spacing: 0;
+                        word-break: break-all;
+                        vertical-align: top;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 1.7rem;
+                        text-align: center;
+                        box-sizing: border-box;
+                        text-decoration: none;
+                        color: #fff;
+                        border: 1px solid #212121;
+                        background-color: #212121;
+                        // float: right;
+                        width: 100px;
+                        height: 100px;
+                        margin-top: -110px;
+                        line-height: 103px;
+                        margin-left: 420px; 
+                    }
+                .form-location {
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0;
+                    padding: 10px 10px 10px 20px;
+                    text-align: left;
+                    .form-label{
+                        font-family: 'IBMPlexSansKR-Regular';
+                        font-weight: bold;
+                        font-size: 1.65rem;
+                        margin: 0;
+                        padding: 0;
+                        display: inline-block;
+                        vertical-align: top;
+                        letter-spacing: -0.1px;
+                        color: #3c3c3c;
+                        line-height: 40px;
+                        width: 70px;
+                    }
+                    .form-label2 {
+                        font-family: 'IBMPlexSansKR-Regular';
+                        font-weight: bold;
+                        font-size: 1.65rem;
+                        margin: 0;
+                        padding: 0;
+                        display: inline-block;
+                        vertical-align: top;
+                        letter-spacing: -0.1px;
+                        color: #3c3c3c;
+                        line-height: 40px;
+                        width: 68px;
+                        margin-left: 22px;
+                    }
+                
+                    .input-text {
+                        word-break: break-all;
+                        width: 130px;
+                        margin: 0px;
+                        height: 40px;
+                        padding: 0 14px;
+                        color: #222;
+                        font-size: 1.6rem;
+                        border: 1px solid #dedede;
+                        outline: 0;
+                        box-sizing: border-box;
+                        vertical-align: top;
+                        display: block;
+                    }
+                }// form-location end
+                .map-area {
+                    margin-top: 20px;
+                    margin-left: 20px;
+                    width: 550px;
+                    height: 250px;
+                }
+
+                .form-state{
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0;
+                    padding: 0px 10px 10px 20px;
+                    text-align: left;
+                    .form-label {
+                        font-family: 'IBMPlexSansKR-Regular';
+                        font-weight: bold;
+                        font-size: 1.65rem;
+                        margin: 0;
+                        padding: 0;
+                        display: inline-block;
+                        vertical-align: top;
+                        letter-spacing: -0.1px;
+                        color: #3c3c3c;
+                        line-height: 40px;
+                        width: 120px;
+                    }
+                    .radio-area {
+                        margin-top: 10px;
+                        input {
+                            position: relative;
+                            top: 1.5px;
+                            width: 16px;
+                        }
+                        span {
+                            top: 20px;
+                            font-size: 1.65rem;
+                            color: #222;
+                            cursor: pointer;
+                            margin-left: 8px;
+                            margin-right: 25px;
+                        }
+                    }
+                }// form-state end
+            }// bollard-from end
+        }// right-box end
+    }// content-box end
+}

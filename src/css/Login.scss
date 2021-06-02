@@ -10,6 +10,7 @@ html {
 .end {
     background-color: #f9f9f9;
 }
+
 .contentsLogin {
     font-style: normal;
     font-weight: normal;
@@ -32,6 +33,7 @@ html {
     width: 1200px;
     margin-bottom: 5vh;
 
+
     .banner{
         color: #222;
         font-size: 14px;
@@ -42,7 +44,7 @@ html {
         text-align: center;
         padding: 0px;
         vertical-align: top;
-        margin-bottom: 5vh;
+        margin-top: 3vh;
             .banner-title {
                 color: #222;
                 line-height: 1.4;
@@ -52,15 +54,15 @@ html {
                 margin: 0px;
                 padding: 0px;
                 vertical-align: top;
-                font-size: 2.9rem;
+                font-size: 2.7rem;
                 font-weight: bold;
             }
         .subtitle {
             font-family: 'IBMPlexSansKR-Regular';
-            width: 520px;
-            font-size: 1.85rem;
+            width: 515px;
+            font-size: 1.8rem;
             margin: 0 auto;
-            background-color: #c9d6df;
+            background-color: #87a7b363;
         }
     }//banner
 }
@@ -75,7 +77,7 @@ html {
         word-break: break-all;
         text-align: center;
         border: none;
-        margin-top: 35px;
+        margin-top: 50px;
     }
     
     .input-id, .input-pw {
@@ -181,6 +183,7 @@ html {
 
 
 .btn-area {
+
     color: #222;
     font-weight: 400;
     line-height: 1;
@@ -191,9 +194,11 @@ html {
     padding: 0px;
     vertical-align: top;
     margin-top: 5vh;
-
+    .kakao_login{
+        width:460px;
+        }
     .btn-subtitle {
-        font-size: 1.85rem;
+        font-size: 1.7rem;
         text-align: center;
     }
 
@@ -206,7 +211,7 @@ html {
         display: inline-block;
         margin: 4px;
         font-size: 1.85rem;
-        line-height: 54px;
+        line-height: 69px;
         text-align: center;
         box-sizing: border-box;
         text-decoration: none;
@@ -215,6 +220,7 @@ html {
         background-color: #1e2022;
         width: 460px;
         padding: 0;
+        height: 69px;
     }
 }
 

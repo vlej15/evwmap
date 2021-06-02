@@ -62,7 +62,7 @@ body {
                 margin: 0px;
                 padding: 0px;
                 vertical-align: top;
-                font-size: 2.9rem;
+                font-size: 2.7rem;
                 font-weight: bold;
             }
         .subtitle {
@@ -234,13 +234,16 @@ body {
                     margin: 0px;
                     .passModal{
                         position: absolute;
-                        top: calc(50vh - 150px); left: calc(50vw - 210px);
+                        top: calc(50vh - 200px); left: calc(50vw - 210px);
                         background-color: #f6f5f5;
                         display: flex;
                         flex-direction: column;
                         width: 420px;
-                        height: 350px;
+                        height: 360px;
                         border-radius: 2px;
+                        .firstInput{
+                            margin-bottom: 10px;
+                        }
                         .mdPass{
                             h3 {
                                 margin-top: 30px;
@@ -288,11 +291,13 @@ body {
                             margin: 0px;
                         }
                         .subBtn{
+                            padding:0px;
                             margin-top: 2px;
                             color: white;
                             background-color: #464646;
                             border-radius: 2px;
-                            width:330px;
+                            width:300px;
+                            height: 40px;
                         }   
                     }                                      
                 }

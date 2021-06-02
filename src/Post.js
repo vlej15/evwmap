@@ -29,6 +29,7 @@ function Post(props) {
   const category = props.category;
   const { id } = useParams();
   const { register, handleSubmit, watch, errors, getValues } = useForm();
+  const history = useHistory();
 
   useEffect(async () => {
     var data = JSON.stringify({
@@ -36,7 +37,7 @@ function Post(props) {
     });
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/board/" + id,
+      url: "http://193.122.106.148:8081/api/board/" + id + "?sort=desc",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -67,7 +68,7 @@ function Post(props) {
 
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/reply",
+      url: "http://193.122.106.148:8081/api/reply",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -88,7 +89,7 @@ function Post(props) {
     });
     var config1 = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/board/" + id,
+      url: "http://193.122.106.148:8081/api/board/" + id + "?sort=desc",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -112,7 +113,7 @@ function Post(props) {
     });
     var config = {
       method: "delete",
-      url: "http://3.36.160.255:8081/api/board/",
+      url: "http://193.122.106.148:8081/api/board/",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -126,6 +127,7 @@ function Post(props) {
       .catch(function (error) {
         console.log(error);
       });
+    history.goBack();
   }
   function changeModify() {
     setModify(!modify);
@@ -139,7 +141,7 @@ function Post(props) {
 
     var config = {
       method: "delete",
-      url: "http://localhost:8081/api/user/reply",
+      url: "http://193.122.106.148:8081/api/user/reply",
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjE4NDY1NTUzLCJleHAiOjE2MTg0ODM1NTN9.GOnu6QUQ9-I0pf_ctRkJn8LIPhGXdB9dAc1gcISccV_87gCk8qi-fViFhQnIFydIEaaI5LTTxkmQTzcMWBBZPQ",
@@ -156,6 +158,60 @@ function Post(props) {
         console.log(error);
       });
   }
+
+  const backPage = () => {
+    history.goBack();
+  };
+
+  const replydesc = () => {
+    var data = JSON.stringify({
+      criteria: {},
+    });
+    var config = {
+      method: "post",
+      url: "http://193.122.106.148:8081/api/board/" + id + "?sort=asc",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+        setPost(response.data.board);
+        setComment(response.data.replyList);
+        props.setBoardid(id);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const replyasc = () => {
+    var data = JSON.stringify({
+      criteria: {},
+    });
+    var config = {
+      method: "post",
+      url: "http://193.122.106.148:8081/api/board/" + id + "?sort=desc",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+        setPost(response.data.board);
+        setComment(response.data.replyList);
+        props.setBoardid(id);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <>
       <BannerNotice />
@@ -198,13 +254,19 @@ function Post(props) {
                 <p className="command-title">댓글</p>
               </li>
               <li>
-                <a className="type active">오래된순</a>
+                <a className="type active" onClick={replydesc}>
+                  오래된순
+                </a>
               </li>
               <li>
-                <a className="type">최신순</a>
+                <a className="type" onClick={replyasc}>
+                  최신순
+                </a>
               </li>
             </ul>
-            <PostList comment={comment} />
+            {comment.map((comm, i) => (
+              <PostList comment={comm} i={i} setComment={setComment} />
+            ))}
           </div>
           {/* command-area end */}
         </div>
@@ -231,9 +293,7 @@ function Post(props) {
         </div>
         {/* repleForm end */}
         <div className="list">
-          <Link to="/post">
-            <button>목록</button>
-          </Link>
+          <button onClick={backPage}>목록</button>
         </div>
       </div>
       {/* contents end */}

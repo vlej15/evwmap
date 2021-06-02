@@ -39,6 +39,7 @@ html {
     text-align: center;
     padding: 0px;
     vertical-align: top;
+    margin-top: 3vh;
 
         .banner-title {
             color: #222;
@@ -49,20 +50,20 @@ html {
             margin: 0px;
             padding: 0px;
             vertical-align: top;
-            font-size: 2.9rem;
+            font-size: 2.7rem;
             font-weight: bold;
         }
         .subtitle {
             font-family: 'IBMPlexSansKR-Regular';
             width: 420px;
-            font-size: 1.85rem;
+            font-size: 1.8rem;
             margin: 0 auto;
             background-color: #87a7b363;
         }
     }//banner
 
     .list {
-        margin: 10vh 0 0 0;
+        margin: 7vh 0 0 0;
         vertical-align: top;
         border-collapse: collapse;
         width: 100%;

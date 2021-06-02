@@ -10,8 +10,29 @@ html {
     padding: 0;
 }
 
-.banner{
-    // margin-top: 5vh;
+.contentsCard {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #666;
+    word-break: keep-all;
+    max-height: 99999px;
+    min-height: 460px;
+    margin:0 auto;
+    margin-top: 5vh;
+    // padding: 0 0 100px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .7s ease-out;
+    transform-origin: 50% 50%;
+    transition-delay: .2s;
+    opacity: 1;
+    top: 0px;
+    width: 90%;
+
+.banner1{
+    margin-top: 5vh;
     color: #222;
     font-size: 14px;
     font-weight: 400;
@@ -21,7 +42,7 @@ html {
     text-align: center;
     padding: 0px;
     vertical-align: top;
-
+    margin-top: 80px;
         .banner-title {
             color: #222;
             line-height: 1.4;
@@ -31,19 +52,20 @@ html {
             margin: 0px;
             padding: 0px;
             vertical-align: top;
-            font-size: 2.9rem;
+            font-size: 2.7rem;
             font-weight: bold;
         }
         .subtitle {
             font-family: 'IBMPlexSansKR-Regular';
             width: 400px;
-            font-size: 1.85rem;
+            font-size: 1.8rem;
             margin: 0 auto;
             background-color: #87a7b363;
         }
     }//banner
 
 .card-reg {
+    position: relative;
     display: grid;
     font-family: Avenir,
         sans-serif;
@@ -52,14 +74,14 @@ html {
     -moz-osx-font-smoothing: grayscale;
     -moz-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-
+    width: 100%;
+    top: -75px;
     .tariffCards {
         position: absolute;
-        top: 500px;
+        top: 50%;
         left: 50%;
-        margin: -120px 0 0 -140px;
         user-select: none;
-        transform: translateX(0px);
+        transform: translate(-50%,-120%);
         transition: all 1s ease-in;
 
         .div-box {
@@ -115,36 +137,36 @@ html {
         .economy {
             margin-top: 0;
             z-index: 3;
-            background-color: #ffc75f;
-            background-image: linear-gradient(135deg, #f8dc81, #ffc75f);
+            background-color: #e1e5ea;
+            background-image: linear-gradient(135deg, #e1e5ea, #e1e5ea);
             box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5),
-                1px 1px 0px 1px #ffc75f;
+                1px 1px 0px 1px #e1e5ea;
         }
 
         .premiumeconomy {
             margin-top: -70px;
             z-index: 2;
-            background-color: #387adf;
-            background-image: linear-gradient(135deg, #50c4ed, #387adf);
+            background-color: #a7bbc7;
+            background-image: linear-gradient(135deg, #a7bbc7, #a7bbc7);
             box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5),
-                1px 1px 0px 1px #387adf;
+                1px 1px 0px 1px #a7bbc7;
         }
 
         .business {
             margin-top: -70px;
             z-index: 1;
-            background-color: #66a96b;
-            background-image: linear-gradient(135deg, #c1d343, #66a96b);
+            background-color: #7a94a3;
+            background-image: linear-gradient(135deg, #a7bbc7, #7a94a3);
             box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5),
-                1px 1px 0px 1px #66a96b;
+                1px 1px 0px 1px #7a94a3;
         }
 
         .first {
             margin-top: -70px;
-            background-color: #8063e1;
-            background-image: linear-gradient(135deg, #bd7be8, #8063e1);
+            background-color: #425866;
+            background-image: linear-gradient(135deg, #7a94a3, #425866);
             box-shadow: 5px 5px 60px rgba(34, 50, 84, 0.1),
-                1px 1px 0px 1px #8063e1;
+                1px 1px 0px 1px #425866;
         }
     }
 
@@ -163,12 +185,12 @@ html {
 .card-input {
     height: 500px;
     .checkout {
-        margin: 100px auto 30px;
+        margin: 100px auto 20px;
         position: relative;
-        width: 360px;
+        width: 380px;
         background: white;
         border-radius: 15px;
-        padding: 10px 30px 10px;
+        padding: 15px 5px 10px 12px;
         box-shadow: 0 10px 40px hsla(0, 0, 0, 0.1);
         transform: translateX(0px);
         transition: all 1s ease-in;
@@ -308,9 +330,10 @@ Form
                 .card-info-label {
                     display: block;
                     text-transform: uppercase;
-                    font-size: 11px;
+                    font-size: 12.3px;
                     color: hsla(0, 0, 0, 0.6);
                     margin-bottom: 5px;
+                    margin-left: 2px;
                     font-weight: bold;
                     font-family: Inconsolata;
                 }
@@ -326,7 +349,6 @@ Form
                     outline: none !important;
                     border: 1px solid hsla(0, 0, 0, 0.3);
                     box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
-
                     &.input-cart-number {
                         width: 60px;
                         display: inline-block;
@@ -340,6 +362,7 @@ Form
 
                 .card-holder {
                     width: 335px;
+                    margin-top: 10px;
                 }
 
                 .select {
@@ -393,7 +416,7 @@ Form
                     z-index: 1;
                     top: 0;
                     left: 0;
-                    width: 100%;
+                    width: 355px;
                     height: 100%;
                     transition: all 0.2s ease-in-out;
                     box-shadow: inset 0 3px 0 hsla(0, 0, 0, 0), 0 3px 3px hsla(0, 0, 0, 0.2);
@@ -407,7 +430,7 @@ Form
             }
 
             .card-create-btn {
-                width: 100%;
+                width: 355px;
                 outline: none !important;
                 background: #f1f1f1;
                 text-transform: uppercase;
@@ -456,4 +479,5 @@ Form
 
         }
     }
+}
 }

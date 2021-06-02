@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { Link, Route, Switch, useHistory, withRouter } from "react-router-dom";
 import "./css/BoardWrite.scss";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import FormData from "form-data";
 
-function BoardWrite() {
+function BoardWrite(props) {
   const { register, handleSubmit, watch, errors, getValues } = useForm();
   const [files, setFiles] = useState([]);
   const token = localStorage.getItem("id");
+  const history = useHistory();
+  const bno = props.bno;
 
   //   const onSubmit = (e) => {
   // const title = getValues("b_title");
@@ -39,7 +42,7 @@ function BoardWrite() {
 
     var config = {
       method: "post",
-      url: "http://3.36.160.255:8081/api/board",
+      url: "http://193.122.106.148:8081/api/board",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -54,6 +57,7 @@ function BoardWrite() {
       .catch(function (error) {
         console.log(error);
       });
+    history.push("/notice/" + bno);
   };
 
   const handleUpload = (e) => {
@@ -69,7 +73,10 @@ function BoardWrite() {
         <div className="banner">
           <p className="banner-title">게시글작성</p>
           <br></br>
-          <p className="subtitle"></p>
+          <p className="subtitle">
+            타인을 비방하거나 홍보 게시글을 게시할 경우 서비스 이용 제한 및
+            게시글이 삭제됩니다.
+          </p>
         </div>
         <form
           onSubmit={handleSubmit(onClick)}
@@ -143,7 +150,6 @@ function BoardWrite() {
                 rows="10"
                 required=""
                 className="input-content"
-                placeholder="내용을 입력하세요"
               ></textarea>
             </div>
             <div className="file">
@@ -158,6 +164,23 @@ function BoardWrite() {
             </div>
             <div className="form-btn">
               <input type="submit" className="submit" value="글 작성"></input>
+              {/* {getValues("cat_cd") == 1 ? (
+                <Link to="/freeboard">
+                  <input
+                    type="submit"
+                    className="submit"
+                    value="글 작성"
+                  ></input>
+                </Link>
+              ) : (
+                <Link to="/tipboard">
+                  <input
+                    type="submit"
+                    className="submit"
+                    value="글 작성"
+                  ></input>
+                </Link>
+              )} */}
             </div>
           </div>
         </form>

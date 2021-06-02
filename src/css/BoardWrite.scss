@@ -44,13 +44,13 @@
             margin: 0px;
             padding: 0px;
             vertical-align: top;
-            font-size: 2.9rem;
+            font-size: 2.7rem;
             font-weight: bold;
         }
         .subtitle {
             font-family: 'IBMPlexSansKR-Regular';
-            width: 450px;
-            font-size: 1.85rem;
+            width: 660px;
+            font-size: 1.8rem;
             margin: 0 auto;
             background-color: #87a7b363;
         }
@@ -66,7 +66,7 @@
         max-height: 99999px;
         margin: 0 auto;
         padding: 0;
-        margin-top: 5vh !important;
+        margin-top: 10vh !important;
         width: 60%;
         border-width: 1px 0 1px;
         border-color: #fff;
@@ -89,8 +89,8 @@
                 cursor: pointer;
                 display: inline-block;
                 vertical-align: top;
-                width: 130px;
-                font-size: 1.7rem;
+                width: 15%;
+                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 80px;
@@ -109,7 +109,7 @@
             // }
             .input-title {
                 height: 50px;
-                width: 900px;
+                width: 80%;
                 vertical-align: middle;
                 padding: 0 15px;
                 background: #fafafa;
@@ -135,8 +135,8 @@
                 cursor: pointer;
                 display: inline-block;
                 vertical-align: top;
-                width: 130px;
-                font-size: 1.7rem;
+                width: 15%;
+                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 80px;
@@ -159,7 +159,7 @@
                     height: 16px;
                 }
                 span {
-                    font-size: 1.8rem;
+                    font-size: 1.7rem;
                     color: #222;
                     cursor: pointer;
                     margin-left: 10px;
@@ -186,8 +186,8 @@
                 cursor: pointer;
                 display: inline-block;
                 vertical-align: top;
-                width: 130px;
-                font-size: 1.7rem;
+                width: 15%;
+                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 60px;
@@ -201,7 +201,7 @@
             }
             .input-content {
                 height: 300px;
-                width: 900px;
+                width: 80%;
                 vertical-align: middle;
                 padding: 0 15px;
                 background: #fafafa;
@@ -234,8 +234,8 @@
                 cursor: pointer;
                 display: inline-block;
                 vertical-align: top;
-                width: 130px;
-                font-size: 1.7rem;
+                width: 15%;
+                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #333;
                 line-height: 80px;
@@ -243,11 +243,11 @@
             }
             .write-file {
                 height: 80px;
-                font-size: 1.7rem;
+                font-size: 1.65rem;
                 color: #222;
                 display: inline-block;
                 padding: 20px 0 20px 0;
-                margin-top: 5px;
+                margin-top: 7px;
                 margin-left: 30px;
             }
         } // file
@@ -286,7 +286,7 @@
                 }
         }// form-btn
     }// form-input
-}// contentsQ
+}// contentsBoardWrite
 
 @media screen and (max-width: 479px) {
     .contentsBoardWrite {
@@ -353,11 +353,11 @@
                 }
             }
         }// form-input
-    }// contentsQ end
+    }// contentsB.contentsBoardWrite end
 }// media end 
 
 @media screen and (min-width: 480px) and (max-width: 1024px) {
-    .contentsQ {
+    .contentsBoardWrite {
         max-width: 100%;
         .banner {
             width: 90%;
