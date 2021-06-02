@@ -97,7 +97,7 @@ function Inquiry(props) {
     const map = new Tmapv2.Map("map_div", {
       center: new Tmapv2.LatLng(a1, a2),
       // 지도가 생성될 div
-      width: "750px", // 지도의 넓이
+      width: "100%", // 지도의 넓이
       height: "550px", // 지도의 높이
     });
 
@@ -328,13 +328,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-              request.status +
-              "\n" +
-              "message:" +
-              request.responseText +
-              "\n" +
-              "error:" +
-              error
+            request.status +
+            "\n" +
+            "message:" +
+            request.responseText +
+            "\n" +
+            "error:" +
+            error
           );
         },
       });
@@ -550,7 +550,7 @@ function Inquiry(props) {
       data: data,
     };
     axios(config)
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -946,14 +946,36 @@ function Inquiry(props) {
         </div> */}
         <div className="inquiry_box">
           <div className="left_box">
+
+            <div class="select-box">
+              <select id="selectLevel" className="select01">
+                <option value="0" selected="selected">교통최적 + 추천</option>
+                <option value="1">교통최적 + 무료우선</option>
+                <option value="2">교통최적 + 최소시간</option>
+                <option value="3">교통최적 + 초보</option>
+                <option value="4">교통최적 + 고속도로우선</option>
+                <option value="10">최단거리 + 유/무료</option>
+                <option value="12">이륜차도로우선</option>
+                <option value="19">교통최적 + 어린이보호구역 회피</option>
+              </select>{" "}
+              <select id="year" className="select02">
+                <option value="N" selected="selected">
+                  교통정보 표출 옵션
+                  </option>
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+              </select>
+              <button id="btn_select" className="submit-btn">적용하기</button>
+              {/* <div class="map_act_btn_wrap clear_box"></div>
+              <div class="clear"></div> */}
+            </div>
+
             <div className="chargeMap_box">
               <div>
-                <div className="map">
-                  <div className="map_div" id="map_div"></div>
-                </div>
+                <div className="map_div" id="map_div"></div>
               </div>
-            </div>
-          </div>
+            </div> {/* chargeMap_box end */}
+          </div>{/* left_box end */}
 
           <div className="right_box">
             <div className="chargeInfo_box">
@@ -961,8 +983,8 @@ function Inquiry(props) {
                 <h1 className="charge_name">
                   충전소 명 :
                   {station.map((a) => (
-                    <span>{a.stat_nm}</span>
-                  ))}
+                  <span>{a.stat_nm}</span>
+                ))}
                 </h1>
                 {reviewtag == false ? (
                   <button className="report_btn">
@@ -977,17 +999,17 @@ function Inquiry(props) {
                     />
                   </button>
                 ) : (
-                  <button className="report_btn">
-                    <FontAwesomeIcon
-                      icon={faExclamationTriangle}
-                      className="notify_btn"
-                      title="고장신고"
-                      onClick={() => {
-                        setReport(!report);
-                      }}
-                    />
-                  </button>
-                )}
+                    <button className="report_btn">
+                      <FontAwesomeIcon
+                        icon={faExclamationTriangle}
+                        className="notify_btn"
+                        title="고장신고"
+                        onClick={() => {
+                          setReport(!report);
+                        }}
+                      />
+                    </button>
+                  )}
               </div>
 
               <div className="infomation">
@@ -1023,36 +1045,38 @@ function Inquiry(props) {
                       예약
                     </button>
                   ) : (
-                    <button
-                      className="rsvt-btn"
-                      type="button"
-                      onClick={() => {
-                        setPass(!pass);
-                      }}
-                    >
-                      예약
-                    </button>
-                  )}
+                      <button
+                        className="rsvt-btn"
+                        type="button"
+                        onClick={() => {
+                          setPass(!pass);
+                        }}
+                      >
+                        예약
+                      </button>
+                    )}
                 </p>
                 {passModal()}
-                <table className="now-list">
-                  <thead>
-                    <tr>
-                      <th>순번</th>
-                      <th>충전기 타입</th>
-                      <th>예약가능 여부</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {chargerList.map((list) => (
+                <div className="list-wrap">
+                  <table className="now-list">
+                    <thead>
                       <tr>
-                        <td>{list.chg_id}</td>
-                        <td>{list.chg_type}</td>
-                        <td>{list.chg_rsvt}</td>
+                        <th>순번</th>
+                        <th>충전기 타입</th>
+                        <th>예약가능 여부</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {chargerList.map((list) => (
+                        <tr>
+                          <td>{list.chg_id}</td>
+                          <td>{list.chg_type}</td>
+                          <td>{list.chg_rsvt}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -1089,14 +1113,14 @@ function Inquiry(props) {
                     disabled
                   />
                 ) : (
-                  <input
-                    ref={register}
-                    className="review_text"
-                    type="text"
-                    placeholder="리뷰를 입력해주세요."
-                    name="review"
-                  />
-                )}
+                    <input
+                      ref={register}
+                      className="review_text"
+                      type="text"
+                      placeholder="리뷰를 입력해주세요."
+                      name="review"
+                    />
+                  )}
                 {reviewtag == false ? (
                   <button
                     disabled
@@ -1107,10 +1131,10 @@ function Inquiry(props) {
                     입 력
                   </button>
                 ) : (
-                  <button type="button" onClick={onClick} className="create">
-                    입 력
-                  </button>
-                )}
+                    <button type="button" onClick={onClick} className="create">
+                      입 력
+                    </button>
+                  )}
               </div>
             </form>
           </div>
@@ -1134,34 +1158,6 @@ function Inquiry(props) {
                 ))}
               </tbody>
             </table>
-          </div>
-          <div class="ft_area">
-            <div class="ft_select_wrap">
-              <div class="ft_select">
-                <select id="selectLevel">
-                  <option value="0" selected="selected">
-                    교통최적+추천
-                  </option>
-                  <option value="1">교통최적+무료우선</option>
-                  <option value="2">교통최적+최소시간</option>
-                  <option value="3">교통최적+초보</option>
-                  <option value="4">교통최적+고속도로우선</option>
-                  <option value="10">최단거리+유/무료</option>
-                  <option value="12">이륜차도로우선</option>
-                  <option value="19">교통최적+어린이보호구역 회피</option>
-                </select>{" "}
-                <select id="year">
-                  <option value="N" selected="selected">
-                    교통정보 표출 옵션
-                  </option>
-                  <option value="Y">Y</option>
-                  <option value="N">N</option>
-                </select>
-                <button id="btn_select">적용하기</button>
-              </div>
-            </div>
-            <div class="map_act_btn_wrap clear_box"></div>
-            <div class="clear"></div>
           </div>
         </div>
       </div>

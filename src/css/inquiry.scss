@@ -116,15 +116,56 @@
         width: 50%;
         position: relative;
         float: left;
+
+        .select-box {
+            .select01, .select02 {
+                width: 230px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                word-break: break-all;
+                height: 40px;
+                padding: 0 14px;
+                font-size: 1.5rem;
+                border: 1px solid #dedede;
+                outline: 0;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: block;
+                color: #666;
+                float: left;
+                margin-bottom: 10px;
+                margin-right: 10px;
+            }
+            .submit-btn {
+                font-weight: 400;
+                letter-spacing: 0;
+                word-break: break-all;
+                vertical-align: top;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 1.5rem;
+                text-align: center;
+                box-sizing: border-box;
+                text-decoration: none;
+                color: #333;
+                border: 1px solid #dedede;
+                background-color: #dedede;
+                width: 80px;
+                height: 40px;
+            }
+        }//select-box end
+
         .map_div {
             width: 100%;
-        }
+        }//map_div end
     }// left_box end
 
     .right_box {
         width: 50%;
         float: right;
         padding: 15px 0 10px 40px;
+        margin-top: 30px;
         .charge_title {
             position: relative;
             width: 100%;
@@ -137,6 +178,15 @@
                 line-height: 40px;
                 font-size: 2rem;
                 font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+
+                span {
+                    margin-left: 10px;
+                    color: #222;
+                    display: inline-block;
+                    line-height: 40px;
+                    font-size: 2rem;
+                    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+                }
             }
 
             .report_btn {
@@ -196,6 +246,7 @@
         
         .now {
             margin: 10px 0;
+            height: 360px;
             .now-title {
                 font-size: 1.8rem;
                 font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
@@ -219,8 +270,12 @@
                     }
                 }
             }
-            
+            .list-wrap{
+                overflow:auto;
+                height: 330px;
+                overflow-y: auto;
             .now-list {
+                border-collapse: collapse;
                 font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
                 width: 100%;
                 font-size: 16px;
@@ -236,14 +291,20 @@
                     background-color: #52616b;
                     border-bottom: 1px solid #d4d4d4;
                 }
-                td {
-                    font-size: 17px;
-                    color: #333;
-                    text-align: center;
-                    height: 30px;
-                    padding: 5px 0;
+                tbody {
+                    
+                    overflow: auto;
+                    td {
+                        font-size: 17px;
+                        color: #333;
+                        text-align: center;
+                        height: 30px;
+                        padding: 10px 0;
+                        border-bottom: 1px solid #d4d4d4;
+                    }
                 }
             }
+          }
         }
     }// right end
 
