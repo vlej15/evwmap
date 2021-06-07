@@ -137,8 +137,8 @@ const QList = (props) => {
                   {post.answerCnt == 0 ? (
                     <span className="list-span1">답변대기</span>
                   ) : (
-                    <span className="list-span2">답변완료</span>
-                  )}
+                      <span className="list-span2">답변완료</span>
+                    )}
                 </td>
                 <td className="list-title">
                   <Link to={`/qlist/${post.q_dtt}`}>
@@ -148,18 +148,6 @@ const QList = (props) => {
                 <td className="list-date">{post.date}</td>
               </tr>
             ))}
-
-            <tr>
-              <td class="list-td">
-                <span className="list-span2">답변완료</span>
-              </td>
-              <td className="list-title">
-                <a className="list-link">
-                  도대체 제 문의는 언제 대답해주시나요?? 네??
-                </a>
-              </td>
-              <td className="list-date">2020.02.01</td>
-            </tr>
           </tbody>
         </table>
       </div>

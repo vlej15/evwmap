@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./css/Footer.scss";
 import logoImg from "./css/FooterLogo.png";
+import Policy from "./Policy"
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -9,14 +11,10 @@ function Footer() {
         <ul>
           <li>
             <div>
-              <a className="aaa">설치문의</a>
+              <Link to="./policy/Policy">
+                <a><button className="policy">개인정보처리방침</button></a>
+              </Link>
             </div>
-          </li>
-          <li>
-            <a>개인정보처리방침</a>
-          </li>
-          <li>
-            <a>사업자정보</a>
           </li>
           <div className="contents">
             <ul>

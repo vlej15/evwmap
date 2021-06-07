@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as fasHeart, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
+// library.add(faCheckSquare, faCoffee)
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./css/Resolve1.scss";
 import "./css/inquiry.scss";
@@ -35,6 +38,26 @@ function Inquiry(props) {
   const [chargerList, setChargerList] = useState([]);
   const [Clist, setClist] = useState([]);
   const [reservationTime, setReservationTime] = useState([]);
+  const [heart, setHeart] = useState(false);
+
+  // const [hearts, setHearts] = useState([]);
+  // const [nextId, setNextId] = useState(0);
+
+  const handleHeart = () => {
+    setHeart(!heart);
+
+    // const nextHearts = hearts.concat({
+    //   id : nextId,
+    //   isHeart : false,
+    // });
+    // setNextId(nextId + 1);
+    // setHearts(nextHearts);
+
+  };
+
+
+
+
 
   let today = new Date();
   let year = today.getFullYear(); // 년도
@@ -684,195 +707,197 @@ function Inquiry(props) {
 
     return pass == 1 ? (
       <div className="passmodal_background">
-        <div className="passModal">
-          <div className="mdPass">
-            <h3>충전기 예약</h3>
-          </div>
-          <div className="closeWrap">
-            <FontAwesomeIcon
-              icon={faTimes}
-              className="closeBtn"
-              onClick={() => {
-                setPass(0);
-              }}
-            />
-          </div>
-          <form>
-            <div className="ulType">
-              <div className="searchTable">
-                <p>예약현황목록</p>
-                <p>
-                  충전기 선택 후 아래에 표기된 예약된 시간대를 제외하고
-                  입력해주시기 바랍니다. <br></br>선택 가능한 충전기가 없을 경우
-                  예약이 불가능한 충전소 입니다.
-                </p>
-                {chargerList.map((list) =>
-                  list.chg_rsvt == "Y" ? (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        reservation(list.chg_id);
-                      }}
-                    >
-                      {list.chg_id}
-                    </button>
-                  ) : null
-                )}
 
-                <ul className="timeTable">
-                  {reservationTime.map((list) => (
-                    <li>예약시간</li>
-                  ))}
-                </ul>
-                <p>예약시간 선택</p>
-
-                <div className="calender"></div>
-
-                <div className="startTime">
-                  <p>시작시간</p>
-                  <select
-                    ref={register}
-                    name="start_time"
-                    id=""
-                    onChange={() => {
-                      setStime(getValues("start_time"));
-                    }}
-                  >
-                    <option value="00">00</option>
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                    <option value="03">03</option>
-                    <option value="04">04</option>
-                    <option value="05">05</option>
-                    <option value="06">06</option>
-                    <option value="07">07</option>
-                    <option value="08">08</option>
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                  </select>
-                  <select
-                    ref={register}
-                    name="start_minute"
-                    id=""
-                    onChange={() => {
-                      setSminute(getValues("start_minute"));
-                    }}
-                  >
-                    <option value="00">00</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                  </select>
-
-                  <p>종료시간</p>
-                  <select
-                    ref={register}
-                    name="endtime"
-                    onChange={() => {
-                      setEtime(getValues("endtime"));
-                    }}
-                  >
-                    <option value="00">00</option>
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                    <option value="03">03</option>
-                    <option value="04">04</option>
-                    <option value="05">05</option>
-                    <option value="06">06</option>
-                    <option value="07">07</option>
-                    <option value="08">08</option>
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                  </select>
-                  <select
-                    ref={register}
-                    name="endminute"
-                    id=""
-                    onChange={() => {
-                      setEminute(getValues("endminute"));
-                    }}
-                  >
-                    <option value="00">00</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="resorveTap">
-                <div className="resorveCheckTap">
-                  <ul>
-                    <li className="resorveY">
-                      <p>시작시간</p>
-                    </li>
-                    <li className="resorveN">
-                      <p>
-                        {stime}:{sminute}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-                <div className="resorveCheckTap">
-                  <ul>
-                    <li className="resorveY">
-                      <p>종료시간</p>
-                    </li>
-                    <li className="resorveN">
-                      <p>
-                        {etime}:{eminute}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-                <div className="resorveCheckTap2">
-                  <ul>
-                    <li className="resorveN2 ">
-                      <p
+        <div className="contentsModal"> {/* 모달 흰배경 */}
+          <div className="modal-area">
+            <div className="close-area">
+              <FontAwesomeIcon
+                icon={faTimes}
+                className="closeBtn"
+                onClick={() => {
+                  setPass(0);
+                }}
+              />
+            </div>
+            <div className="banner">
+              <p className="banner-title">충전기 예약</p>
+              <p className="banner-subtitle">충전기 선택 후 아래 표기된 시간대를 제외하고 입력해주세요.</p>
+              <p className="banner-subtitle2">* 선택 가능한 충전기가 없을 경우 예약이 불가능한 충전소 입니다 *</p>
+            </div>
+            <form>
+              <div className="modal-form">
+                <div className="click-time">
+                  {chargerList.map((list) =>
+                    list.chg_rsvt == "Y" ? (
+                      <button
+                        type="button"
                         onClick={() => {
-                          resolve(charger);
+                          reservation(list.chg_id);
                         }}
                       >
-                        예약
-                      </p>
-                    </li>
+                        {list.chg_id}
+                      </button>
+                    ) : null
+                  )}
+
+                  {/* 예약 테이블 */}
+                  <ul className="timeTable">
+                    {reservationTime.map((list) => (
+                      <li>예약시간</li>
+                    ))}
                   </ul>
+                  {/* 예약 테이블 끝 */}
+
+                  {/* <div className="calender"></div> */}
+
+                  <div className="select-time">
+                    <p className="select-title">예약시간 선택</p>
+                    <p className="select-start">시작시간</p>
+                    <select
+                      ref={register}
+                      name="start_time"
+                      id=""
+                      onChange={() => {
+                        setStime(getValues("start_time"));
+                      }}
+                    >
+                      <option value="00">00</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                    </select>
+                    <select
+                      ref={register}
+                      name="start_minute"
+                      id=""
+                      onChange={() => {
+                        setSminute(getValues("start_minute"));
+                      }}
+                    >
+                      <option value="00">00</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="50">50</option>
+                    </select>
+
+                    <p className="select-end">종료시간</p>
+                    <select
+                      ref={register}
+                      name="endtime"
+                      onChange={() => {
+                        setEtime(getValues("endtime"));
+                      }}
+                    >
+                      <option value="00">00</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                    </select>
+                    <select
+                      ref={register}
+                      name="endminute"
+                      id=""
+                      onChange={() => {
+                        setEminute(getValues("endminute"));
+                      }}
+                    >
+                      <option value="00">00</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="50">50</option>
+                    </select>
+                  </div>
                 </div>
+
+                {/* <div className="resorveTap">
+                  <div className="resorveCheckTap">
+                    <ul>
+                      <li className="resorveY">
+                        <p>시작시간</p>
+                      </li>
+                      <li className="resorveN">
+                        <p>
+                          {stime}:{sminute}
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="resorveCheckTap">
+                    <ul>
+                      <li className="resorveY">
+                        <p>종료시간</p>
+                      </li>
+                      <li className="resorveN">
+                        <p>
+                          {etime}:{eminute}
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="resorveCheckTap2">
+                    <ul>
+                      <li className="resorveN2 ">
+                        <p
+                          onClick={() => {
+                            resolve(charger);
+                          }}
+                        >
+                          예약
+                      </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div> */}
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-        <div></div>
+        <div>
+        </div>
       </div>
     ) : null;
   }
@@ -945,60 +970,44 @@ function Inquiry(props) {
           </form>
         </div> */}
         <div className="inquiry_box">
-          <div className="left_box">
 
-            <div class="select-box">
-              <select id="selectLevel" className="select01">
-                <option value="0" selected="selected">교통최적 + 추천</option>
-                <option value="1">교통최적 + 무료우선</option>
-                <option value="2">교통최적 + 최소시간</option>
-                <option value="3">교통최적 + 초보</option>
-                <option value="4">교통최적 + 고속도로우선</option>
-                <option value="10">최단거리 + 유/무료</option>
-                <option value="12">이륜차도로우선</option>
-                <option value="19">교통최적 + 어린이보호구역 회피</option>
-              </select>{" "}
-              <select id="year" className="select02">
-                <option value="N" selected="selected">
-                  교통정보 표출 옵션
-                  </option>
-                <option value="Y">Y</option>
-                <option value="N">N</option>
-              </select>
-              <button id="btn_select" className="submit-btn">적용하기</button>
-              {/* <div class="map_act_btn_wrap clear_box"></div>
-              <div class="clear"></div> */}
-            </div>
+          <div className="first-wrap">
 
-            <div className="chargeMap_box">
-              <div>
-                <div className="map_div" id="map_div"></div>
+            <div className="left_box">
+              <div class="select-box">
+                <select id="selectLevel" className="select01">
+                  <option value="0" selected="selected">교통최적 + 추천</option>
+                  <option value="1">교통최적 + 무료우선</option>
+                  <option value="2">교통최적 + 최소시간</option>
+                  <option value="3">교통최적 + 초보</option>
+                  <option value="4">교통최적 + 고속도로우선</option>
+                  <option value="10">최단거리 + 유/무료</option>
+                  <option value="12">이륜차도로우선</option>
+                  <option value="19">교통최적 + 어린이보호구역 회피</option>
+                </select>{" "}
+                <select id="year" className="select02">
+                  <option value="N" selected="selected">교통정보 표출 옵션</option>
+                  <option value="Y">Y</option>
+                  <option value="N">N</option>
+                </select>
+                <button id="btn_select" className="submit-btn">적용하기</button>
               </div>
-            </div> {/* chargeMap_box end */}
-          </div>{/* left_box end */}
 
-          <div className="right_box">
-            <div className="chargeInfo_box">
-              <div className="charge_title">
-                <h1 className="charge_name">
-                  충전소 명 :
-                  {station.map((a) => (
-                  <span>{a.stat_nm}</span>
-                ))}
-                </h1>
-                {reviewtag == false ? (
-                  <button className="report_btn">
-                    <FontAwesomeIcon
-                      icon={faExclamationTriangle}
-                      className="notify_btn"
-                      title="고장신고"
-                      onClick={() => {
-                        setReport(!report);
-                      }}
-                      disabled
-                    />
-                  </button>
-                ) : (
+              <div className="chargeMap_box">
+                <div className="map_div" id="map_div"></div>
+              </div> {/* chargeMap_box end */}
+            </div>{/* left_box end */}
+
+            <div className="right_box">
+              <div className="chargeInfo_box">
+                <div className="charge_title">
+                  <h1 className="charge_name">
+                    충전소 명 :
+                    {station.map((a) => (
+                    <span>{a.stat_nm}</span>
+                  ))}
+                  </h1>
+                  {reviewtag == false ? (
                     <button className="report_btn">
                       <FontAwesomeIcon
                         icon={faExclamationTriangle}
@@ -1007,157 +1016,199 @@ function Inquiry(props) {
                         onClick={() => {
                           setReport(!report);
                         }}
+                        disabled
                       />
                     </button>
-                  )}
-              </div>
-
-              <div className="infomation">
-                <ul>
-                  <li>
-                    <p className="info-p">도로명 주소</p>
-                    {station.map((a) => (
-                      <span>{a.stat_addr}</span>
-                    ))}
-                  </li>
-                  <li>
-                    <p className="info-p">이용가능시간</p>
-                    <span>24시간 이용가능</span>
-                  </li>
-                  <li>
-                    <p className="info-p">연락처</p>
-                    <span>1522-2573</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="now">
-                <p className="now-title">
-                  충전기 정보
-                  {reviewtag == false ? (
-                    <button
-                      className="rsvt-btn"
-                      type="button"
-                      onClick={() => {
-                        setPass(!pass);
-                      }}
-                      disabled
-                    >
-                      예약
-                    </button>
                   ) : (
+                      <button className="report_btn">
+                        <FontAwesomeIcon
+                          icon={faExclamationTriangle}
+                          className="notify_btn"
+                          title="고장신고"
+                          onClick={() => {
+                            setReport(!report);
+                          }}
+                        />
+                      </button>
+                    )}
+                </div>
+
+                <div className="infomation">
+                  <ul>
+                    <li>
+                      <p className="info-p">도로명 주소</p>
+                      {station.map((a) => (
+                        <span>{a.stat_addr}</span>
+                      ))}
+                    </li>
+                    <li>
+                      <p className="info-p">이용가능시간</p>
+                      <span>24시간 이용가능</span>
+                    </li>
+                    <li>
+                      <p className="info-p">연락처</p>
+                      <span>1522-2573</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="now">
+                  <p className="now-title">
+                    충전기 정보
+                      {reviewtag == false ? (
                       <button
                         className="rsvt-btn"
                         type="button"
                         onClick={() => {
                           setPass(!pass);
                         }}
+                        disabled
                       >
                         예약
                       </button>
-                    )}
-                </p>
-                {passModal()}
-                <div className="list-wrap">
-                  <table className="now-list">
-                    <thead>
-                      <tr>
-                        <th>순번</th>
-                        <th>충전기 타입</th>
-                        <th>예약가능 여부</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {chargerList.map((list) => (
+                    ) : (
+                        <button
+                          className="rsvt-btn"
+                          type="button"
+                          onClick={() => {
+                            setPass(!pass);
+                          }}
+                        >
+                          예약
+                        </button>
+                      )}
+                  </p>
+                  {passModal()}
+                  <div className="list-wrap">
+                    <table className="now-list">
+                      <thead>
                         <tr>
-                          <td>{list.chg_id}</td>
-                          <td>{list.chg_type}</td>
-                          <td>{list.chg_rsvt}</td>
+                          <th>순번</th>
+                          <th>충전기 타입</th>
+                          <th>예약가능 여부</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {chargerList.map((list) => (
+                          <tr>
+                            <td>{list.chg_id}</td>
+                            <td>{list.chg_type}</td>
+                            <td>{list.chg_rsvt}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="review_box">
-            <p className="review-title">충전소 리뷰</p>
-            <div className="review_list">
-              <table className="review_table">
-                <tbody className="review_tbody">
-                  {review.map((rev) => (
-                    <tr className="re_tr">
-                      <td className="re_input">{rev.re_content}</td>
-                      <td className="re_td_date">{rev.date}</td>
-                      <td className="re_td_id">{rev.re_writer}</td>
-                      <td className="re_td_icon">
-                        <i
-                          class="fas fa-minus-circle"
-                          onClick={() => {
-                            revDelete(rev.re_reg_dtt);
-                          }}
-                        ></i>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <form>
-              <div className="review_input">
-                {reviewtag == false ? (
-                  <input
-                    className="review_text"
-                    type="text"
-                    placeholder="리뷰를 입력해주세요."
-                    disabled
-                  />
-                ) : (
+
+
+          <div className="second-wrap">
+            <div className="review_box">
+              <p className="review-title">충전소 리뷰</p>
+              <div className="review_list">
+                <table className="review_table">
+                  <tbody className="review_tbody">
+                    {review.map((rev) => (
+                      <tr className="re_tr">
+                        <td className="re_input">{rev.re_content}</td>
+                        <td className="re_td_date">{rev.date}</td>
+                        <td className="re_td_id">{rev.re_writer}</td>
+                        <td className="re_td_icon">
+                          <i
+                            class="fas fa-minus-circle"
+                            onClick={() => {
+                              revDelete(rev.re_reg_dtt);
+                            }}
+                          ></i>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <form>
+                <div className="review_input">
+                  {reviewtag == false ? (
                     <input
-                      ref={register}
                       className="review_text"
                       type="text"
                       placeholder="리뷰를 입력해주세요."
-                      name="review"
+                      disabled
                     />
-                  )}
-                {reviewtag == false ? (
-                  <button
-                    disabled
-                    type="button"
-                    onClick={onClick}
-                    className="create"
-                  >
-                    입 력
-                  </button>
-                ) : (
-                    <button type="button" onClick={onClick} className="create">
+                  ) : (
+                      <input
+                        ref={register}
+                        className="review_text"
+                        type="text"
+                        placeholder="리뷰를 입력해주세요."
+                        name="review"
+                      />
+                    )}
+                  {reviewtag == false ? (
+                    <button
+                      disabled
+                      type="button"
+                      onClick={onClick}
+                      className="create"
+                    >
                       입 력
                     </button>
-                  )}
+                  ) : (
+                      <button type="button" onClick={onClick} className="create">
+                        입 력
+                      </button>
+                    )}
+                </div>
+              </form>
+            </div>
+            <div className="facility_box">
+              <p className="facility-title">주변 시설</p>
+              <div className="list-wrap">
+                <table className="facility-list">
+                  <thead>
+                    <tr className="headth">
+                      <th className="th-b">시설명</th>
+                      <th>주소</th>
+                      <th className="th-s">추천수</th>
+                      <th className="th-s">추천</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {facilityList.map((fac, index) => (
+                      <tr>
+                        <td>{fac.name}</td>
+                        <td>대구광역시 북구 복현로 35</td>
+                        <td>29</td>
+                        <td><button onClick={handleHeart}>
+                          {heart ? (
+                            <FontAwesomeIcon
+                              icon={farHeart}
+                              className="heartBtn"
+                            />
+                          ) : (
+                              <FontAwesomeIcon
+
+                                icon={fasHeart}
+                              />
+                            )}
+                          {/* <FontAwesomeIcon
+                          icon={faHeart}
+                          className="heartBtn"
+                        /> */}
+                          {/* <FontAwesomeIcon
+                            icon={faHeart}
+                            className="heartBtn"
+                          /> */}
+
+                        </button></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-            </form>
-          </div>
-          <p className="review-title">주변 시설</p>
-          <div className="facility_box">
-            <table className="now-list">
-              <thead>
-                <tr className="headth">
-                  <th>시설명</th>
-                  <th>시설정보</th>
-                  <th>전화번호</th>
-                </tr>
-              </thead>
-              <tbody>
-                {facilityList.map((fac) => (
-                  <tr>
-                    <td>{fac.name}</td>
-                    <td>승용차 AC 완속</td>
-                    <td>충전대기</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            </div>
           </div>
         </div>
       </div>

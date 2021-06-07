@@ -98,7 +98,7 @@ function BoardWrite(props) {
                 name="b_title"
                 id="form_title"
                 size="91"
-                required=""
+                required="required"
                 placeholder="제목을 입력해 주세요"
               />
               {errors.form_title && (
@@ -121,6 +121,7 @@ function BoardWrite(props) {
                     type="radio"
                     id="good"
                     name="cat_cd"
+                    required="required"
                   />
                   <span>자유게시판 </span>
                 </label>
@@ -150,6 +151,7 @@ function BoardWrite(props) {
                 rows="10"
                 required=""
                 className="input-content"
+                required="requried"
               ></textarea>
             </div>
             <div className="file">

@@ -220,7 +220,7 @@ function Post(props) {
           <div className="title-area">
             <span className="title">{post.b_title}</span>
             <span className="writer">
-              {post.u_id} | {post.date}
+              {post.u_id}  |  {post.date}
             </span>
           </div>
           <div className="body-area">
@@ -276,8 +276,8 @@ function Post(props) {
             {localStorage.getItem("id_value") !== null ? (
               <p className="id">{localStorage.getItem("id_value")}</p>
             ) : (
-              <p className="id">아이디</p>
-            )}
+                <p className="id">아이디</p>
+              )}
 
             <input
               ref={register}
@@ -285,6 +285,7 @@ function Post(props) {
               className="reple-text"
               placeholder="댓글을 남겨보세요."
               name="reply"
+              width="100%"
             />
             <div className="replybtn-area">
               <input type="submit" value="등록" className="reply-btn" />

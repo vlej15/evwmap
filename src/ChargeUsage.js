@@ -77,9 +77,9 @@ function ChargeUsage(props) {
             </div>
             <div
                 className="contentsChargeUsage"
-                // onClick={() => {
-                //     props.setMenu(false);
-                // }}
+            // onClick={() => {
+            //     props.setMenu(false);
+            // }}
             >
                 <div className="banner">
                     <p className="banner-title">충전소 이용 내역</p>
@@ -99,9 +99,7 @@ function ChargeUsage(props) {
                                 <span>(khw)</span>
                             </th>
                             <th className="price">
-                                충전금액
-                                <br />
-                                <span>(원)</span>
+                                사용 포인트
                             </th>
                         </tr>
                     </thead>

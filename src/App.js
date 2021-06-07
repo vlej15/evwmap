@@ -27,11 +27,11 @@ import News from "./News";
 import CardRegistration from "./CardRegistration";
 import Post from "./Post";
 import Main from "./Main";
-import Test1 from "./Test1";
 import AdminUser from "./AdminUser";
 import Qpost from "./Qpost";
 import AdminBollard from "./AdminBollard";
 import AdminAgency from "./AdminAgency";
+import Policy from "./Policy"
 
 function App() {
   const [a1, setA1] = useState();
@@ -107,9 +107,6 @@ function App() {
         {/* INTRODUCTION */}
         <Route exact path="/introduction">
           <BrandStory />
-        </Route>
-        <Route exact path="/test">
-          <Test1 />
         </Route>
         {/* LOGIN/JOIN */}
         <Route exact path="/login">
@@ -187,6 +184,11 @@ function App() {
 
         <Route exact path="/card">
           <CardRegistration getCount={getCount} setCount={setCount} />
+        </Route>
+
+
+        <Route exact path="/policy">
+          <Policy getCount={getCount} setCount={setCount} />
         </Route>
 
         {/* COMMUNITY */}

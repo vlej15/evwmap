@@ -3,243 +3,319 @@
     top:0; left: 0; bottom: 0; right: 0;
     background: rgba(0, 0, 0, 0.8);
     margin: 0px;
-    .passModal{
+    .contentsModal{
         position: absolute;
         top: calc(50vh - 190px); left: calc(50vw - 320px);
         background-color: #f6f5f5;
         display: flex;
         flex-direction: column;
         width: 600px;
-        height: 375px;
-        border-radius: 20px;
-        .mdPass{
-            margin-top:20px;
-            margin-bottom:5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        .closeWrap{
-            text-align: right;
-            width: 400px;
-            margin:0px;
-            p{
-                align-items: center;
-            }
-            .closeBtn{
-                position: absolute;
-                top: 10px; right: 10px;
-                font-size: 30px;
-                color:#464646;
-                margin-top: 4px;
-                margin-right: 9px;
+        height: 405px;
+        border-radius: 10px;
+
+        .modal-area {
+            width: 93%;
+            margin: 0 auto;
+
+            .close-area {
+                text-align: right;
+                font-size: 1.9rem;
+                margin-top: 15px;
+                cursor: pointer;
+
                 &:hover{
-                    color:#f2b640;
+                    color:#52616b;
                 }
             }
-        }
-        
-    }
-    .searchTable{
-        margin-top: 10px;
-        p{
-            margin:0px;
-            text-align: center;
-            font-size: 12px;
-        }
-        .startTime{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 30px;
-            p{
-                margin-right: 10px;
-            }
-        }
-        button{
-            margin-top: 10px;
-            margin-right: 5px;
-            width: 30px;
-            height: 30px;
-        }
-    }
-    .ulType{
-        width:100%;
-        height: 200px;
-        margin:0px;
-        margin-top: 0px;
-        display: flex;
-        align-items: center;
-        flex-direction:column;
-        div{
-            margin-bottom: 15px;
-            
-        }
-        // .calender{
-        //     margin-top: 10px;
-        //     display: flex;
-        //     line-height:20px;
-        // }
-        input{
-            border:none;
-            margin-right: 5px;
-        }
-        .timeResorve{
-            width:360px;
-            height: 30px;
-            border:1px solid black;
-            border-left: 0px;
-            border-right: 0px;
-            border-bottom: 0px;
-            background-color: #f2b640;
-            color:white;
-            font-size: 16px;
-
-        }
-        .timeTable{
-            width:360px;
-            height: 56px;
-            overflow-y:scroll;
-            margin-bottom: 10px;
-            margin-top: 10px;
-            border-top: 1px solid #464646;
-            border-bottom: 1px solid #464646;
-            li{
-                float:left;
-                line-height: 30px;
-                height: 30px;
-                margin-right: 6px;
-            }
-
-            
-        }
-        ul{
-            padding:0px;
-            
-            .typeBtn{
-                float:left;
-                color:white;
-                text-align: center;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 60px;
-                width:60px;
-                height:60px;
-                background-color: rgb(26,26,26);
-                margin-right: 15px;
-                border-radius: 10px;
-                // width:50px;
-                &:hover{
-                    background-color:#f2b640;
+            .banner {
+                margin-top: 2px;
+                .banner-title {
+                    color: #222;
+                    line-height: 1.4;
+                    letter-spacing: 0;
+                    word-break: break-all;
+                    text-align: center;
+                    margin: 0px;
+                    padding: 0px;
+                    vertical-align: top;
+                    font-size: 2rem;
+                    font-weight: bold;
                 }
-            }
-        }  
-    }
-    .resorveTap{
-        display: flex;
-        margin-top: -10px;
-        width:610px;
-        height: 120px;
-        background-color: white;
-        box-shadow: 1px 3px 13px rgb(146, 146, 146);
-        border-radius: 3px;
-
-        .checkTap{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            width:200px;
-            ul{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-left: 40px;
-                li{
-                    margin:0px;
-                }
-                .resorveY{
-                    background-color: rgb(26,26,26);
-                    width:20px;
-                    height: 20px;
-                    border-radius: 3px;
-                    margin-right: 0px;
-
-                }
-                .resorveN{
-                    background-color: #f2b640;
-                    width:20px;
-                    height: 20px;
-                    border-radius: 3px;
+                .banner-subtitle {
+                    font-family: 'IBMPlexSansKR-Regular';
+                    font-size: 1.55rem;
+                    margin: 0 auto;
                     margin-top: 5px;
-                }
-            }
-        }
-        .resorveCheckTap{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 30px;
-            width:200px;
-            margin-left: 20px;
-            margin-top: 20px;
-            ul{
-                .resorveY{
-                    float:left;
-                    background-color: rgb(26,26,26);
-                    width:50px;
-                    height: 60px;
-                    margin-right: 0px;
-                    text-align:  center;
-                    p{
-                        margin-top:14px;
-                        color:white;
-                        font-size: 13px;
+                } 
+                .banner-subtitle2 {
+                    font-family: 'IBMPlexSansKR-Regular';
+                    font-size: 1.25rem;
+                    margin: 0 auto;
+                    margin-top: 7px;
+                    color: #555;
+                } 
+            } // banner end
+
+            .modal-form {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                flex-direction:column; 
+                // background-color: blue;
+
+                .click-time {
+                    // text-align: center;
+                    width: 100%;
+                    // background-color: red;
+
+                    button {
+                        width: 37.8px;
+                        height: 37.8px;
+                        margin: 2px 1px;
+                        border: 1px solid #52616b;
+                        background-color: #52616b;
+                        border-radius: 2px;
+                        color: #e7e7e7;
+                        cursor: pointer;
+                    } // button end
+
+                    .timeTable{
+                        width: 100%;
+                        height: 55px;
+                        overflow-y: scroll;
+                        margin: 20px 0;
+                        border-top: 1px solid #888;
+                        border-bottom: 1px solid #888;
+                        li{
+                            float: left;
+                            line-height: 30px;
+                            height: 30px;
+                            margin-right: 6px;
+                        } // li end      
+                    } // timeTable end
+                    
+                    .select-time {
+                        width: 90%;
+                        margin: 0 auto;
+                        background-color: red;
+
+                        .select-title {
+                            color: #333;
+                            font-size: 1.6rem;
+                            margin-right: 10px;
+                            float: left;
+                        }
                         
-                    }
-                }
-                .resorveN{
-                    float:left;
-                    background-color: #a8a8a8;
-                    width:120px;
-                    height: 60px;
-                    p{
-                        text-align: center;
-                        margin:0px;
-                        line-height: 60px;
-                        color:white;
-                        font-size: 50px;
-                        font-weight:600;
-                    }
-                }
-            }
-        }
-        .resorveCheckTap2{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width:200px;
-            ul{
-                .resorveN2{
-                    float:left;
-                    background-color: #f2b640;
-                    width:120px;
-                    height: 60px;
-                    border-radius: 10px 10px 10px 10px;
-                    box-shadow: 3px 3px 10px rgb(163, 163, 163);
-                    margin-top: 17px;
-                    p{
-                        text-align: center;
-                        margin:0px;
-                        line-height: 60px;
-                        color:white;
-                        font-size: 30px;
-                        font-weight:600;
-                    }
-                }
-            }
-        }
+                        .select-start, .select-end {
+                            float: left;
+                        }
+
+                        select {
+                            float: left;
+                        }
+                    } // select-time end
+
+                    .resorveTap {
+                        .resorveCheckTap {
+ 
+                        }
+                    } // resorveTap
+
+                } // check-time end
+            } // modal-form end
+
+        } // modal-area
+        
+        
+    // }
+    // .searchTable{
+    //     margin-top: 10px;
+    //     
+    //     
+    //     }
+    //     button{
+    //         margin-top: 10px;
+    //         margin-right: 5px;
+    //         width: 30px;
+    //         height: 30px;
+    //     }
+    // }
+    // .modal-form{
+    //     width:100%;
+    //     height: 200px;
+    //     margin:0px;
+    //     margin-top: 0px;
+    //     display: flex;
+    //     align-items: center;
+    //     flex-direction:column;
+    //     div{
+    //         margin-bottom: 15px;
+            
+    //     }
+    //     // .calender{
+    //     //     margin-top: 10px;
+    //     //     display: flex;
+    //     //     line-height:20px;
+    //     // }
+    //     input{
+    //         border:none;
+    //         margin-right: 5px;
+    //     }
+    //     .timeResorve{
+    //         width:360px;
+    //         height: 30px;
+    //         border:1px solid black;
+    //         border-left: 0px;
+    //         border-right: 0px;
+    //         border-bottom: 0px;
+    //         background-color: #52616b;
+    //         color:white;
+    //         font-size: 16px;
+
+    //     }
+    //     .timeTable{
+    //         width:360px;
+    //         height: 56px;
+    //         overflow-y:scroll;
+    //         margin-bottom: 10px;
+    //         margin-top: 10px;
+    //         border-top: 1px solid #464646;
+    //         border-bottom: 1px solid #464646;
+    //         li{
+    //             float:left;
+    //             line-height: 30px;
+    //             height: 30px;
+    //             margin-right: 6px;
+    //         }
+
+            
+    //     }
+    //     ul{
+    //         padding:0px;
+            
+    //         .typeBtn{
+    //             float:left;
+    //             color:white;
+    //             text-align: center;
+    //             font-weight: bold;
+    //             font-size: 16px;
+    //             line-height: 60px;
+    //             width:60px;
+    //             height:60px;
+    //             background-color: rgb(26,26,26);
+    //             margin-right: 15px;
+    //             border-radius: 10px;
+    //             // width:50px;
+    //             &:hover{
+    //                 background-color:#f2b640;
+    //             }
+    //         }
+    //     }  
+    // }
+    // .resorveTap{
+    //     display: flex;
+    //     margin-top: -10px;
+    //     width:610px;
+    //     height: 120px;
+    //     background-color: white;
+    //     box-shadow: 1px 3px 13px rgb(146, 146, 146);
+    //     border-radius: 3px;
+
+    //     .checkTap{
+    //         display: flex;
+    //         flex-direction: row;
+    //         align-items: center;
+    //         justify-content: center;
+    //         width:200px;
+    //         ul{
+    //             display: flex;
+    //             flex-direction: column;
+    //             align-items: center;
+    //             margin-left: 40px;
+    //             li{
+    //                 margin:0px;
+    //             }
+    //             .resorveY{
+    //                 background-color: rgb(26,26,26);
+    //                 width:20px;
+    //                 height: 20px;
+    //                 border-radius: 3px;
+    //                 margin-right: 0px;
+
+    //             }
+    //             .resorveN{
+    //                 background-color: #f2b640;
+    //                 width:20px;
+    //                 height: 20px;
+    //                 border-radius: 3px;
+    //                 margin-top: 5px;
+    //             }
+    //         }
+    //     }
+    //     .resorveCheckTap{
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         line-height: 30px;
+    //         width:200px;
+    //         margin-left: 20px;
+    //         margin-top: 20px;
+    //         ul{
+    //             .resorveY{
+    //                 float:left;
+    //                 background-color: rgb(26,26,26);
+    //                 width:50px;
+    //                 height: 60px;
+    //                 margin-right: 0px;
+    //                 text-align:  center;
+    //                 p{
+    //                     margin-top:14px;
+    //                     color:white;
+    //                     font-size: 13px;
+                        
+    //                 }
+    //             }
+    //             .resorveN{
+    //                 float:left;
+    //                 background-color: #a8a8a8;
+    //                 width:120px;
+    //                 height: 60px;
+    //                 p{
+    //                     text-align: center;
+    //                     margin:0px;
+    //                     line-height: 60px;
+    //                     color:white;
+    //                     font-size: 50px;
+    //                     font-weight:600;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     .resorveCheckTap2{
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         width:200px;
+    //         ul{
+    //             .resorveN2{
+    //                 float:left;
+    //                 background-color: #f2b640;
+    //                 width:120px;
+    //                 height: 60px;
+    //                 border-radius: 10px 10px 10px 10px;
+    //                 box-shadow: 3px 3px 10px rgb(163, 163, 163);
+    //                 margin-top: 17px;
+    //                 p{
+    //                     text-align: center;
+    //                     margin:0px;
+    //                     line-height: 60px;
+    //                     color:white;
+    //                     font-size: 30px;
+    //                     font-weight:600;
+    //                 }
+    //             }
+    //         }
+    //     }
         
     }
 }

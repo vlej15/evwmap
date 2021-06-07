@@ -8,6 +8,8 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import "./css/MDbtn.scss";
 
 function PostList(props) {
+  const [comment, setComment] = useState([]);
+
   const [modify, setModify] = useState(0);
   const [submenu, setSubmenu] = useState(0);
   const { register, handleSubmit, watch, errors, getValues } = useForm();
@@ -132,16 +134,19 @@ function PostList(props) {
                 <button
                   onClick={() => {
                     setSubmenu(1);
+                    setModify(!modify);
                   }}
                 >
-                  댓글 수정
+                  댓글수정
                 </button>
                 <button
                   onClick={() => {
                     Delete(props.comment.r_dtt);
+                    setModify(!modify);
+                    window.location.reload()
                   }}
                 >
-                  댓글 삭제
+                  댓글삭제
                 </button>
               </div>
             ) : null}
@@ -149,24 +154,23 @@ function PostList(props) {
           {submenu == 0 ? (
             <p className="comm-body">{props.comment.r_content}</p>
           ) : (
-            <form className="plform">
-              <input
-                ref={register}
-                type="textarea"
-                className="reple-text"
-                placeholder="댓글을 수정해보세요."
-                name="reply"
-              />
-              <button
-                type="button"
-                onClick={() => {
-                  Modify(props.comment.r_dtt);
-                }}
-              >
-                수정
+              <form className="plform">
+                <textarea
+                  ref={register}
+                  type="textarea"
+                  className="reple-text"
+                  name="reply"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    Modify(props.comment.r_dtt);
+                  }}
+                >
+                  수정
               </button>
-            </form>
-          )}
+              </form>
+            )}
 
           <p className="comm-date">{props.comment.date}</p>
         </div>

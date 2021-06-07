@@ -140,7 +140,7 @@ const QWrite = (props) => {
                 name="form_title"
                 id="form_title"
                 size="91"
-                required
+                required="required"
               />
               {/* {errors.form_title && <div className="alert">필수 입력항목입니다.</div>} */}
             </div>
@@ -159,7 +159,7 @@ const QWrite = (props) => {
                     value="0"
                     type="radio"
                     id="good"
-                    required
+                    required="required"
                   />
                   <span>칭찬 </span>
                 </label>
@@ -199,6 +199,7 @@ const QWrite = (props) => {
                 rows="10"
                 required
                 className="input-content"
+                required="required"
               ></textarea>
               {errors.form_content && (
                 <div className="alert2">필수 입력항목입니다.</div>
