@@ -10,7 +10,7 @@
         display: flex;
         flex-direction: column;
         width: 600px;
-        height: 405px;
+        height: 445px;
         border-radius: 10px;
 
         .modal-area {
@@ -163,7 +163,25 @@
                     } // output-time end
                     
                     .rsvt-submit {
-                        background-color: red;
+                        margin-top: 20px;
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        width: 70px;
+                        height: 35px;
+                        border: 1px solid #d4d4d4;
+                        background-color: #d4d4d4;
+                        border-radius: 2px;
+                        cursor: pointer;
+                        text-align: center;
+                        line-height: 35px;
+                        color: #444;
+
+                        &:hover {
+                            background-color: #52616b;
+                            border: 1px solid #52616b;
+                            color: #fff;
+                        }
                     }
                 }
             } // modal-area

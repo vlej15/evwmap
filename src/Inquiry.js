@@ -870,14 +870,14 @@ function Inquiry(props) {
                     </li>
                   </ul>
                 </div>
-                <button
+                <p
                   onClick={() => {
                     resolve(charger);
                   }}
                   className="rsvt-submit"
                 >
                   예약
-                </button>
+                      </p>
                 {/* <div className="resorveTap">
                   <div className="resorveCheckTap2">
                     <ul>
