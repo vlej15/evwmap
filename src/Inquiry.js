@@ -57,8 +57,6 @@ function Inquiry(props) {
 
 
 
-
-
   let today = new Date();
   let year = today.getFullYear(); // 년도
   let month =
@@ -853,31 +851,34 @@ function Inquiry(props) {
                   </div>
                 </div>
 
+                <div className="output-time">
+                  <ul>
+                    <li className="output-title">
+                      <p><span>시작시간 :</span></p>
+                    </li>
+                    <li className="output-time">
+                      {stime}:{sminute}
+                    </li>
+                    <li className="li-n">
+                      <p>~</p>
+                    </li>
+                    <li className="output-title">
+                      <p><span>종료시간 :</span></p>
+                    </li>
+                    <li className="output-time">
+                      {etime}:{eminute}
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  onClick={() => {
+                    resolve(charger);
+                  }}
+                  className="rsvt-submit"
+                >
+                  예약
+                </button>
                 {/* <div className="resorveTap">
-                  <div className="resorveCheckTap">
-                    <ul>
-                      <li className="resorveY">
-                        <p>시작시간</p>
-                      </li>
-                      <li className="resorveN">
-                        <p>
-                          {stime}:{sminute}
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="resorveCheckTap">
-                    <ul>
-                      <li className="resorveY">
-                        <p>종료시간</p>
-                      </li>
-                      <li className="resorveN">
-                        <p>
-                          {etime}:{eminute}
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
                   <div className="resorveCheckTap2">
                     <ul>
                       <li className="resorveN2 ">
