@@ -15,6 +15,7 @@ function PostList(props) {
   const { register, handleSubmit, watch, errors, getValues } = useForm();
   const token = localStorage.getItem("id");
   const { id } = useParams();
+  const [reply, setReply] = useState("");
 
   function changeModify() {
     setModify(!modify);
@@ -118,6 +119,10 @@ function PostList(props) {
       });
   }
 
+  const onReplyChange = (e) => {
+    setReply(e.target.value);
+  };
+
   return (
     <div>
       <div>
@@ -135,6 +140,7 @@ function PostList(props) {
                   onClick={() => {
                     setSubmenu(1);
                     setModify(!modify);
+                    setReply(props.comment.r_content);
                   }}
                 >
                   댓글수정
@@ -143,7 +149,7 @@ function PostList(props) {
                   onClick={() => {
                     Delete(props.comment.r_dtt);
                     setModify(!modify);
-                    window.location.reload()
+                    window.location.reload();
                   }}
                 >
                   댓글삭제
@@ -154,23 +160,25 @@ function PostList(props) {
           {submenu == 0 ? (
             <p className="comm-body">{props.comment.r_content}</p>
           ) : (
-              <form className="plform">
-                <textarea
-                  ref={register}
-                  type="textarea"
-                  className="reple-text"
-                  name="reply"
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    Modify(props.comment.r_dtt);
-                  }}
-                >
-                  수정
+            <form className="plform">
+              <textarea
+                ref={register}
+                type="textarea"
+                className="reple-text"
+                name="reply"
+                value={reply}
+                onChange={onReplyChange}
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  Modify(props.comment.r_dtt);
+                }}
+              >
+                수정
               </button>
-              </form>
-            )}
+            </form>
+          )}
 
           <p className="comm-date">{props.comment.date}</p>
         </div>
