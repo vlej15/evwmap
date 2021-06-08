@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { faHeart as fasHeart, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart as fasHeart,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 // library.add(faCheckSquare, faCoffee)
 
@@ -52,10 +55,7 @@ function Inquiry(props) {
     // });
     // setNextId(nextId + 1);
     // setHearts(nextHearts);
-
   };
-
-
 
   let today = new Date();
   let year = today.getFullYear(); // 년도
@@ -63,7 +63,10 @@ function Inquiry(props) {
     today.getMonth() + 1 < 10
       ? "0" + (today.getMonth() + 1)
       : today.getMonth() + 1;
-  let date = today.getDate(); // 날짜
+  let date = today.getDate() < 10 ? "0" + today.getDate() : today.getDate(); // 날짜
+  console.log("오늘의 날짜는??? " + date);
+
+  const fullDate = year + "-" + month + "-" + date + "T";
 
   const token = localStorage.getItem("id");
 
@@ -349,13 +352,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-            request.status +
-            "\n" +
-            "message:" +
-            request.responseText +
-            "\n" +
-            "error:" +
-            error
+              request.status +
+              "\n" +
+              "message:" +
+              request.responseText +
+              "\n" +
+              "error:" +
+              error
           );
         },
       });
@@ -571,7 +574,7 @@ function Inquiry(props) {
       data: data,
     };
     axios(config)
-      .then(function (response) { })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -652,10 +655,20 @@ function Inquiry(props) {
     var data = JSON.stringify({
       stat_id: props,
       chg_id: "1",
-      rsvt_start: getValues("stime") + ":" + getValues("sminute"),
-      rsvt_end: getValues("etime") + ":" + getValues("eminute"),
+      rsvt_start:
+        fullDate + getValues("stime") + ":" + getValues("sminute") + ":00",
+      rsvt_end:
+        fullDate + getValues("etime") + ":" + getValues("eminute") + ":00",
       u_id: localStorage.getItem("id_value"),
     });
+    console.log(
+      "포스트맨 값 " +
+        fullDate +
+        getValues("stime") +
+        ":" +
+        getValues("sminute") +
+        ":00"
+    );
 
     var config = {
       method: "post",
@@ -705,8 +718,9 @@ function Inquiry(props) {
 
     return pass == 1 ? (
       <div className="passmodal_background">
-
-        <div className="contentsModal"> {/* 모달 흰배경 */}
+        <div className="contentsModal">
+          {" "}
+          {/* 모달 흰배경 */}
           <div className="modal-area">
             <div className="close-area">
               <FontAwesomeIcon
@@ -719,8 +733,12 @@ function Inquiry(props) {
             </div>
             <div className="banner">
               <p className="banner-title">충전기 예약</p>
-              <p className="banner-subtitle">충전기 선택 후 아래 표기된 시간대를 제외하고 입력해주세요.</p>
-              <p className="banner-subtitle2">* 선택 가능한 충전기가 없을 경우 예약이 불가능한 충전소 입니다 *</p>
+              <p className="banner-subtitle">
+                충전기 선택 후 아래 표기된 시간대를 제외하고 입력해주세요.
+              </p>
+              <p className="banner-subtitle2">
+                * 선택 가능한 충전기가 없을 경우 예약이 불가능한 충전소 입니다 *
+              </p>
             </div>
             <form>
               <div className="modal-form">
@@ -753,10 +771,10 @@ function Inquiry(props) {
                     <p className="select-start">시작시간</p>
                     <select
                       ref={register}
-                      name="start_time"
+                      name="stime"
                       id=""
                       onChange={() => {
-                        setStime(getValues("start_time"));
+                        setStime(getValues("stime"));
                       }}
                     >
                       <option value="00">00</option>
@@ -786,10 +804,10 @@ function Inquiry(props) {
                     </select>
                     <select
                       ref={register}
-                      name="start_minute"
+                      name="sminute"
                       id=""
                       onChange={() => {
-                        setSminute(getValues("start_minute"));
+                        setSminute(getValues("sminute"));
                       }}
                     >
                       <option value="00">00</option>
@@ -803,9 +821,9 @@ function Inquiry(props) {
                     <p className="select-end">종료시간</p>
                     <select
                       ref={register}
-                      name="endtime"
+                      name="etime"
                       onChange={() => {
-                        setEtime(getValues("endtime"));
+                        setEtime(getValues("etime"));
                       }}
                     >
                       <option value="00">00</option>
@@ -835,10 +853,10 @@ function Inquiry(props) {
                     </select>
                     <select
                       ref={register}
-                      name="endminute"
+                      name="eminute"
                       id=""
                       onChange={() => {
-                        setEminute(getValues("endminute"));
+                        setEminute(getValues("eminute"));
                       }}
                     >
                       <option value="00">00</option>
@@ -854,7 +872,9 @@ function Inquiry(props) {
                 <div className="output-time">
                   <ul>
                     <li className="output-title">
-                      <p><span>시작시간 :</span></p>
+                      <p>
+                        <span>시작시간 :</span>
+                      </p>
                     </li>
                     <li className="output-time">
                       {stime}:{sminute}
@@ -863,7 +883,9 @@ function Inquiry(props) {
                       <p>~</p>
                     </li>
                     <li className="output-title">
-                      <p><span>종료시간 :</span></p>
+                      <p>
+                        <span>종료시간 :</span>
+                      </p>
                     </li>
                     <li className="output-time">
                       {etime}:{eminute}
@@ -877,7 +899,7 @@ function Inquiry(props) {
                   className="rsvt-submit"
                 >
                   예약
-                      </p>
+                </p>
                 {/* <div className="resorveTap">
                   <div className="resorveCheckTap2">
                     <ul>
@@ -897,8 +919,7 @@ function Inquiry(props) {
             </form>
           </div>
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
     ) : null;
   }
@@ -971,13 +992,13 @@ function Inquiry(props) {
           </form>
         </div> */}
         <div className="inquiry_box">
-
           <div className="first-wrap">
-
             <div className="left_box">
               <div class="select-box">
                 <select id="selectLevel" className="select01">
-                  <option value="0" selected="selected">교통최적 + 추천</option>
+                  <option value="0" selected="selected">
+                    교통최적 + 추천
+                  </option>
                   <option value="1">교통최적 + 무료우선</option>
                   <option value="2">교통최적 + 최소시간</option>
                   <option value="3">교통최적 + 초보</option>
@@ -987,17 +1008,22 @@ function Inquiry(props) {
                   <option value="19">교통최적 + 어린이보호구역 회피</option>
                 </select>{" "}
                 <select id="year" className="select02">
-                  <option value="N" selected="selected">교통정보 표출 옵션</option>
+                  <option value="N" selected="selected">
+                    교통정보 표출 옵션
+                  </option>
                   <option value="Y">Y</option>
                   <option value="N">N</option>
                 </select>
-                <button id="btn_select" className="submit-btn">적용하기</button>
+                <button id="btn_select" className="submit-btn">
+                  적용하기
+                </button>
               </div>
-
               <div className="chargeMap_box">
                 <div className="map_div" id="map_div"></div>
-              </div> {/* chargeMap_box end */}
-            </div>{/* left_box end */}
+              </div>{" "}
+              {/* chargeMap_box end */}
+            </div>
+            {/* left_box end */}
 
             <div className="right_box">
               <div className="chargeInfo_box">
@@ -1005,8 +1031,8 @@ function Inquiry(props) {
                   <h1 className="charge_name">
                     충전소 명 :
                     {station.map((a) => (
-                    <span>{a.stat_nm}</span>
-                  ))}
+                      <span>{a.stat_nm}</span>
+                    ))}
                   </h1>
                   {reviewtag == false ? (
                     <button className="report_btn">
@@ -1021,17 +1047,17 @@ function Inquiry(props) {
                       />
                     </button>
                   ) : (
-                      <button className="report_btn">
-                        <FontAwesomeIcon
-                          icon={faExclamationTriangle}
-                          className="notify_btn"
-                          title="고장신고"
-                          onClick={() => {
-                            setReport(!report);
-                          }}
-                        />
-                      </button>
-                    )}
+                    <button className="report_btn">
+                      <FontAwesomeIcon
+                        icon={faExclamationTriangle}
+                        className="notify_btn"
+                        title="고장신고"
+                        onClick={() => {
+                          setReport(!report);
+                        }}
+                      />
+                    </button>
+                  )}
                 </div>
 
                 <div className="infomation">
@@ -1055,7 +1081,7 @@ function Inquiry(props) {
                 <div className="now">
                   <p className="now-title">
                     충전기 정보
-                      {reviewtag == false ? (
+                    {reviewtag == false ? (
                       <button
                         className="rsvt-btn"
                         type="button"
@@ -1067,16 +1093,16 @@ function Inquiry(props) {
                         예약
                       </button>
                     ) : (
-                        <button
-                          className="rsvt-btn"
-                          type="button"
-                          onClick={() => {
-                            setPass(!pass);
-                          }}
-                        >
-                          예약
-                        </button>
-                      )}
+                      <button
+                        className="rsvt-btn"
+                        type="button"
+                        onClick={() => {
+                          setPass(!pass);
+                        }}
+                      >
+                        예약
+                      </button>
+                    )}
                   </p>
                   {passModal()}
                   <div className="list-wrap">
@@ -1103,7 +1129,6 @@ function Inquiry(props) {
               </div>
             </div>
           </div>
-
 
           <div className="second-wrap">
             <div className="review_box">
@@ -1139,14 +1164,14 @@ function Inquiry(props) {
                       disabled
                     />
                   ) : (
-                      <input
-                        ref={register}
-                        className="review_text"
-                        type="text"
-                        placeholder="리뷰를 입력해주세요."
-                        name="review"
-                      />
-                    )}
+                    <input
+                      ref={register}
+                      className="review_text"
+                      type="text"
+                      placeholder="리뷰를 입력해주세요."
+                      name="review"
+                    />
+                  )}
                   {reviewtag == false ? (
                     <button
                       disabled
@@ -1157,10 +1182,10 @@ function Inquiry(props) {
                       입 력
                     </button>
                   ) : (
-                      <button type="button" onClick={onClick} className="create">
-                        입 력
-                      </button>
-                    )}
+                    <button type="button" onClick={onClick} className="create">
+                      입 력
+                    </button>
+                  )}
                 </div>
               </form>
             </div>
@@ -1182,28 +1207,26 @@ function Inquiry(props) {
                         <td>{fac.name}</td>
                         <td>대구광역시 북구 복현로 35</td>
                         <td>29</td>
-                        <td><button onClick={handleHeart}>
-                          {heart ? (
-                            <FontAwesomeIcon
-                              icon={farHeart}
-                              className="heartBtn"
-                            />
-                          ) : (
+                        <td>
+                          <button onClick={handleHeart}>
+                            {heart ? (
                               <FontAwesomeIcon
-
-                                icon={fasHeart}
+                                icon={farHeart}
+                                className="heartBtn"
                               />
+                            ) : (
+                              <FontAwesomeIcon icon={fasHeart} />
                             )}
-                          {/* <FontAwesomeIcon
+                            {/* <FontAwesomeIcon
                           icon={faHeart}
                           className="heartBtn"
                         /> */}
-                          {/* <FontAwesomeIcon
+                            {/* <FontAwesomeIcon
                             icon={faHeart}
                             className="heartBtn"
                           /> */}
-
-                        </button></td>
+                          </button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
