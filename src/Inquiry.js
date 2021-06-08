@@ -42,20 +42,39 @@ function Inquiry(props) {
   const [Clist, setClist] = useState([]);
   const [reservationTime, setReservationTime] = useState([]);
   const [heart, setHeart] = useState(false);
-
   const [facilityListId, setfacilityListId] = useState([]);
+
   // const [hearts, setHearts] = useState([]);
   // const [nextId, setNextId] = useState(0);
 
-  const handleHeart = () => {
+  const handleHeart = (a) => {
     setHeart(!heart);
+    console.log("넘겨받은 아이디" + a);
+    console.log(localStorage.getItem("id_value"));
 
-    // const nextHearts = hearts.concat({
-    //   id : nextId,
-    //   isHeart : false,
-    // });
-    // setNextId(nextId + 1);
-    // setHearts(nextHearts);
+    var axios = require("axios");
+    var data = JSON.stringify({
+      fac_id: a,
+      u_id: localStorage.getItem("id_value"),
+    });
+
+    var config = {
+      method: "post",
+      url: "http://193.122.106.148:8081/api/fac/up",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   let today = new Date();
@@ -1220,7 +1239,11 @@ function Inquiry(props) {
                         <td>대구광역시 북구 복현로 35</td>
                         <td>29</td>
                         <td>
-                          <button onClick={handleHeart}>
+                          <button
+                            onClick={() => {
+                              handleHeart(fac.id);
+                            }}
+                          >
                             {heart ? (
                               <FontAwesomeIcon
                                 icon={farHeart}
