@@ -122,7 +122,7 @@ function Inquiry(props) {
       center: new Tmapv2.LatLng(a1, a2),
       // 지도가 생성될 div
       width: "100%", // 지도의 넓이
-      height: "550px", // 지도의 높이
+      height: "592px", // 지도의 높이
     });
 
     marker.map((mk) => {
@@ -352,13 +352,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-              request.status +
-              "\n" +
-              "message:" +
-              request.responseText +
-              "\n" +
-              "error:" +
-              error
+            request.status +
+            "\n" +
+            "message:" +
+            request.responseText +
+            "\n" +
+            "error:" +
+            error
           );
         },
       });
@@ -574,7 +574,7 @@ function Inquiry(props) {
       data: data,
     };
     axios(config)
-      .then(function (response) {})
+      .then(function (response) { })
       .catch(function (error) {
         console.log(error);
       });
@@ -663,11 +663,11 @@ function Inquiry(props) {
     });
     console.log(
       "포스트맨 값 " +
-        fullDate +
-        getValues("stime") +
-        ":" +
-        getValues("sminute") +
-        ":00"
+      fullDate +
+      getValues("stime") +
+      ":" +
+      getValues("sminute") +
+      ":00"
     );
 
     var config = {
@@ -1032,8 +1032,8 @@ function Inquiry(props) {
                   <h1 className="charge_name">
                     충전소 명 :
                     {station.map((a) => (
-                      <span>{a.stat_nm}</span>
-                    ))}
+                    <span>{a.stat_nm}</span>
+                  ))}
                   </h1>
                   {reviewtag == false ? (
                     <button className="report_btn">
@@ -1048,17 +1048,17 @@ function Inquiry(props) {
                       />
                     </button>
                   ) : (
-                    <button className="report_btn">
-                      <FontAwesomeIcon
-                        icon={faExclamationTriangle}
-                        className="notify_btn"
-                        title="고장신고"
-                        onClick={() => {
-                          setReport(!report);
-                        }}
-                      />
-                    </button>
-                  )}
+                      <button className="report_btn">
+                        <FontAwesomeIcon
+                          icon={faExclamationTriangle}
+                          className="notify_btn"
+                          title="고장신고"
+                          onClick={() => {
+                            setReport(!report);
+                          }}
+                        />
+                      </button>
+                    )}
                 </div>
 
                 <div className="infomation">
@@ -1077,13 +1077,17 @@ function Inquiry(props) {
                       <p className="info-p">연락처</p>
                       <span>1522-2573</span>
                     </li>
+                    <li>
+                      <p className="info-p">경로안내</p>
+                      <span id="result"></span>
+                    </li>
                   </ul>
                 </div>
                 <div id="map_wrap" class="map_wrap">
                   <div id="map_div"></div>
                 </div>
                 <div class="map_act_btn_wrap clear_box"></div>
-                <p id="result"></p>
+                {/* <p id="result"></p> */}
                 <div className="now">
                   <p className="now-title">
                     충전기 정보
@@ -1099,16 +1103,16 @@ function Inquiry(props) {
                         예약
                       </button>
                     ) : (
-                      <button
-                        className="rsvt-btn"
-                        type="button"
-                        onClick={() => {
-                          setPass(!pass);
-                        }}
-                      >
-                        예약
-                      </button>
-                    )}
+                        <button
+                          className="rsvt-btn"
+                          type="button"
+                          onClick={() => {
+                            setPass(!pass);
+                          }}
+                        >
+                          예약
+                        </button>
+                      )}
                   </p>
                   {passModal()}
                   <div className="list-wrap">
@@ -1170,14 +1174,14 @@ function Inquiry(props) {
                       disabled
                     />
                   ) : (
-                    <input
-                      ref={register}
-                      className="review_text"
-                      type="text"
-                      placeholder="리뷰를 입력해주세요."
-                      name="review"
-                    />
-                  )}
+                      <input
+                        ref={register}
+                        className="review_text"
+                        type="text"
+                        placeholder="리뷰를 입력해주세요."
+                        name="review"
+                      />
+                    )}
                   {reviewtag == false ? (
                     <button
                       disabled
@@ -1188,10 +1192,10 @@ function Inquiry(props) {
                       입 력
                     </button>
                   ) : (
-                    <button type="button" onClick={onClick} className="create">
-                      입 력
-                    </button>
-                  )}
+                      <button type="button" onClick={onClick} className="create">
+                        입 력
+                      </button>
+                    )}
                 </div>
               </form>
             </div>
@@ -1221,8 +1225,8 @@ function Inquiry(props) {
                                 className="heartBtn"
                               />
                             ) : (
-                              <FontAwesomeIcon icon={fasHeart} />
-                            )}
+                                <FontAwesomeIcon icon={fasHeart} />
+                              )}
                             {/* <FontAwesomeIcon
                           icon={faHeart}
                           className="heartBtn"
