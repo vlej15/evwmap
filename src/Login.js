@@ -100,39 +100,33 @@ const Login = (props) => {
             </div>
             <div className="form-check">
               <div className="check">
-                <input ref={register} type="checkbox" />
-                <label>
-                  <span> 아이디 저장</span>
-                </label>
+                <label for="id_save"><input type="checkbox" id="id_save" ref={register} />아이디 저장</label>
               </div>
-              <Link to="/findid">
-                <a href="" className="find">
-                  아이디 찾기
+              <div className="find-wrap">
+                <Link to="/findid">
+                  <a href="" className="find">
+                    아이디 찾기
                 </a>
-              </Link>
-              <Link to="findpw">
-                <a href="" className="find">
-                  | 비밀번호 찾기
+                </Link>
+                <p className="line">|</p>
+                <Link to="findpw">
+                  <a href="" className="find">
+                    비밀번호 찾기
                 </a>
-              </Link>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
         <div className="btn-area">
           <p className="btn-subtitle">아직 EV WMAP 계정이 없으신가요?</p>
-          <br></br>
-
-          <Link to="/signup">
-            <a href="" className="sign-btn">
-              회원가입
+          <div className="btn-wrap">
+            <Link to="/signup">
+              <a href="" className="sign-btn">
+                회원가입
             </a>
-          </Link>
-          <div>
-            <img
-              onClick={kakaoLoginClickHandler}
-              src={imgA}
-              className="kakao_login"
-            ></img>
+            </Link>
+            <button className="kakao-login" onClick={kakaoLoginClickHandler}>카카오톡으로 로그인</button>
           </div>
         </div>
       </div>
