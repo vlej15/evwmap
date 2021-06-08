@@ -1020,7 +1020,8 @@ function Inquiry(props) {
               </div>
               <div className="chargeMap_box">
                 <div className="map_div" id="map_div"></div>
-              </div>{" "}
+              </div>
+
               {/* chargeMap_box end */}
             </div>
             {/* left_box end */}
@@ -1078,6 +1079,11 @@ function Inquiry(props) {
                     </li>
                   </ul>
                 </div>
+                <div id="map_wrap" class="map_wrap">
+                  <div id="map_div"></div>
+                </div>
+                <div class="map_act_btn_wrap clear_box"></div>
+                <p id="result"></p>
                 <div className="now">
                   <p className="now-title">
                     충전기 정보

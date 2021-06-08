@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link, Route, Switch, useHistory, withRouter } from "react-router-dom";
 import "./css/BoardChange.scss";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import axios from "axios";
 
 function BoardChange(props) {
+  const history = useHistory();
   const id = props.boardid;
   const token = localStorage.getItem("id");
   const [post, setPost] = useState([]);
@@ -35,6 +37,7 @@ function BoardChange(props) {
       .catch(function (error) {
         console.log(error);
       });
+    history.push("/notice/" + id);
   };
 
   useEffect(async () => {
