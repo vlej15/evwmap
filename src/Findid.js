@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import $ from "jquery";
 
 function FindId(props) {
   const { register, watch, errors, handleSubmit, getValues } = useForm();
@@ -23,6 +24,10 @@ function FindId(props) {
           "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjE4OTAxMjM0LCJleHAiOjE2MTg5MTkyMzR9.5-MjTuNSNwKq77-pJJ_xnvBN1FCvbJUz9qfjBpuxkX23p5Gwa_YHgduAwoBNxXcj7IJrRae9LwzJkr2SJLDKkQ",
       },
     };
+
+    $("#btn-email").click(function () {
+      console.log(1);
+    })
 
     axios(config)
       .then(function (response) {
@@ -93,9 +98,9 @@ function FindId(props) {
       <div className="end"></div>
       <div
         className="contentsFindId"
-        // onClick={() => {
-        //     props.setMenu(false);
-        // }}
+      // onClick={() => {
+      //     props.setMenu(false);
+      // }}
       >
         <div className="banner">
           <p className="banner-title">아이디 찾기</p>
@@ -138,10 +143,11 @@ function FindId(props) {
                   })}
                   required
                 />
-                <button href="#" className="btn-ct" onClick={emailPass}>
+                <button href="#" className="btn-ct" onClick={emailPass} id="btn-email">
                   인증메일받기
                 </button>
               </div>
+
               <div className="form-insert">
                 <p className="form-label"></p>
                 <input
@@ -160,11 +166,14 @@ function FindId(props) {
                   확인
                 </button>
               </div>
-              <input
-                className="btn-ct"
-                type="submit"
-                value="아이디 찾기"
-              ></input>
+              <div className="btn-wrap">
+                <input
+                  className="btn-submit"
+                  type="submit"
+                  value="아이디 찾기"
+                ></input>
+              </div>
+
             </div>
           </form>
         </div>
