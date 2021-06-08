@@ -43,6 +43,7 @@ function Inquiry(props) {
   const [reservationTime, setReservationTime] = useState([]);
   const [heart, setHeart] = useState(false);
 
+  const [facilityListId, setfacilityListId] = useState([]);
   // const [hearts, setHearts] = useState([]);
   // const [nextId, setNextId] = useState(0);
 
@@ -155,6 +156,7 @@ function Inquiry(props) {
             setReview(response.data.reviewList);
             setStation(response.data.station);
             setFacilityList(response.data.facilityList);
+            setfacilityListId(response.data.facilityList.id);
             setReviewtag(true);
             setStatid(response.data.station[0].stat_id);
             setChargerList(response.data.chargerList);
@@ -352,13 +354,13 @@ function Inquiry(props) {
         error: function (request, status, error) {
           console.log(
             "code:" +
-            request.status +
-            "\n" +
-            "message:" +
-            request.responseText +
-            "\n" +
-            "error:" +
-            error
+              request.status +
+              "\n" +
+              "message:" +
+              request.responseText +
+              "\n" +
+              "error:" +
+              error
           );
         },
       });
@@ -574,7 +576,7 @@ function Inquiry(props) {
       data: data,
     };
     axios(config)
-      .then(function (response) { })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -663,11 +665,11 @@ function Inquiry(props) {
     });
     console.log(
       "포스트맨 값 " +
-      fullDate +
-      getValues("stime") +
-      ":" +
-      getValues("sminute") +
-      ":00"
+        fullDate +
+        getValues("stime") +
+        ":" +
+        getValues("sminute") +
+        ":00"
     );
 
     var config = {
@@ -1032,8 +1034,8 @@ function Inquiry(props) {
                   <h1 className="charge_name">
                     충전소 명 :
                     {station.map((a) => (
-                    <span>{a.stat_nm}</span>
-                  ))}
+                      <span>{a.stat_nm}</span>
+                    ))}
                   </h1>
                   {reviewtag == false ? (
                     <button className="report_btn">
@@ -1048,17 +1050,17 @@ function Inquiry(props) {
                       />
                     </button>
                   ) : (
-                      <button className="report_btn">
-                        <FontAwesomeIcon
-                          icon={faExclamationTriangle}
-                          className="notify_btn"
-                          title="고장신고"
-                          onClick={() => {
-                            setReport(!report);
-                          }}
-                        />
-                      </button>
-                    )}
+                    <button className="report_btn">
+                      <FontAwesomeIcon
+                        icon={faExclamationTriangle}
+                        className="notify_btn"
+                        title="고장신고"
+                        onClick={() => {
+                          setReport(!report);
+                        }}
+                      />
+                    </button>
+                  )}
                 </div>
 
                 <div className="infomation">
@@ -1103,16 +1105,16 @@ function Inquiry(props) {
                         예약
                       </button>
                     ) : (
-                        <button
-                          className="rsvt-btn"
-                          type="button"
-                          onClick={() => {
-                            setPass(!pass);
-                          }}
-                        >
-                          예약
-                        </button>
-                      )}
+                      <button
+                        className="rsvt-btn"
+                        type="button"
+                        onClick={() => {
+                          setPass(!pass);
+                        }}
+                      >
+                        예약
+                      </button>
+                    )}
                   </p>
                   {passModal()}
                   <div className="list-wrap">
@@ -1174,14 +1176,14 @@ function Inquiry(props) {
                       disabled
                     />
                   ) : (
-                      <input
-                        ref={register}
-                        className="review_text"
-                        type="text"
-                        placeholder="리뷰를 입력해주세요."
-                        name="review"
-                      />
-                    )}
+                    <input
+                      ref={register}
+                      className="review_text"
+                      type="text"
+                      placeholder="리뷰를 입력해주세요."
+                      name="review"
+                    />
+                  )}
                   {reviewtag == false ? (
                     <button
                       disabled
@@ -1192,10 +1194,10 @@ function Inquiry(props) {
                       입 력
                     </button>
                   ) : (
-                      <button type="button" onClick={onClick} className="create">
-                        입 력
-                      </button>
-                    )}
+                    <button type="button" onClick={onClick} className="create">
+                      입 력
+                    </button>
+                  )}
                 </div>
               </form>
             </div>
@@ -1225,8 +1227,8 @@ function Inquiry(props) {
                                 className="heartBtn"
                               />
                             ) : (
-                                <FontAwesomeIcon icon={fasHeart} />
-                              )}
+                              <FontAwesomeIcon icon={fasHeart} />
+                            )}
                             {/* <FontAwesomeIcon
                           icon={faHeart}
                           className="heartBtn"
