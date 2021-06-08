@@ -46,7 +46,7 @@ function BoardChange(props) {
     });
     var config = {
       method: "post",
-      url: "http://193.122.106.148:8081/api/board/" + id,
+      url: "http://193.122.106.148:8081/api/board/" + id + "?sort=desc",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
