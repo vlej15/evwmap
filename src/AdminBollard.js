@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import $ from "jquery";
 
-
 const { Tmapv2 } = window;
 
 var lat = 1;
@@ -15,7 +14,7 @@ var lng = 1;
 var map;
 
 function AdminBollard(props) {
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data) => console.log(data);
     const { register, handleSubmit, errors, watch, getValues } = useForm();
     const [review, setReview] = useState([]);
     const [station, setStation] = useState([]);
@@ -58,7 +57,7 @@ function AdminBollard(props) {
 
         var config = {
             method: "get",
-            url: "http://3.36.160.255:8081/api/station/list",
+            url: "http://3.36.197.174:8081/api/station/list",
             headers: {
                 Authorization: token,
             },
@@ -83,8 +82,7 @@ function AdminBollard(props) {
         marker.map((mk) => {
             markers = new Tmapv2.Marker({
                 position: new Tmapv2.LatLng(mk.stat_lat, mk.stat_lng),
-                icon:
-                    "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+                icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
                 iconSize: new Tmapv2.Size(24, 38),
                 map: map,
             });
@@ -98,7 +96,7 @@ function AdminBollard(props) {
                 var config = {
                     method: "get",
                     url:
-                        "http://3.36.160.255:8081/api/station?stat_lng=" +
+                        "http://3.36.197.174:8081/api/station?stat_lng=" +
                         lng +
                         "&stat_lat=" +
                         lat,
@@ -122,15 +120,13 @@ function AdminBollard(props) {
 
         marker_s = new Tmapv2.Marker({
             position: new Tmapv2.LatLng(a1, a2),
-            icon:
-                "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_s.png",
+            icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_s.png",
             iconSize: new Tmapv2.Size(24, 38),
             map: map,
         });
         marker_e = new Tmapv2.Marker({
             position: new Tmapv2.LatLng(lng, lat),
-            icon:
-                "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+            icon: "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
             iconSize: new Tmapv2.Size(24, 38),
             map: map,
         });
@@ -168,7 +164,7 @@ function AdminBollard(props) {
 
         var config = {
             method: "post",
-            url: "http://3.36.160.255:8081/api/review",
+            url: "http://3.36.197.174:8081/api/review",
             headers: {
                 Authorization: token,
                 "Content-Type": "application/json",
@@ -176,7 +172,7 @@ function AdminBollard(props) {
             data: data,
         };
         axios(config)
-            .then(function (response) { })
+            .then(function (response) {})
             .catch(function (error) {
                 console.log(error);
             });
@@ -185,7 +181,7 @@ function AdminBollard(props) {
         var config1 = {
             method: "get",
             url:
-                "http://3.36.160.255:8081/api/station?stat_lng=" +
+                "http://3.36.197.174:8081/api/station?stat_lng=" +
                 lng +
                 "&stat_lat=" +
                 lat,
@@ -272,8 +268,11 @@ function AdminBollard(props) {
                                 </select>
                             </div>{" "}
                             {/*form-type end*/}
-
-                            <input type="submit" className="submit-btn" value="등록"></input>
+                            <input
+                                type="submit"
+                                className="submit-btn"
+                                value="등록"
+                            ></input>
                             <div className="form-state">
                                 <label for="">
                                     <p className="form-label">상태</p>
