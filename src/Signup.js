@@ -243,7 +243,12 @@ export default function Signup(props) {
                   className="input-text"
                   placeholder="인증번호 입력"
                 />
-                <button href="#" className="btn-ct" onClick={emailCheck}>
+                <button
+                  type="button"
+                  href="#"
+                  className="btn-ct"
+                  onClick={emailCheck}
+                >
                   확인
                 </button>
               </div>{" "}
