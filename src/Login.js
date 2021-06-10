@@ -59,15 +59,41 @@ const Login = (props) => {
     const kakaoLoginClickHandler = () => {
         Kakao.Auth.login({
             success: function (authObj) {
-                alert(JSON.stringify(authObj));
                 kakao_token = JSON.stringify(authObj.access_token);
-                console.log(kakao_token);
+                kakaoLogin(kakao_token)
             },
             fail: function (err) {
-                alert(JSON.stringify(err));
+                console.log(JSON.stringify(err));
             },
         });
     };
+    function kakaoLogin(kakao_token) {
+        var config = {
+            method: "post",
+            url: "http://3.36.197.174:8081/api/kakaologin",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            data: kakao_token
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                window.localStorage.setItem("id", response.data.token);
+                window.localStorage.setItem(
+                    "user_point",
+                    response.data.userPoint
+                );
+                if (response.data.token != null) {
+                    window.location.replace("/");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
     return (
         <>
             <div className="end"></div>
