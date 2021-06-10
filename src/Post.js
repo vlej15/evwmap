@@ -227,13 +227,13 @@ function Post(props) {
                         <p>{post.b_content}</p>
                         {post.u_id == localStorage.getItem("id_value") ? (
                             <>
-                                <div className="btn-area">
+                                <div className="btn-area1">
                                     {/* <button className="btn">수정</button> */}
                                     <button className="notify" onClick={Delete}>
                                         | 삭제
                                     </button>
                                 </div>
-                                <div className="btn-area">
+                                <div className="btn-area1">
                                     <Link to="/boardchange">
                                         <button className="notify">
                                             | 수정{" "}
@@ -243,7 +243,7 @@ function Post(props) {
                             </>
                         ) : null}
 
-                        <div className="btn-area">
+                        <div className="btn-area1">
                             {/* <button className="btn">수정</button> */}
                             <button className="notify">신고 </button>
                         </div>
@@ -284,8 +284,8 @@ function Post(props) {
                                 {localStorage.getItem("id_value")}
                             </p>
                         ) : (
-                            <p className="id">아이디</p>
-                        )}
+                                <p className="id">아이디</p>
+                            )}
 
                         <input
                             ref={register}

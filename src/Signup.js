@@ -273,11 +273,11 @@ export default function Signup(props) {
                                         onClick={addCarNumber}
                                     ></i>
                                 ) : (
-                                    <i
-                                        class="fas fa-minus"
-                                        onClick={addCarNumber}
-                                    ></i>
-                                )}
+                                        <i
+                                            class="fas fa-minus"
+                                            onClick={addCarNumber}
+                                        ></i>
+                                    )}
                             </div>
                             {carnumber == 1 ? (
                                 <div className="form-carNumber1">
@@ -291,7 +291,7 @@ export default function Signup(props) {
                                 </div>
                             ) : null}
                             {submit == 0 ? (
-                                <div className="btn-area">
+                                <div className="btn-area2">
                                     <input
                                         type="submit"
                                         value="가입하기"
@@ -300,14 +300,14 @@ export default function Signup(props) {
                                     />
                                 </div>
                             ) : (
-                                <div className="btn-area">
-                                    <input
-                                        type="submit"
-                                        value="가입하기"
-                                        className="sign-btn"
-                                    />
-                                </div>
-                            )}
+                                    <div className="btn-area2">
+                                        <input
+                                            type="submit"
+                                            value="가입하기"
+                                            className="sign-btn"
+                                        />
+                                    </div>
+                                )}
                         </div>
                         {/* form-input end */}
                     </form>

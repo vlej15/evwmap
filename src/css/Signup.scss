@@ -26,8 +26,8 @@ html {
     max-height: 99999px;
     min-height: 460px;
     margin:0 auto;
-    margin-top: 10vh;
-    // padding: 0 0 100px;
+    margin-top: 7vh;
+    // padding: 0 0 120px;
     position: relative;
     box-sizing: border-box;
     transition: all .7s ease-out;
@@ -36,41 +36,42 @@ html {
     opacity: 1;
     top: 0px;
     width: 1200px;
-    // margin-bottom: 400px;
+    margin-bottom: 7vh;
 
     .banner{
-    color: #222;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    word-break: break-all;
-    text-align: center;
-    padding: 0px;
-    vertical-align: top;
-
-        .banner-title {
-            color: #222;
-            line-height: 1.4;
-            letter-spacing: 0;
-            word-break: break-all;
-            text-align: center;
-            margin: 0px;
-            padding: 0px;
-            vertical-align: top;
-            font-size: 2.7rem;
-            font-weight: bold;
-        }
+        color: #222;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        padding: 0px;
+        vertical-align: top;
+        margin-top: 3vh;
+            .banner-title {
+                color: #222;
+                line-height: 1.4;
+                letter-spacing: 0;
+                word-break: break-all;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                vertical-align: top;
+                font-size: 2.7rem;
+                font-weight: bold;
+            }
         .subtitle {
-            width: 390px;
-            font-size: 1.6rem;
+            font-family: 'IBMPlexSansKR-Regular';
+            width: 440px;
+            font-size: 1.8rem;
             margin: 0 auto;
-            background-color: rgba(255, 232, 100, 0.3);
+            background-color: #87a7b363;
         }
     }//banner
     .form {
-        width: 65%;
-        margin: 5vh auto;
+        width: 850px;
+        margin: 50px auto;
         border: 1px solid #dedede;
 
         
@@ -79,7 +80,7 @@ html {
         word-break: break-all;
         text-align: center;
         border: none;
-        width: 62%;
+        width: 800px;
         align-items: center;
         margin: 30px auto;
 
@@ -92,12 +93,11 @@ html {
             font-weight: 500;
             margin: 0;
             font-size: 13px;
-
         }
         .input-subtitle2 {
-            width: 400px;
+            width: 490px;
             text-align: left;
-            padding: 3px 10px 5px 121px;
+            padding: 3px 0px 5px 280px;
             color: rgb(126, 126, 126);
             font-weight: 500;
             margin: 0;
@@ -107,21 +107,24 @@ html {
         .form-id, .form-email, .form-email2 {
             display: flex;
             flex-direction: row;
-            font-size: 14px;
-            margin: 0;
-            padding: 10px 10px 10px 20px;
+            color: #222;
+            margin: 0 auto;
+            padding: 10px;
             text-align: left;
+            width: 500px;
 
             .form-label {
+                float: left;
                 margin: 0;
                 padding: 0;
                 display: inline-block;
                 vertical-align: top;
-                font-size: 16px;
+                font-size: 1.7rem;
+                font-weight: bold;
                 letter-spacing: -0.1px;
                 color: #3c3c3c;
                 line-height: 45px;
-                width: 100px;
+                width: 120px;
             }
         
             .input-text {
@@ -131,7 +134,7 @@ html {
                 height: 45px;
                 padding: 0 14px;
                 color: #222;
-                font-size: 1.6rem;
+                font-size: 1.7rem;
                 border: 1px solid #dedede;
                 background-color: #fff;
                 outline: 0;
@@ -141,20 +144,20 @@ html {
             }
             .btn-ct {
                 margin-left: 20px;
-                width: 83px;
+                width: 95px;
                 height: 45px;
                 line-height: 45px;
                 text-decoration: none;
-                color: #fff;
-                background-color: #212121;
-                border: #212121;
-                font-size: 12px;
+                color: white;
+                background-color: #393e46;
+                border: #393e46;
+                font-size: 1.4rem;
                 font-weight: 500px;
             }
          }// form-id end
          .form-carNumber{
              i{
-                 font-size:30px;
+                 font-size: 20px;
                  line-height: 45px;
                  margin-left: 50px;
              }
@@ -166,11 +169,11 @@ html {
                 word-break: break-all;
                 width: 250px;
                 height: 45px;
-                padding: 0 10px;
+                padding: 0 14px;
                 margin-left: 7px;
                 margin-top: 10px;
                 color: #222;
-                font-size: 1.6rem;
+                font-size: 1.7rem;
                 border: 1px solid #dedede;
                 background-color: #fff;
                 outline: 0;
@@ -182,11 +185,11 @@ html {
          .form-pw, .form-pw2, .form-name, .form-carNumber{
             display: flex;
             flex-direction: row;
-            font-size: 14px;
             color: #222;
-            margin: 0;
-            padding: 10px 10px 10px 20px;
+            margin: 0 auto;
+            padding: 10px;
             text-align: left;
+            width: 500px;
 
             .form-label {
                 float: left;
@@ -194,11 +197,12 @@ html {
                 padding: 0;
                 display: inline-block;
                 vertical-align: top;
-                font-size: 16px;
+                font-size: 1.7rem;
+                font-weight: bold;
                 letter-spacing: -0.1px;
                 color: #3c3c3c;
                 line-height: 45px;
-                width: 100px;
+                width: 120px;
             }
         
             .input-text {
@@ -206,9 +210,9 @@ html {
                 width: 250px;
                 margin: 0px;
                 height: 45px;
-                padding: 0 10px;
+                padding: 0 14px;
                 color: #222;
-                font-size: 1.6rem;
+                font-size: 1.7rem;
                 border: 1px solid #dedede;
                 background-color: #fff;
                 outline: 0;
@@ -217,104 +221,22 @@ html {
                 display: block;
                 }
             }
-            // form-pw end
-
-            // .form-carImg {
-
-            //     .form-label {
-            //         float: left;
-            //         margin: 0;
-            //         padding: 0;
-            //         display: inline-block;
-            //         vertical-align: top;
-            //         font-size: 16px;
-            //         letter-spacing: -0.1px;
-            //         color: #3c3c3c;
-            //         line-height: 45px;
-            //         width: 100px;
-            //     }
-            //     .carImg {
-            //         width: 250px;
-            //         display: inline-block;
-            //         input {
-            //             appearance: none;
-            //             // background: url(./1st.PNG) no-repeat 1% 1%;
-            //             background-size: 100%;
-            //             width:100%;
-            //             height:200px;
-            //             margin:0;
-            //             border:none;
-            //         }// input end
-            //     }// carImg end
-
-            //     .arrow-area {
-            //         .carChoice {
-            //             display: flex;
-            //             align-items: center;
-            //             justify-content: center;
-            //             flex-direction: row;
-            //             .lArrow {
-            //                 width:50px;
-            //                 height: 50px;
-            //                 background: url(./leftarrow.png) no-repeat 10% 10%;
-            //                 background-size: 40px;
-            //                 object-fit: cover;
-            //                 margin:0px;
-            //                 }// lArrow end
-            //             .form-carName {
-
-            //             }// form-carName end
-            //             .rArrow {
-            //             width:50px;
-            //             height: 50px;
-            //             background: url(./rightarrow.png) no-repeat 10% 10%;
-            //             background-size: 40px;
-            //             object-fit: cover;
-            //             margin:0px;
-            //             }
-            //         }
-            //     }
-            // }// form-carImg end
-            .btn-area {
-                color: #222;
-                font-size: 1.4rem;
-                font-weight: 400;
-                line-height: 1;
-                letter-spacing: 0;
-                word-break: break-all;
-                text-align: center;
-                margin: 0px;
-                padding: 0px;
-                vertical-align: top;
-                margin-top: 30px;
-                margin-bottom: 30px;
-                margin-left: 6px;
+            .btn-area2 {
+                width: 505px;
+                margin-left: 153px;
             
                 .sign-btn {
-                    font-weight: 400;
-                    letter-spacing: 0;
-                    word-break: break-all;
-                    vertical-align: top;
-                    cursor: pointer;
-                    display: inline-block;
-                    margin: 0 auto;
-                    font-size: 1.5rem;
-                    line-height: 60px;
-                    text-align: center;
-                    box-sizing: border-box;
+                    margin-top: 20px;
+                    width: 250px;
+                    height: 45px;
+                    line-height: 45px;
                     text-decoration: none;
-                    color: #fff;
-                    border: none;
-                    background-color:#212121;
-                    width: 265px;
-                    height: 60px;
-                    padding: 0;
-                    &:hover{
-                        background-color: rgba(255, 232, 100, 0.3);
-                        border: none;
-                        color: #222;
-                        font-weight: 600;
-                    }
+                    color: white;
+                    background-color: #393e46;
+                    border: #393e46;
+                    font-size: 1.6rem;
+                    font-weight: 500px;
+                    cursor: pointer;
                 }
         }// form-input end
         }
