@@ -28,7 +28,7 @@ export default [
     },
 
     {
-        title: "서울특별시 한남동",
+        title: "서울특별시 강남구",
         date: "2021 01 03",
         khw: 103,
         price: 9030,
