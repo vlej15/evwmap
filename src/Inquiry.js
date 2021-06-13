@@ -233,15 +233,11 @@ function Inquiry(props) {
                         ) +
                         "km,";
                     var tTime =
-                        " 총 시간 : " +
+                        "총 시간 : " +
                         (resultData[0].properties.totalTime / 60).toFixed(0) +
-                        "분,";
-                    var tFare =
-                        " 총 요금 : " +
-                        resultData[0].properties.totalFare +
-                        "원,";
+                        "분";
 
-                    $("#result").text(tDistance + tTime + tFare);
+                    $("#result").text(tDistance + tTime);
 
                     //교통정보 표출 옵션값을 체크
                     if (trafficInfochk == "Y") {
