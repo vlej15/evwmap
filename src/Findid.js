@@ -98,9 +98,9 @@ function FindId(props) {
             <div className="end"></div>
             <div
                 className="contentsFindId"
-                // onClick={() => {
-                //     props.setMenu(false);
-                // }}
+            // onClick={() => {
+            //     props.setMenu(false);
+            // }}
             >
                 <div className="banner">
                     <p className="banner-title">아이디 찾기</p>

@@ -14,7 +14,7 @@ html {
     max-height: 99999px;
     min-height: 460px;
     margin:0 auto;
-    margin-top: 10vh;
+    margin-top: 7vh;
     // padding: 0 0 100px;
     position: relative;
     box-sizing: border-box;
@@ -23,6 +23,108 @@ html {
     transition-delay: .2s;
     opacity: 1;
     top: 0px;
-    width: 90%;
-    // margin-bottom: 400px;
+    width: 1200px;
+    margin-bottom: 7vh;
+
+    .banner{
+        color: #222;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        word-break: break-all;
+        text-align: center;
+        padding: 0px;
+        vertical-align: top;
+        margin-top: 3vh;
+
+        .banner-title {
+            color: #222;
+            line-height: 1.4;
+            letter-spacing: 0;
+            word-break: break-all;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            vertical-align: top;
+            font-size: 2.7rem;
+            font-weight: bold;
+        }
+    }// banner end
+
+    .wrap-area {
+        margin: 10vh 0 0 0;
+        vertical-align: top;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+
+        .first-wrap {
+            border: 1px solid #d4d4d4;
+            padding: 20px;
+            border-top: 3px solid #52616b;
+            font-size: 1.6rem;
+            color: #333;
+        }// first-wrap
+
+        .second-wrap {
+            color: #333;
+            font-size: 1.6rem;
+            margin-top: 50px;
+
+            .policy-title {
+                font-weight: bold;
+                .policy-icon {
+                    margin-right: 5px;
+                    font-size: 1.3rem;
+                }
+            }// policy-title end
+
+            p {
+                margin-top: 5px;
+            }
+
+            .p-b1 {
+                margin-top: 10px;
+                font-weight: bold;
+                font-size: 1.5rem;
+
+                span {
+                    font-weight: normal;
+                }
+            }
+            .p-b {
+                margin-top: 10px;
+                font-weight: bold;
+                font-size: 1.5rem;
+
+                span {
+                    font-weight: normal;
+                }
+            }
+        }
+
+        .thrid-wrap {
+            color: #333;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-top: 50px;
+
+            .policy-icon {
+                margin-right: 5px;
+                font-size: 1.3rem;
+            }
+            p {
+                margin: 5px 0;
+
+                .p-span {
+                    font-weight: bold;
+                }
+                span {
+                    color: #444;
+                    font-weight: normal;
+                }
+            }
+        }
+    }// wrap-area end
 }

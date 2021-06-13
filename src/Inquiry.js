@@ -769,6 +769,7 @@ function Inquiry(props) {
                 });
         };
 
+        $()
         return pass == 1 ? (
             <div className="passmodal_background">
                 <div className="contentsModal">
