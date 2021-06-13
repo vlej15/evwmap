@@ -11,8 +11,8 @@ function Footer() {
         <ul>
           <li>
             <div>
-              <Link to="./policy/Policy">
-                <a><button className="policy">개인정보처리방침</button></a>
+              <Link to="./policy">
+                <a><button className="policy" onclick="window.scrollTo(0,0)">개인정보처리방침</button></a>
               </Link>
             </div>
           </li>
