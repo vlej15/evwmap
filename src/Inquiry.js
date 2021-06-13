@@ -44,6 +44,8 @@ function Inquiry(props) {
     const [heart, setHeart] = useState(false);
     const [facilityListId, setfacilityListId] = useState([]);
 
+    const [heartList, setHeartList] = useState([]);
+
     // const [hearts, setHearts] = useState([]);
     // const [nextId, setNextId] = useState(0);
 
@@ -1303,6 +1305,7 @@ function Inquiry(props) {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {console.log(facilityList)}
                                         {facilityList.map((fac, index) => (
                                             <tr>
                                                 <td>{fac.name}</td>
@@ -1312,26 +1315,30 @@ function Inquiry(props) {
                                                     <button
                                                         onClick={() => {
                                                             handleHeart(fac.id);
+
+                                                            const heartIdx = heartList.findIndex((_heart) => _heart === fac.id);
+
+                                                            if (heartIdx === -1) {
+                                                                const list = [...heartList];
+                                                                list.push(fac.id);
+                                                                setHeartList(list);
+                                                            } else {
+                                                                const list = [...heartList];
+                                                                list.splice(heartIdx, 1);
+                                                                setHeartList(list);
+                                                            }
                                                         }}
                                                     >
-                                                        {heart ? (
+                                                        {heartList.includes(fac.id) ? (
                                                             <FontAwesomeIcon
-                                                                icon={farHeart}
-                                                                className="heartBtn"
+                                                                icon={fasHeart}
                                                             />
                                                         ) : (
                                                                 <FontAwesomeIcon
-                                                                    icon={fasHeart}
+                                                                    icon={farHeart}
+                                                                    className="heartBtn"
                                                                 />
                                                             )}
-                                                        {/* <FontAwesomeIcon
-                          icon={faHeart}
-                          className="heartBtn"
-                        /> */}
-                                                        {/* <FontAwesomeIcon
-                            icon={faHeart}
-                            className="heartBtn"
-                          /> */}
                                                     </button>
                                                 </td>
                                             </tr>
