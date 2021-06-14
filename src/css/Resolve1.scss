@@ -3,6 +3,7 @@
     top:0; left: 0; bottom: 0; right: 0;
     background: rgba(0, 0, 0, 0.8);
     margin: 0px;
+    z-index: 99;
     .contentsModal{
         position: absolute;
         top: calc(50vh - 190px); left: calc(50vw - 320px);
@@ -13,13 +14,13 @@
         border-radius: 10px;
 
         .modal-area {
-            width: 93%;
+            width: 96%;
             margin: 0 auto;
 
             .close-area {
                 text-align: right;
                 font-size: 1.9rem;
-                margin-top: 15px;
+                margin-top: 7px;
                 cursor: pointer;
 
                 &:hover{
@@ -64,23 +65,31 @@
 
                 .click-time {
                     // text-align: center;
-                    width: 100%;
+                    width: 90%;
                     // background-color: red;
 
                     button {
                         width: 37.8px;
                         height: 37.8px;
                         margin: 2px 1px;
-                        border: 1px solid #52616b;
-                        background-color: #52616b;
+                        background-color: #d4d4d4;
+                        border: 1px solid #d4d4d4;
                         border-radius: 2px;
-                        color: #e7e7e7;
+                        color: #333;
                         cursor: pointer;
+                        outline: none;
 
                         &:active {
                             border: 1px solid #d4d4d4;
                         }
                     } // button end
+
+                    button.active {
+                        border: 1px solid #52616b;
+                        background-color: #52616b;
+                        color: #e7e7e7;
+                        outline: none;
+                    }
 
                     .timeTable{
                         width: 100%;
@@ -98,10 +107,14 @@
                     } // timeTable end
                     
                     .select-time {
-                        width: 467px;
+                        width: 100%;
                         margin: 0 auto;
                         height: 30px;
                         margin-top: 30px;
+                        .select-wrap {
+                            width: fit-content;
+                            height: 30px;
+                            margin: 0 auto;
                         .select-title {
                             color: #222;
                             font-size: 1.6rem;
@@ -124,6 +137,7 @@
                             border: 1px solid #d4d4d4;
                             border-radius: 2px;
                             margin-right: 5px;
+                        }
                         }
                     } // select-time end
                 } // check-time end
@@ -162,20 +176,20 @@
                     } // output-time end
                     
                     .rsvt-submit {
-                        margin-top: 20px;
+                        margin-top: 25px;
                         background: none;
                         border: none;
                         font-size: 1.5rem;
-                        width: 70px;
-                        height: 35px;
+                        width: 80px;
+                        height: 40px;
                         border: 1px solid #d4d4d4;
                         background-color: #d4d4d4;
                         border-radius: 2px;
                         cursor: pointer;
                         text-align: center;
-                        line-height: 35px;
+                        line-height: 40px;
                         color: #444;
-                        margin-bottom: 20px;
+                        margin-bottom: 25px;
 
                         &:hover {
                             background-color: #52616b;

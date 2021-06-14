@@ -71,7 +71,7 @@ export default function InfoChange(props) {
                 console.log(error);
             });
     };
-    const onSubmit = () => {};
+    const onSubmit = () => { };
 
     const onCheck = (e) => {
         e.preventDefault();
@@ -109,31 +109,31 @@ export default function InfoChange(props) {
     };
     function passModal() {
         return pass == 1 ? (
-            <div className="passmodal_background">
-                <div className="passModal">
-                    <div className="mdPass">
-                        <h3>비밀번호 변경</h3>
-                    </div>
-                    <div className="closeWrap">
-                        <FontAwesomeIcon
-                            icon={faTimes}
-                            className="closeBtn"
-                            onClick={() => {
-                                setPass(0);
-                            }}
-                        />
-                    </div>
-                    <form onSubmit={handleSubmit(onCheck)}>
-                        <div className="inputType">
-                            <div>
-                                <input
-                                    ref={register}
-                                    name="nowPass"
-                                    type="password"
-                                    placeholder="현재 비밀번호"
-                                    className="firstInput"
-                                />
-                                <div>
+            <div className="modal_background">
+                <div className="contentsModal">
+                    <div className="modal-area">
+                        <div className="close-area">
+                            <FontAwesomeIcon
+                                icon={faTimes}
+                                className="closeBtn"
+                                onClick={() => {
+                                    setPass(0);
+                                }}
+                            />
+                        </div>
+                        <div className="banner">
+                            <p className="banner-title">비밀번호 변경</p>
+                        </div>
+                        <form onSubmit={handleSubmit(onCheck)}>
+                            <div className="modal-form">
+                                <div className="form-insert">
+                                    <input
+                                        ref={register}
+                                        name="nowPass"
+                                        type="password"
+                                        placeholder="현재 비밀번호"
+                                        className="firstInput"
+                                    />
                                     <button
                                         onClick={passCheck}
                                         type="button"
@@ -142,79 +142,73 @@ export default function InfoChange(props) {
                                         확인
                                     </button>
                                 </div>
-                            </div>
-                            <br></br>
-                            {checkpass == 1 ? (
-                                <div>
-                                    <input
-                                        className="input-text"
-                                        name="newPass"
-                                        type="password"
-                                        placeholder="비밀번호"
-                                        ref={register({
-                                            required: true,
-                                            minLength: 8,
-                                            maxLength: 16,
-                                            pattern:
-                                                /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-                                        })}
-                                    />
-                                    {errors.newPass && (
-                                        <p className="input-subtitle">
-                                            비밀번호를 양식에 맞춰 입력해주세요.
-                                        </p>
+                                {checkpass == 1 ? (
+                                    <div>
+                                        <input
+                                            className="input-text"
+                                            name="newPass"
+                                            type="password"
+                                            placeholder="비밀번호"
+                                            ref={register({
+                                                required: true,
+                                                minLength: 8,
+                                                maxLength: 16,
+                                                pattern:
+                                                    /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                                            })}
+                                        />
+                                        {errors.newPass && (
+                                            <p className="input-subtitle">
+                                                비밀번호를 양식에 맞춰 입력해주세요.
+                                            </p>
+                                        )}
+                                    </div>
+                                ) : (
+                                        <div className="form-insert2">
+                                            <input
+                                                type="password"
+                                                placeholder="새 비밀번호"
+                                                disabled
+                                            />
+                                        </div>
                                     )}
-                                </div>
-                            ) : (
-                                <div>
-                                    <input
-                                        type="password"
-                                        placeholder="새 비밀번호"
-                                        disabled
-                                    />
-                                </div>
-                            )}
-
-                            <br></br>
-                            <p>(영문소문자/숫자/특수문자, 6~16자)</p>
-                            <br></br>
-                            {checkpass == 1 ? (
-                                <div>
-                                    <input
-                                        className="input-text"
-                                        name="passwordCheck"
-                                        type="password"
-                                        placeholder="비밀번호 확인"
-                                        ref={register({
-                                            validate: (value) =>
-                                                value === password.current,
-                                        })}
-                                    />
-                                    {errors.passwordCheck && (
-                                        <p className="input-subtitle">
-                                            비밀번호가 일치하지 않습니다.
-                                        </p>
+                                <p className="input-subtitle">(영문소문자/숫자/특수문자, 6~16자)</p>
+                                {checkpass == 1 ? (
+                                    <div className="form-insert2">
+                                        <input
+                                            name="passwordCheck"
+                                            type="password"
+                                            placeholder="비밀번호 확인"
+                                            ref={register({
+                                                validate: (value) =>
+                                                    value === password.current,
+                                            })}
+                                        />
+                                        {errors.passwordCheck && (
+                                            <p className="input-subtitle">
+                                                비밀번호가 일치하지 않습니다.
+                                            </p>
+                                        )}
+                                    </div>
+                                ) : (
+                                        <div className="form-insert2">
+                                            <input
+                                                type="password"
+                                                placeholder="새 비밀번호 확인"
+                                                disabled
+                                            />
+                                        </div>
                                     )}
+                                <div className="btn-wrap">
+                                    <button
+                                        type="submit"
+                                        value="정보수정"
+                                        className="btn-submit"
+                                    >비밀번호 변경</button>
                                 </div>
-                            ) : (
-                                <div>
-                                    <input
-                                        type="password"
-                                        placeholder="새 비밀번호 확인"
-                                        disabled
-                                    />
-                                </div>
-                            )}
-                            <div>
-                                <br></br>
-                                <button
-                                    type="submit"
-                                    value="변경하기"
-                                    className="subBtn"
-                                />
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>ㄴ
                 </div>
                 <div></div>
             </div>
@@ -348,14 +342,16 @@ export default function InfoChange(props) {
                                     ref={register}
                                 />
                             </div>
-                            <span>
-                                <span>누적 경고: {count}　, </span>
-                                <span>
-                                    　 현재 포인트 :{" "}
-                                    {localStorage.getItem("user_point")}P
-                                </span>
-                            </span>
                             {/* form-carNumber end */}
+
+                            <div className="p-wrap">
+                                <p>누적 경고&nbsp;: {count}&nbsp;,&nbsp; </p>
+                                <p>
+                                    &nbsp;현재 포인트&nbsp;:{" "}
+                                    {localStorage.getItem("user_point")}P
+                                </p>
+                            </div>
+
                             <div className="btn-area">
                                 <input
                                     type="submit"
