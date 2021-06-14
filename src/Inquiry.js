@@ -44,6 +44,8 @@ function Inquiry(props) {
     const [heart, setHeart] = useState(false);
     const [facilityListId, setfacilityListId] = useState([]);
 
+    const [heartList, setHeartList] = useState([]);
+
     // const [hearts, setHearts] = useState([]);
     // const [nextId, setNextId] = useState(0);
 
@@ -732,6 +734,7 @@ function Inquiry(props) {
         axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
+                console.log("ddddd");
             })
             .catch(function (error) {
                 console.log(error);
@@ -742,28 +745,51 @@ function Inquiry(props) {
         const charger = statid;
         console.log(charger);
 
+        var axios = require('axios');
+
         const reservation = (props) => {
             var config = {
-                method: "get",
-                url:
-                    "http://3.36.197.174:8081/api/todays-reservation?chg_id=" +
-                    props +
-                    "&stat_id=" +
-                    statid,
+                method: 'get',
+                url: 'http://3.36.197.174:8081/api/todays-reservation?chg_id=' +
+                    props + "&stat_id=" + statid,
                 headers: {
-                    Authorization: token,
-                },
+                    'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjIzNjY3OTkwLCJleHAiOjE2MjM2ODU5OTB9.-COeaYr6Ao01Ss0zSnAyu4oNoOzy6ZVs57kmE1_1lEwPVlofNSuN-yoc_wQoGU9aez_TmDBwE7vFKqyiIJgJoQ'
+                }
             };
 
             axios(config)
                 .then(function (response) {
                     console.log(JSON.stringify(response.data));
-                    setReservationTime(response.data);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-        };
+        }
+
+
+
+        // const reservation = (props) => {
+        //     var config = {
+        //         method: "get",
+        //         url:
+        //             "http://3.36.197.174:8081/api/todays-reservation?chg_id=" +
+        //             props +
+        //             "&stat_id=" +
+        //             statid,
+        //         headers: {
+        //             Authorization: token,
+        //         },
+        //     };
+
+        //     axios(config)
+        //         .then(function (response) {
+        //             console.log(JSON.stringify(response.data));
+        //             setReservationTime(response.data);
+        //         })
+        //         .catch(function (error) {
+        //             console.log(error);
+        //         });
+        // };
 
         $()
         return pass == 1 ? (
@@ -798,7 +824,7 @@ function Inquiry(props) {
                                     {chargerList.map((list) =>
                                         list.chg_rsvt == "Y" ? (
                                             <button
-                                                class="active"
+                                                className="click-btn"
                                                 type="button"
                                                 onClick={() => {
                                                     reservation(list.chg_id);
@@ -820,111 +846,113 @@ function Inquiry(props) {
                                     {/* <div className="calender"></div> */}
 
                                     <div className="select-time">
-                                        <p className="select-title">
-                                            예약시간 선택
+                                        <div className="select-wrap">
+                                            <p className="select-title">
+                                                예약시간 선택
                                         </p>
-                                        <p className="select-start">시작시간</p>
-                                        <select
-                                            ref={register}
-                                            name="stime"
-                                            id=""
-                                            onChange={() => {
-                                                setStime(getValues("stime"));
-                                            }}
-                                        >
-                                            <option value="00">00</option>
-                                            <option value="01">01</option>
-                                            <option value="02">02</option>
-                                            <option value="03">03</option>
-                                            <option value="04">04</option>
-                                            <option value="05">05</option>
-                                            <option value="06">06</option>
-                                            <option value="07">07</option>
-                                            <option value="08">08</option>
-                                            <option value="09">09</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23">23</option>
-                                        </select>
-                                        <select
-                                            ref={register}
-                                            name="sminute"
-                                            id=""
-                                            onChange={() => {
-                                                setSminute(
-                                                    getValues("sminute")
-                                                );
-                                            }}
-                                        >
-                                            <option value="00">00</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="30">30</option>
-                                            <option value="40">40</option>
-                                            <option value="50">50</option>
-                                        </select>
+                                            <p className="select-start">시작시간</p>
+                                            <select
+                                                ref={register}
+                                                name="stime"
+                                                id=""
+                                                onChange={() => {
+                                                    setStime(getValues("stime"));
+                                                }}
+                                            >
+                                                <option value="00">00</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                            </select>
+                                            <select
+                                                ref={register}
+                                                name="sminute"
+                                                id=""
+                                                onChange={() => {
+                                                    setSminute(
+                                                        getValues("sminute")
+                                                    );
+                                                }}
+                                            >
+                                                <option value="00">00</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="40">40</option>
+                                                <option value="50">50</option>
+                                            </select>
 
-                                        <p className="select-end">종료시간</p>
-                                        <select
-                                            ref={register}
-                                            name="etime"
-                                            onChange={() => {
-                                                setEtime(getValues("etime"));
-                                            }}
-                                        >
-                                            <option value="00">00</option>
-                                            <option value="01">01</option>
-                                            <option value="02">02</option>
-                                            <option value="03">03</option>
-                                            <option value="04">04</option>
-                                            <option value="05">05</option>
-                                            <option value="06">06</option>
-                                            <option value="07">07</option>
-                                            <option value="08">08</option>
-                                            <option value="09">09</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23">23</option>
-                                        </select>
-                                        <select
-                                            ref={register}
-                                            name="eminute"
-                                            id=""
-                                            onChange={() => {
-                                                setEminute(
-                                                    getValues("eminute")
-                                                );
-                                            }}
-                                        >
-                                            <option value="00">00</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="30">30</option>
-                                            <option value="40">40</option>
-                                            <option value="50">50</option>
-                                        </select>
+                                            <p className="select-end">종료시간</p>
+                                            <select
+                                                ref={register}
+                                                name="etime"
+                                                onChange={() => {
+                                                    setEtime(getValues("etime"));
+                                                }}
+                                            >
+                                                <option value="00">00</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                            </select>
+                                            <select
+                                                ref={register}
+                                                name="eminute"
+                                                id=""
+                                                onChange={() => {
+                                                    setEminute(
+                                                        getValues("eminute")
+                                                    );
+                                                }}
+                                            >
+                                                <option value="00">00</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="40">40</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -982,6 +1010,17 @@ function Inquiry(props) {
             </div>
         ) : null;
     }
+
+    $(document).ready(function () {
+        $(".click-btn").off("click").on("click", function () {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+            }
+            else {
+                $(this).addClass("active");
+            }
+        });
+    });
 
     return (
         <>
@@ -1303,6 +1342,7 @@ function Inquiry(props) {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {console.log(facilityList)}
                                         {facilityList.map((fac, index) => (
                                             <tr>
                                                 <td>{fac.name}</td>
@@ -1312,26 +1352,30 @@ function Inquiry(props) {
                                                     <button
                                                         onClick={() => {
                                                             handleHeart(fac.id);
+
+                                                            const heartIdx = heartList.findIndex((_heart) => _heart === fac.id);
+
+                                                            if (heartIdx === -1) {
+                                                                const list = [...heartList];
+                                                                list.push(fac.id);
+                                                                setHeartList(list);
+                                                            } else {
+                                                                const list = [...heartList];
+                                                                list.splice(heartIdx, 1);
+                                                                setHeartList(list);
+                                                            }
                                                         }}
                                                     >
-                                                        {heart ? (
+                                                        {heartList.includes(fac.id) ? (
                                                             <FontAwesomeIcon
-                                                                icon={farHeart}
-                                                                className="heartBtn"
+                                                                icon={fasHeart}
                                                             />
                                                         ) : (
                                                                 <FontAwesomeIcon
-                                                                    icon={fasHeart}
+                                                                    icon={farHeart}
+                                                                    className="heartBtn"
                                                                 />
                                                             )}
-                                                        {/* <FontAwesomeIcon
-                          icon={faHeart}
-                          className="heartBtn"
-                        /> */}
-                                                        {/* <FontAwesomeIcon
-                            icon={faHeart}
-                            className="heartBtn"
-                          /> */}
                                                     </button>
                                                 </td>
                                             </tr>
