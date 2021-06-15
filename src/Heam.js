@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
+import Pointmodal from "./Pointmodal";
 
-function Heam() {
+function Heam({point, setpoint}) {
   const userId = localStorage.getItem("id");
   function buttonClick() {
     alert("로그인하시기 바랍니다.");
@@ -18,8 +19,11 @@ function Heam() {
       <div className="global_box">
         <ul className="global_join_box">
           <li className="global_list_point">
+            <Pointmodal point={point} setpoint={setpoint} />
             {localStorage.getItem("id") == null ? null : (
-              <a className="point_box" href="#">
+              <a className="point_box" href="#" onClick={() => {
+                setpoint(!point);
+              }}>
                 MY POINT : {localStorage.getItem("user_point")}P
               </a>
             )}

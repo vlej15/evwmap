@@ -1,17 +1,43 @@
 import React, { useState, useEffect } from "react";
 import Data from "./chargedata";
+import axios from "axios";
 import "./css/ChargeUsage.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 function ChargeUsage(props) {
+    const [useList, setuseList] = useState([]);
+
     //header
     useEffect(() => {
+        //header color
         props.setCount(1);
+
+        //이용내역 정보 받아오는 곳
+        var axios = require("axios");
+
+        var config = {
+            method: "get",
+            url: "http://3.36.197.174:8081/api/myuseinfo?u_id=user",
+            headers: {
+                Authorization:
+                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjIzNDA4MDcwLCJleHAiOjE2MjM0MjYwNzB9.brjcBRjDBhzaUTW6JJ9lSJoC1nZCDyCPw1gGiKma2qUfPyDO4fM8RgHZkV4FRv5UwojTg1oxmfSYfMnis0qfDw",
+            },
+        };
+
+        axios(config)
+            .then(function (response) {
+                setuseList(response.data.use);
+                console.log(JSON.stringify(response.data.use));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }, []);
 
     let [chhistory, setboard] = useState(Data);
+    const [chargeusagelist, setchargerlist] = useState([]);
 
     return (
         <>
@@ -77,9 +103,9 @@ function ChargeUsage(props) {
             </div>
             <div
                 className="contentsChargeUsage"
-            // onClick={() => {
-            //     props.setMenu(false);
-            // }}
+                // onClick={() => {
+                //     props.setMenu(false);
+                // }}
             >
                 <div className="banner">
                     <p className="banner-title">충전소 이용 내역</p>
@@ -98,9 +124,7 @@ function ChargeUsage(props) {
                                 <br />
                                 <span>(khw)</span>
                             </th>
-                            <th className="price">
-                                사용 포인트
-                            </th>
+                            <th className="price">사용 포인트</th>
                         </tr>
                     </thead>
                     <tbody>

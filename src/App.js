@@ -87,7 +87,7 @@ function App() {
                     <Header getCount={getCount} setCount={setCount} />
                 </div>
                 <Route exact path="/">
-                    <Main />
+                    <Main getCount={getCount} setCount={setCount} />
                 </Route>
                 <Route exact path="/adminuser">
                     <AdminUser />

@@ -100,7 +100,6 @@ export default function Signup(props) {
       .catch(function (error) {
         console.log(error);
       });
-    alert("인증번호가 전송되었습니다. 이메일을 확인해주세요");
   };
 
   const emailCheck = async () => {
@@ -225,12 +224,7 @@ export default function Signup(props) {
                   placeholder="이메일"
                   ref={register}
                 />
-                <button
-                  type="button"
-                  href="#"
-                  className="btn-ct"
-                  onClick={emailPass}
-                >
+                <button href="#" className="btn-ct" onClick={emailPass}>
                   인증번호받기
                 </button>
               </div>
@@ -244,12 +238,7 @@ export default function Signup(props) {
                   className="input-text"
                   placeholder="인증번호 입력"
                 />
-                <button
-                  type="button"
-                  href="#"
-                  className="btn-ct"
-                  onClick={emailCheck}
-                >
+                <button href="#" className="btn-ct" onClick={emailCheck}>
                   확인
                 </button>
               </div>{" "}
@@ -283,8 +272,8 @@ export default function Signup(props) {
                 </div>
               ) : null}
               {submit == 0 ? (
-                <div className="btn-area">
-                  <button
+                <div className="btn-area2">
+                  <input
                     type="submit"
                     value="가입하기"
                     className="sign-btn"
@@ -292,8 +281,8 @@ export default function Signup(props) {
                   />
                 </div>
               ) : (
-                <div className="btn-area">
-                  <button type="submit" value="가입하기" className="sign-btn" />
+                <div className="btn-area2">
+                  <input type="submit" value="가입하기" className="sign-btn" />
                 </div>
               )}
             </div>

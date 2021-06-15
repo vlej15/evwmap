@@ -55,7 +55,7 @@ function ModalNotify({ report, setReport, statid }) {
                                 name="text"
                             ></textarea>
                         </div>
-                        <div className="btn-area">
+                        <div className="modal-btn">
                             <button
                                 type="submit"
                                 className="ok"

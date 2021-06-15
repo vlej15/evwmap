@@ -27,10 +27,10 @@ body {
     color: #666;
     word-break: keep-all;
     max-height: 99999px;
-    min-height: 460px;
+    min-height: 460px; 
     margin:0 auto;
-    margin-top: 5vh;
-    // padding: 0 0 100px;
+    margin-top: 50px;
+    // padding: 0 0 120px;
     position: relative;
     box-sizing: border-box;
     transition: all .7s ease-out;
@@ -39,7 +39,8 @@ body {
     opacity: 1;
     top: 0px;
     width: 1200px;
-    margin-bottom: 5vh;
+    margin-bottom: 80px;
+
 
     
     .banner{
@@ -52,7 +53,7 @@ body {
         text-align: center;
         padding: 0px;
         vertical-align: top;
-        margin-bottom: 5vh;
+        margin-top: 3vh;
             .banner-title {
                 color: #222;
                 line-height: 1.4;
@@ -67,14 +68,15 @@ body {
             }
         .subtitle {
             font-family: 'IBMPlexSansKR-Regular';
-            width: 520px;
-            font-size: 1.85rem;
+            width: 450px;
+            font-size: 1.8rem;
             margin: 0 auto;
-            background-color: #c9d6df;
+            background-color: #87a7b363;
         }
-    }//banner
+    }// banner end
+
     .form {
-        width: 80%;
+        width: 850px;
         margin: 50px auto;
         border: 1px solid #dedede;
 
@@ -84,39 +86,43 @@ body {
         word-break: break-all;
         text-align: center;
         border: none;
-        width: 540px;
+        width: 800px;
         align-items: center;
         margin: 30px auto;
 
         .form-id, .form-name {
             display: flex;
             flex-direction: row;
-            margin: 0;
-            padding: 10px 10px 10px 20px;
+            color: #222;
+            margin: 0 auto;
+            padding: 10px;
             text-align: left;
+            width: 500px;
+
             .form-label {
-                font-family: 'IBMPlexSansKR-Regular';
-                font-weight: bold;
-                font-size: 1.65rem;
+                float: left;
                 margin: 0;
                 padding: 0;
                 display: inline-block;
                 vertical-align: top;
+                font-size: 1.7rem;
+                font-weight: bold;
                 letter-spacing: -0.1px;
                 color: #3c3c3c;
                 line-height: 45px;
-                width: 100px;
+                width: 120px;
             }
         
             .input-text {
                 word-break: break-all;
-                width: 300px;
+                width: 250px;
                 margin: 0px;
-                height: 50px;
+                height: 45px;
                 padding: 0 14px;
                 color: #222;
-                font-size: 1.6rem;
+                font-size: 1.7rem;
                 border: 1px solid #dedede;
+                background-color: #fff;
                 outline: 0;
                 box-sizing: border-box;
                 vertical-align: top;
@@ -128,29 +134,29 @@ body {
             display: flex;
             flex-direction: row;
             font-size: 14px;
-            margin: 0;
-            padding: 10px 10px 10px 20px;
+            margin: 0 auto;
+            padding: 10px;
             text-align: left;
+            width: 500px;
 
             .form-label {
                 margin: 0;
                 padding: 0;
                 display: inline-block;
                 vertical-align: top;
-                font-family: 'IBMPlexSansKR-Regular';
+                font-size: 1.7rem;
                 font-weight: bold;
-                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #3c3c3c;
                 line-height: 45px;
-                width: 100px;
+                width: 120px;
             }
         
             .input-text {
                 word-break: break-all;
-                width: 300px;
+                width: 250px;
                 margin: 0px;
-                height: 50px;
+                height: 45px;
                 padding: 0 14px;
                 color: #222;
                 font-size: 1.6rem;
@@ -160,19 +166,19 @@ body {
                 box-sizing: border-box;
                 vertical-align: top;
                 display: block;
-                margin-right: 20px;
             }
             .btn-ct {
-                cursor: pointer;
-                width: 89px;
-                height: 50px;
+                margin-left: 20px;
+                width: 95px;
+                height: 45px;
                 line-height: 45px;
                 text-decoration: none;
-                color: #fff;
-                background-color: #464646;
-                border: #464646;
-                font-size: 14px;
+                color: white;
+                background-color: #393e46;
+                border: #393e46;
+                font-size: 1.4rem;
                 font-weight: 500px;
+                cursor: pointer;
             }
         }// form-email end
 
@@ -180,136 +186,208 @@ body {
             display: flex;
             flex-direction: row;
             font-size: 14px;
-            margin: 0;
-            padding: 10px 10px 10px 20px;
+            margin: 0 auto;
+            padding: 10px;
             text-align: left;
+            width: 500px;
 
             .form-label {
                 margin: 0;
                 padding: 0;
                 display: inline-block;
                 vertical-align: top;
-                font-family: 'IBMPlexSansKR-Regular';
+                font-size: 1.7rem;
                 font-weight: bold;
-                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #3c3c3c;
                 line-height: 45px;
-                width: 100px;
+                width: 120px;
             }
         
             .input-text {
                 word-break: break-all;
-                width: 300px;
+                width: 250px;
                 margin: 0px;
-                height: 50px;
+                height: 45px;
                 padding: 0 14px;
                 color: #222;
                 font-size: 1.6rem;
                 border: 1px solid #dedede;
+                background-color: #fff;
                 outline: 0;
                 box-sizing: border-box;
                 vertical-align: top;
                 display: block;
-                margin-right: 20px;
             }
             .btn-ct {
-                cursor: pointer;
-                width: 89px;
-                height: 50px;
+                margin-left: 20px;
+                width: 95px;
+                height: 45px;
                 line-height: 45px;
                 text-decoration: none;
-                color: #fff;
-                background-color: #464646;
-                border: #464646;
-                font-size: 14px;
+                color: white;
+                background-color: #393e46;
+                border: #393e46;
+                font-size: 1.4rem;
                 font-weight: 500px;
+                cursor: pointer;
             }
         }// form-pw end
 
-        .passmodal_background{
+        .modal_background{
                     position: fixed;
                     top:0; left: 0; bottom: 0; right: 0;
                     background: rgba(0, 0, 0, 0.8);
                     margin: 0px;
-                    .passModal{
+
+                    .contentsModal{
                         position: absolute;
-                        top: calc(50vh - 200px); left: calc(50vw - 210px);
+                        top: calc(50vh - 190px); left: calc(50vw - 320px);
                         background-color: #f6f5f5;
                         display: flex;
                         flex-direction: column;
-                        width: 420px;
-                        height: 360px;
-                        border-radius: 2px;
-                        .firstInput{
-                            margin-bottom: 10px;
-                        }
-                        .mdPass{
-                            h3 {
-                                margin-top: 30px;
+                        width: 650px;
+                        border-radius: 10px;
+
+                        .modal-area {
+                            width: 96%;
+                            margin: 0 auto;
+
+                            .close-area {
+                                text-align: right;
+                                font-size: 1.9rem;
+                                margin-top: 15px;
+                                cursor: pointer;
+                
+                                &:hover{
+                                    color:#52616b;
+                                }
                             }
-                            margin-top:1px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 14px;
-                            }
-                            .closeWrap{
-                            text-align: right;
-                            width: 400px;
-                            margin:0px;
-                            p{
+                            .banner {
+                                margin-top: 2px;
+                                .banner-title {
+                                    color: #222;
+                                    line-height: 1.4;
+                                    letter-spacing: 0;
+                                    word-break: break-all;
+                                    text-align: center;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    vertical-align: top;
+                                    font-size: 2rem;
+                                    font-weight: bold;
+                                }
+                            } // banner end
+
+                            .modal-form {
+                                margin-top: 20px;
+                                display: flex;
                                 align-items: center;
-                            }
-                            .closeBtn{
-                                position: absolute;
-                                top: 10px; right: 10px;
-                                font-size: 20px;
-                                color:#464646;
-                                margin-top: 4px;
-                                margin-right: 9px;
-                            }
-                        }     
+                                flex-direction:column; 
+                                // background-color: blue;
+
+                                .form-insert {
+                                    display: flex;
+                                    flex-direction: row;
+                                    font-size: 14px;
+                                    padding: 10px;
+                                    text-align: left;
+                                    width: fit-content;
+                                    margin-left: 113px;
+
+                                    input {
+                                        word-break: break-all;
+                                        width: 250px;
+                                        margin: 0px;
+                                        height: 45px;
+                                        padding: 0 14px;
+                                        color: #222;
+                                        font-size: 1.6rem;
+                                        border: 1px solid #dedede;
+                                        background-color: #fff;
+                                        outline: 0;
+                                        box-sizing: border-box;
+                                        vertical-align: top;
+                                        display: block;
+                                        }
+                                    }
+                                    .subBtn {
+                                        margin-left: 20px;
+                                        width: 95px;
+                                        height: 45px;
+                                        line-height: 45px;
+                                        text-decoration: none;
+                                        color: white;
+                                        background-color: #393e46;
+                                        border: #393e46;
+                                        font-size: 1.4rem;
+                                        font-weight: 500px;
+                                        cursor: pointer;
+                                    }
+
+                                .form-insert2 {
+                                    display: flex;
+                                    flex-direction: row;
+                                    font-size: 14px;
+                                    padding: 10px;
+                                    text-align: left;
+                                    width: fit-content;
+                                    input {
+                                        word-break: break-all;
+                                        width: 250px;
+                                        margin: 0px;
+                                        height: 45px;
+                                        padding: 0 14px;
+                                        color: #222;
+                                        font-size: 1.6rem;
+                                        border: 1px solid #dedede;
+                                        background-color: #fff;
+                                        outline: 0;
+                                        box-sizing: border-box;
+                                        vertical-align: top;
+                                        display: block;
+                                    }
+                                }
+                                .input-subtitle {
+                                    text-align: left;
+                                    color: rgb(126, 126, 126);
+                                    font-weight: 500;
+                                    margin: 0;
+                                    font-size: 13px;
+                                    margin-left: -55px;
+                                    padding: 3px 0px 5px;
+                                }
+                                
+                            }// modal-form end
+                            .btn-wrap {
+                width: fit-content;
+                margin-bottom: 30px;
+                .btn-submit {
+                    margin-top: 20px;
+                    width: 250px;
+                    height: 45px;
+                    line-height: 45px;
+                    text-decoration: none;
+                    color: white;
+                    background-color: #393e46;
+                    border: #393e46;
+                    font-size: 1.6rem;
+                    font-weight: 500px;
+                    cursor: pointer;
                     }
-                    .inputType{
-                        width:100%;
-                        height: 200px;
-                        margin:0px;
-                        display: flex;
-                        align-items: center;
-                        flex-direction:column;
-                        margin-top: 10px;
-                        input{
-                            z-index: 10;
-                            width: 300px;
-                            height: 40px;
-                            border-radius: 0;
-                            padding: 0px 14px;
-                            border: 1px solid #eaeaea;
-                        }
-                        p{
-                            margin: 0px;
-                        }
-                        .subBtn{
-                            padding:0px;
-                            margin-top: 2px;
-                            color: white;
-                            background-color: #464646;
-                            border-radius: 2px;
-                            width:300px;
-                            height: 40px;
-                        }   
-                    }                                      
+            }
+                        }// modal-area end
+                    }                                  
                 }
 
         .form-carNumber{
             display: flex;
             flex-direction: row;
-            font-size: 14px;
             color: #222;
-            margin: 0;
-            padding: 10px 10px 10px 20px;
+            margin: 0 auto;
+            padding: 10px;
             text-align: left;
+            width: 500px;
 
             .form-label {
                 float: left;
@@ -317,23 +395,22 @@ body {
                 padding: 0;
                 display: inline-block;
                 vertical-align: top;
-                font-family: 'IBMPlexSansKR-Regular';
+                font-size: 1.7rem;
                 font-weight: bold;
-                font-size: 1.65rem;
                 letter-spacing: -0.1px;
                 color: #3c3c3c;
                 line-height: 45px;
-                width: 100px;
+                width: 120px;
             }
         
             .input-text {
                 word-break: break-all;
-                width: 300px;
+                width: 250px;
                 margin: 0px;
-                height: 50px;
-                padding: 0 10px;
+                height: 45px;
+                padding: 0 14px;
                 color: #222;
-                font-size: 1.6rem;
+                font-size: 1.7rem;
                 border: 1px solid #dedede;
                 background-color: #fff;
                 outline: 0;
@@ -343,40 +420,29 @@ body {
                 }
             }// form-pw end
 
+            .p-wrap {
+                margin: 0 auto;
+                padding: 10px 0 0;
+                width: fit-content;
+                p {
+                    float: left;
+                    font-size: 1.7rem;
+                }
+            }
+
             .btn-area {
-                color: #222;
-                font-size: 1.4rem;
-                font-weight: 400;
-                line-height: 1;
-                letter-spacing: 0;
-                word-break: break-all;
-                text-align: center;
-                margin: 0px;
-                padding: 0px;
-                vertical-align: top;
-                margin-top: 30px;
-                margin-bottom: 30px;
-                margin-left: 6px;
-            
+                margin-top: 40px;
                 .change-btn {
-                    font-weight: 400;
-                    letter-spacing: 0;
-                    word-break: break-all;
-                    vertical-align: top;
-                    cursor: pointer;
-                    display: inline-block;
-                    margin: 0 auto;
-                    font-size: 1.6rem;
-                    line-height: 60px;
-                    text-align: center;
-                    box-sizing: border-box;
+                    width: 250px;
+                    height: 45px;
+                    line-height: 45px;
                     text-decoration: none;
-                    color: #dedede;
-                    border: none;
-                    background-color:#464646;
-                    width: 265px;
-                    height: 60px;
-                    padding: 0;
+                    color: white;
+                    background-color: #393e46;
+                    border: #393e46;
+                    font-size: 1.6rem;
+                    font-weight: 500px;
+                    cursor: pointer;
                     }
                 }
         }// form-input end

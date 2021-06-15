@@ -256,32 +256,74 @@ function CardRegistration(props) {
                                         ref={register}
                                     >
                                         <option></option>
-                                        <option value="21">{getdate}</option>
-                                        <option value="22">
+                                        <option
+                                            value={getdate
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
+                                            {getdate}
+                                        </option>
+                                        <option
+                                            value={(getdate + 1)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 1}
                                         </option>
-                                        <option value="23">
+                                        <option
+                                            value={(getdate + 2)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 2}
                                         </option>
-                                        <option value="24">
+                                        <option
+                                            value={(getdate + 3)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 3}
                                         </option>
-                                        <option value="25">
+                                        <option
+                                            value={(getdate + 4)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 4}
                                         </option>
-                                        <option value="26">
+                                        <option
+                                            value={(getdate + 5)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 5}
                                         </option>
-                                        <option value="27">
+                                        <option
+                                            value={(getdate + 6)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 6}
                                         </option>
-                                        <option value="28">
+                                        <option
+                                            value={(getdate + 7)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 7}
                                         </option>
-                                        <option value="29">
+                                        <option
+                                            value={(getdate + 8)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 8}
                                         </option>
-                                        <option value="30">
+                                        <option
+                                            value={(getdate + 9)
+                                                .toString()
+                                                .substr(2, 4)}
+                                        >
                                             {getdate + 9}
                                         </option>
                                     </select>

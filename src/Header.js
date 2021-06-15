@@ -8,6 +8,9 @@ import Heam from "./Heam.js";
 import $ from "jquery";
 
 function Header(props) {
+
+    const [point, setpoint] = useState(0);
+
     let headerOn = function () {
         $(".dHead").addClass("dHead-login");
         $(".menu-back").addClass("menu-back-login");
@@ -111,7 +114,7 @@ function Header(props) {
                                     </a>
                                 </Link>
                             </h1>
-                            <Heam />
+                            <Heam point={point} setpoint={setpoint}/>
                         </div>
                     </div>
                 </div>

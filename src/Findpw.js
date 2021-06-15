@@ -45,11 +45,12 @@ function FindPw(props) {
   return (
     <>
       <div className="end"></div>
+
       <div
         className="contentsFindPw"
-        // onClick={() => {
-        //     props.setMenu(false);
-        // }}
+      // onClick={() => {
+      //     props.setMenu(false);
+      // }}
       >
         <div className="banner">
           <p className="banner-title">비밀번호 찾기</p>
