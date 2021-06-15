@@ -4,15 +4,42 @@ import { Link, Route, Switch } from "react-router-dom";
 import "./css/Findpw.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 function FindPw(props) {
-  const { register, watch, errors, handleSubmit } = useForm();
+  let idValue;
+  const { register, watch, errors, handleSubmit, getValues } = useForm();
   console.log(watch("email"));
   const password = useRef();
   password.current = watch("password");
 
   const onSubmit = (data) => {
     console.log("data", data);
+  };
+
+  const idCheck = async (e) => {
+    e.preventDefault();
+
+    var config = {
+      method: "get",
+      url: "http://3.36.197.174:8081/api/user/id?u_id=" + getValues("userid"),
+      headers: {},
+    };
+
+    await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        idValue = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    if (idValue == getValues("id")) {
+      alert("동일한 아이디가 존재합니다.");
+    } else {
+      alert("사용 가능한 아이디입니다.");
+    }
   };
 
   return (
@@ -56,6 +83,12 @@ function FindPw(props) {
                 {errors.userid && errors.userid.type === "maxLength" && (
                   <p className="notice">Your input exceed maximum length</p>
                 )}
+                <input
+                  type="submit"
+                  className="btn-ct"
+                  value="확인"
+                  onClick={idCheck}
+                ></input>
               </div>
               {/*form-id end*/}
               <div className="form-email">
