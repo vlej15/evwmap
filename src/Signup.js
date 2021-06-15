@@ -100,6 +100,7 @@ export default function Signup(props) {
       .catch(function (error) {
         console.log(error);
       });
+    alert("인증번호가 전송되었습니다. 이메일을 확인해주세요");
   };
 
   const emailCheck = async () => {
