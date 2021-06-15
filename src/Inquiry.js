@@ -1022,6 +1022,11 @@ function Inquiry(props) {
         });
     });
 
+    const userId = localStorage.getItem("id");
+    function buttonClick() {
+        alert("로그인하시기 바랍니다.");
+    }
+
     return (
         <>
             {/* <ModalNotify /> */}
