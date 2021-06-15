@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import "./css/ModalNotify.scss";
 import axios from "axios";
 
-function ModalNotify({ report, setReport, statid }) {
+function PostNotify({ report, setReport, statid }) {
     const [pass, setPass] = useState(0);
     const { register, handleSubmit, watch, errors, getValues } = useForm();
     const token = localStorage.getItem("id");
@@ -43,9 +43,9 @@ function ModalNotify({ report, setReport, statid }) {
             <div className="modal-background">
                 <div className="contentsModal">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="title">고장신고</div>
+                        <div className="title">게시물 신고</div>
                         <p className="etc">
-                            불법 주차 문제는 '생활불편신고어플'을 이용해주세요.
+                            허위 신고자는 서비스 이용에 제한을 받습니다.
                         </p>
                         <div className="notify">
                             <textarea
@@ -53,7 +53,7 @@ function ModalNotify({ report, setReport, statid }) {
                                 className="text"
                                 placeholder="신고 사유를 입력해주세요."
                                 name="text"
-                                required="required"
+                                required="requried"
                             ></textarea>
                         </div>
                         <div className="modal-btn">
@@ -61,7 +61,7 @@ function ModalNotify({ report, setReport, statid }) {
                                 type="submit"
                                 className="ok"
                                 name="ok"
-                            // onClick={sure}
+                                onClick={sure}
                             >
                                 신고
                             </button>
@@ -81,4 +81,4 @@ function ModalNotify({ report, setReport, statid }) {
     }
     return <>{passModal()}</>;
 }
-export default ModalNotify;
+export default PostNotify;

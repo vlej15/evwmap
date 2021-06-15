@@ -11,6 +11,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import $ from "jquery";
 import PostList from "./PostList";
+import PostNotify from './PostNotify'
 
 $(function () {
   $(".command-area")
@@ -24,6 +25,7 @@ $(function () {
 function Post(props) {
   const [post, setPost] = useState([]);
   const [comment, setComment] = useState([]);
+  const [report, setReport] = useState(0);
   const [modify, setModify] = useState(0);
   const token = localStorage.getItem("id");
   const category = props.category;
@@ -214,6 +216,10 @@ function Post(props) {
   };
   return (
     <>
+      <PostNotify
+        report={report}
+        setReport={setReport}
+      />
       <BannerNotice />
       <div className="contentsPost">
         <div className="post-area">
@@ -243,7 +249,9 @@ function Post(props) {
 
             <div className="btn-area1">
               {/* <button className="btn">수정</button> */}
-              <button className="notify">신고 </button>
+              <button className="notify" onClick={() => {
+                setReport(!report);
+              }}>신고 </button>
             </div>
 
             {/* body-area end */}
@@ -276,8 +284,8 @@ function Post(props) {
             {localStorage.getItem("id_value") !== null ? (
               <p className="id">{localStorage.getItem("id_value")}</p>
             ) : (
-              <p className="id">아이디</p>
-            )}
+                <p className="id">아이디</p>
+              )}
 
             <input
               ref={register}
