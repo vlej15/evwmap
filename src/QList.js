@@ -145,10 +145,10 @@ const QList = (props) => {
                                             답변대기
                                         </span>
                                     ) : (
-                                        <span className="list-span2">
-                                            답변완료
-                                        </span>
-                                    )}
+                                            <span className="list-span2">
+                                                답변완료
+                                            </span>
+                                        )}
                                 </td>
                                 <td className="list-title">
                                     <Link to={`/qlist/${post.q_dtt}`}>

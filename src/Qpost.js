@@ -29,6 +29,8 @@ function Qpost(props) {
     const category = props.category;
     const { id } = useParams();
     const { register, handleSubmit, watch, errors, getValues } = useForm();
+    const history = useHistory();
+
 
     useEffect(async () => {
         var axios = require("axios");
@@ -55,6 +57,11 @@ function Qpost(props) {
                 console.log(error);
             });
     }, []);
+
+
+    const backPage = () => {
+        history.goBack();
+    };
 
     const onClick = () => {
         const rep = getValues("reply");
@@ -154,7 +161,7 @@ function Qpost(props) {
                 {/* repleForm end */}
                 <div className="list">
                     <Link to="/post">
-                        <button>목록</button>
+                        <button onClick={backPage} >목록</button>
                     </Link>
                 </div>
             </div>
