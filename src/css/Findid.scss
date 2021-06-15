@@ -214,117 +214,117 @@ html {
 }// contentsFind_id end
 
 
-@media screen and (max-width: 479px) {
-    .contentsFindId {
-        max-width: 100%;
+// @media screen and (max-width: 479px) {
+//     .contentsFindId {
+//         max-width: 100%;
 
-        .banner {
-            width: 90%;
-            margin: 0 auto;
-            word-break:keep-all;
+//         .banner {
+//             width: 90%;
+//             margin: 0 auto;
+//             word-break:keep-all;
 
-            .banner-title {
-                font-size: 24px;
-            }
-            .subtitle {
-                width: 50%;
-                margin: 0 auto;
-                font-size: 13.5px;
-            }
-        }// banner end
+//             .banner-title {
+//                 font-size: 24px;
+//             }
+//             .subtitle {
+//                 width: 50%;
+//                 margin: 0 auto;
+//                 font-size: 13.5px;
+//             }
+//         }// banner end
 
-        .form {
-            width: 90%;
-            border: none;
-            margin: 20px auto;
+//         .form {
+//             width: 90%;
+//             border: none;
+//             margin: 20px auto;
     
-            .form-input{
-                margin: 0;
-                width: 100%;
+//             .form-input{
+//                 margin: 0;
+//                 width: 100%;
 
-                .form-name {
-                    .form-label {
-                        display: none;
-                    }
-                }
+//                 .form-name {
+//                     .form-label {
+//                         display: none;
+//                     }
+//                 }
                     
-                .form-email {
-                    float: center;
-                    .form-label {
-                    display: none;
-                    }
-                    .btn-ct {
-                        margin: 0 0 0 10px;
-                    }
-                }
-                .form-insert {
-                    .form-label {
-                        display: none;
-                    }
-                    .btn-ct {
-                        margin: 0 0 0 10px;
-                    }
-                }
-            }// form-input end
-        }// form end
-        .find-pw {
-            margin: 37px;
-        }
-    }// contents end
-}// media end
+//                 .form-email {
+//                     float: center;
+//                     .form-label {
+//                     display: none;
+//                     }
+//                     .btn-ct {
+//                         margin: 0 0 0 10px;
+//                     }
+//                 }
+//                 .form-insert {
+//                     .form-label {
+//                         display: none;
+//                     }
+//                     .btn-ct {
+//                         margin: 0 0 0 10px;
+//                     }
+//                 }
+//             }// form-input end
+//         }// form end
+//         .find-pw {
+//             margin: 37px;
+//         }
+//     }// contents end
+// }// media end
 
-@media screen and (min-width: 480px) and (max-width: 1024px) {
-    .contentsFindId {
-        width: 100%;
-        .banner {
-            width: 90%;
-            margin: 0 auto;
-            word-break:keep-all;
+// @media screen and (min-width: 480px) and (max-width: 1024px) {
+//     .contentsFindId {
+//         width: 100%;
+//         .banner {
+//             width: 90%;
+//             margin: 0 auto;
+//             word-break:keep-all;
 
-            .banner-title {
-                font-size: 26px;
-            }
-            .subtitle {
-                width: 100%;
-                margin: 0 auto;
-                font-size: 15px;
-            }
-        }// banner end
-        .form {
-            width: 80%;
-            margin: 40px auto;
+//             .banner-title {
+//                 font-size: 26px;
+//             }
+//             .subtitle {
+//                 width: 100%;
+//                 margin: 0 auto;
+//                 font-size: 15px;
+//             }
+//         }// banner end
+//         .form {
+//             width: 80%;
+//             margin: 40px auto;
     
-            .form-input{
-                margin: 0;
-                width: 67%;
-                margin: 20px auto;
+//             .form-input{
+//                 margin: 0;
+//                 width: 67%;
+//                 margin: 20px auto;
 
-                .form-name {
-                    width: 80%;
-                    margin: 0 auto;
-                }
+//                 .form-name {
+//                     width: 80%;
+//                     margin: 0 auto;
+//                 }
                     
-                .form-email {
-                    width: 80%;
-                    margin: 0 auto;
-                    float: center;
-                    .btn-ct {
-                        margin: 0 0 0 10px;
-                    }
-                }
-                .form-insert {
-                    width: 80%;
-                    margin: 0 auto;
-                    .btn-ct {
-                        margin: 0 0 0 10px;
-                    }
-                }
-            }// form-input end
-        }// form end
-        .find-pw {
-            width: 80%;
-            margin: 37px auto;
-            text-align: center;
-        }
-    }// contents end
-}// media end
+//                 .form-email {
+//                     width: 80%;
+//                     margin: 0 auto;
+//                     float: center;
+//                     .btn-ct {
+//                         margin: 0 0 0 10px;
+//                     }
+//                 }
+//                 .form-insert {
+//                     width: 80%;
+//                     margin: 0 auto;
+//                     .btn-ct {
+//                         margin: 0 0 0 10px;
+//                     }
+//                 }
+//             }// form-input end
+//         }// form end
+//         .find-pw {
+//             width: 80%;
+//             margin: 37px auto;
+//             text-align: center;
+//         }
+//     }// contents end
+// }// media end
