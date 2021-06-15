@@ -42,6 +42,7 @@ function Inquiry(props) {
     const [Clist, setClist] = useState([]);
     const [reservationTime, setReservationTime] = useState([]);
     const [heart, setHeart] = useState(false);
+    const [check, setCheck] = useState(false);
     const [facilityListId, setfacilityListId] = useState([]);
 
     const [heartList, setHeartList] = useState([]);
@@ -689,15 +690,16 @@ function Inquiry(props) {
                 console.log(error);
             });
     }
+ 
 
     const [pass, setPass] = useState(0);
-    const [resorve, setResove] = useState("");
+    const [resorve, setResorve] = useState("");
 
     function resolve(props) {
         var axios = require("axios");
         var data = JSON.stringify({
             stat_id: props,
-            chg_id: "1",
+            chg_id: resorve,
             rsvt_start:
                 fullDate +
                 getValues("stime") +
@@ -718,7 +720,8 @@ function Inquiry(props) {
             getValues("stime") +
             ":" +
             getValues("sminute") +
-            ":00"
+            ":00" +
+            "chg_id re값" + resorve
         );
 
         var config = {
@@ -734,62 +737,42 @@ function Inquiry(props) {
         axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
-                console.log("ddddd");
+                console.log(response.data);
+                console.log("chg_id값", resorve);
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
 
-    function passModal() {
-        const charger = statid;
-        console.log(charger);
+    const charger = statid;
+        console.log("charger : ", charger);
 
-        var axios = require('axios');
-
-        const reservation = (props) => {
+        // var axios = require('axios');
+    const reservation = (props) => {
+        console.log("클릭하고 함수 안",resorve);
             var config = {
                 method: 'get',
                 url: 'http://3.36.197.174:8081/api/todays-reservation?chg_id=' +
                     props + "&stat_id=" + statid,
                 headers: {
                     'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjIzNjY3OTkwLCJleHAiOjE2MjM2ODU5OTB9.-COeaYr6Ao01Ss0zSnAyu4oNoOzy6ZVs57kmE1_1lEwPVlofNSuN-yoc_wQoGU9aez_TmDBwE7vFKqyiIJgJoQ'
-                }
-            };
-
+                },
+                
+            }
             axios(config)
                 .then(function (response) {
                     console.log(JSON.stringify(response.data));
+                    console.log("예약 데이터 get");
+                    setReservationTime(response.data);
                 })
                 .catch(function (error) {
                     console.log(error);
+                    console.log("예약 데이터 십자ㅣㅇㅁㄱㅎ");
                 });
         }
 
-
-
-        // const reservation = (props) => {
-        //     var config = {
-        //         method: "get",
-        //         url:
-        //             "http://3.36.197.174:8081/api/todays-reservation?chg_id=" +
-        //             props +
-        //             "&stat_id=" +
-        //             statid,
-        //         headers: {
-        //             Authorization: token,
-        //         },
-        //     };
-
-        //     axios(config)
-        //         .then(function (response) {
-        //             console.log(JSON.stringify(response.data));
-        //             setReservationTime(response.data);
-        //         })
-        //         .catch(function (error) {
-        //             console.log(error);
-        //         });
-        // };
+    function passModal() {
 
         $()
         return pass == 1 ? (
@@ -804,6 +787,7 @@ function Inquiry(props) {
                                 className="closeBtn"
                                 onClick={() => {
                                     setPass(0);
+                                    setCheck(!check);
                                 }}
                             />
                         </div>
@@ -827,7 +811,9 @@ function Inquiry(props) {
                                                 className="click-btn"
                                                 type="button"
                                                 onClick={() => {
+                                                    setResorve(list.chg_id);                                       
                                                     reservation(list.chg_id);
+                                                    setCheck(!check);
                                                 }}
                                             >
                                                 {list.chg_id}
@@ -837,9 +823,16 @@ function Inquiry(props) {
 
                                     {/* 예약 테이블 */}
                                     <ul className="timeTable">
-                                        {reservationTime.map((list) => (
-                                            <li>예약시간</li>
-                                        ))}
+                                        {console.log("예약내역?", reservationTime)}
+                                        {check == true ? (
+                                            (reservationTime.map((list) => (
+                                                <ul className="rsvttime_box">
+                                                    <li>시작시간 : {list.start}</li>
+                                                    <li>종료시간 : {list.end}</li>
+                                                    <br/>
+                                                </ul>
+                                            )))
+                                        ) : null}
                                     </ul>
                                     {/* 예약 테이블 끝 */}
 
@@ -982,6 +975,7 @@ function Inquiry(props) {
                                 <p
                                     onClick={() => {
                                         resolve(charger);
+                                        alert("예약이 완료되었습니다.")
                                     }}
                                     className="rsvt-submit"
                                 >
@@ -1010,7 +1004,9 @@ function Inquiry(props) {
             </div>
         ) : null;
     }
-
+    console.log("Y버튼 클릭", resorve);
+    console.log("Y버튼 클릭", resorve);
+    
     $(document).ready(function () {
         $(".click-btn").off("click").on("click", function () {
             if ($(this).hasClass("active")) {
@@ -1025,6 +1021,11 @@ function Inquiry(props) {
     const userId = localStorage.getItem("id");
     function buttonClick() {
         alert("로그인하시기 바랍니다.");
+    }
+
+    function rsvtCheck() {
+        alert("트루임");
+        
     }
 
     return (
@@ -1161,9 +1162,8 @@ function Inquiry(props) {
                                                 className="notify_btn"
                                                 title="고장신고"
                                                 onClick={() => {
-                                                    setReport(!report);
+                                                    alert("충전소를 선택해주세요.")
                                                 }}
-                                                disabled
                                             />
                                         </button>
                                     ) : (
@@ -1173,7 +1173,11 @@ function Inquiry(props) {
                                                     className="notify_btn"
                                                     title="고장신고"
                                                     onClick={() => {
-                                                        setReport(!report);
+                                                        if (userId == null) {
+                                                            buttonClick()
+                                                        } else {
+                                                            setReport(!report);
+                                                        }
                                                     }}
                                                 />
                                             </button>
@@ -1297,14 +1301,14 @@ function Inquiry(props) {
                             </div>
                             <form>
                                 <div className="review_input">
-                                    {reviewtag == false ? (
+                                    {reviewtag == false ? ( //마커 클릭 안했을 때
                                         <input
                                             className="review_text"
                                             type="text"
                                             placeholder="리뷰를 입력해주세요."
                                             disabled
                                         />
-                                    ) : (
+                                    ) : ( //클릭 했을 때
                                             <input
                                                 ref={register}
                                                 className="review_text"
@@ -1312,25 +1316,20 @@ function Inquiry(props) {
                                                 placeholder="리뷰를 입력해주세요."
                                                 name="review"
                                             />
-                                        )}
-                                    {reviewtag == false ? (
-                                        <button
-                                            disabled
-                                            type="button"
-                                            onClick={onClick}
-                                            className="create"
-                                        >
-                                            입 력
-                                        </button>
-                                    ) : (
-                                            <button
-                                                type="button"
-                                                onClick={onClick}
-                                                className="create"
-                                            >
-                                                입 력
-                                            </button>
-                                        )}
+                                    )}
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            if (userId == null) {
+                                                buttonClick()
+                                            } else {
+                                                onClick()
+                                            }
+                                        }}
+                                        className="create"
+                                    >
+                                        입 력
+                                    </button>
                                 </div>
                             </form>
                         </div>
