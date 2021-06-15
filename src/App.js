@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Link, Route, Switc, withRouter } from "react-router-dom";
+import { Link, Route, Switc, withRouter, useBeforeunload } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import BrandStory from "./BrandStory";
