@@ -25,6 +25,7 @@ function FreeBoard(props) {
 
   const { id } = useParams();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     //header
     props.setCount(0);
@@ -42,6 +43,8 @@ function FreeBoard(props) {
       .then(function (response) {
         setPosts(response.data.boardList);
         setPage(response.data.pagination);
+        props.setBno(response.data.boardList[0].b_no + 1);
+        console.log("게시판 값" + response.data.boardList[0].b_no);
         console.log(posts.length);
         console.log(response.data);
       })

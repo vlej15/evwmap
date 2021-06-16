@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Switch, useHistory, withRouter } from "react-router-dom";
 import "./css/BoardWrite.scss";
 import { useForm } from "react-hook-form";
@@ -10,9 +10,28 @@ function BoardWrite(props) {
   const [files, setFiles] = useState([]);
   const token = localStorage.getItem("id");
   const history = useHistory();
-  const bno = props.bno;
-  console.log(bno + "값확인");
+  let bno;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(async () => {
+    var config = {
+      method: "get",
+      url: "http://3.36.197.174:8081/api/boardlist?page=0&cat_cd=1",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios(config)
+      .then(function (response) {
+        props.setBno(response.data.boardList[0].b_no + 1);
+        bno = props.bno;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  });
   //   const onSubmit = (e) => {
   // const title = getValues("b_title");
   // const category = getValues("cat_cd");
