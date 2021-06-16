@@ -16,7 +16,6 @@ import Inquiry from "./Inquiry";
 import FindId from "./Findid";
 import FindPw from "./Findpw";
 import FindingAWay from "./FindingAway";
-import QRead from "./QRead";
 import ChargeUsage from "./ChargeUsage";
 import BoardWrite from "./BoardWrite";
 import BoardChange from "./BoardChange";

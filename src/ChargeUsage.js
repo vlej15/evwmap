@@ -103,10 +103,41 @@ function ChargeUsage(props) {
             </div>
             <div
                 className="contentsChargeUsage"
-                // onClick={() => {
-                //     props.setMenu(false);
-                // }}
+            // onClick={() => {
+            //     props.setMenu(false);
+            // }}
             >
+
+                <div className="banner">
+                    <p className="banner-title">충전소 예약 내역</p>
+                    <br></br>
+                    <p className="subtitle">
+                        회원님의 충전소 예약 내역을 확인 하실 수 있습니다.
+                    </p>
+                </div>
+                <table className="list2">
+                    <thead>
+                        <tr>
+                            <th className="th-title">충전소명</th>
+                            <th>예약일시</th>
+                            <th>충전일시</th>
+                            <th>상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* {reply.map((post) => (
+                            <tr>
+                                <td class="list-title">
+                                    <a className="list-link" href="#">
+                                        {post.r_content}
+                                    </a>
+                                </td>
+                                <td class="list-date">{post.date}</td>
+                            </tr>
+                        ))} */}
+                    </tbody>
+                </table>
+
                 <div className="banner">
                     <p className="banner-title">충전소 이용 내역</p>
                     <br></br>
@@ -139,6 +170,7 @@ function ChargeUsage(props) {
                         })}
                     </tbody>
                 </table>
+
             </div>
         </>
     );

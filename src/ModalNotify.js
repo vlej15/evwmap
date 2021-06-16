@@ -53,6 +53,7 @@ function ModalNotify({ report, setReport, statid }) {
                                 className="text"
                                 placeholder="신고 사유를 입력해주세요."
                                 name="text"
+                                required="required"
                             ></textarea>
                         </div>
                         <div className="modal-btn">
@@ -60,7 +61,7 @@ function ModalNotify({ report, setReport, statid }) {
                                 type="submit"
                                 className="ok"
                                 name="ok"
-                                onClick={sure}
+                            // onClick={sure}
                             >
                                 신고
                             </button>

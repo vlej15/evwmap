@@ -127,11 +127,6 @@ function Qpost(props) {
                     <div className="body-area">
                         <p>{post.q_content}</p>
 
-                        <div className="btn-area">
-                            {/* <button className="btn">수정</button> */}
-                            <button className="notify">신고 </button>
-                        </div>
-
                         {/* body-area end */}
                     </div>
                     <div className="command-area"></div>

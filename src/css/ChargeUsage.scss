@@ -117,6 +117,41 @@ html {
                 }
             }// tbody end
         }// list end
+
+        .list2 {
+            margin: 7vh 0 0 0;
+            vertical-align: top;
+            border-collapse: collapse;
+            width: 100%;
+            border-bottom: 1px solid #c8c8c8;
+            table-layout: fixed;
+            margin-bottom: 200px;
+
+            .th-title {
+                padding: 25px 10px;
+                color: #444;
+                font-size: 1.7rem;
+                border-top: 3px solid #212121;
+                border-bottom: 1px solid #dcdcdc;
+                background-color: #f1f1f1;
+                text-align: center;
+                vertical-align: middle;
+                width: 400px;
+            }
+
+            th {
+                padding: 0 10px;
+                color: #444;
+                font-size: 1.7rem;
+                border-top: 3px solid #212121;
+                border-bottom: 1px solid #dcdcdc;
+                background-color: #f1f1f1;
+                text-align: center;
+                width: 100px;
+                vertical-align: middle;
+            }
+        
+        }
 }// contentsChargeUsage end
 
 
