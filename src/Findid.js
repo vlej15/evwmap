@@ -99,9 +99,9 @@ function FindId(props) {
       <div className="end"></div>
       <div
         className="contentsFindId"
-        // onClick={() => {
-        //     props.setMenu(false);
-        // }}
+      // onClick={() => {
+      //     props.setMenu(false);
+      // }}
       >
         <div className="banner">
           <p className="banner-title">아이디 찾기</p>
@@ -160,11 +160,11 @@ function FindId(props) {
                   type="text"
                   class="input-text"
                   name="emailAuthNo"
-                  maxLength="6"
+                  maxLength="9"
                   placeholder="인증번호입력"
                   ref={register({
                     required: true,
-                    minLength: 6,
+                    minLength: 9,
                   })}
                   required
                 />
