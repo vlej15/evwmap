@@ -13,6 +13,9 @@ function Activity(props) {
     const [post, setPost] = useState([]);
     const [reply, setReply] = useState([]);
 
+
+
+
     //header
     useEffect(async () => {
         props.setCount(1);
