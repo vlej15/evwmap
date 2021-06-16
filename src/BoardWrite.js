@@ -77,7 +77,6 @@ function BoardWrite(props) {
       .catch(function (error) {
         console.log(error);
       });
-    console.log("글번호조회" + bno);
     history.push("/notice/" + bno);
   };
 

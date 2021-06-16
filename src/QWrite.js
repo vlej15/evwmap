@@ -211,14 +211,6 @@ const QWrite = (props) => {
                                 </div>
                             )}
                         </div>
-                        <div className="file">
-                            <p className="write-subtitle">파일첨부 </p>
-                            <input
-                                ref={register}
-                                type="file"
-                                className="write-file "
-                            />
-                        </div>
                         <div className="form-btn">
                             <input
                                 type="submit"

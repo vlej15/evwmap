@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/Login.scss";
 import { useHistory, Link, Route, Switch } from "react-router-dom";
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import imgA from "./css/kakao_login_large_wide.png";

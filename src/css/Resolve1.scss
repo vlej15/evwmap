@@ -98,12 +98,16 @@
                         margin: 20px 0;
                         border-top: 1px solid #888;
                         border-bottom: 1px solid #888;
-                        li{
-                            float: left;
-                            line-height: 30px;
-                            height: 30px;
-                            margin-right: 6px;
-                        } // li end      
+                        .rsvttime_box {
+                            height: 20px;
+                            li{
+                                float: left;
+                                // line-height: 30px;
+                                // height: 30px;
+                                margin-right: 6px;
+                            } // li end
+                        }
+                              
                     } // timeTable end
                     
                     .select-time {

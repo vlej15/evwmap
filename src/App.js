@@ -22,7 +22,6 @@ import Inquiry from "./Inquiry";
 import FindId from "./Findid";
 import FindPw from "./Findpw";
 import FindingAWay from "./FindingAway";
-import QRead from "./QRead";
 import ChargeUsage from "./ChargeUsage";
 import BoardWrite from "./BoardWrite";
 import BoardChange from "./BoardChange";
@@ -38,6 +37,7 @@ import Qpost from "./Qpost";
 import AdminBollard from "./AdminBollard";
 import AdminAgency from "./AdminAgency";
 import Policy from "./Policy";
+import $ from "jquery";
 
 function App() {
   const [a1, setA1] = useState();
