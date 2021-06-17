@@ -84,6 +84,11 @@
                     display: block;
                     float: left;
                     }
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                    }
+
 
                     .submit-btn {
                         margin-left: 9px;

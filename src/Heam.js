@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import Pointmodal from "./Pointmodal";
 
-function Heam({point, setpoint}) {
+function Heam({ point, setpoint }) {
   const userId = localStorage.getItem("id");
   function buttonClick() {
     alert("로그인하시기 바랍니다.");
@@ -19,7 +19,7 @@ function Heam({point, setpoint}) {
       <div className="global_box">
         <ul className="global_join_box">
           <li className="global_list_point">
-            <Pointmodal point={point} setpoint={setpoint} />
+            <Pointmodal point={point} setpoint={setpoint} userPoint={localStorage.getItem("user_point")} />
             {localStorage.getItem("id") == null ? null : (
               <a className="point_box" href="#" onClick={() => {
                 setpoint(!point);
@@ -36,12 +36,12 @@ function Heam({point, setpoint}) {
                 </a>
               </Link>
             ) : (
-              <Link to="/">
-                <a className="login_box" href="#" onClick={logout}>
-                  LOGOUT
+                <Link to="/">
+                  <a className="login_box" href="#" onClick={logout}>
+                    LOGOUT
                 </a>
-              </Link>
-            )}
+                </Link>
+              )}
           </li>
           <li className="global_list">
             {localStorage.getItem("id") == null ? (
@@ -51,12 +51,12 @@ function Heam({point, setpoint}) {
                 </a>
               </Link>
             ) : (
-              <Link to="/activity">
-                <a className="join_box" href="#">
-                  MY PAGE
+                <Link to="/activity">
+                  <a className="join_box" href="#">
+                    MY PAGE
                 </a>
-              </Link>
-            )}
+                </Link>
+              )}
           </li>
         </ul>
       </div>
@@ -134,19 +134,19 @@ function Heam({point, setpoint}) {
                   </li>
                 </>
               ) : (
-                <>
-                  <li className="sub-list_li">
-                    <Link to="/questions">
-                      <a href="">문의하기</a>
-                    </Link>
-                  </li>
-                  <li className="sub-list_li">
-                    <Link to="/qlist">
-                      <a href="">문의내역</a>
-                    </Link>
-                  </li>
-                </>
-              )}
+                  <>
+                    <li className="sub-list_li">
+                      <Link to="/questions">
+                        <a href="">문의하기</a>
+                      </Link>
+                    </li>
+                    <li className="sub-list_li">
+                      <Link to="/qlist">
+                        <a href="">문의내역</a>
+                      </Link>
+                    </li>
+                  </>
+                )}
             </ul>
           </div>
         </div>
