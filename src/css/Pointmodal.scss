@@ -1,110 +1,274 @@
 .modal-background {
-    .point-modal-box {
-        z-index: 99999;
+    position: fixed;
+    top:0; left: 0; bottom: 0; right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0px;
+    z-index: 99;
+    .contentsModal2 {
         position: absolute;
-        top: calc(50vh - 300px); left: calc(50vw - 300px);
-        background-color: #ffffff;
-        // display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 600px;
-        height: 610px;
+        top: calc(50vh - 190px); left: calc(50vw - 320px);
+        background-color: #f6f5f5;
+        display: flex;
+        flex-direction: column;
+        width: 650px;
         border-radius: 10px;
-        color: #464646;
-        font-size: 13px;
-        line-height: 22px;
-        border: 1px solid #000;
-        padding: 15px;
-        text-align: center;
 
-        .point-title {
-            text-align: center;
-            font-size: 24px;
-            margin-top: 15px;
-        }
-
-        .etc {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-
-        .pay-input-box {
+        .modal-area {
+            width: 96%;
             margin: 0 auto;
-            margin-top: 30px;
-            width: 550px;
-            height: 50px;
-            line-height: 50px;
 
-            .pay-title {
-                width: 130px;
-                // background-color: antiquewhite;
-                display: inline-block;
-                font-size: 20px;
-            }
+            .close-area {
+                text-align: right;
+                font-size: 1.9rem;
+                margin-top: 7px;
+                cursor: pointer;
 
-            .pay-input {
-                margin-left: 5px;
-                height: 40px;
-                width: 300px;
-            }
-
-            .pay-input::placeholder {
-                font-size: 16px;
-                padding-left: 10px;
-            }
-        }
-
-        .pay-fee-box {
-            margin: 0 auto;
-            margin-top: 20px;
-            width: 450px;
-            display: flex;
-            justify-content: space-between;
-
-            .pay-box {
-                width: 150px;
-                height: 80px;
-                // background-color: antiquewhite;
-                display: inline-block;
-
-                .pay-info-text {
-                    height: 30px;
-                    line-height: 30px;
+                &:hover{
+                    color:#52616b;
                 }
+            }
+            .banner {
+                margin-top: 2px;
+                .banner-title {
+                    color: #222;
+                    line-height: 1.4;
+                    letter-spacing: 0;
+                    word-break: break-all;
+                    text-align: center;
+                    margin: 0px;
+                    padding: 0px;
+                    vertical-align: top;
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+                .banner-subtitle {
+                    font-family: 'IBMPlexSansKR-Regular';
+                    font-size: 1.55rem;
+                    width: fit-content;
+                    margin: 0 auto;
+                    margin-top: 5px;
+                } 
+            } // banner end
+            .contents-wrap {
+                margin-top: 30px;
+                display: flex;
+                align-items: center;
+                flex-direction:column; 
 
-                .pay-charge {
-                    height: 50px;
-                    line-height: 45px;
-                    font-size: 20px;
+                .input-box {
+                    width: fit-content;
+                    margin: 0 auto;
 
-                    .P-text {
-                        font-weight: bolder;
+                    .pay-title {
+                        font-size: 1.6rem;
+                        color: #222;
+                        font-weight: bold;
+                        margin-right: 15px;
+                        float: left;
+                        line-height: 40px;
+                    }
+
+                    .pay-input {
+                    word-break: break-all;
+                    width: 200px;
+                    margin: 0px;
+                    height: 40px;
+                    padding: 0 14px;
+                    color: #222;
+                    font-size: 1.5rem;
+                    border: 1px solid #dedede;
+                    background-color: #fff;
+                    outline: 0;
+                    box-sizing: border-box;
+                    vertical-align: top;
+                    display: block;
+                    float: left;
+                    }
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                    }
+
+
+                    .submit-btn {
+                        margin-left: 9px;
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        width: 80px;
+                        height: 40px;
+                        border: 1px solid #d4d4d4;
+                        background-color: #d4d4d4;
+                        cursor: pointer;
+                        text-align: center;
+                        color: #444;
+                        margin-bottom: 25px;
+
+                        &:hover {
+                            background-color: #52616b;
+                            border: 1px solid #52616b;
+                            color: #fff;
+                        }
+                    }
+                }// input-box end
+
+                .fee-box {
+                    width: 500px;
+                    font-size: 1.6rem;
+                    color: #333;
+                    border: 1px solid #d4d4d4;
+                    margin: 0 auto;
+                    margin-top: 15px;
+                    height: 60px;
+                    line-height: 60px;
+
+                    .wrapwrap {
+                        margin: 0 auto;
+                        width: 380px;
+                        height: 100%;
+                        .fee-title {
+                            font-size: 1.5rem;
+                            float: left;
+                            font-weight: bold;
+                            width: fit-content;
+                            text-align: center;
+                        }
+                        .fee {
+                            float: left;
+                            width: 90px;
+                            text-align: center;
+                        }
+                        .arrow {
+                            float: left;
+                            width: 15px;
+                            height: 20px;
+                            margin-top: 19px;
+                            margin-right: 25px;
+                        }
                     }
                 }
-            }
+                .table-wrap {
+                    height: 150px;
+                    overflow: scroll;
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                    border-top: 2px solid #212121;
+                    .table-box {
+                        width: 500px;
+                    border-collapse: collapse;
+                        tbody {
+                            tr {
+                                .date {
+                                    width: 230px;
+                                    font-size: 1.5rem;
+                                    text-align: center;
+                                    padding: 10px 0;
+                                    border-top: 1px solid #dcdcdc;
+                                }
+                                td {
+                                    font-size: 1.5rem;
+                                    text-align: center;
+                                    padding: 10px 0;
+                                    border-top: 1px solid #dcdcdc;
+                                }
+                                .method {
+                                    width: 120px;
+                                }
+                            }
+                        }
+                    }
+                }  
+            }// contents-wrap end
+        }// modal-area end
 
-            .arrow-box {
-                font-size: 50px;
-                margin-top: 10px;
-            }
-        }
+        // .point-title {
+        //     text-align: center;
+        //     font-size: 24px;
+        //     margin-top: 15px;
+        // }
 
-        .submit-btn-box {
-            width: 450px;
-            margin: 0 auto;
-            margin-top: 20px;
+        // .etc {
+        //     text-align: center;
+        //     font-size: 14px;
+        //     margin-top: 5px;
+        // }
 
-            .point-btn {
-                width: 100px;
-                height: 40px;
-                font-size: 16px;
-                font-weight: bolder;
-            }
+        // .pay-input-box {
+        //     margin: 0 auto;
+        //     margin-top: 30px;
+        //     width: 550px;
+        //     height: 50px;
+        //     line-height: 50px;
 
-            .point-btn:nth-last-child(1) {
-                margin-left: 20px;
-            }
-        }
+        //     .pay-title {
+        //         width: 130px;
+        //         // background-color: antiquewhite;
+        //         display: inline-block;
+        //         font-size: 20px;
+        //     }
+
+        //     .pay-input {
+        //         margin-left: 5px;
+        //         height: 40px;
+        //         width: 300px;
+        //     }
+
+        //     .pay-input::placeholder {
+        //         font-size: 16px;
+        //         padding-left: 10px;
+        //     }
+        // }
+
+        // .pay-fee-box {
+        //     margin: 0 auto;
+        //     margin-top: 20px;
+        //     width: 450px;
+        //     display: flex;
+        //     justify-content: space-between;
+
+        //     .pay-box {
+        //         width: 150px;
+        //         height: 80px;
+        //         // background-color: antiquewhite;
+        //         display: inline-block;
+
+        //         .pay-info-text {
+        //             height: 30px;
+        //             line-height: 30px;
+        //         }
+
+        //         .pay-charge {
+        //             height: 50px;
+        //             line-height: 45px;
+        //             font-size: 20px;
+
+        //             .P-text {
+        //                 font-weight: bolder;
+        //             }
+        //         }
+        //     }
+
+        //     .arrow-box {
+        //         font-size: 50px;
+        //         margin-top: 10px;
+        //     }
+        // }
+
+        // .submit-btn-box {
+        //     width: 450px;
+        //     margin: 0 auto;
+        //     margin-top: 20px;
+
+        //     .point-btn {
+        //         width: 100px;
+        //         height: 40px;
+        //         font-size: 16px;
+        //         font-weight: bolder;
+        //     }
+
+        //     .point-btn:nth-last-child(1) {
+        //         margin-left: 20px;
+        //     }
+        // }
     }
 }
