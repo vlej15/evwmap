@@ -119,29 +119,31 @@
                     border: 1px solid #d4d4d4;
                     margin: 0 auto;
                     margin-top: 15px;
-                    padding: 15px;
+                    height: 60px;
+                    line-height: 60px;
 
-                    div {
+                    .wrapwrap {
                         margin: 0 auto;
-                        width: 355px;
+                        width: 380px;
+                        height: 100%;
                         .fee-title {
                             font-size: 1.5rem;
                             float: left;
                             font-weight: bold;
-                            margin-right: 10px;
                             width: fit-content;
+                            text-align: center;
                         }
                         .fee {
                             float: left;
-                            width: fit-content;
-                            margin-right: 10px;
+                            width: 90px;
+                            text-align: center;
                         }
                         .arrow {
                             float: left;
-                            width: 30px;
-                            margin-right: 10px;
+                            width: 15px;
                             height: 20px;
-                            margin-top: 1px;
+                            margin-top: 19px;
+                            margin-right: 25px;
                         }
                     }
                 }
@@ -168,6 +170,9 @@
                                     text-align: center;
                                     padding: 10px 0;
                                     border-top: 1px solid #dcdcdc;
+                                }
+                                .method {
+                                    width: 120px;
                                 }
                             }
                         }

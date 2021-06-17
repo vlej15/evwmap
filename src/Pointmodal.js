@@ -15,9 +15,11 @@ function Pointmodal({ point, setpoint, userPoint }) {
     const [afterPoint, setAfterPoint] = useState(userPoint);
     const [paylist, setpaylist] = useState([]);
     const [pay, setpay] = useState();
+    const idValue = localStorage.getItem("id_value");
+    // const emailValue = localStorage.getTime("email_value");
+
+    // console.log("email", emailValue);
     let userSumPoint = 0;
-    var lastpay = 0;
-    var paypp = userSumPoint;
 
     function pointChange(e) {
         userSumPoint = parseInt(localStorage.getItem("user_point")) + parseInt(e.target.value);
@@ -25,8 +27,6 @@ function Pointmodal({ point, setpoint, userPoint }) {
         setAfterPoint(userSumPoint || userPoint);
 
     }
-    console.log("laasdfg", lastpay);
-    console.log("pppp", pay);
 
     useEffect(async () => {
         var axios = require('axios');
@@ -61,7 +61,7 @@ function Pointmodal({ point, setpoint, userPoint }) {
             merchant_uid: 'merchant_' + new Date().getTime(),
             name: "EV WMAP 포인트 충전",
             amount: pay,
-            buyer_name: "user_id",
+            buyer_name: idValue,
             buyer_email: "user_email"
         }, function (rsp) {
             if (rsp.success) { //결제 성공 시
@@ -95,8 +95,8 @@ function Pointmodal({ point, setpoint, userPoint }) {
         var data = JSON.stringify({
             pay_dtt: "",
             pay_method: "card",
-            pay_amount: afterPoint,
-            u_id: "user"
+            pay_amount: pay,
+            u_id: idValue
         });
 
         var config = {
@@ -147,7 +147,7 @@ function Pointmodal({ point, setpoint, userPoint }) {
                             </div>
 
                             <div className="fee-box">
-                                <div>
+                                <div className="wrapwrap">
                                     <p className="fee-title">현재 포인트</p>
                                     {localStorage.getItem("id") == null ? null : (
                                         <p className="fee">{localStorage.getItem("user_point")}P</p>
@@ -164,8 +164,8 @@ function Pointmodal({ point, setpoint, userPoint }) {
                                     <tbody>
                                         {paylist.map((list) => (
                                             <tr>
-                                                <td>{list.pay_dtt.substring(0, 19).replace("T", " ")}</td>
-                                                <td>{list.pay_method}</td>
+                                                <td className="date">{list.pay_dtt.substring(0, 19).replace("T", " ")}</td>
+                                                <td className="method">{list.pay_method}</td>
                                                 <td>{list.pay_amount}</td>
                                             </tr>
                                         ))}
