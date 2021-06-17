@@ -1,43 +1,66 @@
 import React, { useState, useEffect } from "react";
-import Data from "./chargedata";
 import axios from "axios";
 import "./css/ChargeUsage.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+import { render } from "@testing-library/react";
 
 function ChargeUsage(props) {
+
     const [useList, setuseList] = useState([]);
+    const [usedata, setusedata] = useState([]);
+    const [usestat, setusestat] = useState([]);
+    const idvalue = localStorage.getItem("id_value");
+    const token = localStorage.getItem("id");
 
     //header
     useEffect(() => {
         //header color
         props.setCount(1);
-
-        //이용내역 정보 받아오는 곳
-        var axios = require("axios");
+        //정보 받아오는 곳
+        var axios = require('axios');
 
         var config = {
-            method: "get",
-            url: "http://3.36.197.174:8081/api/myuseinfo?u_id=user",
-            headers: {
-                Authorization:
-                    "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjIzNDA4MDcwLCJleHAiOjE2MjM0MjYwNzB9.brjcBRjDBhzaUTW6JJ9lSJoC1nZCDyCPw1gGiKma2qUfPyDO4fM8RgHZkV4FRv5UwojTg1oxmfSYfMnis0qfDw",
-            },
+            method: 'get',
+            url: 'http://3.36.197.174:8081/api/myuseinfo?u_id=' + idvalue,
+            headers: { 
+                'Authorization': token
+            }
         };
 
         axios(config)
             .then(function (response) {
+                // console.log(JSON.stringify(response.data));
                 setuseList(response.data.use);
-                console.log(JSON.stringify(response.data.use));
+                // setusedata(useList.data);
+                setusestat(useList.station);
+                console.log("useList", useList);
+                // console.log("usedata", usedata);
+                // console.log("usestat", usestat);
             })
             .catch(function (error) {
                 console.log(error);
             });
+        
+        // render()
     }, []);
 
-    let [chhistory, setboard] = useState(Data);
-    const [chargeusagelist, setchargerlist] = useState([]);
+    // const listprint = () => {
+    //         {(usestat && usestat.map((ststmap) => (
+    //             (usedata && usedata.map((datamap) => (
+    //                 <tr>
+    //                     <td>{ststmap.stat_nm}</td>
+    //                     <td>{datamap.use_dtt.substr(0, 10)}</td>
+    //                     <td>{datamap.use_chg_amt}</td>
+    //                     <td>{datamap.use_payment}</td>
+    //                 </tr>
+    //             )))
+    //         )))}
+    //     }
+
+    // let [chhistory, setboard] = useState(Data);
+    // const [chargeusagelist, setchargerlist] = useState([]);
 
     return (
         <>
@@ -159,32 +182,21 @@ function ChargeUsage(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {chhistory.map((a, i) => {
-                            return (
-                                <Boardlist
-                                    chhistory={chhistory[i]}
-                                    i={i}
-                                    key={i}
-                                />
-                            );
-                        })}
+                        {/* {useList.station&&(useList.station).map((ststmap) => (
+                            (useList.data&&useList.data).map((datamap) => (
+                                <tr>
+                                    <td>{ststmap.stat_nm}</td>
+                                    <td>{datamap.use_dtt.substr(0, 10)}</td>
+                                    <td>{datamap.use_chg_amt}</td>
+                                    <td>{datamap.use_payment}</td>
+                                </tr>
+                            ))
+                        ))} */}
+                        
                     </tbody>
                 </table>
-
             </div>
-        </>
-    );
-}
-
-function Boardlist(props) {
-    return (
-        <>
-            <tr>
-                <td className="list-title">{props.chhistory.title}</td>
-                <td className="list-date">{props.chhistory.date}</td>
-                <td className="list-khw">{props.chhistory.khw}</td>
-                <td className="list-price">{props.chhistory.price}</td>
-            </tr>
+            {/* {console.log("겹치는 아이디",statId, statId.length)} */}
         </>
     );
 }

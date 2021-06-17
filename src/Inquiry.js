@@ -19,6 +19,7 @@ import DatePicker from "react-datepicker";
 import { NCPClient } from "node-sens";
 import BannerMap from "./BannerMap";
 import ModalNotify from "./ModalNotify";
+import { getTabId } from "@material-ui/lab";
 
 const { Tmapv2 } = window;
 
@@ -111,7 +112,8 @@ function Inquiry(props) {
     var resultMarkerArr = [];
 
     var markerLayer;
-    const getId = localStorage.getItem("id");
+    // const getId = localStorage.getItem("id");
+    // console.log(getId);
 
     useEffect(() => {
         console.log("오늘의 날짜" + year + month + date);
@@ -122,21 +124,21 @@ function Inquiry(props) {
         var axios = require("axios");
 
         var config = {
-        method: "get",
-        url: "http://3.36.197.174:8081/api/station/list",
-        headers: {
-            Authorization: token,
-        },
+            method: "get",
+            url: "http://3.36.197.174:8081/api/station/list",
+            headers: {
+                Authorization: token,
+            },
         };
 
         axios(config)
-        .then(function (response) {
-            console.log("충전소리스트" + JSON.stringify(response.data));
-            setStationlist(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (response) {
+                console.log("충전소리스트" + JSON.stringify(response.data));
+                setStationlist(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
         const map = new Tmapv2.Map("map_div", {
         center: new Tmapv2.LatLng(a1, a2),
@@ -716,15 +718,14 @@ function Inquiry(props) {
             .catch(function (error) {
                 console.log(error);
             });
-        }
+    }
+    
+    const charger = statid;
+    console.log(charger);
 
-    function passModal() {
-        const charger = statid;
-        console.log(charger);
+    var axios = require("axios");
 
-        var axios = require("axios");
-
-        const reservation = (props) => {
+    const reservation = (props) => {
         var config = {
             method: "get",
             url: "http://3.36.197.174:8081/api/todays-reservation?chg_id=" +
@@ -743,7 +744,10 @@ function Inquiry(props) {
             .catch(function (error) {
                 console.log(error);
             });
-        };
+    };
+
+    function passModal() {
+        
 
         // const reservation = (props) => {
         //     var config = {
@@ -781,7 +785,7 @@ function Inquiry(props) {
                         className="closeBtn"
                         onClick={() => {
                             setPass(0);
-                            setCheck(!check);
+                            setCheck(false);
                         }}
                     />
                 </div>
@@ -1185,9 +1189,8 @@ function Inquiry(props) {
                             className="rsvt-btn"
                             type="button"
                             onClick={() => {
-                            setPass(!pass);
+                              alert("충전소를 선택해주세요.");
                             }}
-                            disabled
                         >
                             예약
                         </button>
@@ -1196,7 +1199,11 @@ function Inquiry(props) {
                             className="rsvt-btn"
                             type="button"
                             onClick={() => {
+                              if (userId == null) {
+                                buttonClick()
+                              } else {
                                 setPass(!pass);
+                              }
                             }}
                             >
                             예약
