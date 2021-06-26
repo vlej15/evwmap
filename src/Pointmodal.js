@@ -16,7 +16,11 @@ function Pointmodal({ point, setpoint, userPoint }) {
     const [paylist, setpaylist] = useState([]);
     const [pay, setpay] = useState();
     const idValue = localStorage.getItem("id_value");
+    const token = localStorage.getItem("id");
+    // const serverId = localStorage.getTime("id");
     // const emailValue = localStorage.getTime("email_value");
+
+    // alert(token);
 
     // console.log("email", emailValue);
     let userSumPoint = 0;
@@ -28,18 +32,18 @@ function Pointmodal({ point, setpoint, userPoint }) {
 
     }
 
-    useEffect(async () => {
+    useEffect(() => {
         var axios = require('axios');
 
         var config = {
             method: 'get',
-            url: 'http://3.36.197.174:8081/api/pay/list?u_id=user',
+            url: 'http://3.36.197.174:8081/api/pay/list?u_id=' + idValue,
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjIzOTE2NDEyLCJleHAiOjE2MjM5MzQ0MTJ9.LjH4VFc6Tw5h2dofZhTUjqcFuicajb0uatycQ95Ikz97jKoipr86qr8Jq3o2ek33R001om-kjgkyWS5oOZTaXQ'
+                'Authorization': token
             }
         };
 
-        await axios(config)
+        axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
                 setpaylist(response.data);

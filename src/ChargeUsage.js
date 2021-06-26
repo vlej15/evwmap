@@ -9,7 +9,7 @@ import { render } from "@testing-library/react";
 function ChargeUsage(props) {
 
     const [useList, setuseList] = useState([]);
-    const [usedata, setusedata] = useState([]);
+    const [rsvtList, setrsvtList] = useState([]);
     const [usestat, setusestat] = useState([]);
     const idvalue = localStorage.getItem("id_value");
     const token = localStorage.getItem("id");
@@ -18,9 +18,9 @@ function ChargeUsage(props) {
     useEffect(() => {
         //header color
         props.setCount(1);
+
         //정보 받아오는 곳
         var axios = require('axios');
-
         var config = {
             method: 'get',
             url: 'http://3.36.197.174:8081/api/myuseinfo?u_id=' + idvalue,
@@ -31,36 +31,64 @@ function ChargeUsage(props) {
 
         axios(config)
             .then(function (response) {
-                // console.log(JSON.stringify(response.data));
-                setuseList(response.data.use);
-                // setusedata(useList.data);
-                setusestat(useList.station);
-                console.log("useList", useList);
-                // console.log("usedata", usedata);
-                // console.log("usestat", usestat);
+                console.log(JSON.stringify(response.data));
+                setuseList(response.data.useList);
+                setrsvtList(response.data.rsvtList);
             })
             .catch(function (error) {
                 console.log(error);
             });
-        
-        // render()
     }, []);
 
-    // const listprint = () => {
-    //         {(usestat && usestat.map((ststmap) => (
-    //             (usedata && usedata.map((datamap) => (
-    //                 <tr>
-    //                     <td>{ststmap.stat_nm}</td>
-    //                     <td>{datamap.use_dtt.substr(0, 10)}</td>
-    //                     <td>{datamap.use_chg_amt}</td>
-    //                     <td>{datamap.use_payment}</td>
-    //                 </tr>
-    //             )))
-    //         )))}
-    //     }
+    //예약 내역 뽑기
+    function cgRsvtList() {
+        var rsvtarray = [];
+        var useDataArray = Object.keys(useList);
+        var rsvtKeyArray = Object.keys(rsvtList);
+        var count = 0;
 
-    // let [chhistory, setboard] = useState(Data);
-    // const [chargeusagelist, setchargerlist] = useState([]);
+        for (let key in rsvtList) {
+            if (count == 0) {
+                rsvtarray.push(
+                    <tr>
+                        <td>{rsvtList[key].name}</td> 
+                        <td>{rsvtKeyArray[count].substr(0, 19).replace("T", " ")}</td>
+                        <td>{useDataArray[count].substr(0, 19).replace("T", " ")}</td>
+                    </tr>
+                );
+            } else {
+                rsvtarray.push(
+                    <tr>
+                        <td>{rsvtList[key].name}</td>
+                        <td>{rsvtKeyArray[count].substr(0, 19).replace("T", " ")}</td>
+                        <td>충전일 없음</td>
+                    </tr>
+                );
+            }
+            count++;
+        }
+        return rsvtarray;
+    }
+
+    //활동 내역 뽑기
+    function cgUseList() {
+        var forarray = [];
+        var keyArray = Object.keys(useList);
+        let count = 0;
+
+        for (let key in useList) {
+            forarray.push(
+                <tr>
+                    <td>{useList[key].name}</td>
+                    <td>{keyArray[count].substr(0, 19).replace("T", " ")}</td>
+                    <td>{useList[key].amount}</td>
+                    <td>{useList[key].payment}</td>
+                </tr>
+            )
+            count++;
+        }
+        return forarray;
+    }
 
     return (
         <>
@@ -144,20 +172,10 @@ function ChargeUsage(props) {
                             <th className="th-title">충전소명</th>
                             <th>예약일시</th>
                             <th>충전일시</th>
-                            <th>상태</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {reply.map((post) => (
-                            <tr>
-                                <td class="list-title">
-                                    <a className="list-link" href="#">
-                                        {post.r_content}
-                                    </a>
-                                </td>
-                                <td class="list-date">{post.date}</td>
-                            </tr>
-                        ))} */}
+                        {cgRsvtList()}
                     </tbody>
                 </table>
 
@@ -172,7 +190,7 @@ function ChargeUsage(props) {
                     <thead>
                         <tr>
                             <th className="charge-title">충전소 명</th>
-                            <th>충전일</th>
+                            <th>충전일시</th>
                             <th className="khw">
                                 충전량
                                 <br />
@@ -182,21 +200,10 @@ function ChargeUsage(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {useList.station&&(useList.station).map((ststmap) => (
-                            (useList.data&&useList.data).map((datamap) => (
-                                <tr>
-                                    <td>{ststmap.stat_nm}</td>
-                                    <td>{datamap.use_dtt.substr(0, 10)}</td>
-                                    <td>{datamap.use_chg_amt}</td>
-                                    <td>{datamap.use_payment}</td>
-                                </tr>
-                            ))
-                        ))} */}
-                        
+                        {cgUseList()}
                     </tbody>
                 </table>
             </div>
-            {/* {console.log("겹치는 아이디",statId, statId.length)} */}
         </>
     );
 }

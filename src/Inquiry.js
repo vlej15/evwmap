@@ -1193,9 +1193,8 @@ function Inquiry(props) {
                                                 className="rsvt-btn"
                                                 type="button"
                                                 onClick={() => {
-                                                    setPass(!pass);
+                                                    alert("충전소를 선택해주세요.");
                                                 }}
-                                                disabled
                                             >
                                                 예약
                                             </button>
@@ -1204,7 +1203,11 @@ function Inquiry(props) {
                                                     className="rsvt-btn"
                                                     type="button"
                                                     onClick={() => {
-                                                        setPass(!pass);
+                                                        if (userId == null) {
+                                                            buttonClick()
+                                                        } else {
+                                                            setPass(!pass);
+                                                        }
                                                     }}
                                                 >
                                                     예약

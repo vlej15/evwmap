@@ -147,9 +147,28 @@ html {
                 border-bottom: 1px solid #dcdcdc;
                 background-color: #f1f1f1;
                 text-align: center;
-                width: 100px;
+                width: 150px;
                 vertical-align: middle;
             }
+            tbody {
+                td {
+                    margin: 0px;
+                    height: 60px;
+                    padding: 10px 10px;
+                    color: #333;
+                    font-size: 1.7rem;
+                    line-height: 16px;
+                    border-top: 1px solid #dcdcdc;
+                    text-align: center;
+                    vertical-align: middle;
+
+                    a {
+                        color: #333;
+                        font-family: 'IBMPlexSansKR-Regular';
+                        font-weight: bold;
+                    }
+                }
+            }// tbody end
         
         }
 }// contentsChargeUsage end
