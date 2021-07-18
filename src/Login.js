@@ -89,6 +89,7 @@ const Login = (props) => {
         var config = {
             method: "post",
             url: "http://3.36.197.174:8081/api/login",
+            // url: "http://3.36.197.174:8081/login",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -112,44 +113,74 @@ const Login = (props) => {
                 console.log(error);
             });
     };
-    const kakaoLoginClickHandler = () => {
-        Kakao.Auth.login({
-            success: function (authObj) {
-                kakao_token = JSON.stringify(authObj.access_token);
-                kakaoLogin(kakao_token)
-            },
-            fail: function (err) {
-                console.log(JSON.stringify(err));
-            },
-        });
-    };
-    function kakaoLogin(kakao_token) {
-        var config = {
-            method: "post",
-            url: "http://3.36.197.174:8081/api/kakaologin",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            data: kakao_token
-        };
 
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-                window.localStorage.setItem("id", response.data.token);
-                window.localStorage.setItem(
-                    "user_point",
-                    response.data.userPoint
-                );
-                if (response.data.token != null) {
-                    window.location.replace("/");
-                }
+    function SocialLogin() {
+
+        const history = useHistory()
+        const kakaoLoginClickHandler = () => {
+            Kakao.Auth.login({
+                success: function (authObj) {
+                    fetch(`${KAKAO_LOGIN_API_URI}`, {
+                        method: "POST",
+                        body: JSON.stringify({
+                            access_token: authObj.access_token,
+                        }),
+                    })
+
+                        .then(res => res.json())
+                        .then(res => {
+                            localStorage.setItem("Kakao_token", res.access_token);
+                            if (res.access_token) {
+                                alert("로그인 시도 성공")
+                                history.push("/login");
+                            }
+                        })
+                },
+                fail: function (err) {
+                    alert(JSON.stringify(err))
+                },
             })
-            .catch(function (error) {
-                console.log(error);
-            });
-
+        }
     }
+
+    // const kakaoLoginClickHandler = () => {
+    //     Kakao.Auth.login({
+    //         success: function (authObj) {
+    //             kakao_token = JSON.stringify(authObj.access_token);
+    //             kakaoLogin(kakao_token)
+    //         },
+    //         fail: function (err) {
+    //             console.log('kakao login faild' + JSON.stringify(err));
+    //         },
+    //     });
+    // };
+    // function kakaoLogin(kakao_token) {
+    //     var config = {
+    //         method: "post",
+    //         url: "http://3.36.197.174:8081/api/kakaologin",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         data: kakao_token
+    //     };
+
+    //     axios(config)
+    //         .then(function (response) {
+    //             console.log(JSON.stringify(response.data));
+    //             window.localStorage.setItem("id", response.data.token);
+    //             window.localStorage.setItem(
+    //                 "user_point",
+    //                 response.data.userPoint
+    //             );
+    //             if (response.data.token != null) {
+    //                 window.location.replace("/");
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+
+    // }
     return (
         <>
             <div className="end"></div>
