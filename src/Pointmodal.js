@@ -5,11 +5,9 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Heam from "./Heam.js";
+import { render } from "react-dom";
 
-
-
-
-function Pointmodal({ point, setpoint, userPoint }) {
+function Pointmodal({ point, setpoint, userPoint, reaxios }) {
     const [pass, setPass] = useState(0);
     const [check, setCheck] = useState(false);
     const [afterPoint, setAfterPoint] = useState(userPoint);
@@ -24,12 +22,19 @@ function Pointmodal({ point, setpoint, userPoint }) {
 
     // console.log("email", emailValue);
     let userSumPoint = 0;
+    let UIP = 0;
+    let UIPP = 0;
+    let total = 0;
 
     function pointChange(e) {
-        userSumPoint = parseInt(localStorage.getItem("user_point")) + parseInt(e.target.value);
+        //입력받은 값의 10%를 합해야함
+        UIP = parseInt(e.target.value); //사용자가 입력한 값
+        UIPP = 10 / (100 / UIP); //사용자가 입력한 값의 10%
+        total = UIP + UIPP; //사용자가 입력한 값 + 10%
+
+        userSumPoint = userPoint + total;
         setpay(parseInt(e.target.value));
         setAfterPoint(userSumPoint || userPoint);
-
     }
 
     useEffect(() => {
@@ -54,8 +59,37 @@ function Pointmodal({ point, setpoint, userPoint }) {
             });
     }, [])
 
+    const payClick = () => {
+        var axios = require('axios');
+        var data = JSON.stringify({
+            pay_dtt: "",
+            pay_method: "신용카드",
+            pay_amount: pay,
+            u_id: idValue
+        });
+
+        var config = {
+            method: 'post',
+            url: 'http://3.36.197.174:8081/api/pay',
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log("보낸데이터값",JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     const request_pay = () => {
 
+        let inserOk = 0;
         const IMP = window.IMP;
         IMP.init("imp49372335"); //가맹점 식별 코드
         //결제창 호출 코드
@@ -74,52 +108,15 @@ function Pointmodal({ point, setpoint, userPoint }) {
                 msg += '상점 거래 ID : ' + rsp.merchant_uid;
                 msg += '결제 금액 : ' + rsp.paid_amount;
                 msg += '카드 승인 번호 : ' + rsp.apply_num;
-                // jQuery.ajax({
-                //     method: "post",
-                //     url: "http://3.36.197.174:8081", //본인 웹 서버
-                //     headers: {"Content-Type":"application/json"},
-                //     data: {
-                //         'imp_uid': rsp.imp_uid,
-                //         'merchant_uid': rsp.merchant_uid
-                //     }
-                // }).done(function (rsp) {
 
-                // })
             } else { //결제 실패 시
                 var msg = "결제에 실패하였습니다."
                 msg += '에러 내용 : ' + rsp.error_msg;
             }
 
             alert(msg);
+            return reaxios(), payClick();
         })
-    }
-
-    const payClick = () => {
-        var axios = require('axios');
-        var data = JSON.stringify({
-            pay_dtt: "",
-            pay_method: "card",
-            pay_amount: pay,
-            u_id: idValue
-        });
-
-        var config = {
-            method: 'post',
-            url: 'http://3.36.197.174:8081/api/pay',
-            headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ1c2VyIiwiaWF0IjoxNjIzOTE2NDEyLCJleHAiOjE2MjM5MzQ0MTJ9.LjH4VFc6Tw5h2dofZhTUjqcFuicajb0uatycQ95Ikz97jKoipr86qr8Jq3o2ek33R001om-kjgkyWS5oOZTaXQ',
-                'Content-Type': 'application/json'
-            },
-            data: data
-        };
-
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
     }
 
     return point == 1 ? (
@@ -154,13 +151,15 @@ function Pointmodal({ point, setpoint, userPoint }) {
                                 <div className="wrapwrap">
                                     <p className="fee-title">현재 포인트</p>
                                     {localStorage.getItem("id") == null ? null : (
-                                        <p className="fee">{localStorage.getItem("user_point")}P</p>
+                                        <p className="fee">{userPoint}P</p>
                                     )}
                                     <div className="arrow-box">
                                         <FontAwesomeIcon icon={faAngleDoubleRight} className="arrow" />
                                     </div>
                                     <p className="fee-title">충전 후 포인트</p>
                                     <p className="fee">{afterPoint}<span>P</span></p>
+                                    {console.log("afterPoint", afterPoint)}
+                                    {console.log("userPoint", userPoint)}
                                 </div>
                             </div>
                             <div className="table-wrap">

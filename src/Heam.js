@@ -1,9 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import Pointmodal from "./Pointmodal";
 
 function Heam({ point, setpoint }) {
+  const [userInfo, setUserInfo] = useState([]);
+
   const userId = localStorage.getItem("id");
+  const idValue = localStorage.getItem("id_value");
+  const token = localStorage.getItem("id");
+
+  useEffect(() => {
+    var axios = require('axios');
+
+    var config = {
+        method: 'get',
+        url: 'http://3.36.197.174:8081/api/user/'+idValue,
+        headers: { 
+          'Authorization': token
+      }
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setUserInfo(response.data);
+        console.log("회원정보",userInfo);
+    })
+      .catch(function (error) {
+        console.log(error);
+    });
+  }, [])
+  
+  function reaxios() {
+    var axios = require('axios');
+
+    var config = {
+        method: 'get',
+        url: 'http://3.36.197.174:8081/api/user/'+idValue,
+        headers: { 
+          'Authorization': token
+      }
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setUserInfo(response.data);
+        console.log("리턴회원정보",userInfo);
+    })
+      .catch(function (error) {
+        console.log(error);
+    });
+  }
+
+  
   function buttonClick() {
     alert("로그인하시기 바랍니다.");
   }
@@ -19,12 +69,12 @@ function Heam({ point, setpoint }) {
       <div className="global_box">
         <ul className="global_join_box">
           <li className="global_list_point">
-            <Pointmodal point={point} setpoint={setpoint} userPoint={localStorage.getItem("user_point")} />
+            <Pointmodal point={point} setpoint={setpoint} userPoint={userInfo.u_point} reaxios={reaxios}/>
             {localStorage.getItem("id") == null ? null : (
               <a className="point_box" href="#" onClick={() => {
                 setpoint(!point);
               }}>
-                MY POINT : {localStorage.getItem("user_point")}P
+                MY POINT : {userInfo.u_point}P
               </a>
             )}
           </li>
