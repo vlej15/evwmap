@@ -959,15 +959,24 @@ function Inquiry(props) {
                                         </li>
                                     </ul>
                                 </div>
-                                <p
-                                    onClick={() => {
-                                        resolve(charger);
-                                        alert("예약이 완료되었습니다.");
-                                    }}
-                                    className="rsvt-submit"
-                                >
-                                    예약
+                                <div className="rsvt-btn-wrap">
+                                    <p
+                                        onClick={() => {
+                                            resolve(charger);
+                                            alert("예약이 완료되었습니다.");
+                                        }}
+                                        className="rsvt-submit"
+                                    >
+                                        현장결제 예약
                     </p>
+                                    <p className="rsvt-submit"
+                                        id="rsvt-submit2"
+                                        onClick={() => {
+                                        }}
+                                    >
+                                        미리결제 예약
+                    </p>
+                                </div>
                                 {/* <div className="resorveTap">
                     <div className="resorveCheckTap2">
                         <ul>

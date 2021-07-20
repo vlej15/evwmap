@@ -184,7 +184,8 @@
                         background: none;
                         border: none;
                         font-size: 1.5rem;
-                        width: 80px;
+                        width: fit-content;
+                        padding: 0 10px;
                         height: 40px;
                         border: 1px solid #d4d4d4;
                         background-color: #d4d4d4;
@@ -194,12 +195,17 @@
                         line-height: 40px;
                         color: #444;
                         margin-bottom: 25px;
-
+                        display: inline-block;
+                        margin-right: 10px;
                         &:hover {
                             background-color: #52616b;
                             border: 1px solid #52616b;
                             color: #fff;
                         }
+                    }
+                    #rsvt-submit2 {
+                        display: inline-block;
+                        margin-left: 10px;
                     }
                 }
             } // modal-area
