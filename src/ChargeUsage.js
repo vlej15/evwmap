@@ -24,7 +24,7 @@ function ChargeUsage(props) {
         var config = {
             method: 'get',
             url: 'http://3.36.197.174:8081/api/myuseinfo?u_id=' + idvalue,
-            headers: { 
+            headers: {
                 'Authorization': token
             }
         };
@@ -51,7 +51,7 @@ function ChargeUsage(props) {
             if (count == 0) {
                 rsvtarray.push(
                     <tr>
-                        <td>{rsvtList[key].name}</td> 
+                        <td>{rsvtList[key].name}</td>
                         <td>{rsvtKeyArray[count].substr(0, 19).replace("T", " ")}</td>
                         <td>{useDataArray[count].substr(0, 19).replace("T", " ")}</td>
                     </tr>
@@ -158,6 +158,27 @@ function ChargeUsage(props) {
             //     props.setMenu(false);
             // }}
             >
+                <div className="banner">
+                    <p className="banner-title">충전소 결제 내역</p>
+                    <br></br>
+                    <p className="subtitle">
+                        회원님의 충전소 결제 내역을 확인 하실 수 있습니다.
+                    </p>
+                </div>
+                <table className="list2">
+                    <thead>
+                        <tr>
+                            <th className="th-title">충전소명</th>
+                            <th>예약일시</th>
+                            <th>충전량</th>
+                            <th>결제금액</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* {cgRsvtList()} */}
+                    </tbody>
+                </table>
+
 
                 <div className="banner">
                     <p className="banner-title">충전소 예약 내역</p>
