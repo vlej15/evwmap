@@ -45,8 +45,6 @@ function FreeBoard(props) {
         setPage(response.data.pagination);
         props.setBno(response.data.boardList[0].b_no + 1);
         console.log("게시판 값" + response.data.boardList[0].b_no);
-        console.log(posts.length);
-        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);

@@ -16,7 +16,7 @@ function BoardWrite(props) {
   useEffect(async () => {
     var config = {
       method: "get",
-      url: "http://3.36.197.174:8081/api/boardlist?page=0&cat_cd=1",
+      url: "http://3.36.197.174:8081/api/boardlist?page=0&cat_cd=2",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
@@ -25,8 +25,10 @@ function BoardWrite(props) {
 
     await axios(config)
       .then(function (response) {
+        console.log(response.data);
+        console.log(response.data.boardList[0].b_no + 1);
         props.setBno(response.data.boardList[0].b_no + 1);
-        bno = props.bno;
+        bno = response.data.boardList[0].b_no + 1;
       })
       .catch(function (error) {
         console.log(error);

@@ -39,13 +39,11 @@ function TipBoard(props) {
 
     await axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        console.log(response.data);
         setPosts(response.data.boardList);
-        props.setBno(response.data.boardList[0].b_no + 1);
-        console.log("게시판 값" + response.data.boardList[0].b_no);
         setPage(response.data.pagination);
-
-        console.log("전" + response.data.pagination);
+        // props.setBno(response.data.boardList[0].b_no + 1);
+        console.log("게시판 값" + response.data.boardList[0].b_no);
       })
       .catch(function (error) {
         console.log(error);
@@ -61,7 +59,7 @@ function TipBoard(props) {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         setTotal(response.data[2]);
-        console.log("이건 무슨 값이지 ? total" + total);
+        console.log(total);
       })
       .catch(function (error) {
         console.log(error);

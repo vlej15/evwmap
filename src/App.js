@@ -38,6 +38,7 @@ import AdminBollard from "./AdminBollard";
 import AdminAgency from "./AdminAgency";
 import Policy from "./Policy";
 import $ from "jquery";
+import Pointmodal from "./Pointmodal";
 
 function App() {
   const [a1, setA1] = useState();
@@ -227,6 +228,9 @@ function App() {
             setCount={setCount}
             setBno={setBno}
           />
+        </Route>
+        <Route exact path="/pointmodal">
+          <Pointmodal />
         </Route>
 
         <Route exact path="/notice/:id">

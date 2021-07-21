@@ -10,50 +10,49 @@ function Heam({ point, setpoint }) {
   const token = localStorage.getItem("id");
 
   useEffect(() => {
-    var axios = require('axios');
+    var axios = require("axios");
 
     var config = {
-        method: 'get',
-        url: 'http://3.36.197.174:8081/api/user/'+idValue,
-        headers: { 
-          'Authorization': token
-      }
+      method: "get",
+      url: "http://3.36.197.174:8081/api/user/" + idValue,
+      headers: {
+        Authorization: token,
+      },
     };
 
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         setUserInfo(response.data);
-        console.log("회원정보",userInfo);
-    })
+        console.log("회원정보", userInfo);
+      })
       .catch(function (error) {
         console.log(error);
-    });
-  }, [])
-  
+      });
+  }, []);
+
   function reaxios() {
-    var axios = require('axios');
+    var axios = require("axios");
 
     var config = {
-        method: 'get',
-        url: 'http://3.36.197.174:8081/api/user/'+idValue,
-        headers: { 
-          'Authorization': token
-      }
+      method: "get",
+      url: "http://3.36.197.174:8081/api/user/" + idValue,
+      headers: {
+        Authorization: token,
+      },
     };
 
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         setUserInfo(response.data);
-        console.log("리턴회원정보",userInfo);
-    })
+        console.log("리턴회원정보", userInfo);
+      })
       .catch(function (error) {
         console.log(error);
-    });
+      });
   }
 
-  
   function buttonClick() {
     alert("로그인하시기 바랍니다.");
   }
@@ -69,11 +68,20 @@ function Heam({ point, setpoint }) {
       <div className="global_box">
         <ul className="global_join_box">
           <li className="global_list_point">
-            <Pointmodal point={point} setpoint={setpoint} userPoint={userInfo.u_point} reaxios={reaxios}/>
+            <Pointmodal
+              point={point}
+              setpoint={setpoint}
+              userPoint={userInfo.u_point}
+              reaxios={reaxios}
+            />
             {localStorage.getItem("id") == null ? null : (
-              <a className="point_box" href="#" onClick={() => {
-                setpoint(!point);
-              }}>
+              <a
+                className="point_box"
+                href="#"
+                onClick={() => {
+                  setpoint(!point);
+                }}
+              >
                 MY POINT : {userInfo.u_point}P
               </a>
             )}
@@ -86,12 +94,12 @@ function Heam({ point, setpoint }) {
                 </a>
               </Link>
             ) : (
-                <Link to="/">
-                  <a className="login_box" href="#" onClick={logout}>
-                    LOGOUT
+              <Link to="/">
+                <a className="login_box" href="#" onClick={logout}>
+                  LOGOUT
                 </a>
-                </Link>
-              )}
+              </Link>
+            )}
           </li>
           <li className="global_list">
             {localStorage.getItem("id") == null ? (
@@ -101,12 +109,12 @@ function Heam({ point, setpoint }) {
                 </a>
               </Link>
             ) : (
-                <Link to="/activity">
-                  <a className="join_box" href="#">
-                    MY PAGE
+              <Link to="/activity">
+                <a className="join_box" href="#">
+                  MY PAGE
                 </a>
-                </Link>
-              )}
+              </Link>
+            )}
           </li>
         </ul>
       </div>
@@ -184,19 +192,19 @@ function Heam({ point, setpoint }) {
                   </li>
                 </>
               ) : (
-                  <>
-                    <li className="sub-list_li">
-                      <Link to="/questions">
-                        <a href="">문의하기</a>
-                      </Link>
-                    </li>
-                    <li className="sub-list_li">
-                      <Link to="/qlist">
-                        <a href="">문의내역</a>
-                      </Link>
-                    </li>
-                  </>
-                )}
+                <>
+                  <li className="sub-list_li">
+                    <Link to="/questions">
+                      <a href="">문의하기</a>
+                    </Link>
+                  </li>
+                  <li className="sub-list_li">
+                    <Link to="/qlist">
+                      <a href="">문의내역</a>
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
