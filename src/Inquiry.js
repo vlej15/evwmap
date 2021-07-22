@@ -1223,7 +1223,7 @@ function Inquiry(props) {
                                         <p className="fee-title">충전량(khw)</p>
                                         <p id="result"></p>
                                         {localStorage.getItem("id") == null ? null : (
-                                            <p className="fee">{pay}P</p>
+                                            <p className="fee">{pay}khw</p>
                                         )}
                                         <div className="arrow-box">
                                             <FontAwesomeIcon
@@ -1234,7 +1234,7 @@ function Inquiry(props) {
                                         <p className="fee-title">결제금액</p>
                                         <p className="fee">
                                             {afterPoint}
-                                            <span>P</span>
+                                            <span>won</span>
                                         </p>
                                         {console.log("pay", pay)}
                                         {console.log("afterPoint", afterPoint)}
