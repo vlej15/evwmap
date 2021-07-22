@@ -48,8 +48,9 @@ function Inquiry(props) {
     const [heartList, setHeartList] = useState([]);
     const [test1, setTest1] = useState(0);
     const [point, setPoint] = useState(0);
+    const [afterPoint, setAfterPoint] = useState(0);
     const [paylist, setpaylist] = useState([]);
-    const [pay, setpay] = useState();
+    const [pay, setpay] = useState(0);
     const [userPoint, setUserPoint] = useState(0);
 
     const idValue = localStorage.getItem("id_value");
@@ -607,8 +608,6 @@ function Inquiry(props) {
         document.getElementById("result2").innerText = name;
     }
 
-    const [afterPoint, setAfterPoint] = useState(userPoint);
-
     const onClick = () => {
         var axios = require("axios");
         var data = JSON.stringify({
@@ -1066,12 +1065,11 @@ function Inquiry(props) {
     function pointChange(e) {
         //입력받은 값의 10%를 합해야함
         UIP = parseInt(e.target.value); //사용자가 입력한 값
-        UIPP = 10 / (100 / UIP); //사용자가 입력한 값의 10%
-        total = UIP + UIPP; //사용자가 입력한 값 + 10%
+        total = UIP * 200; //사용자가 입력한 값 * 200
 
-        userSumPoint = userPoint + total;
+        //userSumPoint = userPoint + total;
         setpay(parseInt(e.target.value));
-        setAfterPoint(userSumPoint || userPoint);
+        setAfterPoint(total);
     }
 
     useEffect(() => {
@@ -1100,7 +1098,7 @@ function Inquiry(props) {
         var data = JSON.stringify({
             pay_dtt: "",
             pay_method: "신용카드",
-            pay_amount: pay,
+            pay_amount: afterPoint,
             u_id: idValue,
         });
 
@@ -1155,7 +1153,7 @@ function Inquiry(props) {
                 pay_method: "card",
                 merchant_uid: "merchant_" + new Date().getTime(),
                 name: "EV WMAP 포인트 충전",
-                amount: pay * 2,
+                amount: afterPoint,
                 buyer_name: idValue,
                 buyer_email: "user_email",
             },
@@ -1196,7 +1194,7 @@ function Inquiry(props) {
                             </div>
                             <div className="banner">
                                 <p className="banner-title">전기차 충전소 미리결제</p>
-                                <p className="banner-subtitle">(1khw당 2원)</p>
+                                <p className="banner-subtitle">(1khw당 200원)</p>
                             </div>
                             <div className="contents-wrap">
                                 <div className="input-box">
@@ -1217,7 +1215,7 @@ function Inquiry(props) {
                                         onClick={request_pay}
                                     >
                                         결제하기
-                  </button>
+                                    </button>
                                 </div>
 
                                 <div className="fee-box">
@@ -1225,7 +1223,7 @@ function Inquiry(props) {
                                         <p className="fee-title">충전량(khw)</p>
                                         <p id="result"></p>
                                         {localStorage.getItem("id") == null ? null : (
-                                            <p className="fee">{userPoint}P</p>
+                                            <p className="fee">{pay}P</p>
                                         )}
                                         <div className="arrow-box">
                                             <FontAwesomeIcon
@@ -1238,6 +1236,7 @@ function Inquiry(props) {
                                             {afterPoint}
                                             <span>P</span>
                                         </p>
+                                        {console.log("pay", pay)}
                                         {console.log("afterPoint", afterPoint)}
                                         {console.log("userPoint", userPoint)}
                                     </div>
