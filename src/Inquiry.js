@@ -1223,10 +1223,10 @@ function Inquiry(props) {
                                 <div className="fee-box">
                                     <div className="wrapwrap">
                                         <p className="fee-title">충전량(khw)</p>
-                                        <p id="result2"></p>
-                                        {/* {localStorage.getItem("id") == null ? null : (
+                                        <p id="result"></p>
+                                        {localStorage.getItem("id") == null ? null : (
                                             <p className="fee">{userPoint}P</p>
-                                        )} */}
+                                        )}
                                         <div className="arrow-box">
                                             <FontAwesomeIcon
                                                 icon={faAngleDoubleRight}
